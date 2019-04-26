@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  用于直接生成SQL语句，支持同步和异步提交 -->
+<!--  title:标题
+	navigate:导航信息
+	type:方式（sql|call)
+	interface:是否显示输入条件页面(true|false)
+	databusid:数据总线编号
+	transdataactionurl:数据整理URL
+	async:异步提交标志
+	pagesize:页面显示记录数(缺省为10)
+-->
+<CommQry title="各表空置率统计表信息确认" navigate="主页 &gt; 300号文报表管理 &gt; 系统行为监控登记表" type="call"
+	interface="false" pagesize="100" async="true" databusid="MANAGEMENTTLR"
+	transdataactionurl="/trans/TransDataAction.do"
+	getterclassname="com.huateng.export.getter.M300TabNvalueCountGetter">
+	<Include id="BankParam" />
+
+	<Fields>
+		<!-- status :F-基本信息中显示 N-不显示 D-详细信息中显示 A-基本、详细信息中都显示  -->
+		<!-- primary : true-作为表单项记录上传　false-不作为表单项上传 -->
+		<Field id="id" desc="" status="F" method="None" require="false"
+			readonly="false" primary="false" type="String" size="60" 
+			xpath="/id" />
+	
+		<Field id="etlDate" desc="数据日期" status="F" method="None" readonly="false" primary="false" type="String"  size="6" xpath="/etlDate" />
+		<Field id="tableEname" desc="英文表名称" status="F" method="None" readonly="false" primary="false" type="String" size="100" xpath="/tableEname" />
+		<Field id="tableCname" desc="中文表名称" status="F" method="None" readonly="false" primary="false" type="String" size="200" xpath="/tableCname"/>
+		<Field id="orgName" desc="分行名称" status="F" method="None" readonly="false" primary="false" type="String" size="200" xpath="/orgName" />
+		<Field id="contriParty" desc="部门" status="F" method="None" readonly="false" primary="false" type="String" size="100" xpath="/contriParty" />
+		<Field id="confirmPerson" desc="信息确认人" status="F" method="None" readonly="false" primary="false" type="String" size="20" xpath="/confirmPerson" />
+		<Field id="confirmTime" desc="信息确认时间" status="F" method="None" readonly="false" primary="false" type="String" datatype="timestamp" size="34" xpath="/confirmTime" />
+	<!-- <Field id="etlDate" desc="批处理日期(月份)" status="F" method="None" readonly="false" primary="false" type="String" size="6" xpath="/etlDate" />
+		<Field id="dataDate" desc="数据日期(月份)" status="F" method="None" readonly="false" primary="false" type="String" size="6" xpath="/dataDate" />
+		<Field id="startDate" desc="批处理起始日期" status="F" method="None" readonly="false" primary="false" type="String" size="8" xpath="/startDate" />
+		<Field id="endDate" desc="批处理结束日期" status="F" method="None" readonly="false" primary="false" type="String" size="8" xpath="/endDate" />
+		<Field id="orgCode" desc="分行代码" status="F" method="None" readonly="false" primary="false" type="String" size="20" xpath="/orgCode" />
+		<Field id="orgName" desc="分行名称" status="F" method="None" readonly="false" primary="false" type="String" size="200" xpath="/orgName" />
+		<Field id="contriParty" desc="部门" status="F" method="None" readonly="false" primary="false" type="String" size="100" xpath="/contriParty" />
+		<Field id="tableCode" desc="表代码" status="F" method="None" readonly="false" primary="false" type="String" size="10" xpath="/tableCode" />
+		<Field id="tableEname" desc="表英文名称" status="F" method="None" readonly="false" primary="false" type="String" size="100" xpath="/tableEname" />
+		<Field id="tableCname" desc="表中文名称" status="F" method="None" readonly="false" primary="false" type="String" size="200" xpath="/tableCname" />
+		<Field id="changeCount" desc="本月新增数据条数" status="F" method="None" readonly="false" primary="false" type="int" size="20" xpath="/changeCount" />
+		<Field id="dataReconIndex" desc="源数据占比" status="F" method="None" readonly="false" primary="false" type="double" size="10" xpath="/dataReconIndex" />
+		<Field id="avgRatio" desc="平均空置率" status="F" method="None" readonly="false" primary="false" type="double" size="10" xpath="/avgRatio" />
+		<Field id="ximab" desc="团体代码" status="F" method="None" readonly="false" primary="false" type="String" size="4" xpath="/ximab" />
+		<Field id="pOrgCode" desc="机构代码" status="F" method="None" readonly="false" primary="false" type="String" size="3" xpath="/pOrgCode" />
+		<Field id="batchTime" desc="批处理时间" status="F" method="None" readonly="false" primary="false" edittype="text" datatype="timestamp" size="34" xpath="/batchTime" />
+	    <Field id="contriCode" desc="部门代码" status="F" method="None" readonly="false" primary="false" type="String" size="20" xpath="/contriCode" /> -->
+	</Fields>
+
+	<Where>
+		<Option id="etlDate" desc="MonthReporting" placeholder="yyyyMM" require="true" edittype="select" dropdowntype="custom" url="/templets/lib/yyyyMM.ftl" rules="isNum" 
+				editable="true" size="6" status="F" fieldmap="etlDate=yyyyMM;etlDateName=yyyyMM" viewField="yyyyMM" index="0" /> 
+	   <Option id="pOrgCode" desc="Branch Name" datatype="string"  edittype="select" translated="CQ:AllBranchSelect2" 
+				status="F" index="1" fieldmap="pOrgCode=brNo;pOrgCodeName=brcodeTypeName" viewField="brcodeTypeName" 
+				dropdowntype="dynamic" init="true" /> 
+	   <Option id="contriCode" desc="Data Contribution Party" datatype="string"  edittype="select" translated="CQ:ContriPartySelect" 
+				status="F" index="2" fieldmap="contriCode=contriCode;contriCodeName=contriParty" viewField="contriParty" 
+				dropdowntype="dynamic" init="true" require="true" />  	
+<!--        <Option id="tableEname"   desc="Report Name" datatype="string"  edittype="select" translated="DATA_DIC.102" status="F" index="3" init="true"/>	 -->
+     <Option id="tableEname" desc="Report Name" datatype="string"  edittype="select" translated="CQ:TableSelect" 
+				status="F" index="3" fieldmap="tableEname=tableEname;tableEnameName=tableCname" viewField="tableCname" 
+				dropdowntype="dynamic" init="true" />  	
+	</Where>
+	<Operations>
+	    <Button id="messageSure" name="messageSure" desc="信息确认" url="#"/>
+	    <Button id="messageSureDownload" name="messageSureDownload" desc="导出确认信息" url="#"/>
+	</Operations>
+</CommQry>
