@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 用于直接生成SQL语句，支持同步和异步提交 -->
+<!-- title:标题 navigate:导航信息 type:方式（sql|call) interface:是否显示输入条件页面(true|false) 
+	databusid:数据总线编号 transdataactionurl:数据整理URL async:异步提交标志 pagesize:页面显示记录数(缺省为10) -->
+<CommQry title="上传文件审核" navigate="主页 &gt; 文件导入 &gt;"
+	type="call" interface="false" pagesize="10" async="true" databusid="MANAGEMENTTLR"
+	transdataactionurl="/trans/TransDataAction.do" getterclassname="com.huateng.export.getter.CheckfilesFor300Getter">
+	<Include id="BankParam" />
+
+	<Fields>
+		<!-- status :F-基本信息中显示 N-不显示 D-详细信息中显示 A-基本、详细信息中都显示 -->
+		<!-- primary : true-作为表单项记录上传 false-不作为表单项上传 -->
+		<Field id="select" desc="选择" method="None" edittype="checkbox"
+			datatype="boolean" xpath="" />
+		<Field id="id" desc="id" status="F" method="None" readonly="false"
+			primary="false" type="String" size="60" xpath="/id" />
+		<Field id="fileName" desc="文件名" status="F" method="None"
+			readonly="false" primary="false" type="String" size="60" xpath="/fileName" />
+		<Field id="dataNum" desc="数据量" status="F" method="None"
+			readonly="false" primary="false" type="String" size="60" xpath="/dataNum" />
+		<Field id="fileTime" desc="文件日期" status="F" method="None"
+			readonly="false" primary="false" type="String" size="60" xpath="/fileTime" />
+		<Field id="uploadPerson" desc="上传人" status="F" method="None"
+			readonly="false" primary="false" type="String" size="60" xpath="/uploadPerson" />
+		<Field id="uploadTime" desc="上传时间" status="F" method="None"
+			readonly="false" primary="false" datatype="timestamp" size="60" xpath="/uploadTime" />
+		<Field id="checkPerson" desc="审核人" status="F" method="None"
+			readonly="false" primary="false" type="String" size="60" xpath="/checkPerson" />
+		<Field id="checkTime" desc="审核时间" status="F" method="None"
+			readonly="false" primary="false" datatype="timestamp" size="60" xpath="/checkTime" />
+		<Field id="updatePerson" desc="更新人" status="F" method="None"
+			readonly="false" primary="false" type="String" size="60" xpath="/updatePerson" />
+		<Field id="updateTime" desc="更新时间" status="F" method="None"
+			readonly="false" primary="false" datatype="timestamp" size="60" xpath="/updateTime" />
+		<Field id="department" desc="机构" status="F" method="None"
+			readonly="false" primary="false" type="String" size="60" xpath="/department" />
+		<Field id="filler1" desc="备用字段一" status="F" method="None"
+			readonly="false" primary="false" type="String" size="60" xpath="/filler1" />
+		<Field id="filler2" desc="备用字段二" status="F" method="None"
+			readonly="false" primary="false" type="String" size="60" xpath="/filler2" />
+		<Field id="filler3" desc="备用字段三" status="F" method="None"
+			readonly="false" primary="false" type="String" size="60" xpath="/filler3" />
+		<Field id="checkStatus" desc="审核状态" status="F" method="None"
+			edittype="select" translated="LIST:01,01-通过;02,02-不通过;" readonly="false"
+			primary="false" type="String" size="60" xpath="/checkStatus" />
+		<Field id="checkMessage" desc="审核描述" status="F" method="None"
+			readonly="false" primary="false" type="String" size="60" xpath="/checkMessage" />
+		<Field id="tableName" desc="表名" status="F" method="None"
+			readonly="false" primary="false" type="String" size="60" xpath="/tableName" />
+		<Field id="area" desc="区域" status="F" method="None" readonly="false"
+			primary="false" type="String" size="60" xpath="/area" />
+		<Field id="oper" desc="操作" />
+		<!-- 子窗口审核状态 -->
+		<Field id="approveStatusChoose" desc="状态选择" require="false"
+			edittype="select" datatype="string" method="None" readonly="false"
+			size="2" translated="LIST:01,01-通过;02,02-不通过;" status="N" default=""
+			xpath="" />
+		<!-- 子窗口审核说明 -->
+		<Field id="approveResultChoose" desc="说明" require="" edittype="textarea"
+			datatype="string" method="None" readonly="false" size="256" status="N"
+			default="" xpath="" />
+	</Fields>
+
+	<Where>
+  		<Option id="fileTime" desc="MonthReporting" placeholder="yyyyMM" require="true" edittype="select" dropdowntype="custom" url="/templets/lib/yyyyMM.ftl" rules="isNum" editable="true" size="6" status="F" fieldmap="fileTime=yyyyMM;fileTimeName=yyyyMM" viewField="yyyyMM" index="0" /> 
+		<TextBox id="fileName" desc="文件名称" edittype="text" status="F" datatype="string" size="60" index="1" />
+	</Where>
+	<Operations>
+		<Button id="btApprove" name="btApprove" desc="审核" updateClass="" operation="" url="#" show="" group="" txn="" icon="icon-ok" />
+		<Button id="btSubmit" name="btSubmit" operation="asysubmit" desc="确认" updateClass="com.huateng.export.update.CheckfilesFor300Update" url="#" show="" group="" txn="" icon="icon-ok" />
+		<Button id="btCancel" name="btCancel" desc="返回" updateClass="" operation="" url="#" show="" group="" txn="" icon="icon-ok" />
+	</Operations>
+</CommQry>

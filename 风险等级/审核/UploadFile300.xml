@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="resource.bean.export">
+	<class name="UploadFile300" table="upload_file_300">
+		<meta attribute="sync-DAO">false</meta>
+		<id name="id" type="string" column="id">
+		</id>
+		<property name="fileName" column="file_name" type="string"
+			not-null="false" length="64" />
+		<property name="dataNum" column="data_num" type="big_decimal"
+			not-null="false" length="8" />
+		<property name="fileTime" column="file_time" type="string"
+			not-null="false" length="6" />
+		<property name="uploadPerson" column="upload_person" type="string"
+			not-null="false" length="20" />
+		<property name="uploadTime" column="upload_time" type="date"
+			not-null="false" length="34" />
+		<property name="checkPerson" column="check_person" type="string"
+			not-null="false" length="20" />
+		<property name="checkTime" column="check_time" type="date"
+			not-null="false" length="34" />
+		<property name="updatePerson" column="update_person" type="string"
+			not-null="false" length="20" />
+		<property name="updateTime" column="update_time" type="date"
+			not-null="false" length="34" />
+		<property name="department" column="department" type="string"
+			not-null="false" length="20" />
+		<property name="filler1" column="filler1" type="string"
+			not-null="false" length="64" />
+		<property name="filler2" column="filler2" type="string"
+			not-null="false" length="64" />
+		<property name="filler3" column="filler3" type="string"
+			not-null="false" length="64" />
+		<property name="checkStatus" column="CHECK_STATUS" type="string"
+			not-null="false" length="2" />
+		<property name="checkMessage" column="CHECK_MESSAGE" type="string"
+			not-null="false" length="200" />
+		<property name="tableName" column="TABLE_NAME" type="string"
+			not-null="false" length="40" />
+		<property name="area" column="area" type="string"
+			not-null="false" length="20" />
+
+	</class>
+</hibernate-mapping>
