@@ -1,1 +1,0 @@
-insert into SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST, IS_LOCK, IS_DEL, CRT_DT, LAST_UPD_TMS, LAST_UPD_OPER) values ('AML3', 'CHANGEDATE', '20190401', '2∫≈¡ÓÕ£±®»’∆⁄', null, '4', 'F', 'F', null, null, null);
