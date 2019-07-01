@@ -67,7 +67,7 @@
 					} else {
 				%>
 				<tr bgcolor="#ffffff" style="line-height: 22px;">
-					<td colspan="3" align="center" class="datatd">没有需要处理的交易</td>
+					<td colspan="4" align="center" class="datatd">没有需要处理的交易</td>
 				</tr>
 				<%
 					}
@@ -109,7 +109,7 @@
 					} else {
 				%>
 				<tr bgcolor="#ffffff" style="line-height: 22px;">
-					<td colspan="3" align="center" class="datatd">没有需要处理的交易</td>
+					<td colspan="6" align="center" class="datatd">没有需要处理的交易</td>
 				</tr>
 				<%
 					}
