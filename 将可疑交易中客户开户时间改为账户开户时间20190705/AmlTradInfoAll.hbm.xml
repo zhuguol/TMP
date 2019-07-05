@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.huateng.report.hf.aml.bs.bean">
+	<class
+		name="AmlTradInfoAll"
+		table="AML_TRAD_INFO_ALL"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="long"
+			column="REC_ID"
+		>
+		</id>
+		<property name="etlDate" column="ETL_DATE" type="java.util.Date" not-null="false" length="34"/>
+		<property name="finaOrgNoRelatoCust" column="FINA_ORG_NO_RELATO_CUST" type="string" not-null="false" length="3"/>
+		<property name="finaOrgCode" column="FINA_ORG_CODE" type="string" not-null="false" length="50"/>
+		<property name="custNo" column="CUST_NO" type="string" not-null="false" length="32"/>
+		<property name="custName" column="CUST_NAME" type="string" not-null="false" length="200"/>
+		<property name="custIdType" column="CUST_ID_TYPE" type="string" not-null="false" length="32"/>
+		<property name="custIdCertNo" column="CUST_ID_CERT_NO" type="string" not-null="false" length="200"/>
+		<property name="custMetierIndt" column="CUST_METIER_INDT" type="string" not-null="false" length="50"/>
+		<property name="custContactPatn" column="CUST_CONTACT_PATN" type="string" not-null="false" length="320"/>
+		<property name="custDetailAddr" column="CUST_DETAIL_ADDR" type="string" not-null="false" length="4000"/>
+		<property name="custOthrsContactPatn" column="CUST_OTHRS_CONTACT_PATN" type="string" not-null="false" length="1000"/>
+		<property name="custNatCode" column="CUST_NAT_CODE" type="string" not-null="false" length="3"/>
+		<property name="custOpenAcctDate" column="CUST_OPEN_ACCT_DATE" type="java.util.Date" not-null="false" length="34"/>
+		<property name="acctNo" column="ACCT_NO" type="string" not-null="false" length="64"/>
+		<property name="acctType" column="ACCT_TYPE" type="string" not-null="false" length="6"/>
+		<property name="bankCardType" column="BANK_CARD_TYPE" type="string" not-null="false" length="4"/>
+		<property name="bankCardNo" column="BANK_CARD_NO" type="string" not-null="false" length="50"/>
+		<property name="chargeName" column="CHARGE_NAME" type="string" not-null="false" length="120"/>
+		<property name="chargeIdType" column="CHARGE_ID_TYPE" type="string" not-null="false" length="32"/>
+		<property name="chargeIdCertNo" column="CHARGE_ID_CERT_NO" type="string" not-null="false" length="20"/>
+		<property name="chargeNatCode" column="CHARGE_NAT_CODE" type="string" not-null="false" length="3"/>
+		<property name="tradTime" column="TRAD_TIME" type="java.util.Date" not-null="false" length="34"/>
+		<property name="tradPlace" column="TRAD_PLACE" type="string" not-null="false" length="64"/>
+		<property name="bussFlag" column="BUSS_FLAG" type="string" not-null="false" length="64"/>
+		<property name="payMatchNoType" column="PAY_MATCH_NO_TYPE" type="string" not-null="false" length="64"/>
+		<property name="payMatchNo" column="PAY_MATCH_NO" type="string" not-null="false" length="64"/>
+		<property name="tradType" column="TRAD_TYPE" type="string" not-null="false" length="6"/>
+		<property name="overseaPayTradNoType" column="OVERSEA_PAY_TRAD_NO_TYPE" type="string" not-null="false" length="60"/>
+		<property name="fundPayFlag" column="FUND_PAY_FLAG" type="string" not-null="false" length="2"/>
+		<property name="fundPayPurpos" column="FUND_PAY_PURPOS" type="string" not-null="false" length="240"/>
+		<property name="ccyCd" column="CCY_CD" type="string" not-null="false" length="3"/>
+		<property name="tradAmt" column="TRAD_AMT" type="big_decimal" not-null="false" length="20"/>
+		<property name="opsFinaOrgName" column="OPS_FINA_ORG_NAME" type="string" not-null="false" length="64"/>
+		<property name="opsFinaOrgCodeType" column="OPS_FINA_ORG_CODE_TYPE" type="string" not-null="false" length="2"/>
+		<property name="opsFinaOrgCode" column="OPS_FINA_ORG_CODE" type="string" not-null="false" length="50"/>
+		<property name="opsFinaOrgAreaCode" column="OPS_FINA_ORG_AREA_CODE" type="string" not-null="false" length="9"/>
+		<property name="tradAdvsName" column="TRAD_ADVS_NAME" type="string" not-null="false" length="240"/>
+		<property name="tradAdvsIdType" column="TRAD_ADVS_ID_TYPE" type="string" not-null="false" length="32"/>
+		<property name="tradAdvsIdCertNo" column="TRAD_ADVS_ID_CERT_NO" type="string" not-null="false" length="20"/>
+		<property name="tradAdvsAcctType" column="TRAD_ADVS_ACCT_TYPE" type="string" not-null="false" length="200"/>
+		<property name="tradAdvsAcctNo" column="TRAD_ADVS_ACCT_NO" type="string" not-null="false" length="64"/>
+		<property name="nonCotrTradType" column="NON_COTR_TRAD_TYPE" type="string" not-null="false" length="64"/>
+		<property name="nonCotrTradTypeCode" column="NON_COTR_TRAD_TYPE_CODE" type="string" not-null="false" length="64"/>
+		<property name="bankPayorgBussno" column="BANK_PAYORG_BUSSNO" type="string" not-null="false" length="64"/>
+		<property name="nationCode" column="NATION_CODE" type="string" not-null="false" length="2"/>
+		<property name="interCustSort" column="INTER_CUST_SORT" type="string" not-null="false" length="4"/>
+		<property name="dealQueue" column="DEAL_QUEUE" type="string" not-null="false" length="4"/>
+		<property name="transCharacter" column="TRANS_CHARACTER" type="string" not-null="false" length="10"/>
+		<property name="orgCode" column="ORG_CODE" type="string" not-null="false" length="30"/>
+		<property name="cnyTradAmt" column="CNY_TRAD_AMT" type="big_decimal" not-null="false" length="20"/>
+		<property name="usdTradAmt" column="USD_TRAD_AMT" type="big_decimal" not-null="false" length="20"/>
+		<property name="bTradTypeCode" column="B_TRAD_TYPE_CODE" type="string" not-null="false" length="4"/>
+		<property name="tradInfoRemark1" column="TRAD_INFO_REMARK1" type="string" not-null="false" length="64"/>
+		<property name="tradInfoRemark2" column="TRAD_INFO_REMARK2" type="string" not-null="false" length="64"/>
+		<property name="tradDirect" column="TRAD_DIRECT" type="string" not-null="false" length="9"/>
+		<property name="batchTime" column="BATCH_TIME" type="java.util.Date" not-null="false" length="34"/>
+		<property name="cTraAmt" column="C_TRA_AMT" type="big_decimal" not-null="false" length="20"/>
+		<property name="alternateVField1" column="ALTERNATE_V_FIELD1" type="string" not-null="false" length="20"/>
+		<property name="alternateVField2" column="ALTERNATE_V_FIELD2" type="string" not-null="false" length="20"/>
+		<property name="alternateVField3" column="ALTERNATE_V_FIELD3" type="string" not-null="false" length="20"/>
+		<property name="alternateVField4" column="ALTERNATE_V_FIELD4" type="string" not-null="false" length="20"/>
+		<property name="alternateVField5" column="ALTERNATE_V_FIELD5" type="string" not-null="false" length="20"/>
+		<property name="alternateVField6" column="ALTERNATE_V_FIELD6" type="string" not-null="false" length="100"/>
+		<property name="alternateVField7" column="ALTERNATE_V_FIELD7" type="string" not-null="false" length="100"/>
+		<property name="alternateNField1" column="ALTERNATE_N_FIELD1" type="big_decimal" not-null="false" length="20"/>
+		<property name="alternateNField2" column="ALTERNATE_N_FIELD2" type="big_decimal" not-null="false" length="20"/>
+		<property name="alternateNField3" column="ALTERNATE_N_FIELD3" type="big_decimal" not-null="false" length="20"/>
+		<property name="alternateNField4" column="ALTERNATE_N_FIELD4" type="big_decimal" not-null="false" length="20"/>
+		<property name="alternateNField5" column="ALTERNATE_N_FIELD5" type="big_decimal" not-null="false" length="20"/>
+		<property name="alternateNField6" column="ALTERNATE_N_FIELD6" type="big_decimal" not-null="false" length="20"/>
+		
+		<property name="custCcyCdFlag" column="CUST_CCY_CD_FLAG" type="string" not-null="false" length="1"/>
+		<property name="custIdTypeDesc" column="CUST_ID_TYPE_DESC" type="string" not-null="false" length="100"/>
+		<property name="chargeIdTypeDesc" column="CHARGE_ID_TYPE_DESC" type="string" not-null="false" length="100"/>
+		<property name="corpCustIdTypeDesc" column="CORP_CUST_ID_TYPE_DESC" type="string" not-null="false" length="100"/>
+		<property name="corpContPerIdTypeDesc" column="CORP_CONT_PER_ID_TYPE_DESC" type="string" not-null="false" length="100"/>
+		<property name="tradAdvsIdTypeDesc" column="TRAD_ADVS_ID_TYPE_DESC" type="string" not-null="false" length="100"/>
+		<property name="bankCardTypeDesc" column="BANK_CARD_TYPE_DESC" type="string" not-null="false" length="100"/>
+		<property name="acctTypeDesc" column="ACCT_TYPE_DESC" type="string" not-null="false" length="100"/>
+		<property name="josrtb" column="JOSRTB" type="string" not-null="false" length="2"/>
+		<property name="isTradAdvs" column="IS_TRAD_ADVS" type="string" not-null="false" length="2"/>
+		<property name="sourceData" column="SOURCE_DATA" type="string" not-null="false" length="50"/>
+		<property name="tradChn" column="TRAD_CHN" type="string" not-null="false" length="3"/>
+		
+		<property name="finaOrgName" column="FINA_ORG_NAME" type="string" not-null="false" length="64"/>
+		<property name="finaOrgCodeType" column="FINA_ORG_CODE_TYPE" type="string" not-null="false" length="2"/>
+		<property name="finaOrgAreaCode" column="FINA_ORG_AREA_CODE" type="string" not-null="false" length="9"/>
+		
+		<property name="tradId" column="TRAD_ID" type="string" not-null="false" length="4"/>
+		<property name="tradNo" column="TRAD_NO" type="string" not-null="false" length="5"/>
+		<property name="tradDate" column="TRAD_DATE" type="java.util.Date" not-null="false" length="34"/>
+		
+		<property name="custClAcctDate" column="CUST_CL_ACCT_DATE" type="java.util.Date" not-null="false" length="34"/>
+		<property name="corpCustLegalRepresName" column="CORP_CUST_LEGAL_REPRES_NAME" type="string" not-null="false" length="64"/>
+		<property name="corpCustRegiam" column="CORP_CUST_REGIAM" type="string" not-null="false" length="20"/>
+		<property name="corpCustIdType" column="CORP_CUST_ID_TYPE" type="string" not-null="false" length="32"/>
+		<property name="corpCustIdCertNo" column="CORP_CUST_ID_CERT_NO" type="string" not-null="false" length="20"/>
+		
+		<property name="ccpdt" column="C$CPDT" type="string" not-null="false" length="8"/>
+		<property name="otNonCotrTradType" column="OT_NON_COTR_TRAD_TYPE" type="string" not-null="false" length="64"/>
+		<!-- 20190705 add -->
+		<property name="openAcctDate" column="OPEN_ACCT_DATE" type="java.util.Date" not-null="false" length="34"/>
+	</class>	
+</hibernate-mapping>
