@@ -1,0 +1,2 @@
+可疑交易客户账号和交易对手账号校验
+WEB-INF\classes\com\huateng\report\hfaml3\vaild\AmlBsColunmValid.class
