@@ -191,7 +191,7 @@
 		<!--20181012 add  -->
 		<Field id="ccpdt" desc="入账日期" edittype="text" datatype="string" require="false" method="None" readonly="false" size="8" status="F" xpath="/ccpdt" />
 		<!-- 20190705 zhuguoliang add -->
-		<Field id="openAcctDate" desc="账户开户时间" edittype="text" datatype="timestamp" require="false" method="None" readonly="false" size="34" status="F"  xpath="/openAcctDate" />
+		<Field id="openAcctDate" desc="客户账户开立时间" edittype="text" datatype="timestamp" require="false" method="None" readonly="false" size="34" status="F"  xpath="/openAcctDate" />
 		
 	</Fields>
 

@@ -117,5 +117,8 @@
 		<property name="otNonCotrTradType" column="OT_NON_COTR_TRAD_TYPE" type="string" not-null="false" length="64"/>
 		<!-- 20190705 add -->
 		<property name="openAcctDate" column="OPEN_ACCT_DATE" type="java.util.Date" not-null="false" length="34"/>
+		<!-- 20190712 add -->
+		<property name="clAcctDate" column="CL_ACCT_DATE" type="java.util.Date" not-null="false" length="34"/>
+		
 	</class>	
 </hibernate-mapping>
