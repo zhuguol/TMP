@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="resource.bean.export">
+	<class name="MouldDownLoad" table="MOULD_DOWN_LOAD">
+		<meta attribute="sync-DAO">false</meta>
+		<id name="id" type="string" column="id"></id>
+		<property name="fileEName" column="FILE_E_NAME" type="string" not-null="false" length="64" />
+		<property name="fileCName" column="FILE_C_NAME" type="string" not-null="false" length="64" />
+		<property name="status" column="STATUS" type="string" not-null="false" length="2" />
+		<property name="fileType" column="FILE_TYPE" type="string" not-null="false" length="10" />
+		<property name="upTime" column="UP_TIME" type="string" not-null="false" length="8" />
+		<property name="upDepartment" column="UP_DEPARTMENT" type="string" not-null="false" length="10" />
+		<property name="filler1" column="FILLER1" type="string" not-null="false" length="64" />
+		<property name="filler2" column="FILLER2" type="string" not-null="false" length="64" />
+		<property name="filler3" column="FILLER3" type="string" not-null="false" length="64" />
+		
+	</class>
+</hibernate-mapping>

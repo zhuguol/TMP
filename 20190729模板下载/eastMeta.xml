@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>                                                  
+<META>                                                                                  
+    <Query id="setZipPassword" path="/fpages/east/xml/setZipPassword.xml" />            
+    <Query id="EastFile" path="/fpages/east/xml/EastFile.xml" />                        
+                                                                                        
+                                                                                        
+    <!-- demo用 -->                                                                     
+    <Query id="DemoReport" path="/fpages/demo/xml/DemoReport.xml" />                    
+    <Query id="DemoUser" path="/fpages/demo/xml/DemoUser.xml" />                        
+    <Query id="DemoUserMng" path="/fpages/demo/xml/DemoUserMng.xml" />                  
+    <Query id="DemoReportMng" path="/fpages/demo/xml/DemoReportMng.xml" />              
+    <Query id="ReportMailNotice" path="/fpages/demo/xml/ReportMailNotice.xml" />        
+    <Query id="ReportDownload" path="/fpages/demo/xml/ReportDownload.xml" />            
+                                                                                        
+    <!-- 300号文 -->                                                                    
+    <Query id="BiTreeDataDicSelect" path="/fpages/export/xml/BiTreeDataDicSelect.xml" />
+    <Query id="ExportFile" path="/fpages/export/xml/ExportFile.xml" />                  
+    <Query id="FileDownload" path="/fpages/export/xml/FileDownload.xml" />              
+    <Query id="ImportFile" path="/fpages/export/xml/ImportFile.xml" />                  
+    <Query id="CheckfilesFor300" path="/fpages/export/xml/CheckfilesFor300.xml" />    
+                                                                                    
+    <!-- 300号文   15张查询导出报表-->                                                                                    
+    <Query id="TbBank" path="/fpages/export/xml/TbBank.xml" />                          
+    <Query id="TbSettleType" path="/fpages/export/xml/TbSettleType.xml" />              
+    <Query id="TbCstPers" path="/fpages/export/xml/TbCstPers.xml" />                    
+    <Query id="TbCstUnit" path="/fpages/export/xml/TbCstUnit.xml" />                    
+    <Query id="TbAcc" path="/fpages/export/xml/TbAcc.xml" />                            
+    <Query id="TbAccTxn" path="/fpages/export/xml/TbAccTxn.xml" />                      
+    <Query id="TbCrossBorder" path="/fpages/export/xml/TbCrossBorder.xml" />            
+    <Query id="TbCredTxn" path="/fpages/export/xml/TbCredTxn.xml" />                    
+    <Query id="TbCashRemit" path="/fpages/export/xml/TbCashRemit.xml" />
+    <Query id="TbCashConvert" path="/fpages/export/xml/TbCashConvert.xml" /> 
+    <Query id="TbRiskNew" path="/fpages/export/xml/TbRiskNew.xml" /> 
+    <Query id="TbRiskHis" path="/fpages/export/xml/TbRiskHis.xml" /> 
+    <Query id="TbLwhcLog" path="/fpages/export/xml/TbLwhcLog.xml" />         
+    <Query id="TbLarReport" path="/fpages/export/xml/TbLarReport.xml" />
+    <Query id="TbSusReport" path="/fpages/export/xml/TbSusReport.xml" /> 
+    
+    <!-- 300号文质量管理报表模块-->
+    <Query id="M300SysMoniRegi" path="/fpages/export/form/xml/M300SysMoniRegi.xml" />
+    <Query id="M300SysMoniReport" path="/fpages/export/form/xml/M300SysMoniReport.xml" />
+    <Query id="M300DataMoniQualSum" path="/fpages/export/form/xml/M300DataMoniQualSum.xml" />                
+    <!--begin 2018-09-10 BY HU -->
+     <Query id="M300TabNvalueCount" path="/fpages/export/form/xml/M300TabNvalueCount.xml" />    
+     <Query id="M300TabNvalueCount0" path="/fpages/export/form/xml/M300TabNvalueCount0.xml" />    
+      <!--begin 2019-01-08-->     
+         <Query id="M300TabNvalueSCount" path="/fpages/export/form/xml/M300TabNvalueSCount.xml" />                                                                                
+	<!-- 20190718 -->
+	<Query id="MouldDownLoad" path="/fpages/export/xml/MouldDownLoad.xml" />    
+
+</META> 
