@@ -233,8 +233,8 @@ tr {
 				<td align="right" class="labeltd">是否有效:<span style="color:red;float:right">*</span></td>
 				<td align="left" class="datatd">
 					<select name="statuss" id="statuss" class="mytxt Wdate" type="select" style="width: 100%;border: 1px solid #E5E5E5; height: 17px" value="<%=status%>" />
-						<option value="1">1-是</option>
-						<option value="2">2-否</option>
+						<option value="1">1-有效</option>
+						<option value="2">2-无效</option>
     				</select>
 				</td>
 				<td align="right" class="labeltd">文件类型:</td>

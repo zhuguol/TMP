@@ -26,7 +26,7 @@
 			primary="true" type="String" size="64" xpath="/fileCName" />
 			
 		<Field id="status" desc="是否有效" status="F" method="None"
-			edittype="select" translated="LIST:1,1-是;2,2-否;" readonly="false"
+			edittype="select" translated="LIST:1,1-有效;2,2-无效;" readonly="false"
 			primary="false" type="String" size="2" xpath="/status" />
 		
 		<Field id="fileType" desc="文件类型" status="N" readonly="true"
@@ -55,7 +55,7 @@
 	    <TextBox id="qfileEName" desc="文件英文名称" edittype="text" status="F" datatype="string" size="64" index="2" />
 	    <TextBox id="qfileCName" desc="文件中文名称" edittype="text" status="F" datatype="string" size="64" index="3" />
 	    <TextBox id="qupDepartment" desc="文件上传部门" edittype="text" status="F" datatype="string" size="64" index="4" />
-	    <Option id="qstatus" desc="是否有效" edittype="select" status="F" translated="LIST:1,1-是;2,2-否;"  datatype="string" size="2" index="5" />
+	    <Option id="qstatus" desc="是否有效" edittype="select" status="F" translated="LIST:1,1-有效;2,2-无效;"  datatype="string" size="2" index="5" />
 	</Where>
 
 	<Operations>

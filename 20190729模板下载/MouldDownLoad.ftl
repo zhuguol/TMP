@@ -31,14 +31,20 @@
     function datatable_oper_onRefresh(cell,value,record) {
         if(record){
 	   		var fileEName = record.getValue("fileEName");
+	   		var status = record.getValue("status");
 	   		if(fileEName!=""){
-	   			cell.innerHTML= "<a href=\"JavaScript:mouldDownLoad('"+fileEName+"')\">下载</a>";
-	  	  }
+	   			cell.innerHTML= "<a href=\"JavaScript:mouldDownLoad('"+fileEName+"','"+status+"')\">下载</a>";
+	  	  	}
+		  	
 	    }
     }
     //下载
-    function mouldDownLoad(fileEName){
-        window.location.href = encodeURI("${contextPath}/mouldDownLoad?fileEName="+fileEName);
+    function mouldDownLoad(fileEName,status){
+    	if(status==1){
+       		window.location.href = encodeURI("${contextPath}/mouldDownLoad?fileEName="+fileEName);
+    	}else{
+	  		alert('当前文件状态为"2-无效！"');
+	  	}
     }
     //新增
     function btAddMould_onClick(){
