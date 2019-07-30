@@ -31,6 +31,14 @@ String upDepartment = "";%>
 					status = request.getParameter("status");
 					fileType = request.getParameter("fileType");
 					upDepartment = request.getParameter("upDepartment");
+				}else{
+					id = "";
+					fileEName = "";
+					fileCName = "";
+					status = "1";
+					fileType = "";
+					type = "";
+					upDepartment = "";
 				}
 			}else{
 	%>
