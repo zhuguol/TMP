@@ -17,7 +17,7 @@
 		</tr>
   		<tr>
       		<td colspan="2">
-          		<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btAddMould,-,btModMould,-,btRemMould" fieldStr="select,id[90],oper[90],fileEName[250],fileCName[250],status[150],upDepartment[150],fileType[150],upTime[150]" width="100%"  readonly="true"/><br/>
+          		<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btAddMould,-,btModMould,-,btRemMould" fieldStr="select,id[70],oper[70],fileEName[250],fileCName[250],status[120],upDepartment[120],fileType[120],upTime[120]" width="100%"  readonly="true"/><br/>
         	</td>
         </tr>
    </table>
