@@ -37,7 +37,6 @@ String upDepartment = "";%>
 					fileCName = "";
 					status = "1";
 					fileType = "";
-					type = "";
 					upDepartment = "";
 				}
 			}else{
@@ -252,7 +251,7 @@ tr {
 			</tr>
 			
 			<tr>
-				<td align="right" class="labeltd">文件类型:</td>
+				<td align="right" class="labeltd">上传部门:</td>
 				<td align="left" class="datatd">
 					<input name="upDepartments" placeholder="请输入上传部门" id="upDepartments" type="text" class="mytxt" style="width: 100%; height: 17px" value="<%=upDepartment%>" />
 				</td>
