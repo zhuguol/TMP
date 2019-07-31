@@ -41,7 +41,7 @@
     //下载
     function mouldDownLoad(fileEName,status){
     	if(status==1){
-       		window.location.href = encodeURI("${contextPath}/mouldDownLoad?fileEName="+fileEName);
+       		window.location.href = encodeURI("${contextPath}/mouldDownLoad?fileEName="+encodeURIComponent(fileEName));
     	}else{
 	  		alert('当前文件状态为"2-无效！"');
 	  	}
