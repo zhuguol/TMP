@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 用于直接生成SQL语句，支持同步和异步提交 -->
+<!-- title:标题 navigate:导航信息 type:方式（sql|call) interface:是否显示输入条件页面(true|false) 
+	databusid:数据总线编号 transdataactionurl:数据整理URL async:异步提交标志 pagesize:页面显示记录数(缺省为10) -->
+<CommQry title="大额交易" navigate="反洗钱&gt;  大额交易"
+	type="call" 
+	interface="true" 
+	pagesize="100" 
+	async="true" 
+	databusid=""
+	transdataactionurl="/trans/TransDataAction.do" 
+	getterclassname="com.huateng.report.hfaml3.bh.getter.AmlLargeTradHalfYMThreeGetter">
+	<Include id="BankParam" />
+	<PageQryExp type="XLS" limit="true" encoding="UTF-8" url="/trans/qryExp.do" desc="大额交易半年统计报表"  />
+	<Fields>
+		<Field id="brNo" desc="机构号" edittype="text" datatype="string" method="None" readonly="false" size="16" status="F" default="" xpath="/brNo" />
+		<Field id="lstDate"  desc="交易年份(上/下半年)" edittype="text" datatype="string" method="None" readonly="false" size="6" status="F" default="" xpath="/lstDate"/>
+ 		<Field id="branchNo" desc="交易所属行" edittype="select"  require="false" status="N" translated="CQ:branchNoNameGetterSelect" fieldmap="branchNoName=name;branchNo=id"
+               method="None" viewField="name" primary="true" dropdowntype="dynamic"   datatype="string" size="100" default="" xpath="/belongsCode" />
+        <Field id="branchNoName" desc="交易所属行" status="F" method="com.huateng.ebank.business.common.CQMethod.getbranchNoName"
+               readonly="" primary="true" type="String" size="150"	 xpath="/belongsCode"/>                
+		<Field id="webCode" desc="网点代码" edittype="text" datatype="string" method="None" readonly="false" size="100" status="F" default="" xpath="/webCode" />
+		<Field id="webName" desc="网点名称" edittype="text" datatype="string" method="None" readonly="false" size="100" status="F" default="" xpath="/webName" />
+		<Field id="ltradReportType" desc="大额报文类型" edittype="select" datatype="string" method="None" readonly="false" 
+		       size="2" status="F" default="" xpath="/ltradReportType" translated="DATA_DIC.151" /> 
+		<Field id="tradCnt" desc="交易条数" edittype="text" datatype="string" method="None" readonly="false" size="100" status="F" default="" xpath="/tradCnt" />
+		<Field id="custCnt" desc="客户总数" edittype="text" datatype="string" method="None" readonly="false" size="100" status="F" default="" xpath="/custCnt" />
+		<Field id="crtp" desc="币种" editable="true" require="false" edittype="select" translated="CQ:CurrencySelect" dropdowntype="dynamic" method="None" viewField="currencyNoName" status="N"
+               fieldmap="crtp=currencyNo;crtpName=currencyNoName"   size="3" default="" xpath="/tradCurrency"/>  
+        <Field id="crtpName" desc="币种" editable="true" status="F" require="" method="com.huateng.ebank.business.common.CQMethod.getCurNameByCurNo" width="" readonly="" primary="true" type="String" size="150"
+			   xpath="/tradCurrency" />
+		<Field id="tradAmount" desc="交易金额" edittype="text" datatype="currency" require="false" method="None" readonly="false" 
+	           size="20" status="F"  scale="2" default="" xpath="/tradAmount" />
+
+	</Fields>
+	<Where>
+		 <Option id="qlstDate" desc="年份" placeholder="yyyyMM" require="true" 
+			edittype="select" dropdowntype="custom" url="/templets/lib/YYYY.ftl"
+			rules="isNum" editable="true" size="6" status="F"
+			fieldmap="qlstDate=yyyyMM;qlstDateName=yyyyMM" viewField="yyyyMM"
+			index="0" />
+		<Option id="qhalfY" desc="上下半年" require="true" edittype="select" status="F" translated="LIST:01,01-上半年;02,02-下半年" datatype="string" size="2" index="2" />
+		<Option id="branchNo" operation="EQ" size="" desc="所属行"  edittype="select"  translated="CQ:branchNoNameGetterSelect"
+			fieldmap="branchNoName=name;branchNo=id" viewField="name" dropdowntype="dynamic" init="true" require="false" readOnly="" index="2" />
+	</Where>
+	<Operations>
+	</Operations>
+</CommQry>

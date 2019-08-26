@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  用于直接生成SQL语句，支持同步和异步提交 -->
+<!--  title:标题
+	navigate:导航信息
+	type:方式（sql|call)
+	interface:是否显示输入条件页面(true|false)
+	databusid:数据总线编号
+	transdataactionurl:数据整理URL
+	txnlogflag:true记录日志
+	async:异步提交标志
+	pagesize:页面显示记录数(缺省为10)
+-->
+<CommQry title="待上报数据" navigate="AML完成确认    &gt; 数据处理完成确认"
+	type="call"
+	interface="false"
+	pagesize="100"
+	async="true"
+	databusid=""
+	transdataactionurl="/trans/TransDataAction.do"
+	txnlogflag="true"
+	getterclassname="com.huateng.report.hf.aml.getter.AMLGenReportFileGetter">
+	<Include id="BankParam" />
+	<Fields>
+	    <Field id="brno" desc="报告机构" edittype="text" datatype="string" method="None" readonly="false" size="16" status="N" default="" xpath="/id/brno" />
+		<Field id="workDate" desc="工作日期" edittype="text" datatype="string"   method="None" readonly="false" size="34"  status="N" default="" xpath="/id/workDate"              />
+		<Field id="currentfile" desc="报告类型" edittype="select" datatype="string" method="None" readonly="false" 
+		       size="2" status="F" default="" xpath="/id/currentfile" translated="DATA_DIC.150" /> 
+		<Field id="reportType" desc="报文类型" edittype="select" datatype="string" method="None" readonly="false" 
+		       size="2" status="F" default="" xpath="/id/reportType" translated="DATA_DIC.9021" /> 
+		<Field id="noCollNum" desc="待补录" edittype="text" datatype="string" method="None" readonly="false" size="100" status="N" default="" xpath="/noCollNum" />
+		<Field id="noReportNum" desc="待审核 " edittype="text" datatype="string" method="None" readonly="false" size="100" status="N" default="" xpath="/noReportNum" />
+		<Field id="noPackageNum" desc="待打包" edittype="text" datatype="string" method="None" readonly="false" size="100" status="N" default="" xpath="/noPackageNum" />
+		<Field id="isPackageNum" desc="已打包" edittype="text" datatype="string" method="None" readonly="false" size="100" status="N" default="" xpath="/isPackageNum" />
+	    <Field id="noCheckNum" desc="不上报(待审核)" edittype="text" datatype="string" method="None" readonly="false" size="100" status="N" default="" xpath="/noCheckNum" />
+		<Field id="isCheckNum" desc="不上报(已审核)" edittype="text" datatype="string" method="None" readonly="false" size="100" status="N" default="" xpath="/isCheckNum" />
+	    <Field id="oper" desc="操作" method="None" edittype="text" datatype="string" xpath="" />
+	</Fields>
+	<Where>
+	    <Option id="qcurrentfile" desc="交易报告类型" datatype="string" require="false" index="0" readonly="true" translated="DATA_DIC.150"/>
+	    <DateTextBox id="qworkDate" desc="交易日期" edittype="text" datatype="date" size="32" index="1" />
+	    <Option id="qreportType" desc="报文类型" datatype="string" require="false" index="2"  translated="DATA_DIC.9023"/>
+	</Where>
+</CommQry>

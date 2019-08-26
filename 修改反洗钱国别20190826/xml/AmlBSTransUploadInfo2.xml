@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 用于直接生成SQL语句，支持同步和异步提交 -->
+<!-- title:标题 navigate:导航信息 type:方式（sql|call) interface:是否显示输入条件页面(true|false) 
+	databusid:数据总线编号 transdataactionurl:数据整理URL async:异步提交标志 pagesize:页面显示记录数(缺省为10) -->
+<CommQry title="可疑数据补录" navigate="可疑数据补录&gt;可疑数据补录" type="call"
+	interface="true" pagesize="100" async="true" databusid=""
+	transdataactionurl="/trans/TransDataAction.do"
+	getterclassname="com.huateng.report.hf.aml.getter.AmlBSTransUploadInfoGetter2">
+	<Include id="BankParam" />
+	<Fields>
+		<!-- Common Field start -->
+		<Field id="select" desc="选择" method="None" edittype="checkbox" datatype="boolean" xpath="" />	    
+		<Field id="id" desc="记录主键" require="false" edittype="text"
+			datatype="string" method="None" readonly="false" size="32" status="F"
+			default="" primary="true" xpath="/id" />
+        <Field id="oper" desc="操作" method="None" edittype="text" readonly="true" 
+            datatype="string" xpath="" />
+        <Field id="workDate" desc="工作日期" edittype="text" datatype="date" method="None" readonly="true" require="false"
+		       size="8" status="F" default="" xpath="/workDate" />
+	    <Field id="reportId" desc="内部编号" edittype="text" datatype="string" require="false" method="None" readonly="true" 
+		       size="10" status="F" default="" xpath="/reportId"/>   
+		<!-- 可疑交易信息 -->    
+		<Field id="finc" desc="金融机构网点代码" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="16" status="F" default="" xpath="/finc" />      
+		 <Field id="rlfc" desc="金融机构与客户的关系" edittype="select" datatype="string" require="false" method="None" readonly="false" 
+		       size="2" translated="DATA_DIC.9016" status="N" default="" xpath="/rlfc" />       
+		 <Field id="csnm" desc="客户号" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="32" status="F" default="" xpath="/csnm" />      
+		 <Field id="ctnm" desc="客户名称/姓名" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="64" status="F" default="" xpath="/ctnm"/>      
+		 <Field id="citp" desc="客户身份证件类型" edittype="select" init="false" datatype="string" require="false" method="None" readonly="false" 
+		       size="2" translated="DATA_DIC.9019" status="F" default="" xpath="/citp" />      
+		 <Field id="aoitp" desc="客户其他身份证件/证明文件类型" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="32" status="F" default="" xpath="/aoitp" />       
+		  <Field id="ctid" desc="客户身份证件号码" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="20" status="F" default="" xpath="/ctid" />     
+		 <!--  <Field id="catp" desc="客户账户类型" require="false" edittype="select" datatype="string" method="None" readonly="false" 
+		       size="4" status="F" default="" xpath="/catp" translated="DATA_DIC.9020" />-->
+		 <Field id="catp" desc="客户账户类型" edittype="select"  require="false" status="F" translated="CQ:CatpSelect" fieldmap="catpName=name;catp=id"
+               method="None" viewField="name" primary="true" dropdowntype="dynamic"   datatype="string" size="4" default="" xpath="/catp" />
+        <Field id="catpName" desc="客户账户类型" status="F" method="com.huateng.ebank.business.common.CQMethod.getCatp"
+               readonly="" primary="true" type="String" size="150"	 xpath="/catp" default="" />      
+		  <Field id="ctac" desc="客户账号" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="64" status="F" default="" xpath="/ctac"/>      
+		  <Field id="oatm" desc="客户账户开户时间" edittype="text" datatype="date"
+			   method="None" readonly="false" size="8" status="F" default="" xpath="/oatm" />     
+		 <Field id="catm" desc="客户账户销户户时间" edittype="text" datatype="date"
+			   method="None" readonly="false" size="8" status="F" default="" xpath="/catm" />   
+		  <Field id="cbct" desc="客户银行卡类型"  require="false" edittype="select" translated="DATA_DIC.9015" 
+			   readonly="" primary="" size="2" datatype="string" xpath="/cbct" />
+		 <Field id="ocbt" desc="客户银行卡其他类型" edittype="text" datatype="string" method="None" readonly="false" 
+		       size="32" status="F" default="" xpath="/ocbt" />     
+		  <Field id="cbcn" desc="客户银行卡号码" edittype="text" datatype="string" method="None" readonly="false" 
+		       size="64" status="F" default="" xpath="/cbcn" />        
+         <Field id="tbnm" desc="代办人姓名" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="48" status="F" default=""  xpath="/tbnm" />
+         <Field id="tbit" desc="代办人身份证件/证明文件类型" edittype="select" datatype="string" require="false" method="None" readonly="false" 
+		       size="2" translated="DATA_DIC.9019" init="false" status="F" default="" xpath="/tbit" />   
+         <Field id="boitp" desc="代办人其他身份证件/证明文件类型" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="32" status="F" default="" xpath="/boitp" />
+		<Field id="tbid" desc="代办人身份证件/证明文件号码" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="20" status="F" default="" xpath="/tbid" />    
+		<Field id="tbnt" desc="代办人国籍" require="false" edittype="select" size="3"  datatype="string"  
+	           status="F" translated="CQ:BiNationregionSelect" editable="true" dropdowntype="dynamic" viewField="nationregionIdName" method="None" 
+	           fieldmap="tbnt=nationregionId;tbntName=nationregionIdName" xpath="/tbnt" />
+        <Field id="tbntName" desc="代办人国籍" status="F"
+               method="com.huateng.ebank.business.common.CQMethod.getNationregionIdName" editable="true"
+               readonly="" primary="" type="string" size="150"	 xpath="/tbnt" default="" />  
+		<Field id="tstm" desc="交易日期" edittype="text" datatype="timestamp"
+			   method="None" readonly="false" size="14" status="F" default="" xpath="/tstm"/> 
+		<Field id="trcd" desc="交易发生地" require="" edittype="select" size="3"  datatype="string"  
+	           status="F" translated="CQ:BiNationregionSelect" editable="true" dropdowntype="dynamic" cached="false" viewField="nationregionIdName" method="None" fieldmap="trcd=nationregionId;trcdName=nationregionIdName"
+	           xpath="/trcd" />
+        <Field id="trcdName" desc="交易发生地" status="F" method="com.huateng.ebank.business.common.CQMethod.getNationregionIdName" editable="true"
+               readonly="" primary="" type="string" size="150"	cached="false"  xpath="/trcd" default="" /> 
+	    <Field id="trcdSuffix" desc="交易发生地区代码" edittype="select" datatype="string" require="false" method="None" readonly="false" translated="CQ:BiAreacodeSelect" editable="true"
+		       dropdowntype="dynamic" viewField="areaName"  fieldmap="trcdSuffix=areacode;trcdSuffixName=areaName"
+		       size="6" status="F" default="" cached="false" xpath="/trcdSuffix" />
+	    <Field id="trcdSuffixName" desc="交易发生地区代码" editable="true" status="F"
+               method="com.huateng.ebank.business.common.CQMethod.getAreacodeName"
+               readonly="" primary="" type="string" cached="false" size="150"	 xpath="/trcdSuffix" default="" /> 
+		<Field id="ticd" desc="业务标识号" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="64" status="F" default="" xpath="/ticd" />
+		<Field id="rpmt" desc="收付款方匹配号类型" edittype="select" datatype="string" require="false" method="None" readonly="false" 
+		       size="2" translated="DATA_DIC.9017" init="false" status="F" default="" xpath="/rpmt" />   
+	    <Field id="rpmn" desc="收付款方匹配号" datatype="string" require="false" method="None" readonly="false" 
+		       size="500" status="F" default="" xpath="/rpmn" />
+		 <Field id="tstp" desc="交易方式" edittype="select"  require="false" status="F" translated="CQ:BiTreeDataDicSelect" fieldmap="tstpName=name;tstp=id"
+               method="None" viewField="name" primary="true" dropdowntype="dynamic"   datatype="string" size="8" default="" xpath="/tstp" />
+        <Field id="tstpName" desc="AmlBHdsColl.field.tstpName" status="F" method="com.huateng.ebank.business.common.CQMethod.getBiTreeDataDicName"
+               readonly="" primary="true" type="String" size="150"	 xpath="/tstp" default="" codetype="TSTP"/>      
+		<Field id="octt" desc="非柜台交易方式" edittype="select" datatype="string" require="false" method="None" readonly="false" 
+		       size="2" translated="DATA_DIC.9018" init="false" status="F" default="" xpath="/octt" />    
+		<Field id="ooct" desc="其他非柜台交易方式" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="32" status="F" default="" xpath="/ooct" />     
+		<Field id="ocec" desc="非柜台交易方式的设备代码" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="500" status="F" default="" xpath="/ocec" />  
+	    <Field id="bptc" desc="银行与支付机构之间的业务交易编码" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="500" status="F" default="" xpath="/bptc" />  
+	    <Field id="tsct" desc="涉外收支交易分类与代码" require="false" status="F" translated="CQ:MtsInOutCodeTreeSelect"
+               fieldmap="tsctName=name;tsct=id" method="None" viewField="name" primary="true"
+               dropdowntype="dynamic" edittype="select" datatype="string" size="16" default="" xpath="/tsct" />
+        <Field id="tsctName" desc="涉外收支交易分类与代码" status="F" method="com.huateng.ebank.business.common.CQMethod.gettsctName"
+               width="" readonly="" primary="true" type="String" size="150" xpath="/tsct" default="" codetype="AML"/>          
+		<Field id="tsdr" desc="资金收付标识" require="false" edittype="select" datatype="string" method="None" readonly="false" 
+		       size="2" status="F" default="" xpath="/tsdr" translated="DATA_DIC.164" />       
+		<Field id="crsp" desc="资金来源和用途" require="false" edittype="text"
+			datatype="string" method="None" readonly="false" size="384" status="F"
+			default="" xpath="/crsp" />
+		<Field id="crtp" desc="币种" editable="true" require="false" edittype="select" translated="CQ:CurrencySelect" dropdowntype="dynamic" method="None" viewField="currencyNoName" status="F"
+               fieldmap="crtp=currencyNo;crtpName=currencyNoName"   size="3" default="" xpath="/crtp" tip="币种"/>
+	     <Field id="crtpName" desc="币种" editable="true" status="F" require="" method="com.huateng.ebank.business.common.CQMethod.getCurNameByCurNo" width="" readonly="" primary="true" type="String" size="150"
+			xpath="/crtp" default=""/>
+		 <Field id="crat" desc="交易金额" edittype="text" datatype="currency" require="false" method="None" readonly="false" 
+	           size="20" status="F"  scale="2" default="" xpath="/crat" />      
+		 <Field id="cfin" desc="对方金融机构网点名称" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="96" status="F" default="" xpath="/cfin"/>
+		 <Field id="cfct" desc="对方金融机构代码类型" edittype="select" datatype="string" require="false" method="None" readonly="false" 
+		       size="2"  translated="DATA_DIC.161" status="F" default="" xpath="/cfct" />
+ 		<Field id="cfic" desc="对方金融机构网点代码" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="12" status="F" default="" xpath="/cfic" />        
+		 <Field id="cfrc" desc="对方金融机构网点地区" require="" edittype="select" size="3"  datatype="string"  
+	           status="F" translated="CQ:BiNationregionSelect" editable="true" dropdowntype="dynamic" cached="false" viewField="nationregionIdName" method="None" fieldmap="cfrc=nationregionId;cfrcName=nationregionIdName"
+	           xpath="/cfrc" />
+        <Field id="cfrcName" desc="对方金融机构网点地区" status="F" method="com.huateng.ebank.business.common.CQMethod.getNationregionIdName" editable="true"
+               readonly="" primary="" type="string" size="150"	cached="false"  xpath="/cfrc" default="" /> 
+	   <Field id="cfrcSuffix" desc="对方金融机构网点地区行政区划代码" edittype="select" datatype="string" require="false" method="None" readonly="false" translated="CQ:BiAreacodeSelect" editable="true"
+		       dropdowntype="dynamic" viewField="areaName"  fieldmap="cfrcSuffix=areacode;cfrcSuffixName=areaName"
+		       size="6" status="F" default="" cached="false" xpath="/cfrcSuffix" />
+	   <Field id="cfrcSuffixName" desc="对方金融机构网点地区行政区划代码" editable="true" status="F"
+               method="com.huateng.ebank.business.common.CQMethod.getAreacodeName"
+               readonly="" primary="" type="string" cached="false" size="150"	 xpath="/cfrcSuffix" default="" />      
+		<Field id="tcnm" desc="交易对手姓名/名称" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="96" status="F" default="" xpath="/tcnm" />
+		<Field id="tcit" desc="交易对手证件类型" edittype="select" datatype="string" require="false" method="None" readonly="false" 
+		       size="2" translated="DATA_DIC.9019" init="false" status="N" default="" xpath="/tcit" /> 
+		<Field id="coitp" desc="交易对手其他身份证件/证明文件类型" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="32" status="F" default="" xpath="/coitp" />
+		<Field id="tcid" desc="交易对手证件号码" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="128" status="F" default="" xpath="/tcid" /> 
+		<!--  <Field id="tcat" desc="交易对手账户类型" require="false" edittype="select" datatype="string" method="None" readonly="false" 
+		       size="4" status="F" default="" xpath="/tcat" translated="DATA_DIC.9020" />-->          
+		<Field id="tcat" desc="交易对手账户类型" edittype="select"  require="false" status="F" translated="CQ:CatpSelect" fieldmap="tcatName=name;tcat=id"
+               method="None" viewField="name" primary="true" dropdowntype="dynamic"   datatype="string" size="4" default="" xpath="/tcat" />
+        <Field id="tcatName" desc="交易对手账户类型" status="F" method="com.huateng.ebank.business.common.CQMethod.getCatp"
+               readonly="" primary="true" type="String" size="150"	 xpath="/tcat" default="" /> 
+		<Field id="tcac" desc="交易对手账号" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="64" status="F" default="" xpath="/tcac" />
+		<Field id="rotf1" desc="交易信息备注1" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="64" status="F" default="" xpath="/rotf1" />
+		<Field id="rotf2" desc="交易信息备注2" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="64" status="F" default="" xpath="/rotf2" />
+		
+		
+		<Field id="isComp" desc="是否完整" edittype="select" datatype="string" translated="DATA_DIC.227" require="false" method="None" readonly="true" 
+		       size="1" status="F" default="" xpath="/isComp"/>
+		<Field id="errmsg" desc="回执错误信息" require="false" edittype="textarea"
+			datatype="string" method="None" readonly="true" size="500" status="F"
+			width="920" default="" xpath="/errmsg" />
+		<!--- 20181012 ADD 入账日期-->
+		<Field id="ccpdt" desc="入账日期" edittype="text" datatype="string"
+			require="false" method="None" readonly="true" size="8" status="F"
+			default="" xpath="/ccpdt" />
+			
+		<!--- 3号令之后没有用到的字段           先保留     Start-->
+		<Field id="citpDesc" desc="客户身份证件类型进一步说明" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="30"  status="F" default="" xpath="/citpDesc" /> 
+		<Field id="bitpDesc" desc="代办人身份证件类型进一步说明" require="false" status="F"
+			edittype="text" datatype="string" method="None" size="30" xpath="/bitpDesc" />
+		<Field id="tcitDesc" desc="交易对手证明类型进一步说明" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="30" status="F" default="" xpath="/tcitDesc" />
+		
+	</Fields>
+
+	<Operations>
+        <Button id="btSaveTmpTrans" name="btSaveTmpTrans" desc="暂存" operation="asysubmit" updateClass="com.huateng.report.hf.aml.bs.update.AmlBSTransSaveTmpUpdate2" url="#" txn="" />
+		<Button id="btConfirmTrans" name="btConfirmTrans" desc="校验保存" operation="asysubmit" updateClass="com.huateng.report.hf.aml.bs.update.AmlBSTransUpdate2" url="#" txn="" />
+       	<Button id="btBackTrans" name="btBackTrans" desc="返回" updateClass="" operation="" url="#" show="" group="" txn="" icon="" />
+	</Operations>
+</CommQry>

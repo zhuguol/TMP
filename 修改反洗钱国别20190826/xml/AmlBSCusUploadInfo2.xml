@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 用于直接生成SQL语句，支持同步和异步提交 -->
+<!-- title:标题 navigate:导航信息 type:方式（sql|call) interface:是否显示输入条件页面(true|false) 
+	databusid:数据总线编号 transdataactionurl:数据整理URL async:异步提交标志 pagesize:页面显示记录数(缺省为10) -->
+<CommQry title="可疑数据补录" navigate="可疑数据补录&gt;可疑数据补录" type="call"
+	interface="true" pagesize="100" async="true" databusid=""
+	transdataactionurl="/trans/TransDataAction.do"
+	getterclassname="com.huateng.report.hf.aml.getter.AmlBSCusUploadInfoGetter2">
+	<Include id="BankParam" />
+	<Fields>
+		<!-- Common Field start -->
+		<Field id="select" desc="选择" method="None" edittype="checkbox" datatype="boolean" xpath="" />	  
+		<Field id="id" desc="记录主键" require="false" edittype="text"
+			datatype="string" method="None" readonly="false" size="32" status="F"
+			default="" primary="true" xpath="/id" />
+        <Field id="oper" desc="操作" method="None" edittype="text" readonly="true" 
+            datatype="string" xpath="" />
+       <Field id="reportId" desc="内部编号" edittype="text" datatype="string" require="false" method="None" readonly="true" 
+		       size="10" status="F" default="" xpath="/reportId"/>   
+	   <Field id="workDate" desc="工作日期" edittype="text" datatype="date" method="None" readonly="true" require="false"
+		       size="8" status="F" default="" xpath="/workDate" />
+	   <!-- 客户基本信息 -->    
+	   <Field id="senm" desc="客户名称/姓名" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="96" status="F" default="" xpath="/senm"/>         
+	   <Field id="setp" desc="客户身份证件/证明文件类型" edittype="select" init="false" datatype="string" require="false" method="None" readonly="false" 
+		       size="2" translated="DATA_DIC.9019" status="F" default="" xpath="/setp" />       
+       <Field id="oitp" desc="可疑主体客户其他身份证件/证明文件类型" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="32" status="F" default="" xpath="/oitp"/>   
+       <Field id="seid" desc="客户身份证件/证明文件号码" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="20" status="F" default="" xpath="/seid" />
+     	<Field id="csnm" desc="客户号" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="32" status="F" default="" xpath="/csnm" />
+     	<Field id="sctl" desc="客户联系电话" edittype="text" datatype="string" method="None" readonly="false" 
+		       size="32" status="F" default="" xpath="/sctl" />
+     	<Field id="sear" desc="客户住址" edittype="text" datatype="string" method="None" readonly="false" 
+		       size="192" status="F" default="" xpath="/sear" />
+     	<Field id="seei" desc="客户其他联系方式" require="false" edittype="text"
+			datatype="string" method="None" readonly="false" size="4000" status="F"
+			default="" xpath="/seei" />
+     	<Field id="stnt" desc="客户国籍" require="false" edittype="select" size="3"  datatype="string"  
+	           status="F" translated="CQ:BiNationregionSelect" editable="true" dropdowntype="dynamic" viewField="nationregionIdName" method="None" fieldmap="stnt=nationregionId;stntName=nationregionIdName"
+	           xpath="/stnt" />    
+		<Field id="stntName" desc="客户国籍" status="F"
+               method="com.huateng.ebank.business.common.CQMethod.getNationregionIdName" editable="true"
+               readonly="" primary="" type="string" size="150"	 xpath="/stnt" default="" />
+     	 <Field id="sevc" desc="对私客户的职业或对公客户的行业类别" require="false" edittype="select"
+			translated="DATA_DIC.222" datatype="string" method="None" readonly="false" 
+			size="2" status="F" default="" xpath="/sevc" />
+     	<Field id="srnm" desc="对公客户法定代表人姓名" require="false" edittype="text"
+			datatype="string" method="None" readonly="false" size="48" status="F"
+			default="" xpath="/srnm" />
+     	<Field id="srit" desc="对公客户法定代表人身份证件类型" require="false" edittype="select"
+			translated="DATA_DIC.9019" datatype="string" method="None" readonly="false"
+			size="2" status="F" default="" xpath="/srit" />
+     	<Field id="orit" desc="可疑主体法定代表人其他身份证件/证明文件类型" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="32" status="F" default="" xpath="/orit"/>  
+		<Field id="srid" desc="对公客户法定代表人身份证件号码" require="false" edittype="text"
+			datatype="string" method="None" readonly="false" size="20" status="F"
+			default="" xpath="/srid" />
+		<Field id="scnm" desc="可疑主体控股股东或实际控制人名称" require="false" edittype="text"
+			datatype="string" method="None" readonly="false" size="512" status="F"
+			default="" xpath="/scnm" />
+     	<Field id="scit" desc="可疑主体控股股东或实际控制人身份证件/证明文件类型" require="false" edittype="select"
+			translated="DATA_DIC.158" datatype="string" method="None" readonly="false"
+			size="6" status="F" default="" xpath="/scit" />
+     	<Field id="ocit" desc="可疑主体控股股东或实际控制人其他身份证件/证明文件类型" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="32" status="F" default="" xpath="/ocit"/>  
+		<Field id="scid" desc="可疑主体控股股东或实际控制人身份证件/证明文件号码" require="false" edittype="text"
+			datatype="string" method="None" readonly="false" size="128" status="F"
+			default="" xpath="/scid" />
+			
+			
+		<Field id="isComp" desc="是否完整" edittype="select" datatype="string" translated="DATA_DIC.227" require="false" method="None" readonly="true" 
+		       size="1" status="F" default="" xpath="/isComp"/>
+		<Field id="errmsg" desc="回执错误信息" require="false" edittype="textarea"
+			datatype="string" method="None" readonly="true" size="500" status="F"
+			width="920" default="" xpath="/errmsg" />
+		
+		<!-- 3号令没有用到的字段    先保留 -->   
+		<Field id="citpDesc" desc="客户身份证件/证明文件类型进一步说明" edittype="text" datatype="string" require="false" method="None" readonly="false" 
+		       size="30"  status="F" default="" xpath="/citpDesc" /> 
+		<Field id="cttp" desc="客户类型" require="false" edittype="select"
+			translated="DATA_DIC.2001" datatype="string" method="None" readonly="false"
+			size="2" status="F" default="" xpath="/cttp" />
+	   <Field id="rgcp" desc="注册资金" require="false" edittype="text"
+			datatype="string" method="None" readonly="false" size="20" status="F"
+			default="" xpath="/rgcp" />
+		<Field id="critDesc" desc="对公客户法定代表人身份证件类型进一步说明" require="false" status="F"
+			edittype="text" datatype="string" method="None" size="30" xpath="/critDesc" />
+		<Field id="ywtx" desc="业务条线" edittype="text" datatype="string" method="None" readonly="false" 
+			size="64" status="F" default="" xpath="/ywtx" />
+		
+	</Fields>
+
+	<Operations>
+        <Button id="btSaveTmpCust" name="btSaveTmpCust" desc="暂存" operation="asysubmit" updateClass="com.huateng.report.hf.aml.bs.update.AmlBSCustSaveTmpUpdate2" url="#" txn="" />
+		<Button id="btConfirmCust" name="btConfirmCust" desc="校验保存" operation="asysubmit" updateClass="com.huateng.report.hf.aml.bs.update.AmlBSCustUpdate2" url="#" txn="" />
+		<Button id="btBackCust" name="btBackCust" desc="返回" updateClass="" operation="" url="#" show="" group="" txn="" icon="" />
+	</Operations>
+</CommQry>
