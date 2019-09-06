@@ -1,0 +1,8 @@
+新增黑名单命中交易统计报表
+
+1.fpages\hf\form\ftl\CBlackHitCount.ftl
+2.fpages\hf\form\xml\CBlackHitCount.xml
+3.WEB-INF\classes\com\huateng\report\hf\form\getter\CBlackHitCountGetter.calss
+4.WEB-INF\classes\resources\bean\report\form\CBlackHitCount.class
+5.WEB-INF\classes\resources\report\form\hbm\pub\CBlackHitCount.hbm.xml
+6.WEB-INF\query\meta\hfAmlFormMeta.xml
