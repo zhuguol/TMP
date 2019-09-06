@@ -13,13 +13,22 @@
 	<Include id="BankParam" />
 	<PageQryExp type="XLS" limit="true" encoding="UTF-8" url="/trans/qryExp.do" desc="黑名单命中交易统计报表"  />
 	<Fields>
-		<Field id="searchDate" desc="黑名单检索时间(年/月)" edittype="text" datatype="string" method="None" readonly="false" size="10" status="F" default="" xpath="/searchDate" />
-		<Field id="queriesNum" desc="查询次数" edittype="text" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/queriesNum" />
-		<Field id="hitsNum" desc="命中交易数量" edittype="text" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/hitsNum" />
-		<Field id="batchTime" desc="跑批日期" edittype="text" datatype="date" method="None" readonly="false" size="34" status="F" default="" xpath="/batchTime" />
+		<Field id="searchDate" desc="Time for Sanction Screening (Year/Month)" edittype="text" datatype="string" method="None" readonly="false" size="10" status="F" default="" xpath="/searchDate" />
+		<Field id="queriesNum" desc="Number of Queries" edittype="text" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/queriesNum" />
+		<Field id="hitsNum" desc="Number of Hits" edittype="text" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/hitsNum" />
+		<Field id="batchTime" desc="跑批日期" edittype="text" datatype="date" method="None" readonly="false" size="34" status="N" default="" xpath="/batchTime" />
 	</Fields>
 	<Where>
-		<Option id="fileTime" desc="黑名单检索时间(年/月)" placeholder="yyyyMM" require="true" edittype="select" dropdowntype="custom" url="/templets/lib/yyyyMM.ftl" rules="isNum" editable="true" size="6" status="F" fieldmap="fileTime=yyyyMM;fileTimeName=yyyyMM" viewField="yyyyMM" index="0" /> 
+		<Option id="qlstDateStart" desc="黑名单检索起始时间(年/月)" placeholder="yyyyMM"
+			edittype="select" dropdowntype="custom" url="/templets/lib/yyyyMM.ftl"
+			rules="isNum" editable="true" size="6" status="F" require="true"
+			fieldmap="qlstDateStart=yyyyMM;qlstDateStartName=yyyyMM" viewField="yyyyMM"
+			index="0" />
+		<Option id="qlstDateEnd" desc="黑名单检索终止时间(年/月)" placeholder="yyyyMM"
+			edittype="select" dropdowntype="custom" url="/templets/lib/yyyyMM.ftl"
+			rules="isNum" editable="true" size="6" status="F" require="true"
+			fieldmap="qlstDateEnd=yyyyMM;qlstDateEndName=yyyyMM" viewField="yyyyMM"
+			index="1" />
 	</Where>
 	<Operations>
 	</Operations>

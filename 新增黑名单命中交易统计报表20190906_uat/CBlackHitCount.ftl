@@ -16,7 +16,7 @@
 
 		    	<tr>
 		    		<td colspan="2">
-						<@CommonQueryMacro.DataTable id ="datatable1" fieldStr="searchDate[150],queriesNum[150],hitsNum[150]" width="100%"  readonly="true"/>
+						<@CommonQueryMacro.DataTable id ="datatable1" fieldStr="searchDate[250],queriesNum[150],hitsNum[150]" width="100%"  readonly="true"/>
 		      		</td>
 		    	</tr>
 			</table>
