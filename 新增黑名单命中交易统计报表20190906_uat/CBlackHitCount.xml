@@ -11,7 +11,7 @@
 	transdataactionurl="/trans/TransDataAction.do" 
 	getterclassname="com.huateng.report.hf.form.getter.CBlackHitCountGetter">
 	<Include id="BankParam" />
-	<PageQryExp type="XLS" limit="true" encoding="GBK" url="/trans/qryExp.do" desc="黑名单命中交易统计报表"  />
+	<PageQryExp type="XLS" limit="true" encoding="UTF-8" url="/trans/qryExp.do" desc="黑名单命中交易统计报表"  />
 	<Fields>
 		<Field id="searchDate" desc="黑名单检索时间(年/月)" edittype="text" datatype="string" method="None" readonly="false" size="10" status="F" default="" xpath="/searchDate" />
 		<Field id="queriesNum" desc="查询次数" edittype="text" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/queriesNum" />
