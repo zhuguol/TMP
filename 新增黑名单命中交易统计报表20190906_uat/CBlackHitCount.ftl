@@ -16,10 +16,53 @@
 
 		    	<tr>
 		    		<td colspan="2">
-						<@CommonQueryMacro.DataTable id ="datatable1" fieldStr="searchDate[250],queriesNum[150],hitsNum[150]" width="100%"  readonly="true"/>
+						<@CommonQueryMacro.DataTable id ="datatable1" paginationbar="exportBN" fieldStr="searchDate[250],queriesNum[150],hitsNum[150]" width="100%"  readonly="true"/>
 		      		</td>
 		    	</tr>
 			</table>
 		</@CommonQueryMacro.CommonQuery>
+	<script language="JavaScript">
+		//下载
+		function exportBN_onClick(){	
+			var etlDateStart = CBlackHitCount_interface_dataset.getString("etlDateStart");
+			var etlDateEnd = CBlackHitCount_interface_dataset.getString("etlDateEnd");
+			if(etlDateStart==''){
+				alert("请选择黑名单检索起始时间(年/月)");
+				return false;
+			}
+		    if(etlDateEnd==''){
+				alert("请选择黑名单检索终止时间(年/月)");
+				return false;
+			}	
+			document.getElementById("exportBN").style.display = "none";
+			createTimerIfNull();	
+			window.location.href = encodeURI(encodeURI("${contextPath}/filedownload/CBlackHitCountDownloadAction.do?etlDateStart="+etlDateStart+"&etlDateEnd="+etlDateEnd));
+		}
+		//旋转
+		var timer = null;
+		function createTimerIfNull(){
+			if(timer==null){
+				timer = window.setInterval(function(){
+				try{
+					getExportStatus();
+				}catch(e){}},500);//刷新时间 
+			}
+		}
 	
+		function getExportStatus(){
+			PrivAction.getExportFlag("CBlackHitCount",function(data){
+				exportCallBack(data);
+			});
+		}
+		
+		function exportCallBack(data){
+			if(data!=null){
+				document.getElementById("exportBN").style.display = "";
+				if(timer!=null){
+					window.clearInterval(timer);
+					timer=null;
+				}
+			}
+		}
+	</script>
 </@CommonQueryMacro.page>

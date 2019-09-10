@@ -6,3 +6,14 @@
 4.WEB-INF\classes\resources\bean\report\form\CBlackHitCount.class
 5.WEB-INF\classes\resources\report\form\hbm\pub\CBlackHitCount.hbm.xml
 6.WEB-INF\query\meta\hfAmlFormMeta.xml
+
+
+1.WEB-INF\classes\CBlackHitCount.xlsx
+2.WEB-INF\classes\com\huateng\report\aml\download\CBlackHitCountDownloadAction.class
+3.WEB-INF\classes\com\huateng\report\hf\form\getter\CBlackHitCountGetter.class
+4.WEB-INF\classes\resources\bean\report\form\CBlackHitCount.class
+5.WEB-INF\classes\resources\report\form\hbm\pub\CBlackHitCount.hbm.xml
+6.fpages\hf\form\ftl\CBlackHitCount.ftl
+7.fpages\hf\form\xml\CBlackHitCount.xml
+8.WEB-INF\web.xml
+9.WEB-INF\query\meta\hfAmlFormMeta.xml
