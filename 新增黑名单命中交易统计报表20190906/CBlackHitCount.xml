@@ -14,7 +14,7 @@
 	<Fields>
 		<Field id="searchDate" desc="黑名单检索时间(年/月)&lt;br / &gt;Time for Sanction Screening (Year/Month)" edittype="text" datatype="string" method="None" readonly="false" size="10" status="F" default="" xpath="/searchDate" />
 		<Field id="queriesNum" desc="查询次数&lt;br / &gt;Number of Queries" edittype="text" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/queriesNum" />
-		<Field id="hitsNum" desc="命中交易数量&lt;br / &gt;Number of Hits" edittype="text" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/hitsNum" />
+		<Field id="hitsNum" desc="潜在命中交易数量&lt;br / &gt;Number of Transactions Potential Hit" edittype="text" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/hitsNum" />
 		<Field id="batchTime" desc="跑批日期&lt;br / &gt;Batch Time" edittype="text" datatype="date" method="None" readonly="false" size="34" status="N" default="" xpath="/batchTime" />
 	</Fields>
 	<Where>
