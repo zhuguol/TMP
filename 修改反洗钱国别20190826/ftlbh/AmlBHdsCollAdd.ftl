@@ -331,10 +331,10 @@
 	var op = "${RequestParameters["op"]?default('')}";
 	var location_id = "${RequestParameters["id"]?default('')}"; 
 	
-	var inf = "${RequestParameters["inf"]?default('')}";
-	var qs = "${RequestParameters["qs"]?default('')}";
-	var qe = "${RequestParameters["qe"]?default('')}";
-	var qticd = "${RequestParameters["qticd"]?default('')}";
+	//var inf = "${RequestParameters["inf"]?default('')}";
+	//var qs = "${RequestParameters["qs"]?default('')}";
+	//var qe = "${RequestParameters["qe"]?default('')}";
+	//var qticd = "${RequestParameters["qticd"]?default('')}";
 	
 	var sysTxdate = ${statics["com.huateng.ebank.business.common.GlobalInfo"].getCurrentInstanceWithoutException().getTxdate()?string("yyyyMMdd")};   
 	<#assign v_branchcode = statics["com.huateng.ebank.business.common.GlobalInfo"].getCurrentInstance().getBrno()>
@@ -523,8 +523,8 @@
 		    }else{
 			    if(confirm("确认成功！是否继续补录下一条交易数据？")){
 			    		 var reportType = AmlBHdsCollAdd_dataset.getValue("reportType");
-						 //HfAmlDwrService.getNextBHData(reportType,function(id){
-						 HfAmlDwrService.getNextBHData2(reportType,inf,qs,qe,qticd,function(id){
+						 HfAmlDwrService.getNextBHData(reportType,function(id){
+						 //HfAmlDwrService.getNextBHData2(reportType,inf,qs,qe,qticd,function(id){
 						 	if(id!=null){
 						 	    setStyle();
 							 	AmlBHdsCollAdd_dataset.setParameter("id",id);
@@ -568,8 +568,8 @@
 		    }else{
 			    if(confirm("上报成功！是否继续补录下一条交易数据？")){
 			    		 var reportType = AmlBHdsCollAdd_dataset.getValue("reportType");
-						 //HfAmlDwrService.getNextBHData(reportType,function(id){
-						 HfAmlDwrService.getNextBHData2(reportType,inf,qs,qe,qticd,function(id){
+						 HfAmlDwrService.getNextBHData(reportType,function(id){
+						 //HfAmlDwrService.getNextBHData2(reportType,inf,qs,qe,qticd,function(id){
 						 	if(id!=null){
 						 	    setStyle();
 							 	AmlBHdsCollAdd_dataset.setParameter("id",id);
