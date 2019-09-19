@@ -7,3 +7,6 @@
 
 5.WEB-INF\web.xml                             换新的
 6.fpages\hfaml3\ftl\bh\AmlBHdsCollAdd.ftl     换新的
+
+7.黑名单交易下载表的数据日期改为交易日期
+8.fpages\hf\form\xml\CBlackTransDownload.xml
