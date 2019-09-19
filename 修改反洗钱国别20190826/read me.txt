@@ -9,7 +9,9 @@
 4.fpages\hfaml3\ftl\bh
 5.fpages\hfaml3\xml\bh
 6.WEB-INF\classes\AML_BH.xlsx
-
+7.修改国别的SQL
+	bi_nationregion
+	bi_areaofchina
 
 
 
