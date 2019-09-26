@@ -1,0 +1,61 @@
+1.WEB-INF\classes\com\huateng\excel\imp\BatchImportController.class
+
+2.WEB-INF\classes\com\huateng\excel\imp\east\BatchImportForEast.class
+
+
+
+
+===============================================
+1.添加RBB角色
+
+2.SYS_PARAMS添加部门
+insert into SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST, IS_LOCK, IS_DEL, CRT_DT, LAST_UPD_TMS, LAST_UPD_OPER)
+values ('DEPARTMENT', 'RBB', 'RBB_CHANGE_INFO', 'RBB部门上传文件', null, '4', 'F', 'F', null, null, null);
+
+
+3.TB_TABLEINFO添加表信息
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('RBB_CHANGE_INFO', 'E_RBB_CHANGE_INFO', 'CARM_APP_ID', null, null, null, null, 1, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('RBB_CHANGE_INFO', 'E_RBB_CHANGE_INFO', 'CARM_SER_NO', null, null, null, null, 2, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('RBB_CHANGE_INFO', 'E_RBB_CHANGE_INFO', 'APPROVE_EMP_CODE', null, null, null, null, 3, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('RBB_CHANGE_INFO', 'E_RBB_CHANGE_INFO', 'CHANGE_REASON', null, null, null, null, 4, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('RBB_CHANGE_INFO', 'E_RBB_CHANGE_INFO', 'CUST_UNITE_CODE', null, null, null, null, 5, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('RBB_CHANGE_INFO', 'E_RBB_CHANGE_INFO', 'AUTHORIZE_EMP_CODE', null, null, null, null, 6, null, null, null, null);
+commit;
+
+
+4.添加表
+create table E_RBB_CHANGE_INFO
+(
+  ETL_DATE           VARCHAR2(6),
+  CARM_APP_ID        VARCHAR2(13),
+  CARM_SER_NO        VARCHAR2(6),
+  APPROVE_EMP_CODE   VARCHAR2(30),
+  CHANGE_REASON      VARCHAR2(60),
+  CUST_UNITE_CODE    VARCHAR2(15),
+  AUTHORIZE_EMP_CODE VARCHAR2(30),
+  STATUS             VARCHAR2(2),
+  DATA_FLAG          VARCHAR2(20)
+);
+
+-- Add comments to the table 
+comment on table E_RBB_CHANGE_INFO
+  is 'RBB五星变动信息补充表';
+-- Add comments to the columns 
+comment on column E_RBB_CHANGE_INFO.CARM_APP_ID
+  is 'CARM APPLICATION ID';
+comment on column E_RBB_CHANGE_INFO.CARM_SER_NO
+  is 'CARM SERIAL NO';
+comment on column E_RBB_CHANGE_INFO.APPROVE_EMP_CODE
+  is '审批员工号';
+comment on column E_RBB_CHANGE_INFO.CHANGE_REASON
+  is '变动原因';
+comment on column E_RBB_CHANGE_INFO.CUST_UNITE_CODE
+  is '客户统一编号';
+comment on column E_RBB_CHANGE_INFO.AUTHORIZE_EMP_CODE
+  is '授权员工号';     
