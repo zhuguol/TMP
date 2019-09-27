@@ -1,3 +1,9 @@
+上传_CHANGE_INFO相关文件需要注意：
+1.添加相对应的角色信息。
+2.需要配置SYS_PARAMS表，参数与上传的部门与文件相关。
+
+
+
 1.WEB-INF\classes\com\huateng\excel\imp\BatchImportController.class
 
 2.WEB-INF\classes\com\huateng\excel\imp\east\BatchImportForEast.class
