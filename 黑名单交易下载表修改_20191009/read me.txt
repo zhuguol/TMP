@@ -1,0 +1,31 @@
+黑名单交易下载表修改
+1.将C_BLACK_TRANS_DOWNLOAD替换成C_BLACK_TRANS_DOWNLOAD_RET(添加了18个字段)
+  C$CPDT     
+  C$DLNO     
+  C$CPWS    
+  C$PIMG    
+  C$PIMS         
+  C$OB      
+  C$PNM       
+  C$PAD      
+  C$PAC       
+  C$BNM     
+  C$BAD      
+  C$BAC      
+  C$NR      
+  C$FTAG    
+  C$TXTF    
+  IS_BIBTCPP  
+  IS_MERGE    
+  C$MID  
+
+2.查询页面与下载都做了修改。
+
+
+1.fpages\hf\form\xml\CBlackTransDownload.xml
+2.fpages\hf\form\ftl\CBlackTransDownload.ftl
+3.WEB-INF\classes\resources\report\form\hbm\pub\CBlackTransDownload.hbm.xml
+4.WEB-INF\classes\resources\bean\report\form\CBlackTransDownload.class
+5.WEB-INF\classes\com\huateng\report\aml\download\CBlackListUploadDownloadAction.class
+6.WEB-INF\classes\com\huateng\report\aml\download\ExportBlackNameUtils.class
+
