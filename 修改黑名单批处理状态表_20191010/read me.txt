@@ -1,0 +1,3 @@
+修改黑名单批处理状态表
+1.fpages\hf\form\xml\CBlackBatchStatus.xml
+2.C_Black_Batch_Status表的注释
