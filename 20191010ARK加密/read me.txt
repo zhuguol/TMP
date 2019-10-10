@@ -1,4 +1,5 @@
 添加ARK加密功能。
+添加ARK菜单
 
 1.fpages\export\jsp\EncryptArk.jsp
 2.WEB-INF\dwr.xml

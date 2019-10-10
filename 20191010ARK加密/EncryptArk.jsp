@@ -109,7 +109,7 @@ tr {
 
 </style>
 <script language="javascript">
-    var btnSave = function (){
+    function btnSave(){
 		var plainData = document.getElementById("plainDataBefore").value;
 		if(plainData==null || plainData==""){
 			alert("加密前信息为空！");
