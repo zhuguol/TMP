@@ -109,15 +109,31 @@ tr {
 
 </style>
 <script language="javascript">
-    function btnSave(){
+	//生成加密
+    function btnPlainData(){
 		var plainData = document.getElementById("plainDataBefore").value;
+		document.getElementById("plainDataAfter").value = "";
 		if(plainData==null || plainData==""){
-			alert("加密前信息为空！");
+			alert("加密前信息不能为空！");
 			return false;
 		}
 		dwr.engine.setAsync(false);
 		EncryptAction.getEncryptString(plainData,function(data){
 			document.getElementById("plainDataAfter").value = data;
+		});
+		dwr.engine.setAsync(true);
+	}
+	//生成解密
+    function btnDecryptData(){
+		var decryptData = document.getElementById("plainDataAfter").value;
+		document.getElementById("plainDataBefore").value = "";
+		if(decryptData==null || decryptData==""){
+			alert("加密后信息不能为空！");
+			return false;
+		}
+		dwr.engine.setAsync(false);
+		EncryptAction.getDecryptString(decryptData,function(data){
+			document.getElementById("plainDataBefore").value = data;
 		});
 		dwr.engine.setAsync(true);
 	}
@@ -130,7 +146,7 @@ tr {
 		method="post" accept-charset="UTF-8">
 		<table id="mytable" class="grouptable" width="100%" cellspacing="0">
 			<tr>
-				<td class="labeltd" align="right">加密前:</td>
+				<td class="labeltd" align="right">加密前:<span style="color:red;float:right">*</span></td>
 				<td align="left" class="datatd">
 					<input type="textarea" placeholder="请输入加密信息" id="plainDataBefore" name="plainDataBefore" maxlength="" style="width: 70%;border: 1px solid #E5E5E5; height: 35px" class="mytxt" />
 				</td>
@@ -138,12 +154,14 @@ tr {
 			<tr>
 				<td align="right" class="labeltd">加密后:<span style="color:red;float:right">*</span></td>
 				<td align="left" class="datatd">
-					<input type="textarea" placeholder="" id="plainDataAfter" name="plainDataAfter" maxlength="" style="width:70%;border: 1px solid #E5E5E5; height: 35px" class="mytxt" />
+					<input type="textarea" placeholder="请输入解密信息" id="plainDataAfter" name="plainDataAfter" maxlength="" style="width:70%;border: 1px solid #E5E5E5; height: 35px" class="mytxt" />
 				</td>
 			</tr>
 			<tr>
 				<td colspan="4" align="center" class="labeltd">
-					<a extra="button" type="button" id="btSave" resultdataset="" plain="false" onclick="btnSave();"submitmanager="_submitmanager_default" autoform="dtResult" class="l-btn" noextra="true"><span class="l-btn-left"><span class="l-btn-text">生成加密</span></span></a>
+					<a extra="button" type="button" id="btnPlainData" resultdataset="" plain="false" onclick="btnPlainData();"submitmanager="_submitmanager_default" autoform="dtResult" class="l-btn" noextra="true"><span class="l-btn-left"><span class="l-btn-text">生成加密</span></span></a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a extra="button" type="button" id="btnDecryptData" resultdataset="" plain="false" onclick="btnDecryptData();"submitmanager="_submitmanager_default" autoform="dtResult" class="l-btn" noextra="true"><span class="l-btn-left"><span class="l-btn-text">生成解密</span></span></a>
 				</td>
 			</tr>
 		</table>

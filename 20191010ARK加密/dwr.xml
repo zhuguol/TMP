@@ -24,8 +24,9 @@
 		<create creator="new" javascript="EncryptAction">
 			<param name="class" value="com.huateng.report.utils.DESUtil" />
 			<include method="getEncryptString"/>
-			
+			<include method="getDecryptString"/>
 		</create>
+		
 		<create creator="new" javascript="PrivAction">
 			<param name="class" value="com.huateng.ebank.business.dwr.DwrFunctions" />
             <include method="setGlobalInfo" />
