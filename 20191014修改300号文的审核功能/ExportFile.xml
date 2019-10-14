@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 用于直接生成SQL语句，支持同步和异步提交 -->
+<!-- title:标题 navigate:导航信息 type:方式（sql|call) interface:是否显示输入条件页面(true|false) 
+	databusid:数据总线编号 transdataactionurl:数据整理URL async:异步提交标志 pagesize:页面显示记录数(缺省为10) -->
+<CommQry title="导出信息审核表" navigate="主页 &gt; 导出信息审核表"
+	type="call" interface="false" pagesize="10" async="true" databusid="MANAGEMENTTLR"
+	transdataactionurl="/trans/TransDataAction.do" getterclassname="com.huateng.export.getter.ExportFileGetter">
+	<Include id="BankParam" />
+	<Fields>
+		<!-- status :F-基本信息中显示 N-不显示 D-详细信息中显示 A-基本、详细信息中都显示 -->
+		<!-- primary : true-作为表单项记录上传 false-不作为表单项上传 -->
+		<Field id="select" desc="选择" method="None" edittype="checkbox" datatype="boolean" xpath="" />
+		<Field id="recId" desc="主键" status="N" method="None" readonly="true" primary="false" type="String" size="32" xpath="/recId" />
+		<Field id="brno" desc="机构号" status="F" method="None" readonly="true" primary="false" type="String" size="10" xpath="/brno" />
+		<Field id="brClass" desc="机构级别" status="F" method="None" readonly="true" primary="false" type="String" size="10" xpath="/brClass" />
+		<Field id="tlrno" desc="操作员号" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/tlrno" />
+		<Field id="rsptime" desc="申请时间" status="F" method="None" readonly="true" primary="false" datatype="timestamp" size="60" xpath="/rsptime" />
+		<Field id="rsptable" desc="导出表名" status="F" method="None" readonly="true" primary="false" type="String" size="200" xpath="/rsptable" />
+		<Field id="rsptablename" desc="申请导出报表名称" status="F" method="None" readonly="true" primary="false" type="String" size="200" xpath="/rsptablename" />
+		<Field id="sqlWhereShow" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="4000" xpath="/sqlWhereShow" />
+		
+		<Field id="beginDateStart" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/beginDateStart" />
+		<Field id="beginDateEnd" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/beginDateEnd" />
+		<Field id="endDateStart" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/endDateStart" />
+		<Field id="endDateEnd" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/endDateEnd" />
+		<Field id="etlDateStart" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/etlDateStart" />
+		<Field id="etlDateEnd" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/etlDateEnd" />
+		<Field id="openTimeStart" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/openTimeStart" />
+		<Field id="openTimeEnd" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/openTimeEnd" />
+		<Field id="closeTimeStart" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/closeTimeStart" />
+		<Field id="closeTimeEnd" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/closeTimeEnd" />
+		<Field id="orgCode" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/orgCode" />
+		
+		<Field id="flag" desc="拉链表去重标志" status="F" method="None" readonly="true" primary="false" type="String" size="10" xpath="/flag" />
+		<Field id="checkPerson" desc="审核人" status="F" method="None" readonly="true" primary="false" type="String" size="50" xpath="/checkPerson" />
+		<Field id="status" desc="审核状态" status="F" method="None" edittype="select" translated="LIST:01,01-通过;02,02-不通过;" readonly="false" primary="false" type="String" size="60" xpath="/status" />
+		<Field id="checkTime" desc="审核时间" status="F" method="None" readonly="true" primary="false" datatype="timestamp" size="60" xpath="/checkTime" />
+		<Field id="checkMessage" desc="审核说明" status="F" method="None" readonly="true" primary="false" type="String" size="200" xpath="/checkMessage" />
+		<Field id="filler1" desc="filler1" status="F" method="None" readonly="true" primary="false" type="String" size="64" xpath="/filler1" />
+		<Field id="filler2" desc="filler2" status="F" method="None" readonly="true" primary="false" type="String" size="64" xpath="/filler2" />
+		<Field id="filler3" desc="filler3" status="F" method="None" readonly="true" primary="false" type="String" size="64" xpath="/filler3" />
+		<Field id="filler4" desc="filler4" status="F" method="None" readonly="true" primary="false" type="String" size="64" xpath="/filler4" />
+		<Field id="filler5" desc="filler5" status="F" method="None" readonly="true" primary="false" type="String" size="64" xpath="/filler5" />
+		<Field id="filler6" desc="filler6" status="F" method="None" readonly="true" primary="false" type="String" size="64" xpath="/filler6" />
+		<Field id="num" desc="申请导出记录数" status="F" method="None" readonly="true" primary="false" type="String" size="20" xpath="/num" />
+		<Field id="filesize" desc="文件大小(M)" status="F" method="None" readonly="true" primary="false" type="String" size="50" xpath="/filesize" />
+		
+		<!--add 20191014  -->
+		<Field id="lstUpdTmStart" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/lstUpdTmStart" />
+		<Field id="lstUpdTmEnd" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/lstUpdTmEnd" />
+		<Field id="lwhcDateStart" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/lwhcDateStart" />
+		<Field id="lwhcDateEnd" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/lwhcDateEnd" />
+		<Field id="filePath" desc="文件路径" status="F" method="None" readonly="true" primary="false" type="String" size="500" xpath="/filePath" />
+		<Field id="comments" desc="文件路径" status="F" method="None" readonly="true" primary="false" type="String" size="4000" xpath="/comments" />
+		
+		<!-- 子窗口审核状态 -->
+		<Field id="approveStatusChoose" desc="状态选择" require="false"
+			edittype="select" datatype="string" method="None" readonly="false"
+			size="2" translated="LIST:01,01-通过;02,02-不通过;" status="N" default=""
+			xpath="" />
+		<!-- 子窗口审核说明 -->
+		<Field id="approveResultChoose" desc="说明" require="" edittype="textarea"
+			datatype="string" method="None" readonly="false" size="256" status="N"
+			default="" xpath="" />
+	</Fields>
+	
+	<Where>
+		<Option id="status" desc="审核状态" method="None" index="0" translated="DATA_DIC.101" />
+		<TextBox id="tlrno" desc="操作员号" edittype="text" status="F" datatype="string" size="32" index="1" />
+		
+	</Where>
+	
+	<Operations>
+		<Button id="btApprove" name="btApprove" desc="审核" updateClass=""
+			operation="" url="#" show="" group="" txn="" icon="icon-ok" />
+		<Button id="btSubmit" name="btSubmit" operation="asysubmit"
+			desc="确认" updateClass="com.huateng.export.update.ExportFileUpdate" url="#"
+			show="" group="" txn="" icon="icon-ok" />
+		<Button id="btCancel" name="btCancel" desc="返回" updateClass=""
+			operation="" url="#" show="" group="" txn="" icon="icon-ok" />
+	</Operations>
+</CommQry>
+	
+	
+	
+	

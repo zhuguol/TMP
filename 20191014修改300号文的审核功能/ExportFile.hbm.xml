@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="resource.bean.export">
+	<class name="ExportFile" table="EXPORT_FILE">
+	<meta attribute="sync-DAO">false</meta>
+	<id name="recId" type="string" column="REC_ID"></id>
+	<property name="brno" column="BRNO" type="string" not-null="false" length="10" />
+	<property name="brClass" column="BRCLASS" type="string" not-null="false" length="10" />
+	<property name="tlrno" column="TLRNO" type="string" not-null="false" length="32" />
+	<property name="rsptime" column="RSPTIME" type="date" not-null="false" length="34" />
+	<property name="rsptable" column="RSPTABLE" type="string" not-null="false" length="200" />
+	<property name="rsptablename" column="RSPTABLENAME" type="string" not-null="false" length="200" />
+	<property name="sqlWhereShow" column="SQLWHERESHOW" type="string" not-null="false" length="4000" />
+	
+	<property name="beginDateStart" column="BEGINDATESTART" type="string" not-null="false" length="32" />
+	<property name="beginDateEnd" column="BEGINDATEEND" type="string" not-null="false" length="32" />
+	<property name="endDateStart" column="ENDDATESTART" type="string" not-null="false" length="32" />
+	<property name="endDateEnd" column="ENDDATEEND" type="string" not-null="false" length="32" />
+	<property name="etlDateStart" column="ETLDATESTART" type="string" not-null="false" length="32" />
+	<property name="etlDateEnd" column="ETLDATEEND" type="string" not-null="false" length="32" />
+	<property name="openTimeStart" column="OPENTIMESTART " type="string" not-null="false" length="32" />
+	<property name="openTimeEnd" column="OPENTIMEEND" type="string" not-null="false" length="32" />
+	<property name="closeTimeStart" column="CLOSETIMESTART" type="string" not-null="false" length="32" />
+	<property name="closeTimeEnd" column="CLOSETIMEEND" type="string" not-null="false" length="32" />
+	<property name="orgCode" column="ORGCODE" type="string" not-null="false" length="32" />
+	<property name="flag" column="FLAG" type="string" not-null="false" length="10" />
+	<property name="lstUpdTmStart" column="LSTUPDTMSTART " type="string" not-null="false" length="32" />
+	<property name="lstUpdTmEnd" column="LSTUPDTMEND" type="string" not-null="false" length="32" />
+	<property name="lwhcDateStart" column="LWHCDATESTART" type="string" not-null="false" length="32" />
+	<property name="lwhcDateEnd" column="LWHCDATEEND" type="string" not-null="false" length="32" />
+	
+	<property name="num" column="NUM" type="big_decimal" not-null="false" length="20" />
+	<property name="filesize" column="FILESIZE" type="big_decimal" not-null="false" length="20" />
+	<property name="filePath" column="FILEPATH" type="string" not-null="false" length="500" />
+	<property name="checkPerson" column="CHECKPERSON" type="string" not-null="false" length="50" />
+	<property name="status" column="STATUS" type="string" not-null="false" length="2" />
+	<property name="checkTime" column="CHECKTIME" type="date" not-null="false" length="34" />
+	<property name="checkMessage" column="CHECKMESSAGE" type="string" not-null="false" length="500" />
+	<property name="comments" column="COMMENTS" type="string" not-null="false" length="4000" />
+	<property name="filler1" column="FILLER1" type="string" not-null="false" length="64" />
+	<property name="filler2" column="FILLER2" type="string" not-null="false" length="64" />
+	<property name="filler3" column="FILLER3" type="string" not-null="false" length="64" />
+	<property name="filler4" column="FILLER4" type="string" not-null="false" length="64" />
+	<property name="filler5" column="FILLER5" type="string" not-null="false" length="64" />
+	<property name="filler6" column="FILLER6" type="string" not-null="false" length="64" />
+	
+	</class>
+</hibernate-mapping>

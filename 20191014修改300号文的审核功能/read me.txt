@@ -1,0 +1,6 @@
+300号文审核功能修改
+1.ExportFile.xml中缺少lstUpdTmStart、lstUpdTmEnd、lwhcDateStart、lwhcDateEnd、filePath、comments字段定义
+
+1.fpages\export\xml\ExportFile.xml
+2.WEB-INF\classes\resources\report\export\hbm\pub\ExportFile.hbm.xml
+
