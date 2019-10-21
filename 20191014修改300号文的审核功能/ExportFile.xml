@@ -51,7 +51,7 @@
 		<Field id="lwhcDateStart" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/lwhcDateStart" />
 		<Field id="lwhcDateEnd" desc="查询条件" status="F" method="None" readonly="true" primary="false" type="String" size="32" xpath="/lwhcDateEnd" />
 		<Field id="filePath" desc="文件路径" status="F" method="None" readonly="true" primary="false" type="String" size="500" xpath="/filePath" />
-		<Field id="comments" desc="文件路径" status="F" method="None" readonly="true" primary="false" type="String" size="4000" xpath="/comments" />
+		<Field id="comments" desc="文件说明" status="F" method="None" readonly="true" primary="false" type="String" size="4000" xpath="/comments" />
 		
 		<!-- 子窗口审核状态 -->
 		<Field id="approveStatusChoose" desc="状态选择" require="false"
