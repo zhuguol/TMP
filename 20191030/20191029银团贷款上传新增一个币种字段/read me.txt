@@ -1,0 +1,8 @@
+银团贷款新增一个币种字段。
+1.添加字段SQL
+	alter table E_SYN_HSS add BZ varchar(3);
+	comment on column E_SYN_HSS.BZ is '币种';
+2.添加TB_TABLEINFO信息
+	insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+	values ('SYN_HSS', 'E_SYN_HSS', 'BZ', null, null, null, null, 20, null, null, null, null);
+3.模板修改
