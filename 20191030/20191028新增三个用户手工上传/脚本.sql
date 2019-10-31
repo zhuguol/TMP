@@ -279,7 +279,8 @@ insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LE
 values ('JGXXB', 'E_JGXXB', 'JGDZ', null, null, null, null, 6, null, null, null, null);
 insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
 values ('JGXXB', 'E_JGXXB', 'YYZZH', null, null, null, null, 7, null, null, null, null);
-
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('JGXXB', 'E_JGXXB', 'YYZT', null, null, null, null, 8, null, null, null, null);
 
 insert into SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST, IS_LOCK, IS_DEL, CRT_DT, LAST_UPD_TMS, LAST_UPD_OPER)
 values ('DEPARTMENT', 'BMO', 'JGXXB', 'BMO部门上传文件', null, '4', 'F', 'F', null, null, null);
