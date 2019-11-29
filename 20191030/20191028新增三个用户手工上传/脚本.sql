@@ -9,7 +9,7 @@ create table E_DKHX
   KHTYBH				VARCHAR2(60),
   --YXJGDM				VARCHAR2(30),
   --JRXKZH			    VARCHAR2(30),
-  --NBJGH       			VARCHAR2(30),
+  --NBJGH       		VARCHAR2(30),
   KMGSJG                VARCHAR2(30),
   BZ                    VARCHAR2(3),
   SHDKBJ				NUMBER(20,2),
@@ -23,7 +23,7 @@ create table E_DKHX
   HXSHGYH				VARCHAR2(30),
   HXSHRQ				VARCHAR2(8),
   BZH					VARCHAR2(200)
---  CJRQ					VARCHAR2(8)
+--CJRQ				VARCHAR2(8)
 );
 
 comment on table E_DKHX
@@ -186,6 +186,42 @@ insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LE
 values ('DKHX_CDT', 'E_DKHX', 'BZH', null, null, null, null, 16, null, null, null, null);
 
 
+--部门DKHX_RBB的TB_TABLEINFO脚本
+
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('DKHX_RBB', 'E_DKHX', 'XDJJH', null, null, null, null, 1, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('DKHX_RBB', 'E_DKHX', 'XDHTH', null, null, null, null, 2, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('DKHX_RBB', 'E_DKHX', 'KHTYBH', null, null, null, null, 3, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('DKHX_RBB', 'E_DKHX', 'KMGSJG', null, null, null, null, 4, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('DKHX_RBB', 'E_DKHX', 'BZ', null, null, null, null, 5, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('DKHX_RBB', 'E_DKHX', 'SHDKBJ', null, null, null, null, 6, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('DKHX_RBB', 'E_DKHX', 'SHBNLX', null, null, null, null, 7, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('DKHX_RBB', 'E_DKHX', 'SHBWLX', null, null, null, null, 8, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('DKHX_RBB', 'E_DKHX', 'HXRQ', null, null, null, null, 9, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('DKHX_RBB', 'E_DKHX', 'HXSHBJ', null, null, null, null, 10, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('DKHX_RBB', 'E_DKHX', 'HXSHBNLX', null, null, null, null, 11, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('DKHX_RBB', 'E_DKHX', 'HXSHBWLX', null, null, null, null, 12, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('DKHX_RBB', 'E_DKHX', 'SHBZ', null, null, null, null, 13, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('DKHX_RBB', 'E_DKHX', 'HXSHGYH', null, null, null, null, 14, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('DKHX_RBB', 'E_DKHX', 'HXSHRQ', null, null, null, null, 15, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('DKHX_RBB', 'E_DKHX', 'BZH', null, null, null, null, 16, null, null, null, null);
+
+
 
 insert into SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST, IS_LOCK, IS_DEL, CRT_DT, LAST_UPD_TMS, LAST_UPD_OPER)
 values ('DEPARTMENT', 'CCS', 'DKHX_CCS', 'CCS部门上传文件', null, '4', 'F', 'F', null, null, null);
@@ -193,6 +229,8 @@ insert into SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST
 values ('DEPARTMENT', 'WMR', 'DKHX_WMR', 'WMR部门上传文件', null, '4', 'F', 'F', null, null, null);  
 insert into SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST, IS_LOCK, IS_DEL, CRT_DT, LAST_UPD_TMS, LAST_UPD_OPER)
 values ('DEPARTMENT', 'CDT', 'DKHX_CDT', 'CDT部门上传文件', null, '4', 'F', 'F', null, null, null);
+insert into SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST, IS_LOCK, IS_DEL, CRT_DT, LAST_UPD_TMS, LAST_UPD_OPER)
+values ('DEPARTMENT', 'RBB', 'DKHX_RBB', 'RBB部门上传文件', null, '4', 'F', 'F', null, null, null);
 
 ---------------------------------------机构信息表
 create table E_JGXXB
@@ -329,7 +367,7 @@ comment on column E_JGGXB.XNH
 --  is '银行机构代码';
 --comment on column E_JGGXB.CJRQ
  -- is '采集日期';
-create unique index JGGXB_PRIMARY_KEY ON JGGXB (NBJGH,ETL_DATE); 
+create unique index JGGXB_PRIMARY_KEY ON E_JGGXB (NBJGH,ETL_DATE); 
  
 
 --TB_TABLEINFO脚本
