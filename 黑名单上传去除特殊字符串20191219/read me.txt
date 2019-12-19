@@ -1,0 +1,5 @@
+黑名单上传功能修改
+1.字段Sanctions Targets Name中的数据去掉1:、2：等信息。
+2.字段alias中的数据去掉a)、b）等信息。
+
+3.WEB-INF\classes\com\huateng\report\hf\aml\imp\AmlBatchImportController.class
