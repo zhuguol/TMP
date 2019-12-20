@@ -1,5 +1,5 @@
 黑名单上传功能修改
-1.字段Sanctions Targets Name中的数据去掉1:、2：等信息。
+1.字段Sanctions Targets Name中的数据去掉1:、2：na等信息。
 2.字段alias中的数据去掉a)、b）等信息。
 3.字段alias中的数据去掉-符号信息。
 4.字段alias中的数据去掉'符号信息。
