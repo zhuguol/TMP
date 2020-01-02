@@ -1,9 +1,9 @@
 黑名单上传功能修改
-1.字段Sanctions Targets Name中的数据去掉"1:"、"2:"、"na"、"-"、"'"等信息。
-2.字段alias中的数据去掉"a)"、"b)"等信息。
-3.字段alias中的数据去掉"-"符号信息。
-4.字段alias中的数据去掉"'"符号信息。
-5.字段alias中的数据去掉"@N"、"N/A"、"na"符号信息。
+1.字段Sanctions Targets Name中的数据去掉"1:"、"2:"、"na"、"-"、"'"等信息，符号不区分全角和半角，"na"不区分大小写。
+2.字段alias中的数据去掉"1:"、"2:"、"a)"、"b)"等信息。
+3.字段alias中的数据去掉"-"符号信息，不区分全角和半角。
+4.字段alias中的数据去掉"'"符号信息，不区分全角和半角。
+5.字段alias中的数据去掉"@N"、"N/A"、"na"符号信息，"na"不区分大小写。
 6.字段alias长度改为900。
 7.WEB-INF\classes\com\huateng\report\hf\aml\imp\AmlBatchImportController.class
 8.修改c_black_list_upload表的ALIAS长度： alter table c_black_list_upload modify (ALIAS VARCHAR2(900));
