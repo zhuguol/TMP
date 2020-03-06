@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 用于直接生成SQL语句，支持同步和异步提交 -->
+<!-- title:标题 navigate:导航信息 type:方式（sql|call) interface:是否显示输入条件页面(true|false) 
+	databusid:数据总线编号 transdataactionurl:数据整理URL async:异步提交标志 pagesize:页面显示记录数(缺省为10) -->
+<CommQry title="大额交易" navigate="反洗钱&gt;  大额交易"
+	type="call" 
+	interface="true" 
+	pagesize="100" 
+	async="true" 
+	databusid=""
+	transdataactionurl="/trans/TransDataAction.do" 
+	getterclassname="com.huateng.report.hf.form.getter.AmlCustInfoGetter">
+	<Include id="BankParam" />
+	<Fields>
+		<Field id="id" desc="记录主键" edittype="text" datatype="string" method="None" readonly="false" size="20" status="N"  primary="true" xpath="/id" />
+		<Field id="custName" desc="客户姓名" edittype="text" datatype="string" method="None" readonly="false" size="20" status="N" default="" xpath="/custName" />
+		<Field id="custNum" desc="客户编号" edittype="text" datatype="string" require="false" method="None" readonly="false" size="20" status="F"  xpath="/custNum" /> 
+		<Field id="custZjnum" desc="客户证件号" edittype="text" datatype="string" method="None" readonly="false" size="64" status="F" default="" xpath="/custZjnum" />
+		<Field id="custStatus" desc="客户状态" edittype="select" datatype="string" method="None" readonly="false" size="8" status="F" default=""   translated="LIST:01,已查;02,待查" xpath="/custStatus" />
+		<Field id="opr" desc="客户编号" require="" edittype="text" datatype="string" method="None" readonly="false" size="20" status="N" default="" xpath="" />
+	</Fields>
+	<Where>
+		<TextBox id="custNames" desc="客户姓名" edittype="text" status="F" datatype="string" size="64" index="0" />
+		<TextBox id="custNums" desc="客户编号" edittype="text" status="F" datatype="string" size="64" index="1" />
+		<TextBox id="custZjnums" desc="客户证件号" edittype="text" status="F" datatype="string" size="64" index="2" />
+		<Option id="custStatuss" desc="客户状态" require="false" edittype="select" status="F" translated="LIST:0,0-已查;1,1-待查" datatype="string" size="2" index="3" />
+	</Where>
+	<Operations>
+		<Button id="btnDownLoad" name="btnDownLoad" desc="数据下载"  operation="" url="#" show="" group="" txn="" icon="icon-export-xls"/>
+		<Button id="btnUpload" name="btnUpload" desc="数据上传" operation="" url="#" show="" group="" txn="" icon="icon-add"/>
+		<Button id="btFind" name="btFind" desc="是否再查" operation="" url="#" show="" group="" txn="" icon="icon-default"/>
+	</Operations>
+</CommQry>
