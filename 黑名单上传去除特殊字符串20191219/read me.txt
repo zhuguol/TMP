@@ -1,0 +1,6 @@
+黑名单上传功能修改
+1.字段Sanctions Targets Name和alias中数据中的全角转换为半角符号,替换"'"、"("、"."、"-"、","、"‘"、"&"、"/"、"’"、'"'、"a-z)"、
+	")"、":"、"a-z)"、"na"、"NA"、"@N"、"1-4:"、"N/A"符号。
+2.字段alias长度改为900。
+3.WEB-INF\classes\com\huateng\report\hf\aml\imp\AmlBatchImportController.class
+4.修改c_black_list_upload表的ALIAS长度： alter table c_black_list_upload modify (ALIAS VARCHAR2(900));
