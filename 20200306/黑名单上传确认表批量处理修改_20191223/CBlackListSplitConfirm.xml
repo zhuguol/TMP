@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 用于直接生成SQL语句，支持同步和异步提交 -->
+<!-- title:标题 navigate:导航信息 type:方式（sql|call) interface:是否显示输入条件页面(true|false) 
+	databusid:数据总线编号 transdataactionurl:数据整理URL async:异步提交标志 pagesize:页面显示记录数(缺省为10) -->
+<CommQry title="黑名单" navigate="反洗钱&gt;  黑名单"
+	type="call" 
+	interface="true" 
+	pagesize="100" 
+	async="true" 
+	databusid=""
+	transdataactionurl="/trans/TransDataAction.do" 
+	getterclassname="com.huateng.report.hf.form.getter.CBlackListSplitConfirmGetter">
+	<Include id="BankParam" />
+	<!-- <PageQryExp type="XLS" limit="true" encoding="UTF-8" url="/trans/qryExp.do" desc="黑名单上传"  /> -->
+	<Fields>
+		<Field id="select" desc="选择" status="N" method="None" datetype="checkbox"
+			edittype="checkbox" readonly="false" primary="true" type="String"
+			size="20" default="false" xpath="/selected" />
+        <Field id="id" desc="序列号" edittype="text" datatype="string" method="None" readonly="false" size="20" status="F" default="" xpath="/id" /> 
+	    <Field id="uid" desc="黑名单上传表对应序列号" edittype="text" datatype="string" method="None" readonly="false" size="20" status="F" default="" xpath="/uid" /> 
+        <Field id="etlDate" desc="批处理日期" edittype="text" datatype="date" method="None" readonly="false" size="8" status="F" default="" xpath="/etlDate" /> 
+		<Field id="serial" desc="Serial" edittype="text" datatype="string" method="None" readonly="false" size="100" status="F" default="" xpath="/serial" />
+		<Field id="issuPboc" desc="Issued by PBOC in" edittype="text" datatype="string" method="None" readonly="false" size="20" status="F" default="" xpath="/issuPboc" />
+		<Field id="notice" desc="Notice" edittype="text" datatype="string" method="None" readonly="false" size="400" status="F" default="" xpath="/notice" />
+		<Field id="targetName" desc="Sanctions Targets Name" edittype="text" datatype="string" method="None" readonly="false" size="4000" status="F" default="" xpath="/targetName" />
+		<Field id="dob" desc="DOB" edittype="text" datatype="string" method="None" readonly="false" size="120" status="F" default="" xpath="/dob" />
+		<Field id="alias" desc="Alias" edittype="text" datatype="string" method="None" readonly="false" size="400" status="F" default="" xpath="/alias" />
+		<Field id="nationality" desc="Nationality" edittype="text" datatype="string" method="None" readonly="false" size="4000" status="F" default="" xpath="/nationality" />
+		<Field id="others" desc="Others" edittype="text" datatype="string" method="None" readonly="false" size="400" status="F" default="" xpath="/others" />
+		<Field id="worldCheck" desc="Has been added to World-Check" edittype="text" datatype="string" method="None" readonly="false" size="10" status="F" default="" xpath="/worldCheck" />
+		<Field id="splitType" desc="SPLIT TYPE" edittype="text" datatype="string" method="None" readonly="false" size="10" status="F" default="" xpath="/splitType" />
+		<Field id="keyWords" desc="KEY WORDS" edittype="text" datatype="string" method="None" readonly="false" size="400" status="F" default="" xpath="/keyWords" />
+		<Field id="retName" desc="检查搜索名称" edittype="text" datatype="string" method="None" readonly="false" size="120" status="F" default="" xpath="/retName" />
+		<Field id="status" desc="STATUS" edittype="select" translated="DATA_DIC.102" datatype="string" method="None" readonly="false" size="120" status="F" default="" xpath="/status" />
+		<!-- <Field id="status" desc="STATUS" edittype="text" datatype="string" method="None" readonly="false" size="120" status="F" default="" xpath="/status" /> -->
+		<Field id="confirm" desc="确认人" edittype="text" datatype="string" method="None" readonly="false" size="120" status="F" default="" xpath="/confirm" />
+		<Field id="confirmTime" desc="确认日期" method="None" readonly="false"  edittype="text" datatype="timestamp" size="34" status="F" default=""  xpath="/confirmTime" />
+	    <Field id="opr" desc="操作" />
+   <Field id="radio" desc="拆分审核：" edittype="radio" translated="LIST:01,审核通过;02,审核不通过" datatype="string" xpath="/radio" />
+	<!--     <Field id="radio" desc="拆分确认："  edittype="radio"  translated="DATA_DIC.20000" datatype="string"  xpath="/radio" /> -->
+	    <Field id="etlDateStart" desc="批处理起始日期" edittype="text" datatype="string" method="None" readonly="false" size="8" status="F" default="" xpath="/etlDateStart" /> 
+	    <Field id="etlDateEnd" desc="批处理终止日期" edittype="text" datatype="string" method="None" readonly="false" size="8" status="F" default="" xpath="/etlDateEnd" /> 
+	</Fields>
+	<Where>
+		<DateTextBox id="etlDateStart" desc="批处理起始日期" edittype="text" datatype="date" size="34" require="true" index="0" />
+		<DateTextBox id="etlDateEnd" desc="批处理终止日期" edittype="text" datatype="date" size="34" require="true" index="1" />
+		<TextBox id="notice" desc="Notice" edittype="text" datatype="String" size="400" index="2" />	
+		<TextBox id="keyWords" desc="KEY_WORDS" edittype="text" datatype="String" size="400" index="3" />	
+	</Where>
+	<Operations>
+	<Button id="importBN" name="importBN" desc="导入数据" url="#" show="" group="" txn=""  icon="icon-impin"  />
+	    <Button id="exportBN" name="exportBN" desc="导出" url="#" />
+        <Button id="btAdd" name="btAdd" desc="新增" operation="addrecord" url="#" show="" group="" txn="" icon="icon-add"/>
+		<Button id="btDel" name="btDel" desc="删除" operation="asysubmit" 
+		    updateClass="com.huateng.report.hf.aml.update.CBlackListSplitConfirmDelUpdate" 
+			url="#"  txn="" />
+		<Button id="btSave" name="btSave" desc="保存" operation="asysubmit"
+			updateClass="com.huateng.report.hf.aml.update.CBlackListSplitConfirmUpdate"
+			url="#" txn="" />
+		<Button id="confirmBlackName" name="confirmBlackName" desc="提交" operation="asysubmit"
+			updateClass="com.huateng.report.hf.aml.update.CBlackListSplitConfirmSelect"
+			url="#" txn="" />
+		<Button id="confirmSplitYes" name="confirmSplitYes" desc="全部确认" url="#" /> 
+<!-- 		<Button id="confirmSplitNo" name="confirmSplitNo" desc="按条件确认错误" url="#" />  -->
+<!-- 		<Button id="selectYes" name="selectYes" desc="勾选确认正确" url="#" />  -->
+         <Button id="selectYes" name="selectYes" desc="批量确认"  url="#" />
+         <Button id="confirmBNSelect" name="confirmBNSelect" desc="提交" operation="asysubmit"
+			updateClass="com.huateng.report.hf.aml.update.CBlackListSplitConfirmSelectUpdate"
+			url="#" txn="" />
+	  <!--   <Button id="selectYes" name="selectYes" desc="勾选确认" operation="asysubmit" 
+		    updateClass="com.huateng.report.hf.aml.update.CBlackListSplitConfirmSelectUpdate" 
+			url="#"  txn=""/> -->
+	<!-- 	<Button id="selectNo" name="selectNo" desc="勾选确认错误" url="#" />  -->
+<!--    <Button id="selectNo" name="selectNo" desc="勾选确认错误" operation="asysubmit" 
+		    updateClass="com.huateng.report.hf.aml.update.CBlackListSplitConfirmSelectUpdate2" 
+			url="#"  txn=""/> -->
+	</Operations>
+</CommQry>
