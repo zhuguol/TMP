@@ -4,6 +4,7 @@
 	2.1字段Sanctions Targets Name和alias中数据中的全角转换为半角符号,替换"'"、"("、"."、"-"、","、"‘"、"&"、"/"、"’"、'"'、"a-z)"、
 	")"、":"、"a-z)"、"na"、"NA"、"@N"、"1-4:"、"N/A"符号。
 	2.2黑名单拆分确认表的别名alias字段长度改为900。
+	--HBCNAML和RRBAML两个数据库
 	2.3修改c_black_list_split_confirm表的ALIAS长度： alter table c_black_list_split_confirm modify (ALIAS VARCHAR2(900));
 	2.4修改c_black_list_split_confirm_his表的ALIAS长度： alter table c_black_list_split_confirm_his modify (ALIAS VARCHAR2(900));
 	
