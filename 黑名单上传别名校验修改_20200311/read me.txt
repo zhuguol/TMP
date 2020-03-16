@@ -1,16 +1,27 @@
-1.黑名单上传功能别名alias的校验字段写错了，将alias改为aliasInfo。
+黑名单上传修改
+1.黑名单上传的新增、修改、上传进行去除特殊符号：
+	字段Sanctions Targets Name和alias中数据中的全角转换为半角符号,替换"'"、"("、"."、"-"、","、"‘"、"&"、"/"、"’"、'"'、"a-z)"、
+	")"、":"、"a-z)"、"na"、"NA"、"@N"、"1-4:"、"N/A"符号。"na"、"NA"、"@N"不区分大小写都去除。
+2.黑名单上传的新增、修改的批处理日期、Sanctions Targets Name和alias必填字段进行判空校验。
+3.黑名单拆分时对Sanctions Targets Name和alias数据值为N/A、na、@N进行去除。
 
-2.黑名单拆分确认表功能的修改
-	2.1字段Sanctions Targets Name和alias中数据中的全角转换为半角符号,替换"'"、"("、"."、"-"、","、"‘"、"&"、"/"、"’"、'"'、"a-z)"、
-	")"、":"、"a-z)"、"na"、"NA"、"@N"、"1-4:"、"N/A"符号。"na"、"NA"、"@N"不区分大小写去除。
-	2.2黑名单拆分确认表的别名alias字段长度改为900。
-	--HBCNAML和RRBAML两个数据库
-	2.3修改c_black_list_split_confirm表的ALIAS长度： alter table c_black_list_split_confirm modify (ALIAS VARCHAR2(900));
-	2.4修改c_black_list_split_confirm_his表的ALIAS长度： alter table c_black_list_split_confirm_his modify (ALIAS VARCHAR2(900));
-	
-3.WEB-INF\classes\com\huateng\report\hf\aml\imp\AmlBatchImportController.class
-4.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListSplitConfirm.hbm.xml
-5.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListSplitConfirmHis.hbm.xml
-6.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListUpload.hbm.xml
-7.fpages\hf\form\xml\CBlackListSplitConfirm.xml
-8.fpages\hf\form\xml\CBlackListUpload.xml
+黑名单拆分确认表修改
+1.黑名单拆分确认的上传、新增、修改不进行去除特殊符号。
+2黑名单拆分确认表的别名alias字段长度改为900。
+	2.1HBCNAML和RRBAML两个数据库
+	2.2修改c_black_list_split_confirm表的ALIAS长度： alter table c_black_list_split_confirm modify (ALIAS VARCHAR2(900));
+	2.3修改c_black_list_split_confirm_his表的ALIAS长度： alter table c_black_list_split_confirm_his modify (ALIAS VARCHAR2(900));
+3.黑名单拆分确认表新增、修改的批处理日期、检查搜索名称字段进行判空校验。新增、修改时将检查搜索名称进行大写转换。
+
+
+1.WEB-INF\classes\com\huateng\ebank\business\dwr\DwrFunctions.class
+2.WEB-INF\classes\com\huateng\report\hf\aml\imp\AmlBatchImportController.class
+3.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListSplitConfirmUpdate.class
+4.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListUploadUpdate.class
+5.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListSplitConfirm.hbm.xml
+6.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListSplitConfirmHis.hbm.xml
+7.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListUpload.hbm.xml
+8.fpages\hf\form\ftl\CBlackListSplitConfirm.ftl
+9.fpages\hf\form\ftl\CBlackListUpload.ftl
+10.fpages\hf\form\xml\CBlackListSplitConfirm.xml
+11.fpages\hf\form\xml\CBlackListUpload.xml
