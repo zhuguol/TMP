@@ -4,6 +4,7 @@
 	")"、":"、"a-z)"、"na"、"NA"、"@N"、"1-4:"、"N/A"符号。"na"、"NA"、"@N"不区分大小写都去除。
 2.黑名单上传的新增、修改的批处理日期、Sanctions Targets Name和alias必填字段进行判空校验。
 3.黑名单拆分时对Sanctions Targets Name和alias数据值为N/A、na、@N进行去除。
+4.黑名单上传功能修改了提示信息。
 
 黑名单拆分确认表修改
 1.黑名单拆分确认的上传、新增、修改不进行去除特殊符号。
@@ -12,6 +13,8 @@
 	2.2修改c_black_list_split_confirm表的ALIAS长度： alter table c_black_list_split_confirm modify (ALIAS VARCHAR2(900));
 	2.3修改c_black_list_split_confirm_his表的ALIAS长度： alter table c_black_list_split_confirm_his modify (ALIAS VARCHAR2(900));
 3.黑名单拆分确认表新增、修改的批处理日期、检查搜索名称字段进行判空校验。新增、修改时将检查搜索名称进行大写转换。
+4.黑名单拆分确认表上传功能将检查搜索名称进行大写转换。
+5.黑名单拆分确认表上传功能修改了提示信息。
 
 
 1.WEB-INF\classes\com\huateng\ebank\business\dwr\DwrFunctions.class
