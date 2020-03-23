@@ -16,6 +16,11 @@
 4.黑名单拆分确认表上传功能将检查搜索名称进行大写转换。
 5.黑名单拆分确认表上传功能修改了提示信息。
 
+黑名单修改
+1.所以功能名中的"表"字去掉。修改数据库function_info表数据。
+2.所有按钮都加上logo。
+3.新增和修改框显示"操作信息"。
+
 
 1.WEB-INF\classes\com\huateng\ebank\business\dwr\DwrFunctions.class
 2.WEB-INF\classes\com\huateng\report\hf\aml\imp\AmlBatchImportController.class
@@ -26,5 +31,9 @@
 7.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListUpload.hbm.xml
 8.fpages\hf\form\ftl\CBlackListSplitConfirm.ftl
 9.fpages\hf\form\ftl\CBlackListUpload.ftl
-10.fpages\hf\form\xml\CBlackListSplitConfirm.xml
-11.fpages\hf\form\xml\CBlackListUpload.xml
+10.fpages\hf\form\ftl\CBlackTransDownload.ftl
+11.fpages\hf\form\xml\CBlackBatchStatus.xml
+12.fpages\hf\form\xml\CBlackHitCount.xml
+13.fpages\hf\form\xml\CBlackListSplitConfirm.xml
+14.fpages\hf\form\xml\CBlackListUpload.xml
+15.fpages\hf\form\xml\CBlackTransDownload.xml

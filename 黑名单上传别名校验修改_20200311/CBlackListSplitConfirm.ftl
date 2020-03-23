@@ -21,7 +21,7 @@
       			<td colspan="2">
       				<@CommonQueryMacro.FloatWindow id="signWindow" label="" width="" resize="true" defaultZoom="normal" minimize="false" maximize="false" closure="true" float="true" exclusive="true" position="center" show="false" >
       					<div align="center">
-      						<@CommonQueryMacro.Group id="group1" label="新增信息"
+      						<@CommonQueryMacro.Group id="group1" label="操作信息"
         			  		fieldStr="uid,etlDate,serial,issuPboc,notice,targetName,dob,alias,nationality,others[100],worldCheck[100],splitType[100],keyWords[100],retName[100]" colNm=4/>
         			 		<br/>
       						<@CommonQueryMacro.Button id= "btSave"/>
