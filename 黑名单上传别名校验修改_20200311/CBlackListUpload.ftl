@@ -1,7 +1,7 @@
 <#import "/templets/commonQuery/CommonQueryTagMacro.ftl" as CommonQueryMacro>
 <@CommonQueryMacro.page title="黑名单上传">
 	<#assign type = RequestParameters["type"]?default("")>
-		<@CommonQueryMacro.CommonQuery id="CBlackListUpload" init="false" submitMode="current" navigate="false" >
+		<@CommonQueryMacro.CommonQuery id="CBlackListUpload" init="false" submitMode="allchange" navigate="false" >
 			<table align="left"  width="100%">
 				<tr>
 					<td colspan="2">
@@ -15,7 +15,7 @@
 		    	</tr>
 		    	<tr>
 		    		<td colspan="2">
-						<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btAdd,-,btDel,-,importBN,-,exportBN,-,detailBN" fieldStr="opr,id[50],etlDate,serial[80],issuPboc[120],notice[150],targetName[400],dob[200],alias[400],nationality[300],others[200],worldCheck[200],remark[200]"   width="100%"  readonly="true"/>
+						<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btAdd,-,btDel,-,importBN,-,exportBN,-,detailBN" fieldStr="select,opr[50],id[50],etlDate,serial[80],issuPboc[120],notice[150],targetName[400],dob[200],alias[400],nationality[300],others[200],worldCheck[200],remark[200]"   width="100%"  readonly="true"/>
 		      		</td>
 		    	</tr>
 		     	<tr>
@@ -108,6 +108,19 @@
 	//删除
 	function btDel_onClickCheck(button) {
 		if(confirm("确认删除该条记录?")){
+			var selected = false;
+			var record = CBlackListUpload_dataset.getFirstRecord();
+			while(record){
+				var v_selected = record.getValue("select");
+				if( v_selected == true ){
+					selected = true;
+				}			
+				record = record.getNextRecord();
+	   		}
+   			if(!selected) {
+	   			alert("至少选择一条信息！");
+	   			return false;
+	   		}
 			return true;
 		}else{
 			return false;
@@ -209,18 +222,12 @@
 	   var etlDate = CBlackListUpload_dataset.getValue("etlDate"); 
 	   //targetName
    	   var targetName = CBlackListUpload_dataset.getValue("targetName"); 
-   	   //别名alias
-   	   var alias = CBlackListUpload_dataset.getValue("alias"); 
        if(etlDate==''){
        		alert("请填写批处理日期！");
             return false;
        }
        if(targetName==''){
        		alert("请填写Sanctions Targets Name！");
-            return false;
-       }
-       if(alias==''){
-       		alert("请填写Alias！");
             return false;
        }
        return true;

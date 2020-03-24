@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FILES>
+	<FILE>
+		<ID>01</ID><!-- 不要使用中文,不能重复 -->
+		<DISPLAYNAME>汇丰反洗钱3号令用户手册_V1.2</DISPLAYNAME>
+		<FILENAME>UserOpration.doc</FILENAME><!-- 建议不要使用中文 -->
+		<FILEEXT>doc</FILEEXT> <!-- 扩展名 -->
+	</FILE>
+	<FILE>
+		<ID>02</ID><!-- 不要使用中文,不能重复 -->
+		<DISPLAYNAME>导入样例-反洗钱大额交易</DISPLAYNAME>
+		<FILENAME>AML_BH.xlsx</FILENAME><!-- 建议不要使用中文 -->
+		<FILEEXT>xlsx</FILEEXT> <!-- 扩展名 -->
+	</FILE>
+	<FILE>
+		<ID>03</ID><!-- 不要使用中文,不能重复 -->
+		<DISPLAYNAME>导入样例-反洗钱可疑交易</DISPLAYNAME>
+		<FILENAME>AML_ALL.xlsx</FILENAME><!-- 建议不要使用中文 -->
+		<FILEEXT>xlsx</FILEEXT> <!-- 扩展名 -->
+	</FILE>
+	<FILE>
+		<ID>04</ID><!-- 不要使用中文,不能重复 -->
+		<DISPLAYNAME>GSR指南</DISPLAYNAME>
+		<FILENAME>AML_PLUS_GSR.xlsx</FILENAME><!-- 建议不要使用中文 -->
+		<FILEEXT>xlsx</FILEEXT> <!-- 扩展名 -->
+	</FILE>
+	<FILE>
+		<ID>05</ID><!-- 不要使用中文,不能重复 -->
+		<DISPLAYNAME>黑名单上传导入模板</DISPLAYNAME>
+		<FILENAME>CBlackListUpload_Template.xlsx</FILENAME><!-- 建议不要使用中文 -->
+		<FILEEXT>xlsx</FILEEXT> <!-- 扩展名 -->
+	</FILE>
+	<FILE>
+		<ID>06</ID><!-- 不要使用中文,不能重复 -->
+		<DISPLAYNAME>黑名单拆分导入模板</DISPLAYNAME>
+		<FILENAME>CBlackListSplitConfirm_Template.xlsx</FILENAME><!-- 建议不要使用中文 -->
+		<FILEEXT>xlsx</FILEEXT> <!-- 扩展名 -->
+	</FILE>
+</FILES>

@@ -133,13 +133,13 @@
 	function btDel_onClickCheck(button){
 		if(confirm("确认删除选择的记录吗?")){
 			var hasBctlSelected = false;
-			var bctlRecord =CBlackListSplitConfirm_dataset.getFirstRecord();
+			var bctlRecord = CBlackListSplitConfirm_dataset.getFirstRecord();
 			while(bctlRecord){
 				var v_selected = bctlRecord.getValue("select");
 				if( v_selected == true ){
-					hasBctlSelected=true;
+					hasBctlSelected = true;
 				}			
-				bctlRecord=bctlRecord.getNextRecord();
+				bctlRecord = bctlRecord.getNextRecord();
 	   		}
    			if(!hasBctlSelected) {
 	   			alert("至少选择一条拆分信息！");

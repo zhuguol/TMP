@@ -59,14 +59,14 @@
 			url="#" txn="" icon="icon-save"/>
 		<Button id="confirmBlackName" name="confirmBlackName" desc="提交" operation="asysubmit"
 			updateClass="com.huateng.report.hf.aml.update.CBlackListSplitConfirmSelect"
-			url="#" txn="" />
+			url="#" txn="" icon="icon-save"/>
 		<Button id="confirmSplitYes" name="confirmSplitYes" desc="全部确认" url="#" icon="icon-save"/> 
 <!-- 		<Button id="confirmSplitNo" name="confirmSplitNo" desc="按条件确认错误" url="#" />  -->
 <!-- 		<Button id="selectYes" name="selectYes" desc="勾选确认正确" url="#" />  -->
          <Button id="selectYes" name="selectYes" desc="批量确认"  url="#" icon="icon-set"/>
          <Button id="confirmBNSelect" name="confirmBNSelect" desc="提交" operation="asysubmit"
 			updateClass="com.huateng.report.hf.aml.update.CBlackListSplitConfirmSelectUpdate"
-			url="#" txn="" />
+			url="#" txn="" icon="icon-save"/>
 	  <!--   <Button id="selectYes" name="selectYes" desc="勾选确认" operation="asysubmit" 
 		    updateClass="com.huateng.report.hf.aml.update.CBlackListSplitConfirmSelectUpdate" 
 			url="#"  txn=""/> -->

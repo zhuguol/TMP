@@ -2,9 +2,12 @@
 1.黑名单上传的新增、修改、上传进行去除特殊符号：
 	字段Sanctions Targets Name和alias中数据中的全角转换为半角符号,替换"'"、"("、"."、"-"、","、"‘"、"&"、"/"、"’"、'"'、"a-z)"、
 	")"、":"、"a-z)"、"na"、"NA"、"@N"、"1-4:"、"N/A"符号。"na"、"NA"、"@N"不区分大小写都去除。
-2.黑名单上传的新增、修改的批处理日期、Sanctions Targets Name和alias必填字段进行判空校验。
+2.黑名单上传的新增、修改的批处理日期、Sanctions Targets Name为必填字段进行判空校验。
 3.黑名单拆分时对Sanctions Targets Name和alias数据值为N/A、na、@N进行去除。
 4.黑名单上传功能修改了提示信息。
+5.新增、修改和上传时Sanctions Targets Name进行去除特殊符号后不能为空，批处理日期也不能为空。
+6.黑名单上传的删除按钮配合勾选框一起使用重新开发,勾选框与拆分、导出按钮没关系，只跟删除按钮有关系。
+7.黑名单上传的修改，如果没有进行修改并且点击保存时提示没有进行修改信息。
 
 黑名单拆分确认表修改
 1.黑名单拆分确认的上传、新增、修改不进行去除特殊符号。
@@ -12,28 +15,38 @@
 	2.1HBCNAML和RRBAML两个数据库
 	2.2修改c_black_list_split_confirm表的ALIAS长度： alter table c_black_list_split_confirm modify (ALIAS VARCHAR2(900));
 	2.3修改c_black_list_split_confirm_his表的ALIAS长度： alter table c_black_list_split_confirm_his modify (ALIAS VARCHAR2(900));
-3.黑名单拆分确认表新增、修改的批处理日期、检查搜索名称字段进行判空校验。新增、修改时将检查搜索名称进行大写转换。
-4.黑名单拆分确认表上传功能将检查搜索名称进行大写转换。
+3.黑名单拆分确认表新增、修改的批处理日期、检查搜索名称字段不能为空。新增、修改时将检查搜索名称进行大写转换。
+4.黑名单拆分确认表上传功能将检查搜索名称进行大写转换，检查搜索名称、批处理日期也不能为空。
 5.黑名单拆分确认表上传功能修改了提示信息。
 
 黑名单修改
 1.所以功能名中的"表"字去掉。修改数据库function_info表数据。
 2.所有按钮都加上logo。
 3.新增和修改框显示"操作信息"。
+4.黑名单上传和黑名单拆分确认模板添加填写说明。
+5.模板sheet为"填写说明"时不报错，sheet为其他信息报错（除了"黑名单上传"、"黑名单拆分"）。
+6.主页-其他功能添加下载模板功能。
+7.黑名单上传的入口不能上传黑名单拆分数据。
+8.黑名单拆分的入口不能上传黑名单上传数据。
 
 
-1.WEB-INF\classes\com\huateng\ebank\business\dwr\DwrFunctions.class
-2.WEB-INF\classes\com\huateng\report\hf\aml\imp\AmlBatchImportController.class
-3.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListSplitConfirmUpdate.class
-4.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListUploadUpdate.class
-5.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListSplitConfirm.hbm.xml
-6.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListSplitConfirmHis.hbm.xml
-7.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListUpload.hbm.xml
-8.fpages\hf\form\ftl\CBlackListSplitConfirm.ftl
-9.fpages\hf\form\ftl\CBlackListUpload.ftl
-10.fpages\hf\form\ftl\CBlackTransDownload.ftl
-11.fpages\hf\form\xml\CBlackBatchStatus.xml
-12.fpages\hf\form\xml\CBlackHitCount.xml
-13.fpages\hf\form\xml\CBlackListSplitConfirm.xml
-14.fpages\hf\form\xml\CBlackListUpload.xml
-15.fpages\hf\form\xml\CBlackTransDownload.xml
+1.WEB-INF\classes\CBlackListSplitConfirm_Template.xlsx
+2.WEB-INF\classes\CBlackListUpload_Template.xlsx
+3.WEB-INF\classes\DataDownLoadFile.xml
+4.WEB-INF\classes\com\huateng\ebank\business\dwr\DwrFunctions.class
+5.WEB-INF\classes\com\huateng\report\hf\aml\imp\AmlBatchImportController.class
+6.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListSplitConfirmUpdate.class
+7.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListUploadDelUpdate.class
+8.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListUploadUpdate.class
+9.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListSplitConfirm.hbm.xml
+10.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListSplitConfirmHis.hbm.xml
+11.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListUpload.hbm.xml
+12.fpages\hf\form\ftl\CBlackListSplitConfirm.ftl
+13.fpages\hf\form\ftl\CBlackListUpload.ftl
+14.fpages\hf\form\ftl\CBlackTransDownload.ftl
+15.fpages\hf\form\xml\CBlackBatchStatus.xml
+16.fpages\hf\form\xml\CBlackHitCount.xml
+17.fpages\hf\form\xml\CBlackListSplitConfirm.xml
+18.fpages\hf\form\xml\CBlackListUpload.xml
+19.fpages\hf\form\xml\CBlackTransDownload.xml
+20.login\homepage\home.jsp
