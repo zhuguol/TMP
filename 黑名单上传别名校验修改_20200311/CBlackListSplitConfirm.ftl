@@ -104,10 +104,13 @@
 		}
 	}
 	
+	//新增与修改区分刷新页面,新增不刷新页面,修改刷新页面
+	var flag = false;
 	function openDtl(id){
 		locate(id);
 		CBlackListSplitConfirm_dataset.setFieldReadOnly("uid", true);
 		CBlackListSplitConfirm_dataset.setFieldReadOnly("etlDate", true);
+		flag = true;
 		subwindow_signWindow.show();
 	}
 
@@ -115,6 +118,7 @@
 	function btAdd_onClick(){
 		CBlackListSplitConfirm_dataset.setFieldReadOnly("uid", false);
 		CBlackListSplitConfirm_dataset.setFieldReadOnly("etlDate", false);
+		flag = false;
 		subwindow_signWindow.show();
 	}
 	
@@ -124,9 +128,13 @@
 	//保存按钮
 	function btSave_postSubmit(button) {
 		button.url="#";
-		alert("保存成功！");
 		subwindow_signWindow.close();
-		CBlackListSplitConfirm_dataset.flushData(CBlackListSplitConfirm_dataset.pageIndex);
+		alert("保存成功！");
+		if(flag){
+			flag = false;
+			//刷新
+			CBlackListSplitConfirm_dataset.flushData(CBlackListSplitConfirm_dataset.pageIndex);
+		}
 	}
 	
 	//删除
@@ -224,9 +232,9 @@
 	}
 	
 	function confirmBNSelect_postSubmit(button) {
-		    alert("确认成功");
-			subwindow_signWindow2.close();	
-			CBlackListSplitConfirm_dataset.flushData(CBlackListSplitConfirm_dataset.pageIndex);
+	    alert("确认成功");
+		subwindow_signWindow2.close();	
+		CBlackListSplitConfirm_dataset.flushData(CBlackListSplitConfirm_dataset.pageIndex);
 	}
 	//旋转
 	var timer = null;

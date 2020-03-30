@@ -21,6 +21,13 @@
 
 黑名单修改
 1.所以功能名中的"表"字去掉。修改数据库function_info表数据。
+	1.1HBCNAML和RRBAML两个数据库
+	sql:update function_info t set t.showseq='1', t.funcname='黑名单上传' where t.funcname='黑名单上传';
+		update function_info t set t.showseq='2', t.funcname='黑名单拆分确认' where t.funcname='黑名单拆分确认表';
+		update function_info t set t.showseq='3', t.funcname='黑名单批处理状态' where t.funcname='黑名单批处理状态表';
+		update function_info t set t.showseq='4', t.funcname='黑名单交易下载' where t.funcname='黑名单交易下载表';
+		update function_info t set t.showseq='5', t.funcname='黑名单命中交易统计' where t.funcname='黑名单命中交易统计报表';
+		commit;
 2.所有按钮都加上logo。
 3.新增和修改框显示"操作信息"。
 4.黑名单上传和黑名单拆分确认模板添加填写说明。
@@ -28,6 +35,8 @@
 6.主页-其他功能添加下载模板功能。
 7.黑名单上传的入口不能上传黑名单拆分数据。
 8.黑名单拆分的入口不能上传黑名单上传数据。
+9.黑名单功能展示顺序调整。--同1.1。	
+10.黑名单上传和黑名单拆分上传和批量导入完成之后不进行任何数据查询。(新增时不刷新页面，修改时刷新页面)
 
 
 1.WEB-INF\classes\CBlackListSplitConfirm_Template.xlsx

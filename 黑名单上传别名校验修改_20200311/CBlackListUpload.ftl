@@ -75,6 +75,7 @@
 			CBlackListUpload_dataset.setRecord(record);
 		}
 	}
+	
 	//添加修改按钮
 	function datatable_opr_onRefresh(cell, value, record){
 		if(record){
@@ -86,14 +87,19 @@
 		 	cell.innerHTML="&nbsp;";
 		}
 	}
+	
+	//新增与修改区分刷新页面,新增不刷新页面,修改刷新页面
+	var flag = false;
 	function openDtl(id,type){
 		locate(id);
 		CBlackListUpload_dataset.setFieldReadOnly("etlDate", true);
+		flag = true;
 		subwindow_signWindow.show();
 	}
 	//新增
 	function btAdd_onClick(){
 		CBlackListUpload_dataset.setFieldReadOnly("etlDate", false);
+		flag = false;
 		subwindow_signWindow.show();
 	}
 	//保存按钮
@@ -101,8 +107,11 @@
 		button.url="#";
 		subwindow_signWindow.close();
 		alert("保存成功！");
-		//刷新
-		CBlackListUpload_dataset.flushData(CBlackListUpload_dataset.pageIndex);
+		if(flag){
+			flag = false;
+			//刷新
+			CBlackListUpload_dataset.flushData(CBlackListUpload_dataset.pageIndex);
+		}
 	}
 	
 	//删除
