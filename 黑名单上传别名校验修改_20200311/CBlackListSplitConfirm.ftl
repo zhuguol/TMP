@@ -118,6 +118,7 @@
 	function btAdd_onClick(){
 		CBlackListSplitConfirm_dataset.setFieldReadOnly("uid", false);
 		CBlackListSplitConfirm_dataset.setFieldReadOnly("etlDate", false);
+		CBlackListSplitConfirm_dataset.setValue("etlDate", sysTxdate);
 		flag = false;
 		subwindow_signWindow.show();
 	}

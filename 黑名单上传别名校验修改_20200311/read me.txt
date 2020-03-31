@@ -37,6 +37,10 @@
 8.黑名单拆分的入口不能上传黑名单上传数据。
 9.黑名单功能展示顺序调整。--同1.1。	
 10.黑名单上传和黑名单拆分上传和批量导入完成之后不进行任何数据查询。(新增时不刷新页面，修改时刷新页面)
+11.在黑名单上传和黑名单拆分确认菜单下，当点击“新增”按钮，系统带出批处理日期，默认值为当前日期。
+12.在黑名单上传和黑名单拆分确认菜单下，当新增名单时，新增完毕，对于留空的字段，系统带出通配符’@N’，与上传的功能保持一致。
+13.在黑名单上传页面，当点击“黑名单拆分”，提示信息更新为“确认拆分 (请确保批处理日期为当前工作日)？”，点击’OK’后，系统提示为“拆分完毕，请在黑名单拆分确认页面确认”。
+14.黑名单批处理状态页面，将批处理起始日期更新为上一个工作日。
 
 
 1.WEB-INF\classes\CBlackListSplitConfirm_Template.xlsx
@@ -53,9 +57,10 @@
 12.fpages\hf\form\ftl\CBlackListSplitConfirm.ftl
 13.fpages\hf\form\ftl\CBlackListUpload.ftl
 14.fpages\hf\form\ftl\CBlackTransDownload.ftl
-15.fpages\hf\form\xml\CBlackBatchStatus.xml
-16.fpages\hf\form\xml\CBlackHitCount.xml
-17.fpages\hf\form\xml\CBlackListSplitConfirm.xml
-18.fpages\hf\form\xml\CBlackListUpload.xml
-19.fpages\hf\form\xml\CBlackTransDownload.xml
-20.login\homepage\home.jsp
+15.fpages\hf\form\ftl\CBlackBatchStatus.ftl
+16.fpages\hf\form\xml\CBlackBatchStatus.xml
+17.fpages\hf\form\xml\CBlackHitCount.xml
+18.fpages\hf\form\xml\CBlackListSplitConfirm.xml
+19.fpages\hf\form\xml\CBlackListUpload.xml
+20.fpages\hf\form\xml\CBlackTransDownload.xml
+21.login\homepage\home.jsp

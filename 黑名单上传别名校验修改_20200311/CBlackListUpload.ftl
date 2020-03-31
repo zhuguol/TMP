@@ -99,9 +99,11 @@
 	//新增
 	function btAdd_onClick(){
 		CBlackListUpload_dataset.setFieldReadOnly("etlDate", false);
+		CBlackListUpload_dataset.setValue("etlDate",sysTxdate);
 		flag = false;
 		subwindow_signWindow.show();
 	}
+		
 	//保存按钮
 	function btSave_postSubmit(button) {
 		button.url="#";
@@ -152,7 +154,7 @@
 
 	//黑名单拆分详细
    	function detailBN_onClick(){
-  		if(confirm("确认对查询信息进行拆分吗，请确认拆分日期为同一天")){
+  		if(confirm("确认拆分 (请确保批处理日期为当前工作日)！")){
   			var etlDateStart = CBlackListUpload_interface_dataset.getString("etlDateStart");
 			var etlDateEnd = CBlackListUpload_interface_dataset.getString("etlDateEnd");
 			var notice= CBlackListUpload_interface_dataset.getString("notice");
@@ -164,8 +166,8 @@
    	}
    	
    	function selectFunction(msg){
-		if(msg=="数据已拆分过,确认要继续拆分吗？"){
-	   	  	if(confirm(msg)){
+		if(msg=="message1"){
+	   	  	if(confirm("数据已拆分过！确认要继续拆分吗？")){
 	   	  		var etlDateStart = CBlackListUpload_interface_dataset.getString("etlDateStart");
 				var etlDateEnd = CBlackListUpload_interface_dataset.getString("etlDateEnd");
 				var notice= CBlackListUpload_interface_dataset.getString("notice");
@@ -174,13 +176,21 @@
 			}else{
 				return false;
 			}	
-	   	}else{
-	   	  	alert(msg);
+	   	}else if(msg=="message2"){
+	   	  	alert("拆分失败，请确认批处理日期为同一批次！");
+	   	}else if(msg=="message3"){
+	   		alert("拆分完毕，请在黑名单拆分确认页面确认！");
+	   	}else if(msg=="message4"){
+	   		alert("无相关数据，请选择需要拆分的黑名单信息！");
 	   	}		
 	}	
 	
 	function selectFunction2(msg){
-		alert(msg);
+		if(msg=="message5"){
+			alert("重新拆分完毕，请在黑名单拆分确认页面确认！");
+		}else if(msg=="message4"){
+	   		alert("无相关数据，请选择拆分信息！");
+	   	}
 	}
 	
 	//导入数据
