@@ -90,7 +90,7 @@
 	
 	//新增与修改区分刷新页面,新增不刷新页面,修改刷新页面
 	var flag = false;
-	function openDtl(id,type){
+	function openDtl(id){
 		locate(id);
 		CBlackListUpload_dataset.setFieldReadOnly("etlDate", true);
 		flag = true;
