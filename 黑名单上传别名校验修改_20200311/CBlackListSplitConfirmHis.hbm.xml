@@ -34,5 +34,6 @@
 	<property name="confirmTime" column="CONFIRM_TIME" type="date" not-null="false" length="34" />
 	<property name="deletePerson" column="DELET_PERSON" type="string" not-null="false" length="100" />
 	<property name="deleteTime" column="DELET_TIME" type="date" not-null="false" length="34" />
+	<property name="updatePerson" column="UPDATE_PERSON" type="string" not-null="false" length="20" />
 	</class>	
 </hibernate-mapping>

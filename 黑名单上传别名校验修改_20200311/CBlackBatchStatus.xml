@@ -17,9 +17,10 @@
 		<Field id="notice" desc="Notice" edittype="text" datatype="string" method="None" readonly="false" size="400" status="F" default="" xpath="/notice" />
 		<Field id="beginTime" desc="批处理开始时间" edittype="text" datatype="timestamp" method="None" readonly="false" size="34" status="F" default="" xpath="/beginTime" />
 		<Field id="endTime" desc="批处理结束时间" edittype="text" datatype="timestamp" method="None" readonly="false" size="34" status="F" default="" xpath="/endTime" />
-<!-- 		<Field id="status" desc="批处理状态" edittype="text" datatype="string" method="None" readonly="false" size="2" status="F" default="" xpath="/status" /> -->
+		<!--<Field id="status" desc="批处理状态" edittype="text" datatype="string" method="None" readonly="false" size="2" status="F" default="" xpath="/status" /> -->
         <Field id="status" desc="批处理状态" edittype="select" datatype="string" method="None" readonly="false" size="2" status="F" default=""   translated="LIST:01,完成;02,批处理中"  xpath="/status"   />
 		<Field id="transNum" desc="潜在命中交易条数" edittype="text" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/transNum" />
+		<Field id="updatePerson" desc="UPDATE_PERSON" edittype="text" datatype="string" method="None" readonly="false" size="20" status="F" default="" xpath="/updatePerson" />
 	</Fields>
 	<Where>
 		<DateTextBox id="etlDateStart" desc="批处理起始日期" edittype="text" datatype="date" size="34" require="true" index="0" />

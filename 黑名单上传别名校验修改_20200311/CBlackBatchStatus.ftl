@@ -32,50 +32,48 @@
 		}
 		var qtableName="CBlackBatchStatus";
 	
-	//下载
-	function exportBN_onClick(){	
-		var etlDateStart = CBlackBatchStatus_interface_dataset.getString("etlDateStart");
-		var etlDateEnd = CBlackBatchStatus_interface_dataset.getString("etlDateEnd");
-		var notice= CBlackBatchStatus_interface_dataset.getString("notice");
-		if(etlDateStart==''){
-		alert("请选择批处理起始日期");
-		return false;
+		//下载
+		function exportBN_onClick(){	
+			var etlDateStart = CBlackBatchStatus_interface_dataset.getString("etlDateStart");
+			var etlDateEnd = CBlackBatchStatus_interface_dataset.getString("etlDateEnd");
+			var notice= CBlackBatchStatus_interface_dataset.getString("notice");
+			if(etlDateStart==''){
+			alert("请选择批处理起始日期");
+			return false;
+			}
+		    if(etlDateEnd==''){
+			alert("请选择批处理终止日期");
+			return false;
+			}	
+			document.getElementById("exportBN").style.display = "none";
+			createTimerIfNull();	
+			window.location.href = "${contextPath}/filedownload/CBlackListUploadDownloadAction.do?etlDateStart="+etlDateStart+"&etlDateEnd="+etlDateEnd+"&qtableName="+qtableName+"&notice="+notice;
 		}
-	    if(etlDateEnd==''){
-		alert("请选择批处理终止日期");
-		return false;
-		}	
-		document.getElementById("exportBN").style.display = "none";
-		createTimerIfNull();	
-		window.location.href = "${contextPath}/filedownload/CBlackListUploadDownloadAction.do?etlDateStart="+etlDateStart+"&etlDateEnd="+etlDateEnd+"&qtableName="+qtableName+"&notice="+notice;
-	}
-	//旋转
-var timer = null;
-	function createTimerIfNull(){
-		if(timer==null){
-			timer = window.setInterval(function(){
-			try{
-				getExportStatus();
-			}catch(e){}},500);//刷新时间 
-		}
-	}
-	
-	function getExportStatus(){
-		PrivAction.getExportFlag(qtableName,function(data){
-				exportCallBack(data);
-			});
-	}
-		
-	function exportCallBack(data){
-		if(data!=null){
-			document.getElementById("exportBN").style.display = "";
-			if(timer!=null){
-				window.clearInterval(timer);
-				timer=null;
+		//旋转
+		var timer = null;
+		function createTimerIfNull(){
+			if(timer==null){
+				timer = window.setInterval(function(){
+				try{
+					getExportStatus();
+				}catch(e){}},500);//刷新时间 
 			}
 		}
-	}
-	
-
+		
+		function getExportStatus(){
+			PrivAction.getExportFlag(qtableName,function(data){
+					exportCallBack(data);
+				});
+		}
+			
+		function exportCallBack(data){
+			if(data!=null){
+				document.getElementById("exportBN").style.display = "";
+				if(timer!=null){
+					window.clearInterval(timer);
+					timer=null;
+				}
+			}
+		}
 	</script>
 </@CommonQueryMacro.page>

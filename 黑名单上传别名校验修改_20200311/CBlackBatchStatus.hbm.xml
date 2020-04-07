@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="resources.bean.report.form">
+	<class name="CBlackBatchStatus" table="c_black_batch_status">
+		<meta attribute="sync-DAO">false</meta>
+		<id name="id" type="string" column="SEQ_NO"></id>
+		<property name="etlDate" column="ETL_DATE" type="string" not-null="false" length="8" />
+		<property name="etlName" column="ETL_NAME" type="string" not-null="false" length="200" />
+		<property name="notice" column="NOTICE" type="string" not-null="false" length="400" />
+		<property name="beginTime" column="BEGIN_TIME" type="date" not-null="false" length="34" />
+		<property name="endTime" column="END_TIME" type="date" not-null="false" length="34" />
+		<property name="status" column="STATUS" type="string" not-null="false" length="2" />
+		<property name="transNum" column="TRANS_NUM" type="int" not-null="false" length="20" />
+		<property name="updatePerson" column="UPDATE_PERSON" type="string" not-null="false" length="20" />
+	</class>	
+</hibernate-mapping>

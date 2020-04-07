@@ -23,5 +23,6 @@
 		<property name="others" column="OTHERS" type="string" not-null="false" length="400" />
 		<property name="worldCheck" column="WORLD_CHECK" type="string" not-null="false" length="100" />
 		<property name="remark" column="REMARK" type="string" not-null="false" length="400" />
+		<property name="updatePerson" column="UPDATE_PERSON" type="string" not-null="false" length="20" />
 	</class>
 </hibernate-mapping>

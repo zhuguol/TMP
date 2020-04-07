@@ -41,27 +41,54 @@
 12.在黑名单上传和黑名单拆分确认菜单下，当新增名单时，新增完毕，对于留空的字段，系统带出通配符’@N’，与上传的功能保持一致。
 13.在黑名单上传页面，当点击“黑名单拆分”，提示信息更新为“确认拆分 (请确保批处理日期为当前工作日)？”，点击’OK’后，系统提示为“拆分完毕，请在黑名单拆分确认页面确认”。
 14.黑名单批处理状态页面，将批处理起始日期更新为上一个工作日。
+15.黑名单功能所有的导出文件名都加上时分秒yyyyMMddHHmmss。
 
+--------------多个用户操作黑名单，只能看到自己上传的信息。
+alter table c_black_list_upload add(UPDATE_PERSON varchar2(20));
+alter table c_black_list_split_confirm add(UPDATE_PERSON varchar2(20));
+alter table c_black_list_split_confirm_his add(UPDATE_PERSON varchar2(20));
+alter table c_black_batch_status add(UPDATE_PERSON varchar2(20));
+alter table c_black_trans_download_ret add(UPDATE_PERSON varchar2(20));
+
+comment on column c_black_list_upload.UPDATE_PERSON is '上传的用户';
+comment on column c_black_list_split_confirm.UPDATE_PERSON is '上传的用户';
+comment on column c_black_list_split_confirm_his.UPDATE_PERSON is '上传的用户';
+comment on column c_black_batch_status.UPDATE_PERSON is '上传的用户';
+comment on column c_black_trans_download_ret.UPDATE_PERSON is '上传的用户';
 
 
 1.WEB-INF\classes\CBlackListSplitConfirm_Template.xlsx
 2.WEB-INF\classes\CBlackListUpload_Template.xlsx
 3.WEB-INF\classes\DataDownLoadFile.xml
 4.WEB-INF\classes\com\huateng\ebank\business\dwr\DwrFunctions.class
-5.WEB-INF\classes\com\huateng\report\hf\aml\imp\AmlBatchImportController.class
-6.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListSplitConfirmUpdate.class
-7.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListUploadDelUpdate.class
-8.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListUploadUpdate.class
-9.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListSplitConfirm.hbm.xml
-10.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListSplitConfirmHis.hbm.xml
-11.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListUpload.hbm.xml
-12.fpages\hf\form\ftl\CBlackListSplitConfirm.ftl
-13.fpages\hf\form\ftl\CBlackListUpload.ftl
-14.fpages\hf\form\ftl\CBlackTransDownload.ftl
-15.fpages\hf\form\ftl\CBlackBatchStatus.ftl
-16.fpages\hf\form\xml\CBlackBatchStatus.xml
-17.fpages\hf\form\xml\CBlackHitCount.xml
-18.fpages\hf\form\xml\CBlackListSplitConfirm.xml
-19.fpages\hf\form\xml\CBlackListUpload.xml
-20.fpages\hf\form\xml\CBlackTransDownload.xml
-21.login\homepage\home.jsp
+5.WEB-INF\classes\com\huateng\report\aml\download\CBlackHitCountDownloadAction.class
+6.WEB-INF\classes\com\huateng\report\aml\download\CBlackListUploadDownloadAction.class
+7.WEB-INF\classes\com\huateng\report\aml\download\ExportBlackNameUtils.class
+8.WEB-INF\classes\com\huateng\report\hf\aml\imp\AmlBatchImportController.class
+9.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListSplitConfirmUpdate.class
+10.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListUploadDelUpdate.class
+11.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListUploadUpdate.class
+12.WEB-INF\classes\com\huateng\report\hf\form\getter\CBlackBatchStatusGetter.class
+13.WEB-INF\classes\com\huateng\report\hf\form\getter\CBlackListSplitConfirmGetter.class
+14.WEB-INF\classes\com\huateng\report\hf\form\getter\CBlackListUploadGetter.class
+15.WEB-INF\classes\com\huateng\report\hf\form\getter\CBlackTransDownloadGetter.class
+16.WEB-INF\classes\resources\bean\report\form\CBlackBatchStatus.class
+17.WEB-INF\classes\resources\bean\report\form\CBlackListSplitConfirm.class
+18.WEB-INF\classes\resources\bean\report\form\CBlackListSplitConfirmHis.class
+19.WEB-INF\classes\resources\bean\report\form\CBlackListUpload.class
+20.WEB-INF\classes\resources\bean\report\form\CBlackTransDownload.class
+21.WEB-INF\classes\resources\report\form\hbm\pub\CBlackBatchStatus.hbm.xml
+22.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListSplitConfirm.hbm.xml
+23.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListSplitConfirmHis.hbm.xml
+24.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListUpload.hbm.xml
+25.WEB-INF\classes\resources\report\form\hbm\pub\CBlackTransDownload.hbm.xml
+26.fpages\hf\form\ftl\CBlackBatchStatus.ftl
+27.fpages\hf\form\ftl\CBlackListSplitConfirm.ftl
+28.fpages\hf\form\ftl\CBlackListUpload.ftl
+29.fpages\hf\form\ftl\CBlackTransDownload.ftl
+30.fpages\hf\form\xml\CBlackBatchStatus.xml
+31.fpages\hf\form\xml\CBlackHitCount.xml
+32.fpages\hf\form\xml\CBlackListSplitConfirm.xml
+33.fpages\hf\form\xml\CBlackListUpload.xml
+34.fpages\hf\form\xml\CBlackTransDownload.xml
+35.login\homepage\home.jsp

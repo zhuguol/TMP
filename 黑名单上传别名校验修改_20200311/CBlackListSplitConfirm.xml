@@ -36,10 +36,11 @@
 		<Field id="confirm" desc="确认人" edittype="text" datatype="string" method="None" readonly="false" size="120" status="F" default="" xpath="/confirm" />
 		<Field id="confirmTime" desc="确认日期" method="None" readonly="false"  edittype="text" datatype="timestamp" size="34" status="F" default=""  xpath="/confirmTime" />
 	    <Field id="opr" desc="操作" />
-   <Field id="radio" desc="拆分审核：" edittype="radio" translated="LIST:01,审核通过;02,审核不通过" datatype="string" xpath="/radio" />
-	<!--     <Field id="radio" desc="拆分确认："  edittype="radio"  translated="DATA_DIC.20000" datatype="string"  xpath="/radio" /> -->
+  		<Field id="radio" desc="拆分审核：" edittype="radio" translated="LIST:01,审核通过;02,审核不通过" datatype="string" xpath="/radio" />
+	    <!-- <Field id="radio" desc="拆分确认："  edittype="radio"  translated="DATA_DIC.20000" datatype="string"  xpath="/radio" /> -->
 	    <Field id="etlDateStart" desc="批处理起始日期" edittype="text" datatype="string" method="None" readonly="false" size="8" status="F" default="" xpath="/etlDateStart" /> 
 	    <Field id="etlDateEnd" desc="批处理终止日期" edittype="text" datatype="string" method="None" readonly="false" size="8" status="F" default="" xpath="/etlDateEnd" /> 
+		<Field id="updatePerson" desc="UPDATE_PERSON" edittype="text" datatype="string" method="None" readonly="false" size="20" status="F" default="" xpath="/updatePerson" />
 	</Fields>
 	<Where>
 		<DateTextBox id="etlDateStart" desc="批处理起始日期" edittype="text" datatype="date" size="34" require="true" index="0" />
