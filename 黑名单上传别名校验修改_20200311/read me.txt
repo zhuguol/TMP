@@ -42,6 +42,13 @@
 13.在黑名单上传页面，当点击“黑名单拆分”，提示信息更新为“确认拆分 (请确保批处理日期为当前工作日)？”，点击’OK’后，系统提示为“拆分完毕，请在黑名单拆分确认页面确认”。
 14.黑名单批处理状态页面，将批处理起始日期更新为上一个工作日。
 15.黑名单功能所有的导出文件名都加上时分秒yyyyMMddHHmmss。
+16.黑名单交易下载的查询与导出的SQL进行了修改。
+17.黑名单上传、黑名单拆分确认、黑名单批处理状态、黑名单交易下载可以多个用户使用，新增加一个字段保存上传用户信息，用户自己只能操作(增、删、改、查)自己上传的数据。
+
+18.新增的部门名字FCTM#MAJOR，保存到数据库时是FCTM。
+19.SANCTION部门的用户能查看到所有SANCTION部门上传的数据。
+20.拆分时，SANCTION部门用户触发是拆分所有部门的数据，FCTM拆分只拆分自己上传的数据。
+
 
 --------------多个用户操作黑名单，只能看到自己上传的信息。
 alter table c_black_list_upload add(UPDATE_PERSON varchar2(20));
@@ -56,6 +63,20 @@ comment on column c_black_list_split_confirm_his.UPDATE_PERSON is '上传的用�
 comment on column c_black_batch_status.UPDATE_PERSON is '上传的用户';
 comment on column c_black_trans_download_ret.UPDATE_PERSON is '上传的用户';
 
+--------------新增一个部门
+alter table c_black_list_upload add(ROLE_NAME varchar2(30));
+alter table c_black_list_split_confirm add(ROLE_NAME varchar2(30));
+alter table c_black_list_split_confirm_his add(ROLE_NAME varchar2(30));
+alter table c_black_batch_status add(ROLE_NAME varchar2(30));
+alter table c_black_trans_download_ret add(ROLE_NAME varchar2(30));
+
+comment on column c_black_list_upload.ROLE_NAME is '上传用户属于部门';
+comment on column c_black_list_split_confirm.ROLE_NAME is '上传用户属于部门';
+comment on column c_black_list_split_confirm_his.ROLE_NAME is '上传用户属于部门';
+comment on column c_black_batch_status.ROLE_NAME is '上传用户属于部门';
+comment on column c_black_trans_download_ret.ROLE_NAME is '上传用户属于部门';
+
+--------------手动添加一个部门角色FCTM#MAJOR。
 
 1.WEB-INF\classes\CBlackListSplitConfirm_Template.xlsx
 2.WEB-INF\classes\CBlackListUpload_Template.xlsx
@@ -65,30 +86,33 @@ comment on column c_black_trans_download_ret.UPDATE_PERSON is '上传的用户';
 6.WEB-INF\classes\com\huateng\report\aml\download\CBlackListUploadDownloadAction.class
 7.WEB-INF\classes\com\huateng\report\aml\download\ExportBlackNameUtils.class
 8.WEB-INF\classes\com\huateng\report\hf\aml\imp\AmlBatchImportController.class
-9.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListSplitConfirmUpdate.class
-10.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListUploadDelUpdate.class
-11.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListUploadUpdate.class
-12.WEB-INF\classes\com\huateng\report\hf\form\getter\CBlackBatchStatusGetter.class
-13.WEB-INF\classes\com\huateng\report\hf\form\getter\CBlackListSplitConfirmGetter.class
-14.WEB-INF\classes\com\huateng\report\hf\form\getter\CBlackListUploadGetter.class
-15.WEB-INF\classes\com\huateng\report\hf\form\getter\CBlackTransDownloadGetter.class
-16.WEB-INF\classes\resources\bean\report\form\CBlackBatchStatus.class
-17.WEB-INF\classes\resources\bean\report\form\CBlackListSplitConfirm.class
-18.WEB-INF\classes\resources\bean\report\form\CBlackListSplitConfirmHis.class
-19.WEB-INF\classes\resources\bean\report\form\CBlackListUpload.class
-20.WEB-INF\classes\resources\bean\report\form\CBlackTransDownload.class
-21.WEB-INF\classes\resources\report\form\hbm\pub\CBlackBatchStatus.hbm.xml
-22.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListSplitConfirm.hbm.xml
-23.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListSplitConfirmHis.hbm.xml
-24.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListUpload.hbm.xml
-25.WEB-INF\classes\resources\report\form\hbm\pub\CBlackTransDownload.hbm.xml
-26.fpages\hf\form\ftl\CBlackBatchStatus.ftl
-27.fpages\hf\form\ftl\CBlackListSplitConfirm.ftl
-28.fpages\hf\form\ftl\CBlackListUpload.ftl
-29.fpages\hf\form\ftl\CBlackTransDownload.ftl
-30.fpages\hf\form\xml\CBlackBatchStatus.xml
-31.fpages\hf\form\xml\CBlackHitCount.xml
-32.fpages\hf\form\xml\CBlackListSplitConfirm.xml
-33.fpages\hf\form\xml\CBlackListUpload.xml
-34.fpages\hf\form\xml\CBlackTransDownload.xml
-35.login\homepage\home.jsp
+9.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListSplitConfirmSelect.class
+10.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListSplitConfirmSelectUpdate.class
+11.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListSplitConfirmUpdate.class
+12.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListUploadDelUpdate.class
+13.WEB-INF\classes\com\huateng\report\hf\aml\update\CBlackListUploadUpdate.class
+14.WEB-INF\classes\com\huateng\report\hf\form\getter\CBlackBatchStatusGetter.class
+15.WEB-INF\classes\com\huateng\report\hf\form\getter\CBlackListSplitConfirmGetter.class
+16.WEB-INF\classes\com\huateng\report\hf\form\getter\CBlackListUploadGetter.class
+17.WEB-INF\classes\com\huateng\report\hf\form\getter\CBlackTransDownloadGetter.class
+18.WEB-INF\classes\resources\bean\report\form\CBlackBatchStatus.class
+19.WEB-INF\classes\resources\bean\report\form\CBlackListSplitConfirm.class
+20.WEB-INF\classes\resources\bean\report\form\CBlackListSplitConfirmHis.class
+21.WEB-INF\classes\resources\bean\report\form\CBlackListUpload.class
+22.WEB-INF\classes\resources\bean\report\form\CBlackTransDownload.class
+23.WEB-INF\classes\resources\report\form\hbm\pub\CBlackBatchStatus.hbm.xml
+24.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListSplitConfirm.hbm.xml
+25.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListSplitConfirmHis.hbm.xml
+26.WEB-INF\classes\resources\report\form\hbm\pub\CBlackListUpload.hbm.xml
+27.WEB-INF\classes\resources\report\form\hbm\pub\CBlackTransDownload.hbm.xml
+28.fpages\hf\form\ftl\CBlackBatchStatus.ftl
+29.fpages\hf\form\ftl\CBlackListSplitConfirm.ftl
+30.fpages\hf\form\ftl\CBlackListUpload.ftl
+31.fpages\hf\form\ftl\CBlackTransDownload.ftl
+32.fpages\hf\form\xml\CBlackBatchStatus.xml
+33.fpages\hf\form\xml\CBlackHitCount.xml
+34.fpages\hf\form\xml\CBlackListSplitConfirm.xml
+35.fpages\hf\form\xml\CBlackListUpload.xml
+36.fpages\hf\form\xml\CBlackTransDownload.xml
+37.login\homepage\home.jsp
+

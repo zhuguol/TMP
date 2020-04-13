@@ -15,5 +15,6 @@
 		<property name="status" column="STATUS" type="string" not-null="false" length="2" />
 		<property name="transNum" column="TRANS_NUM" type="int" not-null="false" length="20" />
 		<property name="updatePerson" column="UPDATE_PERSON" type="string" not-null="false" length="20" />
+		<property name="roleName" column="ROLE_NAME" type="string" not-null="false" length="30" />
 	</class>	
 </hibernate-mapping>

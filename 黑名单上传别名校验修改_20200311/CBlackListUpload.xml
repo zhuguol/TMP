@@ -28,7 +28,8 @@
 		<Field id="others" desc="Others" edittype="text" datatype="string" method="None" readonly="false" size="400" status="F" default="" xpath="/others" />
 		<Field id="worldCheck" desc="Has been added to World-Check" edittype="text" datatype="string" method="None" readonly="false" size="10" status="F" default="" xpath="/worldCheck" />
 		<Field id="remark" desc="Remark" edittype="text" datatype="string" method="None" readonly="false" size="400" status="F" default="" xpath="/remark" />
-		<Field id="updatePerson" desc="UPDATE_PERSON" edittype="text" datatype="string" method="None" readonly="false" size="20" status="F" default="" xpath="/updatePerson" />
+		<Field id="updatePerson" desc="上传的用户" edittype="text" datatype="string" method="None" readonly="false" size="20" status="F" default="" xpath="/updatePerson" />
+		<Field id="roleName" desc="上传用户所属部门" edittype="text" datatype="string" method="None" readonly="false" size="30" status="F" default="" xpath="/roleName" />
 	    <Field id="opr" desc="操作" />
 	</Fields>
 	<Where>

@@ -100,5 +100,6 @@
 		<property name="isMerge" column="IS_MERGE" type="string" not-null="false" length="2" />
 		<property name="cmid" column="C$MID" type="string" not-null="false" length="60" />
 		<property name="updatePerson" column="UPDATE_PERSON" type="string" not-null="false" length="20" />
+		<property name="roleName" column="ROLE_NAME" type="string" not-null="false" length="30" />
 	</class>	
 </hibernate-mapping>

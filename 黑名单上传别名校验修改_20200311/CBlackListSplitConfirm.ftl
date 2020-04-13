@@ -250,8 +250,8 @@
 	
 	function getExportStatus(){
 		PrivAction.getExportFlag(qtableName,function(data){
-				exportCallBack(data);
-			});
+			exportCallBack(data);
+		});
 	}
 		
 	function exportCallBack(data){

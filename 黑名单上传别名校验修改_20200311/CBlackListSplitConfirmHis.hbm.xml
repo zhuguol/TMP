@@ -4,36 +4,29 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 
 <hibernate-mapping package="resources.bean.report.form">
-	<class
-		name="CBlackListSplitConfirmHis"
-		table="C_BLACK_LIST_SPLIT_CONFIRM_HIS"
-	>
+	<class name="CBlackListSplitConfirmHis" table="C_BLACK_LIST_SPLIT_CONFIRM_HIS">
 		<meta attribute="sync-DAO">false</meta>
-		<id
-			name="id"
-			type="string"
-			column="SEQ_NO"
-		>
-		</id>
-    <property name="uid" column="P_SEQ_NO" type="string" not-null="false" length="20" />
-	<property name="etlDate" column="ETL_DATE" type="string" not-null="false" length="8" />
-	<property name="serial" column="SERIAL" type="string" not-null="false" length="100" />
-	<property name="issuPboc" column="ISSU_PBOC" type="string" not-null="false" length="20" />
-	<property name="notice" column="NOTICE" type="string" not-null="false" length="400" />
-	<property name="targetName" column="TARGET_NAME" type="string" not-null="false" length="4000" />
-	<property name="dob" column="DOB" type="string" not-null="false" length="400" />
-	<property name="alias" column="ALIAS" type="string" not-null="false" length="900" />
-	<property name="nationality" column="NATIONALITY" type="string" not-null="false" length="4000" />
-	<property name="others" column="OTHERS" type="string" not-null="false" length="400" />
-	<property name="worldCheck" column="WORLD_CHECK" type="string" not-null="false" length="100" />
-	<property name="splitType" column="SPLIT_TYPE" type="string" not-null="false" length="10" />
-	<property name="keyWords" column="KEY_WORDS" type="string" not-null="false" length="400" />
-	<property name="retName" column="RET_NAME" type="string" not-null="false" length="400" />
-	<property name="status" column="STATUS" type="string" not-null="false" length="2" />
-	<property name="confirm" column="CONFIRM" type="string" not-null="false" length="100" />
-	<property name="confirmTime" column="CONFIRM_TIME" type="date" not-null="false" length="34" />
-	<property name="deletePerson" column="DELET_PERSON" type="string" not-null="false" length="100" />
-	<property name="deleteTime" column="DELET_TIME" type="date" not-null="false" length="34" />
-	<property name="updatePerson" column="UPDATE_PERSON" type="string" not-null="false" length="20" />
+		<id name="id" type="string" column="SEQ_NO"></id>
+    	<property name="uid" column="P_SEQ_NO" type="string" not-null="false" length="20" />
+		<property name="etlDate" column="ETL_DATE" type="string" not-null="false" length="8" />
+		<property name="serial" column="SERIAL" type="string" not-null="false" length="100" />
+		<property name="issuPboc" column="ISSU_PBOC" type="string" not-null="false" length="20" />
+		<property name="notice" column="NOTICE" type="string" not-null="false" length="400" />
+		<property name="targetName" column="TARGET_NAME" type="string" not-null="false" length="4000" />
+		<property name="dob" column="DOB" type="string" not-null="false" length="400" />
+		<property name="alias" column="ALIAS" type="string" not-null="false" length="900" />
+		<property name="nationality" column="NATIONALITY" type="string" not-null="false" length="4000" />
+		<property name="others" column="OTHERS" type="string" not-null="false" length="400" />
+		<property name="worldCheck" column="WORLD_CHECK" type="string" not-null="false" length="100" />
+		<property name="splitType" column="SPLIT_TYPE" type="string" not-null="false" length="10" />
+		<property name="keyWords" column="KEY_WORDS" type="string" not-null="false" length="400" />
+		<property name="retName" column="RET_NAME" type="string" not-null="false" length="400" />
+		<property name="status" column="STATUS" type="string" not-null="false" length="2" />
+		<property name="confirm" column="CONFIRM" type="string" not-null="false" length="100" />
+		<property name="confirmTime" column="CONFIRM_TIME" type="date" not-null="false" length="34" />
+		<property name="deletePerson" column="DELET_PERSON" type="string" not-null="false" length="100" />
+		<property name="deleteTime" column="DELET_TIME" type="date" not-null="false" length="34" />
+		<property name="updatePerson" column="UPDATE_PERSON" type="string" not-null="false" length="20" />
+		<property name="roleName" column="ROLE_NAME" type="string" not-null="false" length="30" />
 	</class>	
 </hibernate-mapping>
