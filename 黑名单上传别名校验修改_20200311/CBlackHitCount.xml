@@ -16,6 +16,8 @@
 		<Field id="queriesNum" desc="查询次数&lt;br / &gt;Number of Queries" edittype="text" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/queriesNum" />
 		<Field id="hitsNum" desc="潜在命中交易数量&lt;br / &gt;Number of Transactions Potential Hit" edittype="text" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/hitsNum" />
 		<Field id="batchTime" desc="跑批日期&lt;br / &gt;Batch Time" edittype="text" datatype="date" method="None" readonly="false" size="34" status="N" default="" xpath="/batchTime" />
+		<Field id="updatePerson" desc="上传的用户" edittype="text" datatype="string" method="None" readonly="false" size="20" status="F" default="" xpath="/updatePerson" />
+		<Field id="roleName" desc="上传用户所属部门" edittype="text" datatype="string" method="None" readonly="false" size="30" status="F" default="" xpath="/roleName" />
 	</Fields>
 	<Where>
 		<Option id="etlDateStart" desc="黑名单检索起始时间(年/月)" placeholder="yyyyMM"
