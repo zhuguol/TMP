@@ -216,13 +216,14 @@
 			CBlackListSplitConfirm_dataset.setParameter("radioNames",CBlackListSplitConfirm_dataset.getValue("radio")); 
 		}
 	}
-	//选择确认后点击确定
+	//全部确认后点击确定
 	function confirmBlackName_postSubmit(button) {
 		button.url="#";
-		alert("确认成功！");
+		alert("确认成功，请下一个工作日查询黑名单批处理状态！");
 		subwindow_signWindow1.close();
 		CBlackListSplitConfirm_dataset.flushData(CBlackListSplitConfirm_dataset.pageIndex);
 	}
+	//批量提交
 	function confirmBNSelect_onClickCheck(){
 		if (CBlackListSplitConfirm_dataset.getValue("radio")=="") {
 			alert("请选择一个确认按钮");
@@ -231,9 +232,9 @@
 			CBlackListSplitConfirm_dataset.setParameter("radioname",CBlackListSplitConfirm_dataset.getValue("radio")); 
 		}
 	}
-	
+	//批量提交
 	function confirmBNSelect_postSubmit(button) {
-	    alert("确认成功");
+	    alert("确认成功，请下一个工作日查询黑名单批处理状态！");
 		subwindow_signWindow2.close();	
 		CBlackListSplitConfirm_dataset.flushData(CBlackListSplitConfirm_dataset.pageIndex);
 	}
