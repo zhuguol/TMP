@@ -87,7 +87,7 @@
 		<Field id="batchTime" method="None" readonly="false"  edittype="text" datatype="timestamp" size="34" status="F" default="" desc="批处理时间"  xpath="/batchTime" />
 		<!--add 20191008 zgl-->
 		<Field id="ccpdt" edittype="text" datatype="date"  status="F" method="None" readonly="false" size="8" desc="Capture Date"  xpath="/ccpdt" />
-		<Field id="cdlno" edittype="text" datatype="currency"  status="F" method="None" readonly="false"  type="double" size="5" desc="Deal Number"  xpath="/cdlno" />
+		<Field id="cdlno" edittype="text" datatype="string" status="F" method="None" readonly="false" size="50" desc="Deal Number"  xpath="/cdlno" />
 		<Field id="ccpws" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="12" desc="Capture Terminal ID"  xpath="/ccpws" />
 		<Field id="cpimg" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="60" desc="GPP Inward/Outward Message"  xpath="/cpimg" />
 		<Field id="cpims" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="60" desc="Message Id/Filename"  xpath="/cpims" />

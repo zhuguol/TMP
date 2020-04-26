@@ -82,7 +82,7 @@
 		<property name="batchTime" column="BATCH_TIME" type="date" not-null="false" length="34" />
 		<!-- add 10191008 zgl -->
 		<property name="ccpdt" column="C$CPDT" type="big_decimal" not-null="false" length="8" />
-		<property name="cdlno" column="C$DLNO" type="big_decimal" not-null="false" length="5" />
+		<property name="cdlno" column="C$DLNO" type="string" not-null="false" length="50" />
 		<property name="ccpws" column="C$CPWS" type="string" not-null="false" length="12" />
 		<property name="cpimg" column="C$PIMG" type="string" not-null="false" length="60" />
 		<property name="cpims" column="C$PIMS" type="string" not-null="false" length="60" />
