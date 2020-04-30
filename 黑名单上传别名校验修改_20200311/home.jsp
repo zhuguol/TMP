@@ -214,7 +214,7 @@ GlobalInfo.setCurrentInstance(globalInfo);
 			<tr>
 			<td class="tabletoptd2" valign="top" bgcolor="#ffffff">
 				<iframe id="filedownloadfrm"  style="display: none;"></iframe>
-				<div style="overflow: auto;height:170px">
+				<div style="overflow: auto;height:200px">
 				<table cellpadding="5" cellspacing="5" style="line-height: 22px;">
 
 					<%

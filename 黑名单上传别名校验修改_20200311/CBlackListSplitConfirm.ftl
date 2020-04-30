@@ -140,24 +140,25 @@
 	
 	//删除
 	function btDel_onClickCheck(button){
-		if(confirm("确认删除选择的记录吗?")){
-			var hasBctlSelected = false;
-			var bctlRecord = CBlackListSplitConfirm_dataset.getFirstRecord();
-			while(bctlRecord){
-				var v_selected = bctlRecord.getValue("select");
-				if( v_selected == true ){
-					hasBctlSelected = true;
-				}			
-				bctlRecord = bctlRecord.getNextRecord();
-	   		}
-   			if(!hasBctlSelected) {
-	   			alert("至少选择一条拆分信息！");
-	   			return false;
-	   		}
-			return true;
-		}else{
-			return false;
-		}
+		var hasBctlSelected = false;
+		var bctlRecord = CBlackListSplitConfirm_dataset.getFirstRecord();
+		while(bctlRecord){
+			var v_selected = bctlRecord.getValue("select");
+			if( v_selected == true ){
+				hasBctlSelected = true;
+			}			
+			bctlRecord = bctlRecord.getNextRecord();
+   		}
+		if(!hasBctlSelected) {
+   			alert("至少选择一条拆分信息！");
+   			return false;
+   		}else{
+   			if(confirm("确认删除选择的记录吗?")){
+   				return true;
+   			}else{
+				return false;
+			}
+   		}
 	}
 	
 	function btDel_postSubmit(button) {

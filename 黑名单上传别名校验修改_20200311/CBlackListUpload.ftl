@@ -118,24 +118,25 @@
 	
 	//删除
 	function btDel_onClickCheck(button) {
-		if(confirm("确认删除该条记录?")){
-			var selected = false;
-			var record = CBlackListUpload_dataset.getFirstRecord();
-			while(record){
-				var v_selected = record.getValue("select");
-				if( v_selected == true ){
-					selected = true;
-				}			
-				record = record.getNextRecord();
-	   		}
-   			if(!selected) {
-	   			alert("至少选择一条信息！");
-	   			return false;
-	   		}
-			return true;
-		}else{
-			return false;
-		}
+		var selected = false;
+		var record = CBlackListUpload_dataset.getFirstRecord();
+		while(record){
+			var v_selected = record.getValue("select");
+			if( v_selected == true ){
+				selected = true;
+			}			
+			record = record.getNextRecord();
+   		}
+		if(!selected) {
+   			alert("至少选择一条信息！");
+   			return false;
+   		}else{
+   			if(confirm("确认删除该条记录?")){
+   				return true;
+   			}else{
+				return false;
+			}
+   		}
 	}
 	//删除按钮
 	function btDel_postSubmit(button) {

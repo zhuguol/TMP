@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="resources.bean.report.form">
+	<class name="TransactionVolumeByBranch" table="TRANSACTION_VOLUME_BY_BRANCH">
+		<meta attribute="sync-DAO">false</meta>
+		<id name="id" type="string" column="REC_id"></id>
+		<property name="branch" column="Branch" type="string" not-null="false" length="10"/>
+		<property name="searchDate" column="SEARCH_DATE" type="string" not-null="false" length="10"/>
+		<property name="tradCount" column="TRAD_COUNT" type="big_decimal" not-null="false" length="20"/>
+		<property name="tradAmt" column="TRAD_AMT" type="big_decimal" not-null="false" length="20"/>
+	</class>	
+</hibernate-mapping>

@@ -26,12 +26,18 @@
 	</FILE>
 	<FILE>
 		<ID>05</ID><!-- 不要使用中文,不能重复 -->
+		<DISPLAYNAME>汇丰黑名单检索系统操作手册</DISPLAYNAME>
+		<FILENAME>CBlackOperatingManual.docx</FILENAME><!-- 建议不要使用中文 -->
+		<FILEEXT>docx</FILEEXT> <!-- 扩展名 -->
+	</FILE>
+	<FILE>
+		<ID>06</ID><!-- 不要使用中文,不能重复 -->
 		<DISPLAYNAME>黑名单上传导入模板</DISPLAYNAME>
 		<FILENAME>CBlackListUpload_Template.xlsx</FILENAME><!-- 建议不要使用中文 -->
 		<FILEEXT>xlsx</FILEEXT> <!-- 扩展名 -->
 	</FILE>
 	<FILE>
-		<ID>06</ID><!-- 不要使用中文,不能重复 -->
+		<ID>07</ID><!-- 不要使用中文,不能重复 -->
 		<DISPLAYNAME>黑名单拆分导入模板</DISPLAYNAME>
 		<FILENAME>CBlackListSplitConfirm_Template.xlsx</FILENAME><!-- 建议不要使用中文 -->
 		<FILEEXT>xlsx</FILEEXT> <!-- 扩展名 -->

@@ -1,0 +1,37 @@
+新增两张报表
+1.FC UAR Raw Data Report – Customer Volume
+2.FC UAR Raw Data Report – Transaction Volume
+--------------------------------------------------------------------
+1. WEB-INF\classes\CustomerVolumeByBranch.xlsx
+2. WEB-INF\classes\CustomerVolumeByLob.xlsx
+3. WEB-INF\classes\TransactionVolumeByBranch.xlsx
+4. WEB-INF\classes\TransactionVolumeByLob.xlsx
+
+5. WEB-INF\classes\com\huateng\report\aml\download\CustAndTransDownloadAction.class
+
+6. WEB-INF\classes\com\huateng\report\hf\form\getter\CustomerVolumeByBranchGetter.class
+7. WEB-INF\classes\com\huateng\report\hf\form\getter\CustomerVolumeByLobGetter.class
+8. WEB-INF\classes\com\huateng\report\hf\form\getter\TransactionVolumeByBranchGetter.class
+9. WEB-INF\classes\com\huateng\report\hf\form\getter\TransactionVolumeByLobGetter.class
+
+10.WEB-INF\classes\resources\bean\report\form\CustomerVolumeByBranch.class
+11.WEB-INF\classes\resources\bean\report\form\CustomerVolumeByLob.class
+12.WEB-INF\classes\resources\bean\report\form\TransactionVolumeByBranch.class
+13.WEB-INF\classes\resources\bean\report\form\TransactionVolumeByLob.class
+
+14.WEB-INF\classes\resources\report\form\hbm\pub\CustomerVolumeByBranch.hbm.xml
+15.WEB-INF\classes\resources\report\form\hbm\pub\CustomerVolumeByLob.hbm.xml
+16.WEB-INF\classes\resources\report\form\hbm\pub\TransactionVolumeByBranch.hbm.xml
+17.WEB-INF\classes\resources\report\form\hbm\pub\TransactionVolumeByLob.hbm.xml
+
+18.fpages\hf\form\ftl\CustomerVolume.ftl
+19.fpages\hf\form\ftl\TransactionVolume.ftl
+
+20.fpages\hf\form\xml\CustomerVolumeByBranch.xml
+21.fpages\hf\form\xml\CustomerVolumeByLob.xml
+22.fpages\hf\form\xml\TransactionVolumeByBranch.xml
+23.fpages\hf\form\xml\TransactionVolumeByLob.xml
+
+25.WEB-INF\web.xml
+
+26.WEB-INF\query\meta\hfAmlFormMeta.xml
