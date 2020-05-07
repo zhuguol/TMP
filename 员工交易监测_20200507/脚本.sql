@@ -45,6 +45,8 @@ insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DA
 values (409, 400005, '00', '客户交易监管是否存在员工编号', 1, '00-无', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
 values (410, 400005, '01', '客户交易监管是否存在员工编号', 1, '01-有', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (411, 400005, '02', '客户交易监管是否存在员工编号', 1, '02-全部', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 commit;
 
 -----------------员工交易监测日报
@@ -53,32 +55,32 @@ create table A_STAFF_ACCT_TRAD
     ALERT_ID                   varchar(40) not null,
     CUST_NAME                  varchar(128),
     CUST_ID_CERT_NO            varchar(128),
-    CUST_NO                    varchar(32),
-    ACCT_NO                    varchar(64),
-    ACCT_TYPE                  varchar(40),
-    BANK_CARD_TYPE             varchar(2),
-    BANK_CARD_NO               varchar(64),
+	CUST_NO                    varchar(32),
+    --ACCT_NO                    varchar(64),
+    --ACCT_TYPE                  varchar(40),
+    --BANK_CARD_TYPE             varchar(2),
+    --BANK_CARD_NO               varchar(64),
     STAFF_NUMBER               varchar(10),
     STAFF_DEPARTMENT           varchar(100),
-    STAFF_JOB_TITLE            varchar(30),
+    STAFF_JOB_TITLE            varchar(120),
     RULE_CODE                  varchar(10),
     BUSS_FLAG                  varchar(100),
     MANAGER_NAME               varchar(100),
-    CTAR                       varchar(500),
+    CTAR                       varchar(4000),
     CTNT                       varchar(6),
-    INVES_RESULT_BY_OPS        varchar(60),
+    INVES_RESULT_BY_OPS        varchar(4000),
     CHECK_DATE                 varchar(10),
-    INVESTIGATOR               varchar(60),
-    QC_COMMENT                 varchar(60),
+    INVESTIGATOR               varchar(4000),
+    QC_COMMENT                 varchar(4000),
     STATUS                     varchar(10),
     APPEARANCE_TIME            varchar(60),
     REPORT_D_OR_M              varchar(60),
-    FEEDBACK_FROM              varchar(1000),
+    FEEDBACK_FROM              varchar(4000),
     FEEDBACK_DATE              varchar(10),
     POTENTIAL_CASE_TYPE        varchar(10),
     CONCLUDED_TYPE             varchar(10),
     COMFIRMED_SUSP             varchar(10),
-    CASE_ID                    varchar(100),
+    CASE_ID                    varchar(4000),
     APPROVE_STATUS             varchar(2),
     APPROVE_UPD_TLR            varchar(20),
     APPROVE_RESULT             varchar(500),
@@ -95,16 +97,16 @@ create table A_STAFF_ACCT_TRAD
     constraint PK_A_STAFF_ACCT_TRAD primary key(ALERT_ID)      --设置主键
 );
 
-comment on table A_STAFF_ACCT_TRAD is '员工交易监测日报 ';
+comment on table A_STAFF_ACCT_TRAD is '员工交易监测日报';
 comment on column A_STAFF_ACCT_TRAD.DATA_DATE is '数据日期';
 comment on column A_STAFF_ACCT_TRAD.ALERT_ID is '告警号';
 comment on column A_STAFF_ACCT_TRAD.CUST_NAME is '客户名称/姓名';
 comment on column A_STAFF_ACCT_TRAD.CUST_ID_CERT_NO is '客户身份证件号码';
 comment on column A_STAFF_ACCT_TRAD.CUST_NO is '客户号';
-comment on column A_STAFF_ACCT_TRAD.ACCT_NO is '客户账号';
-comment on column A_STAFF_ACCT_TRAD.ACCT_TYPE is '客户账号类型';
-comment on column A_STAFF_ACCT_TRAD.BANK_CARD_TYPE is '银行卡类型';
-comment on column A_STAFF_ACCT_TRAD.BANK_CARD_NO is '银行卡号码';
+--comment on column A_STAFF_ACCT_TRAD.ACCT_NO is '客户账号';
+--comment on column A_STAFF_ACCT_TRAD.ACCT_TYPE is '客户账号类型';
+--comment on column A_STAFF_ACCT_TRAD.BANK_CARD_TYPE is '银行卡类型';
+--comment on column A_STAFF_ACCT_TRAD.BANK_CARD_NO is '银行卡号码';
 comment on column A_STAFF_ACCT_TRAD.STAFF_NUMBER is '员工编号';
 comment on column A_STAFF_ACCT_TRAD.STAFF_DEPARTMENT is '员工所在部门';
 comment on column A_STAFF_ACCT_TRAD.STAFF_JOB_TITLE is '员工职位名称';
@@ -147,31 +149,31 @@ create table A_STAFF_ACCT_TRAD_M
     CUST_NAME             varchar2(128),
     CUST_ID_CERT_NO       varchar2(128),
     CUST_NO               varchar2(32),
-    ACCT_NO               varchar2(64),
-    ACCT_TYPE             varchar2(40),
-    BANK_CARD_TYPE        varchar2(2),
-    BANK_CARD_NO          varchar2(64),
+    --ACCT_NO               varchar2(64),
+    --ACCT_TYPE             varchar2(40),
+    --BANK_CARD_TYPE        varchar2(2),
+    --BANK_CARD_NO          varchar2(64),
     STAFF_NUMBER          varchar2(10),
     STAFF_DEPARTMENT      varchar2(100),
-    STAFF_JOB_TITLE       varchar2(30),
+    STAFF_JOB_TITLE       varchar2(120),
     RULE_CODE             varchar2(10),
     BUSS_FLAG             varchar2(100),
     manager_name          varchar2(100),
-    CTAR                  varchar2(500),
+    CTAR                  varchar2(4000),
     CTNT                  varchar2(6),
-    INVES_RESULT_BY_OPS   varchar2(60),
+    INVES_RESULT_BY_OPS   varchar2(4000),
     CHECK_DATE            varchar2(10),
-    INVESTIGATOR          varchar2(60),
-    QC_COMMENT            varchar2(60),
+    INVESTIGATOR          varchar2(4000),
+    QC_COMMENT            varchar2(4000),
     STATUS                varchar2(10),
     APPEARANCE_TIME       varchar2(60),
     REPORT_D_OR_M         varchar2(60),
-    FEEDBACK_FROM         varchar2(1000),
+    FEEDBACK_FROM         varchar2(4000),
     FEEDBACK_DATE         varchar2(10),
     POTENTIAL_CASE_TYPE   varchar2(10),
     CONCLUDED_TYPE        varchar2(10),
     COMFIRMED_SUSP        varchar2(10),
-    CASE_ID               varchar2(100),
+    CASE_ID               varchar2(4000),
     ALTER_FLAG            varchar2(10),
     ALTER_UAR             varchar2(30),
     APPROVE_STATUS        varchar2(2),
@@ -187,6 +189,7 @@ create table A_STAFF_ACCT_TRAD_M
     FILLER2               varchar2(64),
     FILLER3               varchar2(256),
 	BRAN_CODE			  varchar(20),
+	CURR_SEASON           varchar(8),
     constraint PK_A_STAFF_ACCT_TRAD_M primary key(ALERT_ID)      --设置主键
 );
 comment on table A_STAFF_ACCT_TRAD_M is '员工交易监测月报';
@@ -195,10 +198,10 @@ comment on column A_STAFF_ACCT_TRAD_M.ALERT_ID is '告警号';
 comment on column A_STAFF_ACCT_TRAD_M.CUST_NAME is '客户名称/姓名';
 comment on column A_STAFF_ACCT_TRAD_M.CUST_ID_CERT_NO is '客户身份证件号码';
 comment on column A_STAFF_ACCT_TRAD_M.CUST_NO is '客户号';
-comment on column A_STAFF_ACCT_TRAD_M.ACCT_NO is '客户账号';
-comment on column A_STAFF_ACCT_TRAD_M.ACCT_TYPE is '客户账号类型';
-comment on column A_STAFF_ACCT_TRAD_M.BANK_CARD_TYPE is '银行卡类型';
-comment on column A_STAFF_ACCT_TRAD_M.BANK_CARD_NO is '银行卡号码';
+--comment on column A_STAFF_ACCT_TRAD_M.ACCT_NO is '客户账号';
+--comment on column A_STAFF_ACCT_TRAD_M.ACCT_TYPE is '客户账号类型';
+--comment on column A_STAFF_ACCT_TRAD_M.BANK_CARD_TYPE is '银行卡类型';
+--comment on column A_STAFF_ACCT_TRAD_M.BANK_CARD_NO is '银行卡号码';
 comment on column A_STAFF_ACCT_TRAD_M.STAFF_NUMBER is '员工编号';
 comment on column A_STAFF_ACCT_TRAD_M.STAFF_DEPARTMENT is '员工所在部门';
 comment on column A_STAFF_ACCT_TRAD_M.STAFF_JOB_TITLE is '员工职位名称';
@@ -235,12 +238,17 @@ comment on column A_STAFF_ACCT_TRAD_M.FILLER1 is '预留字段1';
 comment on column A_STAFF_ACCT_TRAD_M.FILLER2 is '预留字段2';
 comment on column A_STAFF_ACCT_TRAD_M.FILLER3 is '预留字段3';
 comment on column A_STAFF_ACCT_TRAD_M.BRAN_CODE is '分行号';
+comment on column A_STAFF_ACCT_TRAD_M.CURR_SEASON is '所属季度';
 
 ------------------------客户交易明细
 create table A_STAFF_ACCT_TRAD_INFO
 (   DATA_DATE                varchar2(8),
     ALERT_ID                 varchar2(40) not null,
     CUST_NO                  varchar2(32),
+    ACCT_NO                  varchar(64),
+    ACCT_TYPE                varchar(40),
+    BANK_CARD_TYPE           varchar(2),
+	BANK_CARD_NO             varchar2(64),
     TSTM                     varchar2(10),
     TRAD_PLACE               varchar2(9),
     PAY_MATCH_NO_TYPE        varchar2(2),
@@ -272,6 +280,10 @@ comment on table A_STAFF_ACCT_TRAD_INFO is '客户交易明细';
 comment on column A_STAFF_ACCT_TRAD_INFO.DATA_DATE is '数据日期';
 comment on column A_STAFF_ACCT_TRAD_INFO.ALERT_ID is '告警号';
 comment on column A_STAFF_ACCT_TRAD_INFO.CUST_NO is '客户号';
+comment on column A_STAFF_ACCT_TRAD_INFO.ACCT_NO is '客户账号';
+comment on column A_STAFF_ACCT_TRAD_INFO.ACCT_TYPE is '客户账号类型';
+comment on column A_STAFF_ACCT_TRAD_INFO.BANK_CARD_TYPE is '银行卡类型';
+comment on column A_STAFF_ACCT_TRAD_INFO.BANK_CARD_NO is '银行卡号码';
 comment on column A_STAFF_ACCT_TRAD_INFO.TSTM is '交易发生日期';
 comment on column A_STAFF_ACCT_TRAD_INFO.TRAD_PLACE is '交易发生地';
 comment on column A_STAFF_ACCT_TRAD_INFO.PAY_MATCH_NO_TYPE is '收付款方匹配号码类型';
