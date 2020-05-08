@@ -15,7 +15,7 @@
 		    </tr>
 		    <tr>
 		    	<td colspan="2">
-					<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btnSelect,-,btnUpdate" fieldStr="select,opr[200],ruleCode[100],dataDate[100],branCode[100],custNo[100],custName[100],custIdCertNo[100],ctnt[100],ctar[100],staffNumber[100],staffDepartment[100],staffJobTitle[100],reportDOrM[100],appearanceTime[100],checkDate[100],investigator[100],status[100],managerName[100],invesResultByOps[100],caseId[100],reportDate[100],potentialCaseType[100],feedbackDate[100],concludedType[100],feedbackFrom[100],comfirmedSusp[100],qcComment[100]" width="100%" hasFrame="true" readonly="true"/>
+					<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btnSelect,-,btnUpdate" fieldStr="select,opr[150],ruleCode[80],dataDate[80],branCode[70],custNo[80],custName[90],custIdCertNo[130],ctnt[80],ctar[220],staffNumber[80],staffDepartment[110],staffJobTitle[100],reportDOrM[80],appearanceTime[150],checkDate[90],investigator[90],status[100],managerName[100],invesResultByOps[120],caseId[120],reportDate[90],potentialCaseType[120],feedbackDate[90],concludedType[120],feedbackFrom[150],comfirmedSusp[120],qcComment[150]" width="100%" hasFrame="true" readonly="true"/>
 		      	</td>
 		    </tr>
 		</table>

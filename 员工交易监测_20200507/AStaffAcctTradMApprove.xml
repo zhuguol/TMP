@@ -33,7 +33,7 @@
 		<Field id="qcComment" desc="质检意见" require="false" edittype="text" datatype="string" method="None" readonly="false" size="4000" status="N" default="" primary="" xpath="/qcComment" />
 		<Field id="status" desc="调查阶段" require="false" edittype="select" translated="DATA_DIC.400002" datatype="string" method="None" readonly="false" size="10" status="N" default="" primary="" xpath="/status" />
 		<Field id="appearanceTime" desc="(日报当月/月报当季)被抓出次数" require="false" edittype="text" datatype="string" method="None" readonly="false" size="60" status="N" default="" primary="" xpath="/appearanceTime" />
-		<Field id="reportDOrM" desc="日报/月报" require="false" edittype="text" datatype="string" method="None" readonly="false" size="60" status="N" default="" primary="" xpath="/reportDOrM" />
+		<Field id="reportDOrM" desc="日报/月报" require="false" edittype="select" translated="LIST:D,D-日报;M,M-月报;" datatype="string" method="None" readonly="false" size="60" status="N" default="" primary="" xpath="/reportDOrM" />
 		<Field id="feedbackFrom" desc="反馈结果(从FCTM或者GB/GF指定部门)" require="false" edittype="text" datatype="string" method="None" readonly="false" size="4000" status="N" default="" primary="" xpath="/feedbackFrom" />
 		<Field id="feedbackDate" desc="收到反馈时间" require="false" edittype="text" datatype="date" method="None" readonly="false" size="10" status="N" default="" primary="" xpath="/feedbackDate" />
 		<Field id="potentialCaseType" desc="(初步调查)上报的可疑类型" require="false" edittype="select" translated="DATA_DIC.400003" datatype="string" method="None" readonly="false" size="10" status="N" default="" primary="" xpath="/potentialCaseType" />
@@ -62,8 +62,16 @@
 		<Field id="recordUpdTlrChoose" desc="新调查者" require="false" edittype="text" datatype="string" method="None" readonly="false" size="20" status="N" default="" xpath=""/>
 	</Fields>
 	<Where>
-		<DateTextBox id="etlDateStart" desc="交易起始日期" edittype="text" datatype="date" size="8" require="true" index="0" />
-		<DateTextBox id="etlDateEnd" desc="交易结束日期" edittype="text" datatype="date" size="8" require="true" index="1" />
+		<Option id="etlDateStart" desc="交易起始时间(年/月)" placeholder="yyyyMM"
+			edittype="select" dropdowntype="custom" url="/templets/lib/yyyyMM.ftl"
+			rules="isNum" editable="true" size="6" status="F" require="true"
+			fieldmap="etlDateStart=yyyyMM;etlDateStartName=yyyyMM" viewField="yyyyMM"
+			index="0" />
+		<Option id="etlDateEnd" desc="交易结束时间(年/月)" placeholder="yyyyMM"
+			edittype="select" dropdowntype="custom" url="/templets/lib/yyyyMM.ftl"
+			rules="isNum" editable="true" size="6" status="F" require="true"
+			fieldmap="etlDateEnd=yyyyMM;etlDateEndName=yyyyMM" viewField="yyyyMM"
+			index="1" />
 		<Option id="statuss" desc="调查阶段" require="false" edittype="select" translated="DATA_DIC.400002" status="F" datatype="string" size="2" index="2" />
 		<Option id="approveStatuss" desc="记录状态" require="false" edittype="select" translated="DATA_DIC.400001" status="F" datatype="string" size="2" index="3" />
 	</Where>

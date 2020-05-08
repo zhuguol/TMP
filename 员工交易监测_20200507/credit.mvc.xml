@@ -13,7 +13,6 @@
 		 </property>
 	</bean>
 	
-	
 	<bean id="batchImportController" class="com.huateng.excel.imp.BatchImportController">
 		<property name="multipartResolver" ref="apmMultipartResolver"></property>
 		<property name="result" value="/fpages/aml/jsp/message.jsp"/>
@@ -40,10 +39,7 @@
 	<!--<bean id="batchImportService" class="com.huateng.excel.imp.BatchImportService">
     </bean>-->
 	
-	
-	
-	
-	 <!-- add 20170508 HSBC AML   可疑交易导入 start-->
+	<!-- add 20170508 HSBC AML   可疑交易导入 start-->
     <bean id="amlBatchImportController" class="com.huateng.report.hf.aml.imp.AmlBatchImportController">
 		<property name="multipartResolver" ref="apmMultipartResolver"></property>
 		<property name="result" value="/fpages/hf/jsp/message.jsp"/>
@@ -75,10 +71,7 @@
 			</props>
 		 </property>
 	</bean>
-	 <!-- add 20170508 HSBC AML   end-->
-	 
-	 
-	 
+	<!-- add 20170508 HSBC AML   end--> 
 	 
 	<bean id="hfaml3"
 		  class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
@@ -93,7 +86,7 @@
 		 </property>
 	</bean>
 	
-	  <!-- add 20181031 HSBC AML3号令  回执和人工补正通知导入    start-->
+	<!-- add 20181031 HSBC AML3号令  回执和人工补正通知导入    start-->
     <bean id="receiptOrNoticeController" class="com.huateng.report.hfaml3.controller.ReceiptOrNoticeController">
 		<property name="multipartResolver" ref="apmMultipartResolver"></property>
 		<property name="manualCorrectionService" ref="manualCorrectionService"></property>
@@ -108,9 +101,9 @@
 			</bean>
 		</property>
 	</bean> 
-	 <!-- add 20181031 HSBC AML   end-->
+	<!-- add 20181031 HSBC AML   end-->
 	 
-	  <!-- add 20181109 HSBC AML3号令  大额和可疑交易导入    start-->
+	<!-- add 20181109 HSBC AML3号令  大额和可疑交易导入    start-->
     <bean id="BhOrBsImportController" class="com.huateng.report.hfaml3.controller.BhOrBsImportController">
 		<property name="multipartResolver" ref="apmMultipartResolver"></property>
 		<property name="result" value="/fpages/hfaml3/jsp/message.jsp"/>

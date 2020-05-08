@@ -922,7 +922,7 @@
     <url-pattern>/filedownload/AmlStcrOrFincDownoloadAction.do</url-pattern>
   </servlet-mapping>
   
-  <!-- 用户交易监管下载 -->
+  <!-- 用户交易监管下载-->
   <servlet>
     <servlet-name>AStaffAcctTradDownloadAction</servlet-name>
     <servlet-class>com.huateng.report.aml.download.AStaffAcctTradDownloadAction</servlet-class>
@@ -930,5 +930,5 @@
   <servlet-mapping>
     <servlet-name>AStaffAcctTradDownloadAction</servlet-name>
     <url-pattern>/filedownload/AStaffAcctTradDownloadAction.do</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> 
 </web-app>

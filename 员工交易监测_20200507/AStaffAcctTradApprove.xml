@@ -33,7 +33,7 @@
 		<Field id="qcComment" desc="质检意见" require="false" edittype="text" datatype="string" method="None" readonly="false" size="4000" status="N" default="" primary="" xpath="/qcComment" />
 		<Field id="status" desc="调查阶段" require="false" edittype="select" translated="DATA_DIC.400002" datatype="string" method="None" readonly="false" size="10" status="N" default="" primary="" xpath="/status" />
 		<Field id="appearanceTime" desc="(日报当月/月报当季)被抓出次数" require="false" edittype="text" datatype="string" method="None" readonly="false" size="60" status="N" default="" primary="" xpath="/appearanceTime" />
-		<Field id="reportDOrM" desc="日报/月报" require="false" edittype="text" datatype="string" method="None" readonly="false" size="60" status="N" default="" primary="" xpath="/reportDOrM" />
+		<Field id="reportDOrM" desc="日报/月报" require="false" edittype="select" translated="LIST:D,D-日报;M,M-月报;" datatype="string" method="None" readonly="false" size="60" status="N" default="" primary="" xpath="/reportDOrM" />
 		<Field id="feedbackFrom" desc="反馈结果(从FCTM或者GB/GF指定部门)" require="false" edittype="text" datatype="string" method="None" readonly="false" size="4000" status="N" default="" primary="" xpath="/feedbackFrom" />
 		<Field id="feedbackDate" desc="收到反馈时间" require="false" edittype="text" datatype="date" method="None" readonly="false" size="10" status="N" default="" primary="" xpath="/feedbackDate" />
 		<Field id="potentialCaseType" desc="(初步调查)上报的可疑类型" require="false" edittype="select" translated="DATA_DIC.400003" datatype="string" method="None" readonly="false" size="10" status="N" default="" primary="" xpath="/potentialCaseType" />
