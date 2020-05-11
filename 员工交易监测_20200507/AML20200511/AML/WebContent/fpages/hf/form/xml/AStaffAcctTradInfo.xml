@@ -12,7 +12,8 @@
 	getterclassname="com.huateng.report.hf.form.getter.AStaffAcctTradInfoGetter">
 	<Include id="BankParam" />
 	<Fields>
-		<Field id="dataDate" desc="数据日期" require="false" edittype="text" datatype="date" method="None" readonly="false"   size="8" status="N" default="" primary="" xpath="/dataDate" />
+		<Field id="recId" desc="主键" require="false" edittype="text" datatype="string" method="None" readonly="false" size="150" status="N" default="" primary="" xpath="/recId" />
+		<Field id="dataDate" desc="数据日期" require="false" edittype="text" datatype="date" method="None" readonly="false" size="8" status="N" default="" primary="" xpath="/dataDate" />
 		<Field id="alertId" desc="告警号" require="false" edittype="text" datatype="string" method="None" readonly="false" size="40" status="N" default="" primary="" xpath="/alertId" />
 		<Field id="custNo" desc="客户号" require="false" edittype="text" datatype="string" method="None" readonly="false" size="32" status="N" default="" primary="" xpath="/custNo" />
 		<Field id="acctNo" desc="客户账号" require="false" edittype="text" datatype="string" method="None" readonly="false" size="64" status="N" default="" primary="" xpath="/acctNo" />

@@ -242,7 +242,9 @@ comment on column A_STAFF_ACCT_TRAD_M.CURR_SEASON is '所属季度';
 
 ------------------------客户交易明细
 create table A_STAFF_ACCT_TRAD_INFO
-(   DATA_DATE                varchar2(8),
+(   
+	REC_ID                   varchar2(150) not null,
+	DATA_DATE                varchar2(8),
     ALERT_ID                 varchar2(40) not null,
     CUST_NO                  varchar2(32),
     ACCT_NO                  varchar(64),
@@ -272,11 +274,13 @@ create table A_STAFF_ACCT_TRAD_INFO
     ETL_FLAG                 varchar2(2),
     FILLER1                  varchar2(64),
     FILLER2                  varchar2(64),
-    FILLER3                  varchar2(256)
+    FILLER3                  varchar2(256),
+	constraint PK_A_STAFF_ACCT_TRAD_INFO primary key(REC_ID)      --设置主键
 );
 
 
 comment on table A_STAFF_ACCT_TRAD_INFO is '客户交易明细';
+comment on column A_STAFF_ACCT_TRAD_INFO.REC_ID is '主键';
 comment on column A_STAFF_ACCT_TRAD_INFO.DATA_DATE is '数据日期';
 comment on column A_STAFF_ACCT_TRAD_INFO.ALERT_ID is '告警号';
 comment on column A_STAFF_ACCT_TRAD_INFO.CUST_NO is '客户号';
@@ -311,7 +315,7 @@ comment on column A_STAFF_ACCT_TRAD_INFO.FILLER3 is '预留字段3';
 
 
 insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
-values ('170', '员工交易监测功能', null, 2, 1, '0', 21, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-edit');
+values ('170', '员工交易监测日报', null, 2, 1, '0', 21, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-edit');
 insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
 values ('1701', '员工交易监测日报', '/fpages/hf/form/ftl/AStaffAcctTrad.ftl', 2, 0, '170', 1, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-edit');
 insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
@@ -319,9 +323,20 @@ values ('1702', '交易监测日报自查手工抽取', '/fpages/hf/form/ftl/ASt
 insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
 values ('1703', '交易监测日报自查审核', '/fpages/hf/form/ftl/AStaffAcctTradApprove.ftl', 2, 0, '170', 3, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-ok');
 insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
-values ('1704', '员工交易监测月报', '/fpages/hf/form/ftl/AStaffAcctTradM.ftl', 2, 0, '170', 4, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-edit');
+values ('1704', '员工交易监测日报管理', '/fpages/hf/form/ftl/AStaffAcctTradTaskNew.ftl', 2, 0, '170', 4, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-ok');
 insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
-values ('1705', '交易监测月报自查手工抽取', '/fpages/hf/form/ftl/AStaffAcctTradMQuery.ftl', 2, 0, '170', 5, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-edit');
+values ('180', '员工交易监测月报', null, 2, 1, '0', 22, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-edit');
 insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
-values ('1706', '交易监测月报自查审核', '/fpages/hf/form/ftl/AStaffAcctTradMApprove.ftl', 2, 0, '170', 6, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-ok');
+values ('1801', '员工交易监测月报', '/fpages/hf/form/ftl/AStaffAcctTradM.ftl', 2, 0, '180', 1, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-edit');
+insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
+values ('1802', '交易监测月报自查手工抽取', '/fpages/hf/form/ftl/AStaffAcctTradMQuery.ftl', 2, 0, '180', 2, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-edit');
+insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
+values ('1803', '交易监测月报自查审核', '/fpages/hf/form/ftl/AStaffAcctTradMApprove.ftl', 2, 0, '180', 3, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-ok');
+insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
+values ('1804', '员工交易监测月报管理', '/fpages/hf/form/ftl/AStaffAcctTradMTaskNew.ftl', 2, 0, '180', 4, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-ok');
+commit;
+
+
+INSERT INTO SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST, IS_LOCK, IS_DEL, CRT_DT, LAST_UPD_TMS, LAST_UPD_OPER) 
+VALUES ('ALTER', 'ALTER', '10', '交易自查比例', '交易自查比例', '4', 'F', 'F', '20200511', '20200511120720', null);
 commit;

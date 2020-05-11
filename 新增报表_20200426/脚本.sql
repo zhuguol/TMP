@@ -67,9 +67,9 @@ comment on column TRANSACTION_VOLUME_BY_LOB.TRAD_AMT is '交易金额(万元人�
 
 ------------------------菜单
 insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
-values ('1801', 'Customer Volume', '/fpages/hf/form/ftl/CustomerVolume.ftl', 2, 0, '180', 1, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-ok');
+values ('1901', 'Customer Volume', '/fpages/hf/form/ftl/CustomerVolume.ftl', 2, 0, '190', 1, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-ok');
 insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
-values ('1802', 'Transaction Volume', '/fpages/hf/form/ftl/TransactionVolume.ftl', 2, 0, '180', 2, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-ok');
+values ('1902', 'Transaction Volume', '/fpages/hf/form/ftl/TransactionVolume.ftl', 2, 0, '190', 2, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-ok');
 insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
-values ('180', 'FC UAR Raw Data Report', null, 2, 1, '0', 22, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-ok');
+values ('190', 'FC UAR Raw Data Report', null, 2, 1, '0', 23, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-ok');
 commit;

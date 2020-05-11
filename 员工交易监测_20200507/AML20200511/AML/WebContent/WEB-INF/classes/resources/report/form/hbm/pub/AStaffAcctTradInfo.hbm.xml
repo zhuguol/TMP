@@ -6,7 +6,8 @@
 <hibernate-mapping package="resources.bean.report.form">
 	<class name="AStaffAcctTradInfo" table="A_STAFF_ACCT_TRAD_INFO">
 		<meta attribute="sync-DAO">false</meta>
-		<id name="alertId" type="string" column="ALERT_ID"></id>
+		<id name="recId" type="string" column="REC_ID"></id>
+		<property name="alertId" column="ALERT_ID" type="string" not-null="false" length="40"/>
 		<property name="dataDate" column="DATA_DATE" type="string" not-null="false" length="8"/>
 		<property name="custNo" column="CUST_NO" type="string" not-null="false" length="32"/>
 		<property name="acctNo" column="ACCT_NO" type="string" not-null="false" length="64"/>
