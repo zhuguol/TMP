@@ -3,70 +3,83 @@
 
 3. WEB-INF\classes\com\huateng\report\aml\download\AStaffAcctTradDownloadAction.class
 
-4. WEB-INF\classes\com\huateng\report\hf\aml\imp\AmlBatchImportController.class
+4. WEB-INF\classes\com\huateng\report\common\service\ReportCommonService.class
 
-5. WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradApproveSave.class
-6. WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradBatchApprove.class
-7. WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradFreeFlag.class
-8. WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradMApproveSave.class
-9. WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradMBatchApprove.class
-10.WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradMFreeFlag.class
-11.WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradMTaskNewUpdate.class
-12.WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradMUpdateSave.class
-13.WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradTaskNewUpdate.class
-14.WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradUpdateSave.class
+5. WEB-INF\classes\com\huateng\report\hf\aml\imp\AmlBatchImportController.class
 
-15.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradApproveGetter.class
-16.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradGetter.class
-17.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradInfoGetter.class
-18.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradMApproveGetter.class
-19.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradMGetter.class
-20.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradMQueryGetter.class
-21.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradMTaskNewGetter.class
-22.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradMUpdateGetter.class
-23.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradQueryGetter.class
-24.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradTaskNewGetter.class
-25.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradTlrNoSelectGetter.class
-26.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradUpdateGetter.class
+6. WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradApproveSave.class
+7. WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradBatchApprove.class
+8. WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradFreeFlag.class
+9. WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradMApproveSave.class
+10.WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradMBatchApprove.class
+11.WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradMFreeFlag.class
+12.WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradMTaskNewUpdate.class
+13.WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradMUpdateSave.class
+14.WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradTaskNewUpdate.class
+15.WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffAcctTradUpdateSave.class
+16.WEB-INF\classes\com\huateng\report\hf\aml\update\AStaffSysParamsUpdate.class
 
-27.WEB-INF\classes\resources\bean\report\form\AStaffAcctTrad.class
-28.WEB-INF\classes\resources\bean\report\form\AStaffAcctTradInfo.class
-29.WEB-INF\classes\resources\bean\report\form\AStaffAcctTradM.class
+17.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradApproveGetter.class
+18.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradGetter.class
+19.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradInfoGetter.class
+20.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradMApproveGetter.class
+21.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradMGetter.class
+22.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradMQueryGetter.class
+23.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradMTaskNewGetter.class
+24.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradMUpdateGetter.class
+25.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradQueryGetter.class
+26.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradTaskNewGetter.class
+27.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradTlrNoSelectGetter.class
+28.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffAcctTradUpdateGetter.class
+29.WEB-INF\classes\com\huateng\report\hf\form\getter\AStaffSysParamsGetter.class
 
-30.WEB-INF\classes\resources\report\form\hbm\pub\AStaffAcctTrad.hbm.xml
-31.WEB-INF\classes\resources\report\form\hbm\pub\AStaffAcctTradInfo.hbm.xml
-32.WEB-INF\classes\resources\report\form\hbm\pub\AStaffAcctTradM.hbm.xml
+30.WEB-INF\classes\com\huateng\report\hfaml3\utils\HfAml3Utils.class
 
-33.fpages\hf\form\ftl\AStaffAcctTrad.ftl
-34.fpages\hf\form\ftl\AStaffAcctTradApprove.ftl
-35.fpages\hf\form\ftl\AStaffAcctTradInfo.ftl
-36.fpages\hf\form\ftl\AStaffAcctTradM.ftl
-37.fpages\hf\form\ftl\AStaffAcctTradMApprove.ftl
-38.fpages\hf\form\ftl\AStaffAcctTradMQuery.ftl
-39.fpages\hf\form\ftl\AStaffAcctTradMTaskNew.ftl
-40.fpages\hf\form\ftl\AStaffAcctTradMUpdate.ftl
-41.fpages\hf\form\ftl\AStaffAcctTradQuery.ftl
-42.fpages\hf\form\ftl\AStaffAcctTradTaskNew.ftl
-43.fpages\hf\form\ftl\AStaffAcctTradUpdate.ftl
+31.WEB-INF\classes\resources\bean\report\form\AStaffAcctTrad.class
+32.WEB-INF\classes\resources\bean\report\form\AStaffAcctTradInfo.class
+33.WEB-INF\classes\resources\bean\report\form\AStaffAcctTradM.class
+34.WEB-INF\classes\resources\bean\report\form\ViHomePageTodo05.class
+35.WEB-INF\classes\resources\bean\report\form\ViHomePageTodo06.class
 
-44.fpages\hf\form\xml\AStaffAcctTrad.xml
-45.fpages\hf\form\xml\AStaffAcctTradApprove.xml
-46.fpages\hf\form\xml\AStaffAcctTradInfo.xml
-47.fpages\hf\form\xml\AStaffAcctTradM.xml
-48.fpages\hf\form\xml\AStaffAcctTradMApprove.xml
-49.fpages\hf\form\xml\AStaffAcctTradMQuery.xml
-50.fpages\hf\form\xml\AStaffAcctTradMTaskNew.xml
-51.fpages\hf\form\xml\AStaffAcctTradMUpdate.xml
-52.fpages\hf\form\xml\AStaffAcctTradQuery.xml
-53.fpages\hf\form\xml\AStaffAcctTradTaskNew.xml
-54.fpages\hf\form\xml\AStaffAcctTradTlrNoSelect.xml
-55.fpages\hf\form\xml\AStaffAcctTradUpdate.xml
+36.WEB-INF\classes\resources\report\form\hbm\pub\AStaffAcctTrad.hbm.xml
+37.WEB-INF\classes\resources\report\form\hbm\pub\AStaffAcctTradInfo.hbm.xml
+38.WEB-INF\classes\resources\report\form\hbm\pub\AStaffAcctTradM.hbm.xml
+39.WEB-INF\classes\resources\report\form\hbm\pub\ViHomePageTodo05.hbm.xml
+40.WEB-INF\classes\resources\report\form\hbm\pub\ViHomePageTodo06.hbm.xml
 
-56.fpages\hf\jsp\AStaffAcctTradMould.jsp
-57.fpages\hf\jsp\uploadAStaffAcctTrad.jsp
+41.fpages\hf\form\ftl\AStaffAcctTrad.ftl
+42.fpages\hf\form\ftl\AStaffAcctTradApprove.ftl
+43.fpages\hf\form\ftl\AStaffAcctTradInfo.ftl
+44.fpages\hf\form\ftl\AStaffAcctTradM.ftl
+45.fpages\hf\form\ftl\AStaffAcctTradMApprove.ftl
+46.fpages\hf\form\ftl\AStaffAcctTradMQuery.ftl
+47.fpages\hf\form\ftl\AStaffAcctTradMTaskNew.ftl
+48.fpages\hf\form\ftl\AStaffAcctTradMUpdate.ftl
+49.fpages\hf\form\ftl\AStaffAcctTradQuery.ftl
+50.fpages\hf\form\ftl\AStaffAcctTradTaskNew.ftl
+51.fpages\hf\form\ftl\AStaffAcctTradUpdate.ftl
+52.fpages\hf\form\ftl\AStaffSysParams.ftl
 
-58.WEB-INF\credit.mvc.xml
-59.WEB-INF\web.xml
+53.fpages\hf\form\xml\AStaffAcctTrad.xml
+54.fpages\hf\form\xml\AStaffAcctTradApprove.xml
+55.fpages\hf\form\xml\AStaffAcctTradInfo.xml
+56.fpages\hf\form\xml\AStaffAcctTradM.xml
+57.fpages\hf\form\xml\AStaffAcctTradMApprove.xml
+58.fpages\hf\form\xml\AStaffAcctTradMQuery.xml
+59.fpages\hf\form\xml\AStaffAcctTradMTaskNew.xml
+60.fpages\hf\form\xml\AStaffAcctTradMUpdate.xml
+61.fpages\hf\form\xml\AStaffAcctTradQuery.xml
+62.fpages\hf\form\xml\AStaffAcctTradTaskNew.xml
+63.fpages\hf\form\xml\AStaffAcctTradTlrNoSelect.xml
+64.fpages\hf\form\xml\AStaffAcctTradUpdate.xml
+65.fpages\hf\form\xml\AStaffSysParams.xml
 
-60.WEB-INF\query\meta\hfAmlFormMeta.xml
+66.fpages\hf\jsp\AStaffAcctTradMould.jsp
+67.fpages\hf\jsp\uploadAStaffAcctTrad.jsp
 
+68.login\homepage\todo.jsp
+
+69.WEB-INF\credit.mvc.xml
+70.WEB-INF\web.xml
+
+71.WEB-INF\query\meta\hfAmlFormMeta.xml

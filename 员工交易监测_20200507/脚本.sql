@@ -1,3 +1,4 @@
+------------------HSBC
 ------------------记录状态数据字典
 insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
 values (392, 400001, '00', '客户交易监管记录状态', 1, '00-未处理', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
@@ -94,6 +95,7 @@ create table A_STAFF_ACCT_TRAD
     FILLER2                    varchar(64),
     FILLER3                    varchar(256),
 	BRAN_CODE				   varchar(20),
+	ALTER_UAR				   varchar(4000),
     constraint PK_A_STAFF_ACCT_TRAD primary key(ALERT_ID)      --设置主键
 );
 
@@ -127,7 +129,7 @@ comment on column A_STAFF_ACCT_TRAD.FEEDBACK_DATE is '收到反馈时间';
 comment on column A_STAFF_ACCT_TRAD.POTENTIAL_CASE_TYPE is '(初步调查)上报的可疑类型';
 comment on column A_STAFF_ACCT_TRAD.CONCLUDED_TYPE is '(收到反馈)判定的可疑类型';
 comment on column A_STAFF_ACCT_TRAD.COMFIRMED_SUSP is '是否判定可疑';
-comment on column A_STAFF_ACCT_TRAD.CASE_ID is '已上报案件编号';
+comment on column A_STAFF_ACCT_TRAD.CASE_ID is '上报案件编号';
 comment on column A_STAFF_ACCT_TRAD.APPROVE_STATUS is '记录状态';
 comment on column A_STAFF_ACCT_TRAD.APPROVE_UPD_TLR is '审核人员';
 comment on column A_STAFF_ACCT_TRAD.APPROVE_RESULT is '审核说明';
@@ -141,6 +143,7 @@ comment on column A_STAFF_ACCT_TRAD.FILLER1 is '预留字段1';
 comment on column A_STAFF_ACCT_TRAD.FILLER2 is '预留字段2';
 comment on column A_STAFF_ACCT_TRAD.FILLER3 is '预留字段3';
 comment on column A_STAFF_ACCT_TRAD.BRAN_CODE is '分行号';
+comment on column A_STAFF_ACCT_TRAD.ALTER_UAR is '反馈案件编号';
 
 ------------------------员工交易监测月报
 create table A_STAFF_ACCT_TRAD_M
@@ -174,8 +177,8 @@ create table A_STAFF_ACCT_TRAD_M
     CONCLUDED_TYPE        varchar2(10),
     COMFIRMED_SUSP        varchar2(10),
     CASE_ID               varchar2(4000),
-    ALTER_FLAG            varchar2(10),
-    ALTER_UAR             varchar2(30),
+    ALTER_FLAG            varchar2(4000),
+    ALTER_UAR             varchar2(4000),
     APPROVE_STATUS        varchar2(2),
     APPROVE_UPD_TLR       varchar2(20),
     APPROVE_RESULT        varchar2(500),
@@ -222,9 +225,9 @@ comment on column A_STAFF_ACCT_TRAD_M.FEEDBACK_DATE is '收到反馈时间';
 comment on column A_STAFF_ACCT_TRAD_M.POTENTIAL_CASE_TYPE is '(初步调查)上报的可疑类型';
 comment on column A_STAFF_ACCT_TRAD_M.CONCLUDED_TYPE is '(收到反馈)判定的可疑类型';
 comment on column A_STAFF_ACCT_TRAD_M.COMFIRMED_SUSP is '是否判定可疑';
-comment on column A_STAFF_ACCT_TRAD_M.CASE_ID is '已上报案件编号';
-comment on column A_STAFF_ACCT_TRAD_M.ALTER_FLAG is '当日已有告警标识';
-comment on column A_STAFF_ACCT_TRAD_M.ALTER_UAR is '当月告警UAR_NO';
+comment on column A_STAFF_ACCT_TRAD_M.CASE_ID is '上报案件编号';
+comment on column A_STAFF_ACCT_TRAD_M.ALTER_FLAG is '当月日报上报案件编号';
+comment on column A_STAFF_ACCT_TRAD_M.ALTER_UAR is '反馈案件编号';
 comment on column A_STAFF_ACCT_TRAD_M.APPROVE_STATUS is '记录状态';
 comment on column A_STAFF_ACCT_TRAD_M.APPROVE_UPD_TLR is '审核人员';
 comment on column A_STAFF_ACCT_TRAD_M.APPROVE_RESULT is '审核说明';
@@ -313,7 +316,7 @@ comment on column A_STAFF_ACCT_TRAD_INFO.FILLER1 is '预留字段1';
 comment on column A_STAFF_ACCT_TRAD_INFO.FILLER2 is '预留字段2';
 comment on column A_STAFF_ACCT_TRAD_INFO.FILLER3 is '预留字段3';
 
-
+----菜单设置
 insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
 values ('170', '员工交易监测日报', null, 2, 1, '0', 21, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-edit');
 insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
@@ -324,6 +327,7 @@ insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LA
 values ('1703', '交易监测日报自查审核', '/fpages/hf/form/ftl/AStaffAcctTradApprove.ftl', 2, 0, '170', 3, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-ok');
 insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
 values ('1704', '员工交易监测日报管理', '/fpages/hf/form/ftl/AStaffAcctTradTaskNew.ftl', 2, 0, '170', 4, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-ok');
+
 insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
 values ('180', '员工交易监测月报', null, 2, 1, '0', 22, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-edit');
 insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
@@ -336,7 +340,76 @@ insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LA
 values ('1804', '员工交易监测月报管理', '/fpages/hf/form/ftl/AStaffAcctTradMTaskNew.ftl', 2, 0, '180', 4, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-ok');
 commit;
 
-
+------客户参数设置
 INSERT INTO SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST, IS_LOCK, IS_DEL, CRT_DT, LAST_UPD_TMS, LAST_UPD_OPER) 
 VALUES ('ALTER', 'ALTER', '10', '交易自查比例', '交易自查比例', '4', 'F', 'F', '20200511', '20200511120720', null);
 commit;
+
+insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
+values ('1012', '客户参数设置', '/fpages/hf/form/ftl/AStaffSysParams.ftl', 2, 0, '10', 13, 1, '1', null, null, null, '1', null, null, null, null, null, 'icon-set');
+commit;
+
+------待办任务
+insert into SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST, IS_LOCK, IS_DEL, CRT_DT, LAST_UPD_TMS, LAST_UPD_OPER)
+values ('AML3', 'TODO_STAFF', '1701,1801', '主页员工交易调研', null, '4', 'F', 'F', null, null, null);
+insert into SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST, IS_LOCK, IS_DEL, CRT_DT, LAST_UPD_TMS, LAST_UPD_OPER)
+values ('AML3', 'TODO_STAFS', '1702,1703,1704,1802,1803,1804', '主页员工交易自查', null, '4', 'F', 'F', null, null, null);
+commit;
+
+--------操作员员工交易监测调研
+create or replace view vi_homepage_todo05 as 
+select c.id,c.data_date,c.report_d_or_m,c.snt from (       
+select SYS_GUID() AS id,t.data_date, t.report_d_or_m || '-日报' as report_d_or_m , sum(case when t.status is null then 1 else 0 end) as snt
+  from a_staff_acct_trad t
+ where t.status is null
+ group by t.data_date, report_d_or_m, t.status
+union
+select SYS_GUID() AS id,m.data_date, m.report_d_or_m || '-月报' as report_d_or_m, sum(case when m.status is null then 1 else 0 end) as snt
+  from a_staff_acct_trad_m m
+ where m.status is null
+ group by m.data_date, report_d_or_m, m.status) c where c.snt > 0
+order by c.data_date ;
+
+
+-------操作员员工交易监测自查
+create or replace view vi_homepage_todo06 as
+select c.id,c.data_date,c.report_d_or_m, c.cnt,c.snt from(
+ select SYS_GUID() AS id,t.data_date as data_date,
+        t.report_d_or_m || '-日报' as report_d_or_m,
+        sum(case
+              when t.FREE_FLAG = '01' then
+               1
+              else
+               0
+            end) cnt,
+        sum(case
+              when t.approve_status = '02' then
+               1
+              else
+               0
+            end) snt
+ 
+   from a_staff_acct_trad t
+  where t.FREE_FLAG = '01'
+  group by t.data_date, t.report_d_or_m
+ union
+ select SYS_GUID() AS id,m.data_date as data_date,
+        m.report_d_or_m || '-日报' as report_d_or_m,
+        sum(case
+              when m.FREE_FLAG = '01' then
+               1
+              else
+               0
+            end) cnt,
+        sum(case
+              when m.approve_status = '02' then
+               1
+              else
+               0
+            end) snt
+ 
+   from a_staff_acct_trad_m m
+  where m.FREE_FLAG = '01'
+  group by m.data_date, m.report_d_or_m)c where c.snt > 0
+order by c.data_date ;
+
