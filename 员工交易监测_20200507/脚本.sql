@@ -413,3 +413,320 @@ select c.id,c.data_date,c.report_d_or_m, c.cnt,c.snt from(
   group by m.data_date, m.report_d_or_m)c where c.snt > 0
 order by c.data_date ;
 
+
+
+
+
+
+
+-------------------------------------------------村镇行RRB员工交易监测
+--------------------村镇行员工交易监测菜单
+insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
+values ('210', '员工交易监测日报', null, 2, 1, '0', 24, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-edit');
+insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
+values ('2101', '员工交易监测日报', '/fpages/hf/form/ftl/AStaffAcctTradRRB.ftl', 2, 0, '210', 1, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-edit');
+insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
+values ('2102', '员工交易监测日报管理', '/fpages/hf/form/ftl/AStaffAcctTradRRBTaskNew.ftl', 2, 0, '210', 2, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-edit');
+insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
+values ('220', '员工交易监测月报', null, 2, 1, '0', 25, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-edit');
+insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
+values ('2201', '员工交易监测月报', '/fpages/hf/form/ftl/AStaffAcctTradMRRB.ftl', 2, 0, '220', 1, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-edit');
+insert into FUNCTION_INFO (FUNCID, FUNCNAME, PAGEPATH, LOCATION, ISDIRECTORY, LASTDIRECTORY, SHOWSEQ, FUNC_CLASS, FUNC_TYPE, WORKFLOW_FLAG, UP_FUNC_CODE, FUNC_DESC, STATUS, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, MISC, ICON_CLS)
+values ('2202', '员工交易监测月报管理', '/fpages/hf/form/ftl/AStaffAcctTradMRRBTaskNew.ftl', 2, 0, '220', 2, null, '1', null, null, null, '1', null, null, null, null, null, 'icon-edit');
+commit;
+--------------------记录状态
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (412, 400006, '00', '客户交易监管记录状态', 1, '00-未处理', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (413, 400006, '01', '客户交易监管记录状态', 1, '01-已下载', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (414, 400006, '02', '客户交易监管记录状态', 1, '02-已调研', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+commit;
+
+--------------------调查阶段
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (415, 400007, '00', '客户交易监管调查阶段', 1, '00-to FCTM', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (416, 400007, '01', '客户交易监管调查阶段', 1, '01-to President', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (417, 400007, '02', '客户交易监管调查阶段', 1, '02-to VPHOST', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (418, 400007, '03', '客户交易监管调查阶段', 1, '03-Closed by FCTM', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (419, 400007, '04', '客户交易监管调查阶段', 1, '04-Closed by President', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (420, 400007, '05', '客户交易监管调查阶段', 1, '05-Closed by VPHOST', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+commit;
+
+--------------------客户交易监管可疑类型
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (421, 400008, '00', '客户交易监管可疑类型', 1, '00-FCR', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (422, 400008, '01', '客户交易监管可疑类型', 1, '01-Misconduct', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+commit;
+
+--------------------客户交易监管是否判定可疑
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (423, 400009, '00', '客户交易监管是否判定可疑', 1, '00-Y:FCTM', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (424, 400009, '01', '客户交易监管是否判定可疑', 1, '01-Y:President', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (425, 400009, '02', '客户交易监管是否判定可疑', 1, '02-N', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+commit;
+
+-------------------是否存在员工编号数据字典
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (426, 400010, '00', '客户交易监管是否存在员工编号', 1, '00-无', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (427, 400010, '01', '客户交易监管是否存在员工编号', 1, '01-有', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
+values (428, 400010, '02', '客户交易监管是否存在员工编号', 1, '02-全部', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+commit;
+
+--------------------村镇行员工交易监测日报
+create table A_STAFF_ACCT_TRAD_RRB  
+(   DATA_DATE                  varchar(8),
+    ALERT_ID                   varchar(40) not null,
+    CUST_NAME                  varchar(128),
+    CUST_ID_CERT_NO            varchar(128),
+	CUST_NO                    varchar(32),
+    STAFF_NUMBER               varchar(10),
+    STAFF_DEPARTMENT           varchar(100),
+    STAFF_JOB_TITLE            varchar(120),
+    RULE_CODE                  varchar(10),
+    BUSS_FLAG                  varchar(100),
+    MANAGER_NAME               varchar(100),
+    CTAR                       varchar(4000),
+    CTNT                       varchar(6),
+    INVES_RESULT_BY_OPS        varchar(4000),
+    CHECK_DATE                 varchar(10),
+    INVESTIGATOR               varchar(4000),
+    STATUS                     varchar(10),
+    APPEARANCE_TIME            varchar(60),
+    REPORT_D_OR_M              varchar(60),
+    FEEDBACK_FROM              varchar(4000),
+    FEEDBACK_DATE              varchar(10),
+    POTENTIAL_CASE_TYPE        varchar(10),
+    CONCLUDED_TYPE             varchar(10),
+    COMFIRMED_SUSP             varchar(10),
+    CASE_ID                    varchar(4000),
+    APPROVE_STATUS             varchar(2),
+    APPROVE_UPD_TLR            varchar(20),
+    APPROVE_RESULT             varchar(500),
+    APPROVE_UPD_TM             varchar(30),
+    RECORD_UPD_TLR             varchar(20),
+    RECORD_UPD_TM              varchar(30),
+    FREE_FLAG                  varchar(2),
+    ETL_FLAG                   varchar(2),
+    REPORT_DATE                varchar(8),
+    FILLER1                    varchar(64),
+    FILLER2                    varchar(64),
+    FILLER3                    varchar(256),
+	BRAN_CODE				   varchar(20),
+	ALTER_UAR				   varchar(4000),
+    constraint PK_A_STAFF_ACCT_TRAD_RRB primary key(ALERT_ID)      --设置主键
+);
+
+comment on table A_STAFF_ACCT_TRAD_RRB is '员工交易监测日报';
+comment on column A_STAFF_ACCT_TRAD_RRB.DATA_DATE is '数据日期';
+comment on column A_STAFF_ACCT_TRAD_RRB.ALERT_ID is '告警号';
+comment on column A_STAFF_ACCT_TRAD_RRB.CUST_NAME is '客户名称/姓名';
+comment on column A_STAFF_ACCT_TRAD_RRB.CUST_ID_CERT_NO is '客户身份证件号码';
+comment on column A_STAFF_ACCT_TRAD_RRB.CUST_NO is '客户号';
+comment on column A_STAFF_ACCT_TRAD_RRB.STAFF_NUMBER is '员工编号';
+comment on column A_STAFF_ACCT_TRAD_RRB.STAFF_DEPARTMENT is '员工所在部门';
+comment on column A_STAFF_ACCT_TRAD_RRB.STAFF_JOB_TITLE is '员工职位名称';
+comment on column A_STAFF_ACCT_TRAD_RRB.RULE_CODE is '规则代码';
+comment on column A_STAFF_ACCT_TRAD_RRB.BUSS_FLAG is '业务标识';
+comment on column A_STAFF_ACCT_TRAD_RRB.MANAGER_NAME is '直线经理姓名';
+comment on column A_STAFF_ACCT_TRAD_RRB.CTAR is '客户住址/经营地址';
+comment on column A_STAFF_ACCT_TRAD_RRB.CTNT is '客户国籍';
+comment on column A_STAFF_ACCT_TRAD_RRB.INVES_RESULT_BY_OPS is '初步调查结论(by OPS)';
+comment on column A_STAFF_ACCT_TRAD_RRB.CHECK_DATE is '初步调查日期';
+comment on column A_STAFF_ACCT_TRAD_RRB.INVESTIGATOR is '调查者';
+comment on column A_STAFF_ACCT_TRAD_RRB.STATUS is '调查阶段';
+comment on column A_STAFF_ACCT_TRAD_RRB.APPEARANCE_TIME is '(日报当月/月报当季)被抓出次数';
+comment on column A_STAFF_ACCT_TRAD_RRB.REPORT_D_OR_M is '日报/月报';
+comment on column A_STAFF_ACCT_TRAD_RRB.FEEDBACK_FROM is '反馈结果(从FCTM或者President指定部门)';
+comment on column A_STAFF_ACCT_TRAD_RRB.FEEDBACK_DATE is '收到反馈时间';
+comment on column A_STAFF_ACCT_TRAD_RRB.POTENTIAL_CASE_TYPE is '(初步调查)上报的可疑类型';
+comment on column A_STAFF_ACCT_TRAD_RRB.CONCLUDED_TYPE is '(收到反馈)判定的可疑类型';
+comment on column A_STAFF_ACCT_TRAD_RRB.COMFIRMED_SUSP is '是否判定可疑';
+comment on column A_STAFF_ACCT_TRAD_RRB.CASE_ID is '上报案件编号';
+comment on column A_STAFF_ACCT_TRAD_RRB.APPROVE_STATUS is '记录状态';
+comment on column A_STAFF_ACCT_TRAD_RRB.APPROVE_UPD_TLR is '审核人员';
+comment on column A_STAFF_ACCT_TRAD_RRB.APPROVE_RESULT is '审核说明';
+comment on column A_STAFF_ACCT_TRAD_RRB.APPROVE_UPD_TM is '审核日期';
+comment on column A_STAFF_ACCT_TRAD_RRB.RECORD_UPD_TLR is '记录修改人';
+comment on column A_STAFF_ACCT_TRAD_RRB.RECORD_UPD_TM is '记录修改时间';
+comment on column A_STAFF_ACCT_TRAD_RRB.FREE_FLAG is '自查状态';
+comment on column A_STAFF_ACCT_TRAD_RRB.ETL_FLAG is '数据频度';
+comment on column A_STAFF_ACCT_TRAD_RRB.REPORT_DATE is '上报日期';
+comment on column A_STAFF_ACCT_TRAD_RRB.FILLER1 is '预留字段1';
+comment on column A_STAFF_ACCT_TRAD_RRB.FILLER2 is '预留字段2';
+comment on column A_STAFF_ACCT_TRAD_RRB.FILLER3 is '预留字段3';
+comment on column A_STAFF_ACCT_TRAD_RRB.BRAN_CODE is '分行号';
+comment on column A_STAFF_ACCT_TRAD_RRB.ALTER_UAR is '反馈案件编号';
+
+
+------------------------员工交易监测月报
+create table A_STAFF_ACCT_TRAD_M_RRB
+(   DATA_DATE             varchar2(8),
+    ALERT_ID              varchar2(40) not null,
+    CUST_NAME             varchar2(128),
+    CUST_ID_CERT_NO       varchar2(128),
+    CUST_NO               varchar2(32),
+    STAFF_NUMBER          varchar2(10),
+    STAFF_DEPARTMENT      varchar2(100),
+    STAFF_JOB_TITLE       varchar2(120),
+    RULE_CODE             varchar2(10),
+    BUSS_FLAG             varchar2(100),
+    manager_name          varchar2(100),
+    CTAR                  varchar2(4000),
+    CTNT                  varchar2(6),
+    INVES_RESULT_BY_OPS   varchar2(4000),
+    CHECK_DATE            varchar2(10),
+    INVESTIGATOR          varchar2(4000),
+    STATUS                varchar2(10),
+    APPEARANCE_TIME       varchar2(60),
+    REPORT_D_OR_M         varchar2(60),
+    FEEDBACK_FROM         varchar2(4000),
+    FEEDBACK_DATE         varchar2(10),
+    POTENTIAL_CASE_TYPE   varchar2(10),
+    CONCLUDED_TYPE        varchar2(10),
+    COMFIRMED_SUSP        varchar2(10),
+    CASE_ID               varchar2(4000),
+    ALTER_FLAG            varchar2(4000),
+    ALTER_UAR             varchar2(4000),
+    APPROVE_STATUS        varchar2(2),
+    APPROVE_UPD_TLR       varchar2(20),
+    APPROVE_RESULT        varchar2(500),
+    APPROVE_UPD_TM        varchar2(30),
+    RECORD_UPD_TLR        varchar2(20),
+    RECORD_UPD_TM         varchar2(30),
+    FREE_FLAG             varchar2(2),
+    ETL_FLAG              varchar2(2),
+    REPORT_DATE           varchar2(8),
+    FILLER1               varchar2(64),
+    FILLER2               varchar2(64),
+    FILLER3               varchar2(256),
+	BRAN_CODE			  varchar(20),
+	CURR_SEASON           varchar(8),
+    constraint PK_A_STAFF_ACCT_TRAD_M_RRB primary key(ALERT_ID)      --设置主键
+);
+comment on table A_STAFF_ACCT_TRAD_M_RRB is '员工交易监测月报';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.DATA_DATE is '数据日期';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.ALERT_ID is '告警号';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.CUST_NAME is '客户名称/姓名';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.CUST_ID_CERT_NO is '客户身份证件号码';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.CUST_NO is '客户号';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.STAFF_NUMBER is '员工编号';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.STAFF_DEPARTMENT is '员工所在部门';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.STAFF_JOB_TITLE is '员工职位名称';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.RULE_CODE is '规则代码';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.BUSS_FLAG is '业务标识';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.manager_name is '直线经理姓名';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.CTAR is '客户住址/经营地址';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.CTNT is '客户国籍';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.INVES_RESULT_BY_OPS is '初步调查结论(by OPS)';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.CHECK_DATE is '初步调查日期';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.INVESTIGATOR is '调查者';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.STATUS is '调查阶段';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.APPEARANCE_TIME is '(日报当月/月报当季)被抓出次数';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.REPORT_D_OR_M is '日报/月报';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.FEEDBACK_FROM is '反馈结果(从FCTM或者President指定部门)';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.FEEDBACK_DATE is '收到反馈时间';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.POTENTIAL_CASE_TYPE is '(初步调查)上报的可疑类型';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.CONCLUDED_TYPE is '(收到反馈)判定的可疑类型';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.COMFIRMED_SUSP is '是否判定可疑';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.CASE_ID is '上报案件编号';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.ALTER_FLAG is '当月日报上报案件编号';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.ALTER_UAR is '反馈案件编号';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.APPROVE_STATUS is '记录状态';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.APPROVE_UPD_TLR is '审核人员';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.APPROVE_RESULT is '审核说明';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.APPROVE_UPD_TM is '审核日期';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.RECORD_UPD_TLR is '记录修改人';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.RECORD_UPD_TM is '记录修改时间';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.FREE_FLAG is '自查状态';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.ETL_FLAG is '数据频度';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.REPORT_DATE is '上报日期';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.FILLER1 is '预留字段1';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.FILLER2 is '预留字段2';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.FILLER3 is '预留字段3';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.BRAN_CODE is '分行号';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.CURR_SEASON is '所属季度';
+
+
+------------------------客户交易明细
+create table A_STAFF_ACCT_TRAD_INFO_RRB
+(   
+	REC_ID                   varchar2(150) not null,
+	DATA_DATE                varchar2(8),
+    ALERT_ID                 varchar2(40) not null,
+    CUST_NO                  varchar2(32),
+    ACCT_NO                  varchar(64),
+    ACCT_TYPE                varchar(40),
+    BANK_CARD_TYPE           varchar(2),
+	BANK_CARD_NO             varchar2(64),
+    TSTM                     varchar2(10),
+    TRAD_PLACE               varchar2(9),
+    PAY_MATCH_NO_TYPE        varchar2(2),
+    TRAD_TYPE                varchar2(6),
+    FUND_PAY_FLAG            varchar2(2),
+    FUND_PAY_PURPOS          varchar2(256),
+    CCY_CD                   varchar2(3),
+    TRAD_AMT                 number(20),
+    CNY_TRAD_AMT             number(20,3),
+    OPS_FINA_ORG_NAME        varchar2(128),
+    OPS_FINA_ORG_AREA_CODE   varchar2(9),
+    TRAD_ADVS_NAME           varchar2(128),
+    TRAD_ADVS_ID_CERT_NO     varchar2(128),
+    TRAD_ADVS_ACCT_NO        varchar2(64),
+    NON_COTR_TRAD_TYPE       varchar2(2),
+    NON_COTR_TRAD_TYPE_CODE  varchar2(500),
+    RULE_CODE                varchar2(10),
+    BUSS_FLAG                varchar2(100),
+    TBNM                     varchar2(64),
+    TBID                     varchar2(128),
+    ETL_FLAG                 varchar2(2),
+    FILLER1                  varchar2(64),
+    FILLER2                  varchar2(64),
+    FILLER3                  varchar2(256),
+	constraint PK_A_STAFF_ACCT_TRAD_INFO_RRB primary key(REC_ID)      --设置主键
+);
+
+
+comment on table A_STAFF_ACCT_TRAD_INFO_RRB is '客户交易明细';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.REC_ID is '主键';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.DATA_DATE is '数据日期';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.ALERT_ID is '告警号';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.CUST_NO is '客户号';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.ACCT_NO is '客户账号';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.ACCT_TYPE is '客户账号类型';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.BANK_CARD_TYPE is '银行卡类型';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.BANK_CARD_NO is '银行卡号码';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.TSTM is '交易发生日期';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.TRAD_PLACE is '交易发生地';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.PAY_MATCH_NO_TYPE is '收付款方匹配号码类型';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.TRAD_TYPE is '交易方式';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.FUND_PAY_FLAG is '资金收付标志';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.FUND_PAY_PURPOS is '资金用途';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.CCY_CD is '币种';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.TRAD_AMT is '交易金额';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.CNY_TRAD_AMT is '交易金额转人民币';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.OPS_FINA_ORG_NAME is '对方金融机构网点名称';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.OPS_FINA_ORG_AREA_CODE is '对方金融机构网点行政代码';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.TRAD_ADVS_NAME is '交易对手名称';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.TRAD_ADVS_ID_CERT_NO is '交易对手身份证件号码';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.TRAD_ADVS_ACCT_NO is '交易对手账号';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.NON_COTR_TRAD_TYPE is '非柜台交易方式';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.NON_COTR_TRAD_TYPE_CODE is '非柜台交易方式设备号码';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.RULE_CODE is '规则代码';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.BUSS_FLAG is '业务标识';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.TBNM is '交易代办人姓名';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.TBID is '代办人身份证件/证明文件号码';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.ETL_FLAG is '数据频度';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.FILLER1 is '预留字段1';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.FILLER2 is '预留字段2';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.FILLER3 is '预留字段3';
