@@ -1,5 +1,5 @@
 <#import "/templets/commonQuery/CommonQueryTagMacro.ftl" as CommonQueryMacro>
-<@CommonQueryMacro.page title="告警信息、客户信息和调查信息">
+<@CommonQueryMacro.page title="告警信息、客户信息、调查信息和质检信息">
 <@CommonQueryMacro.CommonQuery id="AStaffAcctTradUpdate" init="true" insertOnEmpty="true" submitMode="allchange" navigate="false">
 <table width="100%" cellpadding="2">
 	<tr>
@@ -109,12 +109,28 @@
 								<tr>
 									<td width="25%" width="25%" colspan="1" align="right" nowrap class="labeltd">反馈案件编号</td>
 							    	<td width="25%" width="25%" class="datatd" id="tdalterUar"><@CommonQueryMacro.SingleField fId="alterUar"/></td>
-									<td width="25%" width="25%" colspan="1" align="right" nowrap class="labeltd">质检意见</td>
-							    	<td width="25%" width="25%" class="datatd" id="tdqcComment"><@CommonQueryMacro.SingleField fId="qcComment"/></td>
 								</tr>
 							</table> 
 						</@CommonQueryMacro.GroupBox>
 				   </td>
+				</tr>
+				<tr>
+				    <td width="25%">
+				   		<@CommonQueryMacro.GroupBox id="groupbox1" label="质检信息" expand="true">
+							<table frame="void" class="grouptable" width="100%">
+								<tr>
+							    	<td width="25%" width="25%" colspan="1" align="right" nowrap class="labeltd">记录状态</td>
+							   		<td width="25%" width="25%" class="datatd" id="tdapproveStatus"><@CommonQueryMacro.SingleField fId="approveStatus"/></td>
+							    	<td width="25%" width="25%" colspan="1" align="right" nowrap class="labeltd">质检意见</td>
+							    	<td width="25%" width="25%" class="datatd" id="tdqcComment"><@CommonQueryMacro.SingleField fId="qcComment"/></td>
+								</tr>
+								<tr>
+							    	<td width="25%" width="25%" colspan="1" align="right" nowrap class="labeltd">审核人员</td>
+							    	<td width="25%" width="25%" class="datatd" id="tdapproveUpdTlr"><@CommonQueryMacro.SingleField fId="approveUpdTlr"/></td>
+								</tr>
+							</table> 
+						</@CommonQueryMacro.GroupBox>
+				    </td>
 				</tr>
 				<tr>
 		      		<td>
@@ -189,7 +205,9 @@
   			AStaffAcctTradUpdate_dataset.setFieldReadOnly("feedbackFrom",true);//反馈结果(从FCTM或者GB/GF指定部门)
   			AStaffAcctTradUpdate_dataset.setFieldReadOnly("comfirmedSusp",true);//是否判定可疑(及由哪方判定)
   			AStaffAcctTradUpdate_dataset.setFieldReadOnly("alterUar",true);//反馈案件编号
+  			AStaffAcctTradUpdate_dataset.setFieldReadOnly("approveStatus",true);//记录状态
   			AStaffAcctTradUpdate_dataset.setFieldReadOnly("qcComment",true);//质检意见
+  			AStaffAcctTradUpdate_dataset.setFieldReadOnly("approveUpdTlr",true);//审核人员
   			//将保存按钮隐藏
   			document.getElementById('btnSave').style.display="none";
   			//将审核按钮隐藏
@@ -211,7 +229,10 @@
   			AStaffAcctTradUpdate_dataset.setFieldReadOnly("appearanceTime",true);//(日报当月/月报当季)被抓出次数
   			AStaffAcctTradUpdate_dataset.setFieldReadOnly("checkDate",true);//初步调查日期
   			AStaffAcctTradUpdate_dataset.setFieldReadOnly("investigator",true);//调查者
+  			AStaffAcctTradUpdate_dataset.setFieldReadOnly("alterUar",true);//反馈案件编号
+  			AStaffAcctTradUpdate_dataset.setFieldReadOnly("approveStatus",true);//记录状态
   			AStaffAcctTradUpdate_dataset.setFieldReadOnly("qcComment",true);//质检意见
+  			AStaffAcctTradUpdate_dataset.setFieldReadOnly("approveUpdTlr",true);//审核人员
   			//将审核按钮隐藏
   			document.getElementById('btnApprove').style.display="none";
 		}else if(op == "approve"){
@@ -242,7 +263,9 @@
   			AStaffAcctTradUpdate_dataset.setFieldReadOnly("feedbackFrom",true);//反馈结果(从FCTM或者GB/GF指定部门)
   			AStaffAcctTradUpdate_dataset.setFieldReadOnly("comfirmedSusp",true);//是否判定可疑(及由哪方判定)
   			AStaffAcctTradUpdate_dataset.setFieldReadOnly("alterUar",true);//反馈案件编号
+  			AStaffAcctTradUpdate_dataset.setFieldReadOnly("approveStatus",true);//记录状态
   			AStaffAcctTradUpdate_dataset.setFieldReadOnly("qcComment",true);//质检意见
+  			AStaffAcctTradUpdate_dataset.setFieldReadOnly("approveUpdTlr",true);//审核人员
   			//将保存按钮隐藏
   			document.getElementById('btnSave').style.display="none";
 		}

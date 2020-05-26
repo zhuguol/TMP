@@ -86,6 +86,7 @@
 	<!-- 黑名单命中交易统计报表-->
 	<Query id="CBlackHitCount" path="/fpages/hf/form/xml/CBlackHitCount.xml" />
 
+	<!-- 汇丰中国员工交易监测 -->
 	<!-- 20200410员工交易监测日报 -->
 	<Query id="AStaffAcctTrad" path="/fpages/hf/form/xml/AStaffAcctTrad.xml" />
 	<!-- 20200410客户交易明细 -->
@@ -112,6 +113,23 @@
 	<Query id="AStaffAcctTradTlrNoSelect" path="/fpages/hf/form/xml/AStaffAcctTradTlrNoSelect.xml" />
 	<!-- 20200410客户参数设置 -->
 	<Query id="AStaffSysParams" path="/fpages/hf/form/xml/AStaffSysParams.xml" />
+	
+	
+	<!-- RRB村镇行员工交易监测 -->
+	<!-- 20200410员工交易监测日报 -->
+	<Query id="AStaffAcctTradRRB" path="/fpages/hf/form/xml/AStaffAcctTradRRB.xml" />
+	<!-- 20200410客户交易明细 -->
+	<Query id="AStaffAcctTradInfoRRB" path="/fpages/hf/form/xml/AStaffAcctTradInfoRRB.xml" />
+	<!-- 20200410客户交易调查信息日报修改 -->
+	<Query id="AStaffAcctTradRRBUpdate" path="/fpages/hf/form/xml/AStaffAcctTradRRBUpdate.xml" />
+	<!-- 20200410员工交易监测月报 -->
+	<Query id="AStaffAcctTradMRRB" path="/fpages/hf/form/xml/AStaffAcctTradMRRB.xml" />
+	<!-- 20200410客户交易调查信息日报修改 -->
+	<Query id="AStaffAcctTradMRRBUpdate" path="/fpages/hf/form/xml/AStaffAcctTradMRRBUpdate.xml" />
+	<!-- 20200410客户交易日报管理 -->
+	<Query id="AStaffAcctTradRRBTaskNew" path="/fpages/hf/form/xml/AStaffAcctTradRRBTaskNew.xml" />
+	<!-- 20200410客户交易月报管理-->
+	<Query id="AStaffAcctTradMRRBTaskNew" path="/fpages/hf/form/xml/AStaffAcctTradMRRBTaskNew.xml" />
 	
 	<!-- 20200426有效客户信息 -->
 	<Query id="CustomerVolumeByBranch" path="/fpages/hf/form/xml/CustomerVolumeByBranch.xml" />

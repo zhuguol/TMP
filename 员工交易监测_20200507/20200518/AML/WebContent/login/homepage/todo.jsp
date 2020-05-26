@@ -4,6 +4,7 @@
 <%@page import="resources.bean.report.form.ViHomePageTodo04"%>
 <%@page import="resources.bean.report.form.ViHomePageTodo05"%>
 <%@page import="resources.bean.report.form.ViHomePageTodo06"%>
+<%@page import="resources.bean.report.form.ViHomePageTodo07"%>
 <%@page import="java.lang.*"%>
 <%@page import="com.huateng.report.common.service.ReportCommonService"%>
 <%@page import="com.huateng.report.hfaml3.utils.HfAml3Utils"%>
@@ -29,10 +30,12 @@
 	List list3 = null;
 	//可疑交易自查
 	List list4 = null;
-	//客户交易调研
+	//汇丰中国HSBC客户交易调研
 	List list5 = null;
-	//客户交易自查
+	//汇丰中国HSBC客户交易自查
 	List list6 = null;
+	//村镇行RRB客户交易调研
+	List list7 = null;
 	
 	if(bool[0]){
 		list1 = ReportCommonService.getInstance().getUndoTask1(session);
@@ -44,13 +47,17 @@
 	if(bool[2]){
 		list4 = ReportCommonService.getInstance().getUndoTask4(session);
 	}
-	//员工交易调研
+	//汇丰中国HSBC员工交易调研
 	if(bool[3]){
 		list5 = ReportCommonService.getInstance().getUndoTask5(session);
 	}
-	//员工交易自查
+	//汇丰中国HSBC员工交易自查
 	if(bool[4]){
 		list6 = ReportCommonService.getInstance().getUndoTask6(session);
+	}
+	//村镇行RRB客户交易调研
+	if(bool[5]){
+		list7 = ReportCommonService.getInstance().getUndoTask7(session);
 	}
 	
 %>
@@ -271,6 +278,40 @@
 					<td class="datatd" valign=center align="left" nowrap><%=bean.getDataDate()%></td>
 					<td class="datatd" valign=center align="left" nowrap><%=bean.getReportDOrM()%></td>
 					<td class="datatd" valign=center align="left" nowrap><%=bean.getcNt()%></td>
+					<td class="datatd" valign=center align="left" nowrap><%=bean.getsNt()%></td>
+				</tr>
+				<%
+					}
+					} else {
+				%>
+				<tr bgcolor="#ffffff" style="line-height: 22px;">
+					<td colspan="3" align="center" class="datatd">没有需要处理的交易</td>
+				</tr>
+				<%
+					}
+				%>
+			</table>
+			<% } %>
+			
+			<% if(bool[5]){ %>
+        	 <p ><span style="text-align:center;float:left;height:20px;"><font size=3 color=#000000><b>操作员待办</b></font></span></p>
+        	 <table width="100%" class="grouptable" cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td class="labeltd" valign=center align="left" nowrap><font size=3 ><b>交易日期</b></font></td>
+					<td class="labeltd" valign=center align="left" nowrap><font size=3 ><b>告警类型</b></font></td>
+					<td class="labeltd" valign=center align="left" nowrap><font size=3 ><b>待调查</b></font></td>
+				</tr>
+				<%
+					if (list7 != null && list7.size() > 0) {
+						//String bgcolor = "#FFFF6F";
+						String bgcolor = "#ffffff";
+						for (int i = 0; i < list7.size(); i++) {
+							ViHomePageTodo07 bean = (ViHomePageTodo07) list7.get(i);
+							
+				%>
+				<tr style="line-height: 22px;" bgcolor="<%=bgcolor%>">
+					<td class="datatd" valign=center align="left" nowrap><%=bean.getDataDate()%></td>
+					<td class="datatd" valign=center align="left" nowrap><%=bean.getReportDOrM()%></td>
 					<td class="datatd" valign=center align="left" nowrap><%=bean.getsNt()%></td>
 				</tr>
 				<%

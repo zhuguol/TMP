@@ -48,7 +48,7 @@
 		<Field id="freeFlag" desc="自查状态" require="false" edittype="text" datatype="string" method="None" readonly="false" size="2" status="N" default="" primary="" xpath="/freeFlag" />
 		<Field id="etlFlag" desc="数据频度" require="false" edittype="text" datatype="string" method="None" readonly="false" size="2" status="N" default="" primary="" xpath="/etlFlag" />
 		<Field id="reportDate" desc="上报日期" require="false" edittype="text" datatype="date" method="None" readonly="false" size="8" status="N" default="" primary="" xpath="/reportDate" />
-		<Field id="filler1" desc="预留字段1" require="false" edittype="select" translated="LIST:01,01-审核通过;02,02-审核失败" datatype="string" method="None" readonly="false" size="64" status="N" default="" primary="" xpath="/filler1" />
+		<Field id="filler1" desc="预留字段1" require="false" edittype="text" datatype="string" method="None" readonly="false" size="64" status="N" default="" primary="" xpath="/filler1" />
 		<Field id="filler2" desc="预留字段2" require="false" edittype="text" datatype="string" method="None" readonly="false" size="64" status="N" default="" primary="" xpath="/filler2" />
 		<Field id="filler3" desc="预留字段3" require="false" edittype="text" datatype="string" method="None" readonly="false" size="256" status="N" default="" primary="" xpath="/filler3" />
 		<Field id="branCode" desc="分行号" require="false" edittype="text" datatype="string" method="None" readonly="false" size="20" status="N" default="" primary="" xpath="/branCode" />

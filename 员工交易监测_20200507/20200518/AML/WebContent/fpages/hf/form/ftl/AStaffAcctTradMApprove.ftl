@@ -15,8 +15,8 @@
 		    </tr>
 		    <tr>
 		    	<td colspan="2">
-					<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btnSelect,-,btnApprove" fieldStr="select,opr[150],ruleCode[80],dataDate[80],branCode[70],custNo[80],custName[90],custIdCertNo[130],ctnt[80],ctar[220],staffNumber[80],staffDepartment[110],staffJobTitle[100],reportDOrM[80],appearanceTime[150],checkDate[90],investigator[90],status[100],managerName[100],invesResultByOps[120],caseId[120],reportDate[90],potentialCaseType[120],feedbackDate[90],concludedType[120],feedbackFrom[150],comfirmedSusp[120],qcComment[150],alterFlag[120],alterUar[150]" width="100%" hasFrame="true" readonly="true"/>
-		      	</td>
+					<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btnSelect,-,btnApprove" fieldStr="select,opr[150],ruleCode[80],dataDate[80],branCode[70],custNo[80],custName[90],custIdCertNo[130],ctnt[80],ctar[220],staffNumber[80],staffDepartment[110],staffJobTitle[100],reportDOrM[80],appearanceTime[150],checkDate[90],investigator[90],status[100],managerName[100],invesResultByOps[120],caseId[120],reportDate[90],potentialCaseType[120],feedbackDate[90],concludedType[120],feedbackFrom[150],comfirmedSusp[120],alterUar[150],alterFlag[120],approveStatus[120],qcComment[150],approveUpdTlr[120],recordUpdTlr[120]" width="100%" hasFrame="true" readonly="true"/>
+				</td>
 		    </tr>
 		    <tr>
 	      		<td>
@@ -96,7 +96,7 @@
 			alert("只能选择一条记录进行查看详情！");
 			return false;
 		}
-		showWin("告警信息、客户信息和调查信息","/fpages/hf/form/ftl/AStaffAcctTradMUpdate.ftl?alertIds="+alertIds+"&op=approve","window","flushPage()",window);
+		showWin("告警信息、客户信息、调查信息和质检信息","/fpages/hf/form/ftl/AStaffAcctTradMUpdate.ftl?alertIds="+alertIds+"&op=approve","window","flushPage()",window);
 	}
 	
 	//批量审核
@@ -121,7 +121,7 @@
 	function btnSave_onClickCheck(){
 		var approveStatusChoose = AStaffAcctTradMApprove_dataset.getValue("approveStatusChoose");
 		var approveResultChoose = AStaffAcctTradMApprove_dataset.getValue("approveResultChoose");
-		var recordUpdTlrChoose = AStaffAcctTradAMpprove_dataset.getValue("recordUpdTlrChoose");
+		var recordUpdTlrChoose = AStaffAcctTradMApprove_dataset.getValue("recordUpdTlrChoose");
 		if(!approveStatusChoose.length > 0){
 			alert("请选择审核状态！");
 		   	return false;

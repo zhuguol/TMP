@@ -1,6 +1,6 @@
 <#import "/templets/commonQuery/CommonQueryTagMacro.ftl" as CommonQueryMacro>
 <@CommonQueryMacro.page title="客户参数设置">
-<table align="left" width="80%"><tr><td>
+<table align="left" width="100%"><tr><td>
 <@CommonQueryMacro.CommonQuery id="AStaffSysParams" init="true" submitMode="current">
 <table width="100%">
 	<tr>
@@ -8,7 +8,7 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<@CommonQueryMacro.DataTable id="datatable1" fieldStr="paramgroupId,paramId,paramName[260],paramVal,memo[260],st,operation"  width="100%" hasFrame="true"/>
+			<@CommonQueryMacro.DataTable id="datatable1" fieldStr="paramgroupId[150],paramId[150],paramName[260],paramVal[150],memo[260],st[150],operation[200]"  width="100%" hasFrame="true"/>
 		</td>
 	</tr>
 	<tr>

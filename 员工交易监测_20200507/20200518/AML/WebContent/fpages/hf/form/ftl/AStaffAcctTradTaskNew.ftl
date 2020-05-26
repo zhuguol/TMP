@@ -15,7 +15,7 @@
 		    </tr>
 		    <tr>
 		    	<td colspan="2">
-					<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btnSelect,-,btnDownLoad,-,btnReceive" fieldStr="select,opr[150],ruleCode[80],dataDate[80],branCode[70],custNo[80],custName[90],custIdCertNo[130],ctnt[80],ctar[220],staffNumber[80],staffDepartment[110],staffJobTitle[100],reportDOrM[80],appearanceTime[150],checkDate[90],investigator[90],status[100],managerName[100],invesResultByOps[120],caseId[120],reportDate[90],potentialCaseType[120],feedbackDate[90],concludedType[120],feedbackFrom[150],comfirmedSusp[120],qcComment[150],alterUar[150]" width="100%" hasFrame="true" readonly="true"/>
+					<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btnSelect,-,btnDownLoad,-,btnReceive" fieldStr="select,opr[150],ruleCode[80],dataDate[80],branCode[70],custNo[80],custName[90],custIdCertNo[130],ctnt[80],ctar[220],staffNumber[80],staffDepartment[110],staffJobTitle[100],reportDOrM[80],appearanceTime[150],checkDate[90],investigator[90],status[100],managerName[100],invesResultByOps[120],caseId[120],reportDate[90],potentialCaseType[120],feedbackDate[90],concludedType[120],feedbackFrom[150],comfirmedSusp[120],alterUar[150],approveStatus[120],qcComment[150],approveUpdTlr[120],recordUpdTlr[120]" width="100%" hasFrame="true" readonly="true"/>
 		      	</td>
 		    </tr>
 		    <tr>
@@ -83,7 +83,7 @@
 			alert("只能选择一条记录进行查看详情！");
 			return false;
 		}
-		showWin("告警信息、客户信息和调查信息","/fpages/hf/form/ftl/AStaffAcctTradUpdate.ftl?alertIds="+alertIds+"&op=detail","window","flushPage()",window);
+		showWin("告警信息、客户信息、调查信息和质检信息","/fpages/hf/form/ftl/AStaffAcctTradUpdate.ftl?alertIds="+alertIds+"&op=detail","window","flushPage()",window);
 	}
 	
 	//数据下载
@@ -143,7 +143,18 @@
 		var updateCount = 0;
 		while(record){
 			var temp = record.getValue("select");
+			var alertIds = record.getValue("alertId");//告警号
+			var approveStatus = record.getValue("approveStatus");//记录状态
+			var staffNumber = record.getValue("staffNumber");//员工编号
 			if(temp){
+				if(approveStatus == "03"){
+					alert("告警号："+alertIds+'的记录状态为"03-自查审核成功"，不可以进行分派！');
+					return false;
+				}
+				if(staffNumber == ""){
+					alert("告警号："+alertIds+"的记录的员工编号为空，不可以进行分派！");
+					return false;
+				}
 				updateCount ++;
 			}
 			record = record.nextUnit;

@@ -15,7 +15,7 @@
 		    </tr>
 		    <tr>
 		    	<td colspan="2">
-		    		<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btnSelect,-,btnUpdate,-,btnMould,-,btnDownLoad,-,btnUpload" fieldStr="select,opr[150],ruleCode[80],dataDate[80],branCode[70],custNo[80],custName[90],custIdCertNo[130],ctnt[80],ctar[220],staffNumber[80],staffDepartment[110],staffJobTitle[100],reportDOrM[80],appearanceTime[150],checkDate[90],investigator[90],status[100],managerName[100],invesResultByOps[120],caseId[120],reportDate[90],potentialCaseType[120],feedbackDate[90],concludedType[120],feedbackFrom[150],comfirmedSusp[120],qcComment[150],alterFlag[120],alterUar[150]" width="100%" hasFrame="true" readonly="true"/>
+		    		<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btnSelect,-,btnUpdate,-,btnMould,-,btnDownLoad,-,btnUpload" fieldStr="select,opr[150],ruleCode[80],dataDate[80],branCode[70],custNo[80],custName[90],custIdCertNo[130],ctnt[80],ctar[220],staffNumber[80],staffDepartment[110],staffJobTitle[100],reportDOrM[80],appearanceTime[150],checkDate[90],investigator[90],status[100],managerName[100],invesResultByOps[120],caseId[120],reportDate[90],potentialCaseType[120],feedbackDate[90],concludedType[120],feedbackFrom[150],comfirmedSusp[120],alterUar[150],alterFlag[120],approveStatus[120],qcComment[150],approveUpdTlr[120],recordUpdTlr[120]" width="100%" hasFrame="true" readonly="true"/>
 				</td>
 		    </tr>
 		</table>
@@ -72,7 +72,7 @@
 			alert("只能选择一条记录进行查看详情！");
 			return false;
 		}
-		showWin("告警信息、客户信息和调查信息","/fpages/hf/form/ftl/AStaffAcctTradMUpdate.ftl?alertIds="+alertIds+"&op=detail","window","flushPage()",window);
+		showWin("告警信息、客户信息、调查信息和质检信息","/fpages/hf/form/ftl/AStaffAcctTradMUpdate.ftl?alertIds="+alertIds+"&op=detail","window","flushPage()",window);
 	}
 	
 	//修改页面
@@ -107,7 +107,7 @@
 					return false;
 				}else{
 					if(approveStatus == "00" || tlrno == recordUpdTlr){
-			    		showWin("告警信息、客户信息和调查信息","/fpages/hf/form/ftl/AStaffAcctTradMUpdate.ftl?alertIds="+alertIds+"&op=update","window","flushPage()",window);
+			    		showWin("告警信息、客户信息、调查信息和质检信息","/fpages/hf/form/ftl/AStaffAcctTradMUpdate.ftl?alertIds="+alertIds+"&op=update","window","flushPage()",window);
 					}else{
 						alert("当前记录的修改人与您匹配不上！");
 						return false;
@@ -169,22 +169,22 @@
 	function btnDownLoad_onClick(){
 		if(confirm("确认下载数据吗?")){
 			var arraySelected = new Array();　
-			var AStaffAcctTradM = AStaffAcctTradM_dataset.getFirstRecord();
-			while(AStaffAcctTradM){
-				var selected = AStaffAcctTradM.getValue("select");
-				var alertId = AStaffAcctTradM.getValue("alertId");
-				var approveStatus = AStaffAcctTradM.getValue("approveStatus");
-				var recordUpdTlr = AStaffAcctTradM.getValue("recordUpdTlr");
+			var aStaffAcctTradM = AStaffAcctTradM_dataset.getFirstRecord();
+			while(aStaffAcctTradM){
+				var selected = aStaffAcctTradM.getValue("select");
+				var alertId = aStaffAcctTradM.getValue("alertId");
+				var approveStatus = aStaffAcctTradM.getValue("approveStatus");
+				var recordUpdTlr = aStaffAcctTradM.getValue("recordUpdTlr");
 				if(selected == true){
 					if(approveStatus == "00" || tlrno == recordUpdTlr){
 						arraySelected.push(alertId);
 					}else{
-						alert("当前记录无法下载，请查看记录状态与记录修改人！");
+						alert("请查看告警号为：'"+ alertId +"'的记录状态与记录修改人！");
 						arraySelected = null;
 						return false;
 					}
 				}			
-				AStaffAcctTradM = AStaffAcctTradM.getNextRecord();
+				aStaffAcctTradM = aStaffAcctTradM.getNextRecord();
 	   		}
 	   		//交易起始日期
    			var etlDateStart = AStaffAcctTradM_interface_dataset.getString("etlDateStart");

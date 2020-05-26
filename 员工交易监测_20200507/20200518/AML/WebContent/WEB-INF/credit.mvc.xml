@@ -57,6 +57,7 @@
 						<prop key="/amlBatchImport/uploadFiles.spring">uploadFilsesImport</prop>
 						<prop key="/amlBatchImport/uploadBN.spring">uploadBlackName</prop>
 						<prop key="/amlBatchImport/uploadAStaffAcctTrad.spring">uploadAStaffAcctTrad</prop>
+						<prop key="/amlBatchImport/uploadAStaffAcctTradRRB.spring">uploadAStaffAcctTradRRB</prop>
 					</props>
 				</property>
 			</bean>

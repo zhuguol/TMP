@@ -368,7 +368,7 @@ select SYS_GUID() AS id,m.data_date, m.report_d_or_m || '-月报' as report_d_or
   from a_staff_acct_trad_m m
  where m.status is null
  group by m.data_date, report_d_or_m, m.status) c where c.snt > 0
-order by c.data_date ;
+order by c.data_date;
 
 
 -------操作员员工交易监测自查
@@ -411,7 +411,7 @@ select c.id,c.data_date,c.report_d_or_m, c.cnt,c.snt from(
    from a_staff_acct_trad_m m
   where m.FREE_FLAG = '01'
   group by m.data_date, m.report_d_or_m)c where c.snt > 0
-order by c.data_date ;
+order by c.data_date;
 
 
 
@@ -481,6 +481,11 @@ insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DA
 values (427, 400010, '01', '客户交易监管是否存在员工编号', 1, '01-有', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 insert into DATA_DIC (ID, DATA_TYPE_NO, DATA_NO, DATA_TYPE_NAME, DATA_NO_LEN, DATA_NAME, LIMIT_FLAG, HIGH_LIMIT, LOW_LIMIT, EFFECT_DATE, EXPIRE_DATE, TIMESTAMPS, MISCFLGS, APPROVE_STATUS, APPROVE_RESULT, REC_STATUS, REP_STATUS, IS_SUB_SUCCESS, CRT_TM, LST_UPD_TM, LST_UPD_TLR, APPTYPE, BR_NO, YWDATE, ORGCODE, RECORD_UPD_TLR, RECORD_UPD_TM, ST)
 values (428, 400010, '02', '客户交易监管是否存在员工编号', 1, '02-全部', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+commit;
+
+------待办任务
+insert into SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST, IS_LOCK, IS_DEL, CRT_DT, LAST_UPD_TMS, LAST_UPD_OPER)
+values ('AML3', 'TODO_STRRB', '2101,2201', '主页员工交易调研', null, '4', 'F', 'F', null, null, null);
 commit;
 
 --------------------村镇行员工交易监测日报
@@ -730,3 +735,17 @@ comment on column A_STAFF_ACCT_TRAD_INFO_RRB.ETL_FLAG is '数据频度';
 comment on column A_STAFF_ACCT_TRAD_INFO_RRB.FILLER1 is '预留字段1';
 comment on column A_STAFF_ACCT_TRAD_INFO_RRB.FILLER2 is '预留字段2';
 comment on column A_STAFF_ACCT_TRAD_INFO_RRB.FILLER3 is '预留字段3';
+
+-------村镇行RRB操作员员工交易监测自查
+create or replace view vi_homepage_todo07 as
+select c.id,c.data_date,c.report_d_or_m,c.snt from (       
+select SYS_GUID() AS id,t.data_date, t.report_d_or_m || '-日报' as report_d_or_m , count(1) as snt
+  from a_staff_acct_trad_rrb t
+ where t.status='00' or t.status='01' or t.status='02' or t.status is null
+ group by t.data_date, report_d_or_m
+union
+select SYS_GUID() AS id,m.data_date, m.report_d_or_m || '-月报' as report_d_or_m, count(1) as snt
+  from a_staff_acct_trad_m_rrb m
+ where m.status='00' or m.status='01' or m.status='02' or m.status is null
+ group by m.data_date, report_d_or_m) c where c.snt > 0
+order by c.data_date;
