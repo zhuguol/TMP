@@ -32,6 +32,6 @@
 22.fpages\hf\form\xml\TransactionVolumeByBranch.xml
 23.fpages\hf\form\xml\TransactionVolumeByLob.xml
 
-25.WEB-INF\web.xml
+24.WEB-INF\web.xml
 
-26.WEB-INF\query\meta\hfAmlFormMeta.xml
+25.WEB-INF\query\meta\hfAmlFormMeta.xml

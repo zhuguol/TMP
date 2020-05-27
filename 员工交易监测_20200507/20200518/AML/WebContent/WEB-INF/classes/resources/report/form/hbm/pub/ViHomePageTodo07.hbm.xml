@@ -7,6 +7,7 @@
 	<class name="ViHomePageTodo07" table="Vi_HomePage_Todo07">
 		<meta attribute="sync-DAO">false</meta>
 		<id name="id" type="string" column="id"></id>
+		<property name="brNo" column="br_no" type="string" not-null="false" length="20"/>
 		<property name="dataDate" column="data_date" type="string" not-null="false" length="8"/>
 		<property name="reportDOrM" column="report_d_or_m" type="string" not-null="false" length="60"/>
 	    <property name="sNt" column="snt" type="big_decimal" not-null="false" length="20"/>

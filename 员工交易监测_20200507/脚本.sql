@@ -354,6 +354,9 @@ insert into SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST
 values ('AML3', 'TODO_STAFF', '1701,1801', '主页员工交易调研', null, '4', 'F', 'F', null, null, null);
 insert into SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST, IS_LOCK, IS_DEL, CRT_DT, LAST_UPD_TMS, LAST_UPD_OPER)
 values ('AML3', 'TODO_STAFS', '1702,1703,1704,1802,1803,1804', '主页员工交易自查', null, '4', 'F', 'F', null, null, null);
+insert into SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST, IS_LOCK, IS_DEL, CRT_DT, LAST_UPD_TMS, LAST_UPD_OPER)
+values ('AML3', 'TODO_STRRB', '2101,2201', '主页员工交易调研', null, '4', 'F', 'F', null, null, null);
+commit;
 commit;
 
 --------操作员员工交易监测调研
@@ -485,6 +488,10 @@ commit;
 
 ------待办任务
 insert into SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST, IS_LOCK, IS_DEL, CRT_DT, LAST_UPD_TMS, LAST_UPD_OPER)
+values ('AML3', 'TODO_STAFF', '1701,1801', '主页员工交易调研', null, '4', 'F', 'F', null, null, null);
+insert into SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST, IS_LOCK, IS_DEL, CRT_DT, LAST_UPD_TMS, LAST_UPD_OPER)
+values ('AML3', 'TODO_STAFS', '1702,1703,1704,1802,1803,1804', '主页员工交易自查', null, '4', 'F', 'F', null, null, null);
+insert into SYS_PARAMS (PARAMGROUP_ID, PARAM_ID, PARAM_VAL, PARAM_NAME, MEMO, ST, IS_LOCK, IS_DEL, CRT_DT, LAST_UPD_TMS, LAST_UPD_OPER)
 values ('AML3', 'TODO_STRRB', '2101,2201', '主页员工交易调研', null, '4', 'F', 'F', null, null, null);
 commit;
 
@@ -570,7 +577,7 @@ comment on column A_STAFF_ACCT_TRAD_RRB.REPORT_DATE is '上报日期';
 comment on column A_STAFF_ACCT_TRAD_RRB.FILLER1 is '预留字段1';
 comment on column A_STAFF_ACCT_TRAD_RRB.FILLER2 is '预留字段2';
 comment on column A_STAFF_ACCT_TRAD_RRB.FILLER3 is '预留字段3';
-comment on column A_STAFF_ACCT_TRAD_RRB.BRAN_CODE is '分行号';
+comment on column A_STAFF_ACCT_TRAD_RRB.BRAN_CODE is '机构号';
 comment on column A_STAFF_ACCT_TRAD_RRB.ALTER_UAR is '反馈案件编号';
 
 
@@ -659,7 +666,7 @@ comment on column A_STAFF_ACCT_TRAD_M_RRB.REPORT_DATE is '上报日期';
 comment on column A_STAFF_ACCT_TRAD_M_RRB.FILLER1 is '预留字段1';
 comment on column A_STAFF_ACCT_TRAD_M_RRB.FILLER2 is '预留字段2';
 comment on column A_STAFF_ACCT_TRAD_M_RRB.FILLER3 is '预留字段3';
-comment on column A_STAFF_ACCT_TRAD_M_RRB.BRAN_CODE is '分行号';
+comment on column A_STAFF_ACCT_TRAD_M_RRB.BRAN_CODE is '机构号';
 comment on column A_STAFF_ACCT_TRAD_M_RRB.CURR_SEASON is '所属季度';
 
 
@@ -738,14 +745,14 @@ comment on column A_STAFF_ACCT_TRAD_INFO_RRB.FILLER3 is '预留字段3';
 
 -------村镇行RRB操作员员工交易监测自查
 create or replace view vi_homepage_todo07 as
-select c.id,c.data_date,c.report_d_or_m,c.snt from (       
-select SYS_GUID() AS id,t.data_date, t.report_d_or_m || '-日报' as report_d_or_m , count(1) as snt
+select c.id,c.data_date,c.report_d_or_m,c.br_no,c.snt from (
+select SYS_GUID() AS id,t.data_date, t.report_d_or_m || '-日报' as report_d_or_m , t.bran_code as br_no, count(1) as snt
   from a_staff_acct_trad_rrb t
  where t.status='00' or t.status='01' or t.status='02' or t.status is null
- group by t.data_date, report_d_or_m
+ group by t.data_date, t.report_d_or_m, t.bran_code
 union
-select SYS_GUID() AS id,m.data_date, m.report_d_or_m || '-月报' as report_d_or_m, count(1) as snt
+select SYS_GUID() AS id,m.data_date, m.report_d_or_m || '-月报' as report_d_or_m, m.bran_code as br_no, count(1) as snt
   from a_staff_acct_trad_m_rrb m
  where m.status='00' or m.status='01' or m.status='02' or m.status is null
- group by m.data_date, report_d_or_m) c where c.snt > 0
+ group by m.data_date, m.report_d_or_m, m.bran_code) c where c.snt > 0
 order by c.data_date;

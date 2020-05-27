@@ -50,7 +50,7 @@
 		<Field id="filler1" desc="预留字段1" require="false" edittype="text" datatype="string" method="None" readonly="false" size="64" status="N" default="" primary="" xpath="/filler1" />
 		<Field id="filler2" desc="预留字段2" require="false" edittype="text" datatype="string" method="None" readonly="false" size="64" status="N" default="" primary="" xpath="/filler2" />
 		<Field id="filler3" desc="预留字段3" require="false" edittype="text" datatype="string" method="None" readonly="false" size="256" status="N" default="" primary="" xpath="/filler3" />
-		<Field id="branCode" desc="分行号" require="false" edittype="text" datatype="string" method="None" readonly="false" size="20" status="N" default="" primary="" xpath="/branCode" />
+		<Field id="branCode" desc="机构号" require="false" edittype="text" datatype="string" method="None" readonly="false" size="20" status="N" default="" primary="" xpath="/branCode" />
 		<Field id="alterUar" desc="反馈案件编号" require="false" edittype="text" datatype="string" method="None" readonly="false" size="4000" status="N" default="" primary="" xpath="/alterUar" />
 		<Field id="opr" desc="告警号" require="" edittype="text" datatype="string" method="None" readonly="false" size="32" status="N" default="" primary="" xpath="" />
 	</Fields>

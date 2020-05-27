@@ -53,11 +53,8 @@
 		<Field id="filler1" desc="预留字段1" require="false" edittype="text" datatype="string" method="None" readonly="false" size="64" status="N" default="" primary="" xpath="/filler1" />
 		<Field id="filler2" desc="预留字段2" require="false" edittype="text" datatype="string" method="None" readonly="false" size="64" status="N" default="" primary="" xpath="/filler2" />
 		<Field id="filler3" desc="预留字段3" require="false" edittype="text" datatype="string" method="None" readonly="false" size="256" status="N" default="" primary="" xpath="/filler3" />
-		<Field id="branCode" desc="分行号" require="false" edittype="text" datatype="string" method="None" readonly="false" size="20" status="N" default="" primary="" xpath="/branCode" />
+		<Field id="branCode" desc="机构号" require="false" edittype="text" datatype="string" method="None" readonly="false" size="20" status="N" default="" primary="" xpath="/branCode" />
 		<Field id="currSeason" desc="所属季度" require="false" edittype="text" datatype="string" method="None" readonly="false" size="8" status="N" default="" primary="" xpath="/currSeason" />
-		<Field id="approveStatusChoose" desc="审核状态" require="false" edittype="select" datatype="string" method="None" readonly="false" size="2" translated="LIST:01,01-通过;02,02-不通过;" status="N" default="" xpath="" />
-		<Field id="approveResultChoose" desc="审核说明" require="false" edittype="textarea" datatype="string" method="None" readonly="false" size="500" status="N" default="" xpath=""/>
-		<Field id="recordUpdTlrChoose" desc="新调查者" require="false" edittype="text" datatype="string" method="None" readonly="false" size="20" status="N" default="" xpath=""/>
 	</Fields>
 	<Where>
 	</Where>

@@ -176,8 +176,6 @@
 			}
 			//告警号
 			var alertIds = AStaffAcctTradRRB_interface_dataset.getString("alertIds");
-			//分行号
-			var branCodes = AStaffAcctTradRRB_interface_dataset.getString("branCodes");
 			//员工编号
 			var staffNumbers = AStaffAcctTradRRB_interface_dataset.getString("staffNumbers");
 			//记录状态
@@ -186,8 +184,8 @@
 			var tableName = "AStaffAcctTradRRB";
 			document.getElementById("btnDownLoad").style.display = "none";//将下载按钮置为无效
 			createTimerIfNull();
-			window.location.href = "${contextPath}/filedownload/AStaffAcctTradRRBDownloadAction.do?etlDateStart="+etlDateStart+"&etlDateEnd="+etlDateEnd+"&custNo="+custNo+
-			"&custName="+custName+"&custIdCertNo="+custIdCertNo+"&statuss="+statuss+"&alertIds="+alertIds+"&branCodes="+branCodes+
+			window.location.href = "${contextPath}/filedownload/AStaffAcctTradRRBDownloadAction.do?etlDateStart="+etlDateStart+"&etlDateEnd="+etlDateEnd+
+			"&custNo="+custNo+"&custName="+custName+"&custIdCertNo="+custIdCertNo+"&statuss="+statuss+"&alertIds="+alertIds+
 			"&staffNumbers="+staffNumbers+"&approveStatuss="+approveStatuss+"&arraySelected="+arraySelected+"&tableName="+tableName;
 		}
 		return false;

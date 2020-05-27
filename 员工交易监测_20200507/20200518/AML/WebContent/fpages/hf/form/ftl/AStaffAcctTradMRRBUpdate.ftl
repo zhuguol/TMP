@@ -29,7 +29,7 @@
 						<@CommonQueryMacro.GroupBox id="groupbox1" label="客户信息" expand="true">
 							<table frame="void" class="grouptable" width="100%">
 						   		<tr>
-							   		<td width="25%" width="25%" colspan="1" align="right" nowrap class="labeltd">分行号</td>
+							   		<td width="25%" width="25%" colspan="1" align="right" nowrap class="labeltd">机构号</td>
 							   		<td width="25%" width="25%" class="datatd" id="tdbranCode"><@CommonQueryMacro.SingleField fId="branCode"/></td>			
 							   		<td width="25%" width="25%" colspan="1" align="right" nowrap class="labeltd">客户号</td>
 							  		<td width="25%" width="25%" class="datatd" id="tdcustNo"><@CommonQueryMacro.SingleField fId="custNo"/></td>	
@@ -138,7 +138,7 @@
   			AStaffAcctTradMRRBUpdate_dataset.setFieldReadOnly("dataDate",true);//数据日期
   			AStaffAcctTradMRRBUpdate_dataset.setFieldReadOnly("alertId",true);//告警号
   			AStaffAcctTradMRRBUpdate_dataset.setFieldReadOnly("ruleCode",true);//规则代码
-  			AStaffAcctTradMRRBUpdate_dataset.setFieldReadOnly("branCode",true);//分行号
+  			AStaffAcctTradMRRBUpdate_dataset.setFieldReadOnly("branCode",true);//机构号
   			AStaffAcctTradMRRBUpdate_dataset.setFieldReadOnly("custNo",true);//客户号
   			AStaffAcctTradMRRBUpdate_dataset.setFieldReadOnly("custName",true);//客户名称/姓名
   			AStaffAcctTradMRRBUpdate_dataset.setFieldReadOnly("custIdCertNo",true);//客户身份证件号码
@@ -169,7 +169,7 @@
 			AStaffAcctTradMRRBUpdate_dataset.setFieldReadOnly("dataDate",true);//数据日期
   			AStaffAcctTradMRRBUpdate_dataset.setFieldReadOnly("alertId",true);//告警号
   			AStaffAcctTradMRRBUpdate_dataset.setFieldReadOnly("ruleCode",true);//规则代码
-  			AStaffAcctTradMRRBUpdate_dataset.setFieldReadOnly("branCode",true);//分行号
+  			AStaffAcctTradMRRBUpdate_dataset.setFieldReadOnly("branCode",true);//机构号
   			AStaffAcctTradMRRBUpdate_dataset.setFieldReadOnly("custNo",true);//客户号
   			AStaffAcctTradMRRBUpdate_dataset.setFieldReadOnly("custName",true);//客户名称/姓名
   			AStaffAcctTradMRRBUpdate_dataset.setFieldReadOnly("custIdCertNo",true);//客户身份证件号码

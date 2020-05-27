@@ -164,6 +164,8 @@
 			var approveStatus = AStaffAcctTradMRRB_interface_dataset.getString("approveStatuss");
 			//员工编号
 			var staffNumbers = AStaffAcctTradMRRB_interface_dataset.getString("staffNumbers");
+			//告警号
+			var alertIds = AStaffAcctTradMRRB_interface_dataset.getString("alertIds");
 			//调查阶段
 			var statuss = AStaffAcctTradMRRB_interface_dataset.getString("statuss");
 			if(!flag){
@@ -185,7 +187,7 @@
 			window.location.href = "${contextPath}/filedownload/AStaffAcctTradRRBDownloadAction.do?etlDateStart="+etlDateStart
 			+"&etlDateEnd="+etlDateEnd+"&custNo="+custNo+"&custName="+custName+"&custIdCertNo="+custIdCertNo
 			+"&approveStatus="+approveStatus+"&staffNumbers="+staffNumbers+"&arraySelected="+arraySelected
-			+"&statuss="+statuss+"&tableName="+tableName;
+			+"&statuss="+statuss+"&alertIds="+alertIds+"&tableName="+tableName;
 		}
 		return false;
 	}

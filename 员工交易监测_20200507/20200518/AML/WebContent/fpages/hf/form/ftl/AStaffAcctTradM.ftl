@@ -200,13 +200,18 @@
 			var approveStatus = AStaffAcctTradM_interface_dataset.getString("approveStatuss");
 			//员工编号
 			var staffNumbers = AStaffAcctTradM_interface_dataset.getString("staffNumbers");
+			//告警号
+			var alertIds = AStaffAcctTradM_interface_dataset.getString("alertIds");
 			//调查阶段
 			var statuss = AStaffAcctTradM_interface_dataset.getString("statuss");
 			//下载模板名
 			var tableName = "AStaffAcctTradM";
 			document.getElementById("btnDownLoad").style.display = "none";//将下载按钮置为无效
 			createTimerIfNull();
-			window.location.href = "${contextPath}/filedownload/AStaffAcctTradDownloadAction.do?etlDateStart="+etlDateStart+"&etlDateEnd="+etlDateEnd+"&custNo="+custNo+"&custName="+custName+"&custIdCertNo="+custIdCertNo+"&approveStatus="+approveStatus+"&staffNumbers="+staffNumbers+"&arraySelected="+arraySelected+"&statuss="+statuss+"&tableName="+tableName;
+			window.location.href = "${contextPath}/filedownload/AStaffAcctTradDownloadAction.do?etlDateStart="+etlDateStart+
+			"&etlDateEnd="+etlDateEnd+"&custNo="+custNo+"&custName="+custName+"&custIdCertNo="+custIdCertNo+
+			"&approveStatus="+approveStatus+"&staffNumbers="+staffNumbers+"&arraySelected="+arraySelected+
+			"&statuss="+statuss+"&alertIds="+alertIds+"&tableName="+tableName;
 		}
 		return false;
 	}
