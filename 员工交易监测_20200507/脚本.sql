@@ -261,7 +261,7 @@ create table A_STAFF_ACCT_TRAD_INFO
     FUND_PAY_FLAG            varchar2(2),
     FUND_PAY_PURPOS          varchar2(256),
     CCY_CD                   varchar2(3),
-    TRAD_AMT                 number(20),
+    TRAD_AMT                 number(20,3),
     CNY_TRAD_AMT             number(20,3),
     OPS_FINA_ORG_NAME        varchar2(128),
     OPS_FINA_ORG_AREA_CODE   varchar2(9),
@@ -298,8 +298,8 @@ comment on column A_STAFF_ACCT_TRAD_INFO.TRAD_TYPE is '交易方式';
 comment on column A_STAFF_ACCT_TRAD_INFO.FUND_PAY_FLAG is '资金收付标志';
 comment on column A_STAFF_ACCT_TRAD_INFO.FUND_PAY_PURPOS is '资金用途';
 comment on column A_STAFF_ACCT_TRAD_INFO.CCY_CD is '币种';
-comment on column A_STAFF_ACCT_TRAD_INFO.TRAD_AMT is '交易金额';
-comment on column A_STAFF_ACCT_TRAD_INFO.CNY_TRAD_AMT is '交易金额转人民币';
+comment on column A_STAFF_ACCT_TRAD_INFO.TRAD_AMT is '交易金额(元)';
+comment on column A_STAFF_ACCT_TRAD_INFO.CNY_TRAD_AMT is '交易金额转人民币(元)';
 comment on column A_STAFF_ACCT_TRAD_INFO.OPS_FINA_ORG_NAME is '对方金融机构网点名称';
 comment on column A_STAFF_ACCT_TRAD_INFO.OPS_FINA_ORG_AREA_CODE is '对方金融机构网点行政代码';
 comment on column A_STAFF_ACCT_TRAD_INFO.TRAD_ADVS_NAME is '交易对手名称';
@@ -688,7 +688,7 @@ create table A_STAFF_ACCT_TRAD_INFO_RRB
     FUND_PAY_FLAG            varchar2(2),
     FUND_PAY_PURPOS          varchar2(256),
     CCY_CD                   varchar2(3),
-    TRAD_AMT                 number(20),
+    TRAD_AMT                 number(20,3),
     CNY_TRAD_AMT             number(20,3),
     OPS_FINA_ORG_NAME        varchar2(128),
     OPS_FINA_ORG_AREA_CODE   varchar2(9),
@@ -725,8 +725,8 @@ comment on column A_STAFF_ACCT_TRAD_INFO_RRB.TRAD_TYPE is '交易方式';
 comment on column A_STAFF_ACCT_TRAD_INFO_RRB.FUND_PAY_FLAG is '资金收付标志';
 comment on column A_STAFF_ACCT_TRAD_INFO_RRB.FUND_PAY_PURPOS is '资金用途';
 comment on column A_STAFF_ACCT_TRAD_INFO_RRB.CCY_CD is '币种';
-comment on column A_STAFF_ACCT_TRAD_INFO_RRB.TRAD_AMT is '交易金额';
-comment on column A_STAFF_ACCT_TRAD_INFO_RRB.CNY_TRAD_AMT is '交易金额转人民币';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.TRAD_AMT is '交易金额(元)';
+comment on column A_STAFF_ACCT_TRAD_INFO_RRB.CNY_TRAD_AMT is '交易金额转人民币(元)';
 comment on column A_STAFF_ACCT_TRAD_INFO_RRB.OPS_FINA_ORG_NAME is '对方金融机构网点名称';
 comment on column A_STAFF_ACCT_TRAD_INFO_RRB.OPS_FINA_ORG_AREA_CODE is '对方金融机构网点行政代码';
 comment on column A_STAFF_ACCT_TRAD_INFO_RRB.TRAD_ADVS_NAME is '交易对手名称';

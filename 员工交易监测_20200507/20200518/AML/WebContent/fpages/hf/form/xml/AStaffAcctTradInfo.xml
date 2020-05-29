@@ -27,7 +27,7 @@
 		<Field id="fundPayFlag" desc="资金收付标志" require="false" edittype="text" datatype="string" method="None" readonly="false" size="2" status="N" default="" primary="" xpath="/fundPayFlag" />
 		<Field id="fundPayPurpos" desc="资金用途" require="false" edittype="text" datatype="string" method="None" readonly="false" size="256" status="N" default="" primary="" xpath="/fundPayPurpos" />
 		<Field id="ccyCd" desc="币种" require="false" edittype="text" datatype="string" method="None" readonly="false" size="3" status="N" default="" primary="" xpath="/ccyCd" />
-		<Field id="tradAmt" desc="交易金额" require="false" edittype="text" datatype="currency" method="None" readonly="false" size="20" status="N" default="" primary="" xpath="/tradAmt" />
+		<Field id="tradAmt" desc="交易金额(元)" require="false" edittype="text" datatype="currency" method="None" readonly="false" size="20" status="N" default="" primary="" xpath="/tradAmt" />
 		<Field id="cnyTradAmt" desc="交易金额转人民币(元)" require="false" edittype="text" datatype="currency" method="None" readonly="false" size="20" status="N" default="" primary="" xpath="/cnyTradAmt" />
 		<Field id="opsFinaOrgName" desc="对方金融机构网点名称" require="false" edittype="text" datatype="string" method="None" readonly="false" size="128" status="N" default="" primary="" xpath="/opsFinaOrgName" />
 		<Field id="opsFinaOrgAreaCode" desc="对方金融机构网点行政代码" require="false" edittype="text" datatype="string" method="None" readonly="false" size="9" status="N" default="" primary="" xpath="/opsFinaOrgAreaCode" />
