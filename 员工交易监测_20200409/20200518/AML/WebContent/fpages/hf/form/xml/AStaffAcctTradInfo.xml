@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 用于直接生成SQL语句，支持同步和异步提交 -->
+<!-- title:标题 navigate:导航信息 type:方式（sql|call) interface:是否显示输入条件页面(true|false) 
+	databusid:数据总线编号 transdataactionurl:数据整理URL async:异步提交标志 pagesize:页面显示记录数(缺省为10) -->
+<CommQry title="客户交易明细" navigate="员工交易监测功能&gt;客户交易明细"
+	type="call" 
+	interface="true" 
+	pagesize="100" 
+	async="true" 
+	databusid=""
+	transdataactionurl="/trans/TransDataAction.do" 
+	getterclassname="com.huateng.report.hf.form.getter.AStaffAcctTradInfoGetter">
+	<Include id="BankParam" />
+	<Fields>
+		<Field id="recId" desc="主键" require="false" edittype="text" datatype="string" method="None" readonly="false" size="150" status="N" default="" primary="" xpath="/recId" />
+		<Field id="dataDate" desc="数据日期" require="false" edittype="text" datatype="date" method="None" readonly="false" size="8" status="N" default="" primary="" xpath="/dataDate" />
+		<Field id="alertId" desc="告警号" require="false" edittype="text" datatype="string" method="None" readonly="false" size="40" status="N" default="" primary="" xpath="/alertId" />
+		<Field id="custNo" desc="客户号" require="false" edittype="text" datatype="string" method="None" readonly="false" size="32" status="N" default="" primary="" xpath="/custNo" />
+		<Field id="acctNo" desc="客户账号" require="false" edittype="text" datatype="string" method="None" readonly="false" size="64" status="N" default="" primary="" xpath="/acctNo" />
+		<Field id="acctType" desc="客户账号类型" require="false" edittype="text" datatype="string" method="None" readonly="false" size="40" status="N" default="" primary="" xpath="/acctType" />
+		<Field id="bankCardType" desc="银行卡类型" require="false" edittype="text" datatype="string" method="None" readonly="false" size="2" status="N" default="" primary="" xpath="/bankCardType" />
+		<Field id="bankCardNo" desc="银行卡号码" require="false" edittype="text" datatype="string" method="None" readonly="false" size="64" status="N" default="" primary="" xpath="/bankCardNo" />
+		<Field id="tstm" desc="交易发生日期" require="false" edittype="text" datatype="string" method="None" readonly="false" size="10" status="N" default="" primary="" xpath="/tstm" />
+		<Field id="tradPlace" desc="交易发生地" require="false" edittype="text" datatype="string" method="None" readonly="false" size="9" status="N" default="" primary="" xpath="/tradPlace" />
+		<Field id="payMatchNoType" desc="收付款方匹配号码类型" require="false" edittype="text" datatype="string" method="None" readonly="false" size="2" status="N" default="" primary="" xpath="/payMatchNoType" />
+		<Field id="tradType" desc="交易方式" require="false" edittype="text" datatype="string" method="None" readonly="false" size="6" status="N" default="" primary="" xpath="/tradType" />
+		<Field id="fundPayFlag" desc="资金收付标志" require="false" edittype="text" datatype="string" method="None" readonly="false" size="2" status="N" default="" primary="" xpath="/fundPayFlag" />
+		<Field id="fundPayPurpos" desc="资金用途" require="false" edittype="text" datatype="string" method="None" readonly="false" size="256" status="N" default="" primary="" xpath="/fundPayPurpos" />
+		<Field id="ccyCd" desc="币种" require="false" edittype="text" datatype="string" method="None" readonly="false" size="3" status="N" default="" primary="" xpath="/ccyCd" />
+		<Field id="tradAmt" desc="交易金额(元)" require="false" edittype="text" datatype="currency" method="None" readonly="false" size="20" status="N" default="" primary="" xpath="/tradAmt" />
+		<Field id="cnyTradAmt" desc="交易金额转人民币(元)" require="false" edittype="text" datatype="currency" method="None" readonly="false" size="20" status="N" default="" primary="" xpath="/cnyTradAmt" />
+		<Field id="opsFinaOrgName" desc="对方金融机构网点名称" require="false" edittype="text" datatype="string" method="None" readonly="false" size="128" status="N" default="" primary="" xpath="/opsFinaOrgName" />
+		<Field id="opsFinaOrgAreaCode" desc="对方金融机构网点行政代码" require="false" edittype="text" datatype="string" method="None" readonly="false" size="9" status="N" default="" primary="" xpath="/opsFinaOrgAreaCode" />
+		<Field id="tradAdvsName" desc="交易对手名称" require="false" edittype="text" datatype="string" method="None" readonly="false" size="128" status="N" default="" primary="" xpath="/tradAdvsName" />
+		<Field id="tradAdvsIdCertNo" desc="交易对手身份证件号码" require="false" edittype="text" datatype="string" method="None" readonly="false" size="128" status="N" default="" primary="" xpath="/tradAdvsIdCertNo" />
+		<Field id="tradAdvsAcctNo" desc="交易对手账号" require="false" edittype="text" datatype="string" method="None" readonly="false" size="64" status="N" default="" primary="" xpath="/tradAdvsAcctNo" />
+		<Field id="nonCotrTradType" desc="非柜台交易方式" require="false" edittype="text" datatype="string" method="None" readonly="false" size="2" status="N" default="" primary="" xpath="/nonCotrTradType" />
+		<Field id="nonCotrTradTypeCode" desc="非柜台交易方式设备号码" require="false" edittype="text" datatype="string" method="None" readonly="false" size="500" status="N" default="" primary="" xpath="/nonCotrTradTypeCode" />
+		<Field id="ruleCode" desc="规则代码" require="false" edittype="text" datatype="string" method="None" readonly="false" size="10" status="N" default="" primary="" xpath="/ruleCode" />
+		<Field id="bussFlag" desc="业务标识" require="false" edittype="text" datatype="string" method="None" readonly="false" size="100" status="N" default="" primary="" xpath="/bussFlag" />
+		<Field id="tbnm" desc="交易代办人姓名" require="false" edittype="text" datatype="string" method="None" readonly="false" size="64" status="N" default="" primary="" xpath="/tbnm" />
+		<Field id="tbid" desc="代办人身份证件/证明文件号码" require="false" edittype="text" datatype="string" method="None" readonly="false" size="128" status="N" default="" primary="" xpath="/tbid" />
+		<Field id="etlFlag" desc="数据频度" require="false" edittype="text" datatype="string" method="None" readonly="false" size="2" status="N" default="" primary="" xpath="/etlFlag" />
+		<Field id="filler1" desc="预留字段1" require="false" edittype="text" datatype="string" method="None" readonly="false" size="64" status="N" default="" primary="" xpath="/filler1" />
+		<Field id="filler2" desc="预留字段2" require="false" edittype="text" datatype="string" method="None" readonly="false" size="64" status="N" default="" primary="" xpath="/filler2" />
+		<Field id="filler3" desc="预留字段3" require="false" edittype="text" datatype="string" method="None" readonly="false" size="256" status="N" default="" primary="" xpath="/filler3" />
+	</Fields>
+	<Where>
+	</Where>
+	<Operations>
+		<Button id="btnCancel" name="btnCancel" desc="返回" updateClass="" operation="" url="#" show="" group="" txn="" icon="icon-default" />
+	</Operations>
+</CommQry>
