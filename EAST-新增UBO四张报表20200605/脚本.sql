@@ -8,7 +8,7 @@ create table AML_UBO_REPORT_INFO(
     p_idty      VARCHAR2(18),
     p_idno      VARCHAR2(128),
     p_idep      NUMBER(8),
-    address     VARCHAR2(4000),
+    addresss     VARCHAR2(4000),
     lob         VARCHAR2(24)
 );
 
@@ -21,7 +21,7 @@ comment on column AML_UBO_REPORT_INFO.p_name is '实际受益人姓名';
 comment on column AML_UBO_REPORT_INFO.p_idty is '实际受益人证件类型';
 comment on column AML_UBO_REPORT_INFO.p_idno is '实际受益人证件号码';
 comment on column AML_UBO_REPORT_INFO.p_idep is '实际受益人证件有效期';
-comment on column AML_UBO_REPORT_INFO.address is '实际受益人联系地址';
+comment on column AML_UBO_REPORT_INFO.addresss is '实际受益人联系地址';
 comment on column AML_UBO_REPORT_INFO.lob is '业务线';
 
 -----------------------AML_UBO_REPORT_INFO_GB
@@ -34,7 +34,7 @@ create table AML_UBO_REPORT_INFO_GB(
     p_idty      VARCHAR2(18),
     p_idno      VARCHAR2(128),
     p_idep      NUMBER(8),
-    address     VARCHAR2(4000),
+    addresss     VARCHAR2(4000),
     lob         VARCHAR2(24)
 );
 
@@ -47,7 +47,7 @@ comment on column AML_UBO_REPORT_INFO_GB.p_name is '实际受益人姓名';
 comment on column AML_UBO_REPORT_INFO_GB.p_idty is '实际受益人证件类型';
 comment on column AML_UBO_REPORT_INFO_GB.p_idno is '实际受益人证件号码';
 comment on column AML_UBO_REPORT_INFO_GB.p_idep is '实际受益人证件有效期';
-comment on column AML_UBO_REPORT_INFO_GB.address is '实际受益人联系地址';
+comment on column AML_UBO_REPORT_INFO_GB.addresss is '实际受益人联系地址';
 comment on column AML_UBO_REPORT_INFO_GB.lob is '业务线';
 
 
@@ -61,7 +61,7 @@ create table AML_UBO_REPORT_INFO_H(
     p_idty      VARCHAR2(18),
     p_idno      VARCHAR2(128),
     p_idep      NUMBER(8),
-    address     VARCHAR2(4000),
+    addresss     VARCHAR2(4000),
     lob         VARCHAR2(24)
 );
 
@@ -74,7 +74,7 @@ comment on column AML_UBO_REPORT_INFO_H.p_name is '实际受益人姓名';
 comment on column AML_UBO_REPORT_INFO_H.p_idty is '实际受益人证件类型';
 comment on column AML_UBO_REPORT_INFO_H.p_idno is '实际受益人证件号码';
 comment on column AML_UBO_REPORT_INFO_H.p_idep is '实际受益人证件有效期';
-comment on column AML_UBO_REPORT_INFO_H.address is '实际受益人联系地址';
+comment on column AML_UBO_REPORT_INFO_H.addresss is '实际受益人联系地址';
 comment on column AML_UBO_REPORT_INFO_H.lob is '业务线';
 
 -----------------------AML_UBO_REPORT_INFO_GB_H
@@ -87,7 +87,7 @@ create table AML_UBO_REPORT_INFO_GB_H(
     p_idty      VARCHAR2(18),
     p_idno      VARCHAR2(128),
     p_idep      NUMBER(8),
-    address     VARCHAR2(4000),
+    addresss     VARCHAR2(4000),
     lob         VARCHAR2(24)
 );
 
@@ -100,7 +100,7 @@ comment on column AML_UBO_REPORT_INFO_GB_H.p_name is '实际受益人姓名';
 comment on column AML_UBO_REPORT_INFO_GB_H.p_idty is '实际受益人证件类型';
 comment on column AML_UBO_REPORT_INFO_GB_H.p_idno is '实际受益人证件号码';
 comment on column AML_UBO_REPORT_INFO_GB_H.p_idep is '实际受益人证件有效期';
-comment on column AML_UBO_REPORT_INFO_GB_H.address is '实际受益人联系地址';
+comment on column AML_UBO_REPORT_INFO_GB_H.addresss is '实际受益人联系地址';
 comment on column AML_UBO_REPORT_INFO_GB_H.lob is '业务线';
 
 
