@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 用于直接生成SQL语句，支持同步和异步提交 -->
+<!-- title:标题 navigate:导航信息 type:方式（sql|call) interface:是否显示输入条件页面(true|false) 
+	databusid:数据总线编号 transdataactionurl:数据整理URL async:异步提交标志 pagesize:页面显示记录数(缺省为10) -->
+<CommQry title="CustomerVolumeByLob" navigate="CustomerVolumeByLob&gt;有效客户信息"
+	type="call" 
+	interface="true" 
+	pagesize="100" 
+	async="true" 
+	databusid=""
+	transdataactionurl="/trans/TransDataAction.do" 
+	getterclassname="com.huateng.report.hf.form.getter.CustomerVolumeByLobGetter">
+	<Include id="BankParam" />
+	<Fields>
+		<Field id="id" desc="主键序列号" edittype="text" datatype="string" method="None" readonly="false" size="20" status="F" default="" xpath="/id" />
+		<Field id="searchDate" desc="检索时间(年/月)" edittype="text" datatype="string" method="None" readonly="false" size="10" status="F" default="" xpath="/searchDate" />
+		<Field id="lob" desc="业务条线" edittype="text" datatype="string" method="None" readonly="false" size="10" status="F" default="" xpath="/lob" />
+		<Field id="customerVolume" desc="客户数量" edittype="text" datatype="currency" method="None" readonly="false" size="20" status="F" default="" xpath="/customerVolume" />
+	</Fields>
+	<Where>
+		<Option id="searchDateStart" desc="检索起始时间(年/月)" placeholder="yyyyMM" edittype="select" dropdowntype="custom" url="/templets/lib/yyyyMM.ftl" rules="isNum" editable="true" size="6" status="F" require="true" fieldmap="searchDateStart=yyyyMM;searchDateStartName=yyyyMM" viewField="yyyyMM" index="0" />
+		<Option id="searchDateEnd" desc="检索结束时间(年/月)" placeholder="yyyyMM" edittype="select" dropdowntype="custom" url="/templets/lib/yyyyMM.ftl" rules="isNum" editable="true" size="6" status="F" require="true" fieldmap="searchDateEnd=yyyyMM;searchDateEndName=yyyyMM" viewField="yyyyMM" index="1" />
+		<Option id="branchOrLob" desc="维度" require="true" edittype="select" translated="LIST:01,01-分行;02,02-业务条线" status="F" datatype="string" size="2" index="2" />
+	</Where>
+	<Operations>
+		<Button id="exportBNL" name="exportBNL" desc="导出" url="#" icon="icon-upload"/>
+	</Operations>
+</CommQry>
