@@ -16,8 +16,8 @@
 		<Field id="searchDate" desc="检索时间(年/月)" edittype="text" datatype="string" method="None" readonly="false" size="10" status="F" default="" xpath="/searchDate" />
 		<Field id="branch" desc="分行号" edittype="text" datatype="string" method="None" readonly="false" size="10" status="F" default="" xpath="/branch" />
 		<Field id="branchName" desc="分行名称" edittype="text" datatype="string" method="None" readonly="false" size="320" status="F" default="" xpath="/branchName" />
-		<Field id="tradCount" desc="交易笔数" require="false" edittype="text" datatype="int" method="None" readonly="false" size="20" status="F" default="" primary="" xpath="/tradCount" />
-		<Field id="tradAmt" desc="交易金额(万元人民币)" require="false" edittype="text" datatype="currency" method="None" readonly="false" size="20" status="F" default="" primary="" xpath="/tradAmt" />
+		<Field id="tradCount" desc="交易笔数" require="false" edittype="text" datatype="currency" method="None" readonly="false" size="20" status="F" default="" primary="" xpath="/tradCount" />
+		<Field id="tradAmt" desc="交易金额(万元人民币)" require="false" edittype="currency" datatype="currency" method="None" readonly="false" size="20" status="F" default="" primary="" xpath="/tradAmt" />
 	</Fields>
 	<Where>
 		<Option id="searchDateStart" desc="检索起始时间(年/月)" placeholder="yyyyMM" edittype="select" dropdowntype="custom" url="/templets/lib/yyyyMM.ftl" rules="isNum" editable="true" size="6" status="F" require="true" fieldmap="searchDateStart=yyyyMM;searchDateStartName=yyyyMM" viewField="yyyyMM" index="0" />

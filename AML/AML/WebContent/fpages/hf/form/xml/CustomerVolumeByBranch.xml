@@ -16,10 +16,10 @@
 		<Field id="searchDate" desc="检索时间(年/月)" edittype="text" datatype="string" method="None" readonly="false" size="10" status="F" default="" xpath="/searchDate" />
 		<Field id="branch" desc="分行号" edittype="text" datatype="string" method="None" readonly="false" size="10" status="F" default="" xpath="/branch" />
 		<Field id="branchName" desc="分行名称" edittype="text" datatype="string" method="None" readonly="false" size="320" status="F" default="" xpath="/branchName" />
-		<Field id="customerVolumeWpb" desc="客户数量(WPB)" edittype="text" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/customerVolumeWpb" />
-		<Field id="customerVolumeGbm" desc="客户数量(GBM)" edittype="text" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/customerVolumeGbm" />
-		<Field id="customerVolumeCmb" desc="客户数量(CMB)" edittype="text" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/customerVolumeCmb" />
-		<Field id="customerVolumeAll" desc="客户数量(ALL)" edittype="text" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/customerVolumeAll" />
+		<Field id="customerVolumeWpb" desc="客户数量(WPB)" edittype="currency" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/customerVolumeWpb" />
+		<Field id="customerVolumeGbm" desc="客户数量(GBM)" edittype="currency" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/customerVolumeGbm" />
+		<Field id="customerVolumeCmb" desc="客户数量(CMB)" edittype="currency" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/customerVolumeCmb" />
+		<Field id="customerVolumeAll" desc="客户数量(ALL)" edittype="currency" datatype="int" method="None" readonly="false" size="20" status="F" default="" xpath="/customerVolumeAll" />
 	</Fields>
 	<Where>
 		<Option id="searchDateStart" desc="检索起始时间(年/月)" placeholder="yyyyMM" edittype="select" dropdowntype="custom" url="/templets/lib/yyyyMM.ftl" rules="isNum" editable="true" size="6" status="F" require="true" fieldmap="searchDateStart=yyyyMM;searchDateStartName=yyyyMM" viewField="yyyyMM" index="0" />
