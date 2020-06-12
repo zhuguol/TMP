@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 用于直接生成SQL语句，支持同步和异步提交 -->
+<!-- title:标题 navigate:导航信息 type:方式（sql|call) interface:是否显示输入条件页面(true|false) 
+	databusid:数据总线编号 transdataactionurl:数据整理URL async:异步提交标志 pagesize:页面显示记录数(缺省为10) -->
+<CommQry title="UBO实际受益人历史报表信息" navigate="主页 &gt; UBO实际受益人历史报表信息"
+	type="call" interface="false" pagesize="10" async="true" databusid="MANAGEMENTTLR"
+	transdataactionurl="/trans/TransDataAction.do" getterclassname="com.huateng.export.getter.AmlUboReportInfoHGetter">
+	<Include id="BankParam" />
+	<Fields>
+		<!-- status :F-基本信息中显示 N-不显示 D-详细信息中显示 A-基本、详细信息中都显示 -->
+		<!-- primary : true-作为表单项记录上传 false-不作为表单项上传 -->
+		<Field id="id" desc="序号" status="N" method="None" readonly="false" primary="false" type="String" size="32" xpath="/id" />
+		<Field id="dataDate" desc="数据日期" status="F" method="None" readonly="false" primary="false" type="String" size="6" xpath="/dataDate" />
+		<Field id="custNo" desc="客户号" status="F" method="None" readonly="false" primary="false" type="String" size="9" xpath="/custNo" />
+		<Field id="custName" desc="客户名称" status="F" method="None" readonly="false" primary="false" type="String" size="512" xpath="/custName" />
+		<Field id="pName" desc="实际受益人姓名" status="F" method="None" readonly="false" primary="false" type="String" size="512" xpath="/pName" />
+		<Field id="pIdty" desc="实际受益人证件类型" status="F" method="None" readonly="false" primary="false" type="String" size="18" xpath="/pIdty" />
+		<Field id="pIdno" desc="实际受益人证件号码" status="F" method="None" readonly="false" primary="false" type="String" size="128" xpath="/pIdno" />
+		<Field id="pIdep" desc="实际受益人证件有效期" status="F" method="None" readonly="false" primary="false" type="String" size="8" xpath="/pIdep" />
+		<Field id="addresss" desc="实际受益人联系地址" status="F" method="None" readonly="false" primary="false" type="String" size="4000" xpath="/addresss" />
+		<Field id="lob" desc="业务线" status="F" method="None" readonly="false" primary="false" type="String" size="24" xpath="/lob" />
+	</Fields>
+	<Where>
+		<Option id="dataDates" desc="数据日期(年/月)" placeholder="yyyyMM" require="false" 
+				edittype="select" dropdowntype="custom" url="/templets/lib/yyyyMM.ftl"
+				rules="isNum" editable="true" size="6" status="F" 
+				fieldmap="dataDates=yyyyMM;dataDatesName=yyyyMM" viewField="yyyyMM" index="0" /> 
+	</Where>
+	<Operations>
+		<Button id="btnDownLoad" name="btnDownLoad" desc="数据下载"  operation="" url="#" show="" group="" txn="" icon="icon-export-xls"/>
+	</Operations>
+</CommQry>
