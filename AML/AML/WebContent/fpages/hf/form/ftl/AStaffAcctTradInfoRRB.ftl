@@ -10,7 +10,7 @@
 		    </tr>
 		    <tr>
 		    	<td colspan="2">
-					<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btnCancel" fieldStr="alertId[150],bussFlag[180],acctType[100],acctNo[100],bankCardType[100],bankCardNo[150],tstm[90],tradPlace[90],payMatchNoType[120],tradType[90],nonCotrTradType[100],nonCotrTradTypeCode[100],fundPayFlag[100],fundPayPurpos[100],ccyCd[100],tradAmt[120],cnyTradAmt[120],opsFinaOrgName[150],opsFinaOrgAreaCode[100],tradAdvsName[100],tradAdvsIdCertNo[150],tradAdvsAcctNo[120],tbnm[100],tbid[120]" width="100%" hasFrame="true" readonly="true"/>
+					<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btnCancel" fieldStr="alertId[150],bussFlag[180],acctType[100],acctNo[100],bankCardType[100],bankCardNo[150],tstm[90],tradPlace[90],payMatchNoType[120],tradType[90],nonCotrTradType[100],nonCotrTradTypeCode[100],fundPayFlag[100],fundPayPurpos[100],ccyCd[100],tradAmt[120],cnyTradAmt[120],opsFinaOrgName[150],opsFinaOrgAreaCode[100],tradAdvsName[100],tradAdvsIdCertNo[150],tradAdvsAcctNo[120],tbnm[100],tbid[120]" width="100%" height="500" hasFrame="true" readonly="true"/>
 		      	</td>
 		    </tr>
 		</table>

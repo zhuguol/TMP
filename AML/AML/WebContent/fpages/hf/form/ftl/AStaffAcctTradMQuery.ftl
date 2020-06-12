@@ -1,7 +1,7 @@
 <#import "/templets/commonQuery/CommonQueryTagMacro.ftl" as CommonQueryMacro>
 <#assign v_tlrno = statics["com.huateng.ebank.business.common.GlobalInfo"].getCurrentInstance().getTlrno()?default('')>
-<@CommonQueryMacro.page title="交易监测日报自查手工抽取">
-	<@CommonQueryMacro.CommonQuery id="AStaffAcctTradQuery" init="false" submitMode="allchange" navigate="false" >
+<@CommonQueryMacro.page title="交易监测月报自查手工抽取">
+	<@CommonQueryMacro.CommonQuery id="AStaffAcctTradMQuery" init="false" submitMode="allchange" navigate="false" >
 		<table align="left"  width="100%">
 			<tr>
 				<td colspan="2">
@@ -15,30 +15,30 @@
 		    </tr>
 		    <tr>
 		    	<td colspan="2">
-					<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btnSelect,-,btnUpdate" fieldStr="select,opr[150],ruleCode[80],dataDate[80],branCode[70],custNo[80],custName[90],custIdCertNo[130],ctnt[80],ctar[220],staffNumber[80],staffDepartment[110],staffJobTitle[100],reportDOrM[80],appearanceTime[150],checkDate[90],investigator[90],status[100],managerName[100],invesResultByOps[120],caseId[120],reportDate[90],potentialCaseType[120],feedbackDate[90],concludedType[120],feedbackFrom[150],comfirmedSusp[120],alterUar[150],approveStatus[120],qcComment[150],approveUpdTlr[120],recordUpdTlr[120]" width="100%" hasFrame="true" readonly="true"/>
-		      	</td>
+		      		<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btnSelect,-,btnUpdate" fieldStr="select,opr[150],ruleCode[80],dataDate[80],branCode[70],custNo[80],custName[90],custIdCertNo[130],ctnt[80],ctar[220],staffNumber[80],staffDepartment[110],staffJobTitle[100],reportDOrM[80],appearanceTime[150],checkDate[90],investigator[90],status[100],managerName[100],invesResultByOps[120],caseId[120],reportDate[90],potentialCaseType[120],feedbackDate[90],concludedType[120],feedbackFrom[150],comfirmedSusp[120],alterUar[150],alterFlag[120],approveStatus[120],qcComment[150],approveUpdTlr[120],recordUpdTlr[120]" width="100%" height="500" hasFrame="true" readonly="true"/>
+				</td>
 		    </tr>
 		</table>
 	</@CommonQueryMacro.CommonQuery>
 <script language="JavaScript">
 	//获取系统日期
-	var sysTxdate = ${statics["com.huateng.ebank.business.common.GlobalInfo"].getCurrentInstanceWithoutException().getTxdate()?string("yyyyMMdd")};   
+	var sysTxdate = ${statics["com.huateng.ebank.business.common.GlobalInfo"].getCurrentInstanceWithoutException().getTxdate()?string("yyyyMM")};   
 	var tlrno = "${v_tlrno}";
 	//交易日期初始化
 	function initCallGetter_post() {
 		//交易起始日期
-		AStaffAcctTradQuery_interface_dataset.setValue("etlDateStart",sysTxdate);
+		AStaffAcctTradMQuery_interface_dataset.setValue("etlDateStart",sysTxdate);
 		//交易结束日期
-		AStaffAcctTradQuery_interface_dataset.setValue("etlDateEnd",sysTxdate);
+		AStaffAcctTradMQuery_interface_dataset.setValue("etlDateEnd",sysTxdate);
 	}
 	
 	//设置客户编号链接
 	function datatable_opr_onRefresh(cell,value,record) {
 		if (record) {//当存在记录时
-			var alertId = record.getValue("alertId");//告警号
+			var alertIds = record.getValue("alertId");//告警号
 			var approveStatus = record.getValue("approveStatus");//记录状态
-			if(alertId != ""){
-				cell.innerHTML = "<a href=\"JavaScript:doDetail('" + alertId + "')\">" + alertId + "</a>";
+			if(alertIds != ""){
+				cell.innerHTML = "<a href=\"JavaScript:doDetail('" + alertIds + "')\">" + alertIds + "</a>";
 			}else{
 				cell.innerHTML = "&nbsp;";
 			}
@@ -46,13 +46,13 @@
 	}
 	
 	//链接查看详细信息
-	function doDetail(alertId){
-		showWin("客户交易明细","/fpages/hf/form/ftl/AStaffAcctTradInfo.ftl?alertId="+alertId,"window","flushPage()",window);
+	function doDetail(alertIds){
+		showWin("客户交易明细","/fpages/hf/form/ftl/AStaffAcctTradInfo.ftl?alertIds="+alertIds,"window","flushPage()",window);
 	}
 	
 	//详情按钮
 	function btnSelect_onClickCheck(button){
-		var record = AStaffAcctTradQuery_dataset.firstUnit;
+		var record = AStaffAcctTradMQuery_dataset.firstUnit;
 		var updateCount = 0;
 		var alertIds;
 		while(record){
@@ -70,13 +70,13 @@
 			alert("只能选择一条记录进行查看详情！");
 			return false;
 		}
-		showWin("告警信息、客户信息、调查信息和质检信息","/fpages/hf/form/ftl/AStaffAcctTradUpdate.ftl?alertIds="+alertIds+"&op=detail","window","flushPage()",window);
+		showWin("告警信息、客户信息、调查信息和质检信息","/fpages/hf/form/ftl/AStaffAcctTradMUpdate.ftl?alertIds="+alertIds+"&op=detail","window","flushPage()",window);
 	}
 	
 	//确认提交前校验
 	function btnUpdate_onClickCheck(button){
 		if(confirm("确认提交吗?")){
-			var record = AStaffAcctTradQuery_dataset.firstUnit;
+			var record = AStaffAcctTradMQuery_dataset.firstUnit;
 			var updateCount = 0;
 			while(record){
 				var temp = record.getValue("select");
@@ -102,7 +102,7 @@
 	
 	//刷新数据
 	function flushPage(){
-		AStaffAcctTradQuery_dataset.flushData(AStaffAcctTradQuery_dataset.pageIndex);
+		AStaffAcctTradMQuery_dataset.flushData(AStaffAcctTradMQuery_dataset.pageIndex);
 	}
 </script>
 </@CommonQueryMacro.page>

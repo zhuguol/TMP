@@ -1,7 +1,7 @@
 <#import "/templets/commonQuery/CommonQueryTagMacro.ftl" as CommonQueryMacro>
 <#assign v_tlrno = statics["com.huateng.ebank.business.common.GlobalInfo"].getCurrentInstance().getTlrno()?default('')>
 <@CommonQueryMacro.page title="员工交易监测日报员工管理">
-	<@CommonQueryMacro.CommonQuery id="AStaffAcctTradTaskNew" init="false" submitMode="all" navigate="false" >
+	<@CommonQueryMacro.CommonQuery id="AStaffAcctTradRRBTaskNew" init="false" submitMode="all" navigate="false" >
 		<table align="left"  width="100%">
 			<tr>
 				<td colspan="2">
@@ -15,7 +15,7 @@
 		    </tr>
 		    <tr>
 		    	<td colspan="2">
-					<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btnSelect,-,btnDownLoad,-,btnReceive" fieldStr="select,opr[150],ruleCode[80],dataDate[80],branCode[70],custNo[80],custName[90],custIdCertNo[130],ctnt[80],ctar[220],staffNumber[80],staffDepartment[110],staffJobTitle[100],reportDOrM[80],appearanceTime[150],checkDate[90],investigator[90],status[100],managerName[100],invesResultByOps[120],caseId[120],reportDate[90],potentialCaseType[120],feedbackDate[90],concludedType[120],feedbackFrom[150],comfirmedSusp[120],alterUar[150],approveStatus[120],qcComment[150],approveUpdTlr[120],recordUpdTlr[120]" width="100%" hasFrame="true" readonly="true"/>
+					<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btnSelect,-,btnDownLoad,-,btnReceive" fieldStr="select,opr[150],ruleCode[80],dataDate[80],branCode[70],custNo[80],custName[90],custIdCertNo[130],ctnt[80],ctar[220],staffNumber[80],staffDepartment[110],staffJobTitle[100],reportDOrM[80],appearanceTime[150],checkDate[90],investigator[90],status[100],managerName[100],invesResultByOps[120],caseId[120],reportDate[90],potentialCaseType[120],feedbackDate[90],concludedType[120],feedbackFrom[150],comfirmedSusp[120],alterUar[150],recordUpdTlr[120]" width="100%" height="500" hasFrame="true" readonly="true"/>
 		      	</td>
 		    </tr>
 		    <tr>
@@ -38,11 +38,11 @@
 	//交易日期初始化
 	function initCallGetter_post() {
 		//交易起始日期
-		AStaffAcctTradTaskNew_interface_dataset.setValue("etlDateStart",sysTxdate);
+		AStaffAcctTradRRBTaskNew_interface_dataset.setValue("etlDateStart",sysTxdate);
 		//交易结束日期
-		AStaffAcctTradTaskNew_interface_dataset.setValue("etlDateEnd",sysTxdate);
+		AStaffAcctTradRRBTaskNew_interface_dataset.setValue("etlDateEnd",sysTxdate);
 		//员工编号
-		AStaffAcctTradTaskNew_interface_dataset.setValue("staffNumbers","01");
+		AStaffAcctTradRRBTaskNew_interface_dataset.setValue("staffNumbers","01");
 	}
 	
 	//设置客户编号链接
@@ -60,12 +60,12 @@
 	
 	//链接查看详细信息
 	function doDetail(alertId){
-		showWin("客户交易明细","/fpages/hf/form/ftl/AStaffAcctTradInfo.ftl?alertId="+alertId,"window","flushPage()",window);
+		showWin("客户交易明细","/fpages/hf/form/ftl/AStaffAcctTradInfoRRB.ftl?alertId="+alertId,"window","flushPage()",window);
 	}
 	
 	//详情按钮
 	function btnSelect_onClickCheck(button){
-		var record = AStaffAcctTradTaskNew_dataset.firstUnit;
+		var record = AStaffAcctTradRRBTaskNew_dataset.firstUnit;
 		var updateCount = 0;
 		var alertIds;
 		while(record){
@@ -83,14 +83,14 @@
 			alert("只能选择一条记录进行查看详情！");
 			return false;
 		}
-		showWin("告警信息、客户信息、调查信息和质检信息","/fpages/hf/form/ftl/AStaffAcctTradUpdate.ftl?alertIds="+alertIds+"&op=detail","window","flushPage()",window);
+		showWin("告警信息、客户信息和调查信息","/fpages/hf/form/ftl/AStaffAcctTradRRBUpdate.ftl?alertIds="+alertIds+"&op=detail","window","flushPage()",window);
 	}
 	
 	//数据下载
 	function btnDownLoad_onClick(){
 		var updateCounts = 0;
 		var arraySelected = new Array();　
-		var aStaffAcctTrad = AStaffAcctTradTaskNew_dataset.getFirstRecord();
+		var aStaffAcctTrad = AStaffAcctTradRRBTaskNew_dataset.getFirstRecord();
 		while(aStaffAcctTrad){
 			var selected = aStaffAcctTrad.getValue("select");
 			var alertId = aStaffAcctTrad.getValue("alertId");
@@ -104,10 +104,10 @@
 			alert("请选择需要下载的记录！");
 			return false;
 		}
-		var tableName = "AStaffAcctTradTaskNew";
+		var tableName = "AStaffAcctTradRRBTaskNew";
 		document.getElementById("btnDownLoad").style.display = "none";//将下载按钮置为无效
 		createTimerIfNull();
-		window.location.href = "${contextPath}/filedownload/AStaffAcctTradDownloadAction.do?arraySelected="+arraySelected+"&tableName="+tableName;
+		window.location.href = "${contextPath}/filedownload/AStaffAcctTradRRBDownloadAction.do?arraySelected="+arraySelected+"&tableName="+tableName;
 	}
 	
 	//下载等待
@@ -122,7 +122,7 @@
 	}
 	
 	function getExportStatus(){
-		PrivAction.getExportFlag("AStaffAcctTradTaskNew",function(data){
+		PrivAction.getExportFlag("AStaffAcctTradRRBTaskNew",function(data){
 			exportCallBack(data);
 		});
 	}
@@ -139,20 +139,26 @@
 	
 	//分派按钮
 	function btnReceive_onClickCheck(button){
-		var record = AStaffAcctTradTaskNew_dataset.firstUnit;
+		var record = AStaffAcctTradRRBTaskNew_dataset.firstUnit;
 		var updateCount = 0;
 		while(record){
 			var temp = record.getValue("select");
 			var alertIds = record.getValue("alertId");//告警号
-			var approveStatus = record.getValue("approveStatus");//记录状态
 			var staffNumber = record.getValue("staffNumber");//员工编号
+			var status = record.getValue("status");//调查阶段
 			if(temp){
-				if(approveStatus == "03"){
-					alert("告警号："+alertIds+'的记录状态为"03-自查审核成功"，不可以进行分派！');
+				if(staffNumber == ""){//员工编号
+					alert("告警号："+ alertIds +"的记录的员工编号为空，不可以进行分派！");
 					return false;
 				}
-				if(staffNumber == ""){
-					alert("告警号："+alertIds+"的记录的员工编号为空，不可以进行分派！");
+				if(status == "02"){//调查阶段
+					alert("告警号：'"+ alertIds +"'的记录调查阶段为：'02-Closed by FCTM'不可以进行分派！");
+					return false;
+				}else if(status == "03"){
+					alert("告警号：'"+ alertIds +"'的记录调查阶段为：'03-Closed by President'不可以进行分派！");
+					return false;
+				}else if(status == "04"){
+					alert("告警号：'"+ alertIds +"'的记录调查阶段为：'04-Closed by VPHOST'不可以进行分派！");
 					return false;
 				}
 				updateCount ++;
@@ -170,7 +176,7 @@
 	
 	//确认分派
 	function btnConfirm_onClickCheck(){
-		var selectTlrno = AStaffAcctTradTaskNew_dataset.getValue("selectTlrno");
+		var selectTlrno = AStaffAcctTradRRBTaskNew_dataset.getValue("selectTlrno");
 		if(!selectTlrno.length > 0){
 			alert("请选择操作员编号！");
 		   	return false;
@@ -179,7 +185,7 @@
 		   	alert('操作员编号长度超过20！');
 		   	return false;
 		}
-		AStaffAcctTradTaskNew_dataset.setParameter("selectTlrno",selectTlrno);
+		AStaffAcctTradRRBTaskNew_dataset.setParameter("selectTlrno",selectTlrno);
 		return true;
 	}
 	
@@ -191,7 +197,7 @@
 	
 	//刷新数据
 	function flushPage(){
-		AStaffAcctTradTaskNew_dataset.flushData(AStaffAcctTradTaskNew_dataset.pageIndex);
+		AStaffAcctTradRRBTaskNew_dataset.flushData(AStaffAcctTradRRBTaskNew_dataset.pageIndex);
 	}
 </script>
 </@CommonQueryMacro.page>

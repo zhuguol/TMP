@@ -8,7 +8,7 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<@CommonQueryMacro.DataTable id="datatable1" fieldStr="paramgroupId[150],paramId[150],paramName[260],paramVal[150],memo[260],st[150],operation[200]"  width="100%" hasFrame="true"/>
+			<@CommonQueryMacro.DataTable id="datatable1" fieldStr="paramgroupId[150],paramId[150],paramName[260],paramVal[150],memo[260],st[150],operation[200]" width="100%" hasFrame="true"/>
 		</td>
 	</tr>
 	<tr>

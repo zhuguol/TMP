@@ -14,7 +14,7 @@
 		    </tr>
 		    <tr>
 		    	<td colspan="2">
-					<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btnDownLoadB" fieldStr="dataDate[100],levelNo[150],levelName[150],sccToFcr[200],sccToMis[200],sccToSafe[200],sccTotal[200]" width="100%" hasFrame="true" readonly="true"/>
+					<@CommonQueryMacro.DataTable id ="datatable" paginationbar="btnDownLoadB" fieldStr="dataDate[100],levelNo[150],levelName[150],sccToFcr[200],sccToMis[200],sccToSafe[200],sccTotal[200]" width="100%" height="600" hasFrame="true" readonly="true"/>
 		      	</td>
 		    </tr>
 		</table>
