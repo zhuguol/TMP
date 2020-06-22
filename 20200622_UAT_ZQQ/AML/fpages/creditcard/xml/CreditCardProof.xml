@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 用于直接生成SQL语句，支持同步和异步提交 -->
+<!-- title:标题 navigate:导航信息 type:方式（sql|call) interface:是否显示输入条件页面(true|false)
+	databusid:数据总线编号 transdataactionurl:数据整理URL txnlogflag:true记录日志 async:异步提交标志
+	pagesize:页面显示记录数(缺省为10) -->
+<CommQry title="短信" navigate="短信" type="call" interface="false"
+	pagesize="100" async="true" databusid="" transdataactionurl="/trans/TransDataAction.do"
+	txnlogflag="true" getterclassname="com.huateng.hsbc.creditcard.getter.CreditCardProofGetter">
+	<Include id="BankParam" />
+	<Fields>
+		<!-- status :F-基本信息中显示 N-不显示 D-详细信息中显示 A-基本、详细信息中都显示 -->
+		<!-- primary : true-作为表单项记录上传 false-不作为表单项上传 -->
+		<Field id="id" desc="id"  method="None" edittype="text" datatype="string" xpath="/id" />
+		<Field id="mainId" desc="mainId"  method="None" edittype="text" datatype="string" xpath="/mainId" />
+		<Field id="alarmNo" desc="告警号"  edittype="text" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/alarmNo" />
+		<Field id="custNo"  desc="客户号"  edittype="text" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/custNo"/>
+		<Field id="proofName"  desc="文件名称"  edittype="text" datatype="string" method="None" readonly="true" size="100"  status="F" default="" xpath="/proofName"/>
+		<Field id="proofPath"  desc="文件名称"  edittype="text" datatype="string" method="None" readonly="true" size="100"  status="F" default="" xpath="/proofPath"/>
+		<Field id="status"  desc="记录状态"  edittype="select" datatype="string" method="None" readonly="false" size="2"   status="F" default="" xpath="/status"   translated="DATA_DIC.1013" />
+		<Field id="getTime"   desc="获取时间"       edittype="text" datatype="timestamp" method="None" readonly="true" size="14"  status="F" default="" xpath="/getTime"/>
+	</Fields>
+
+	<Where>
+    </Where>
+	<Operations>
+		<Button id="btCancelProof" name="btCancelProof" desc="返回" updateClass="" operation="" url="#" show="" group="" txn="" icon="icon-back" />
+	</Operations>
+
+</CommQry>

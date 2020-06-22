@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.huateng.hsbc.creditcard.bean">
+	<class
+		name="CreditCardMsg"
+		table="CREDIT_CARD_MESSAGE"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id name="id" type="string" column="REC_ID">
+		</id>
+
+		<property name="msgType"    column="MSG_TYPE"    type="string" not-null="false" length="2" />
+		<property name="msgInfo"    column="MSG_INFO"    type="string" not-null="false" length="2000" />
+		<property name="serverInfo" column="SERVER_INFO" type="string" not-null="false" length="500" />
+		<property name="status"     column="STATUS"      type="string" not-null="false" length="1" />
+		<property name="sendTime"   column="SEND_TIME"   type="string" not-null="false" length="14" />
+		<property name="saveTime"   column="SAVE_TIME"   type="string" not-null="false" length="14" />
+		<property name="mainId"     column="MAIN_ID"     type="string" not-null="false" length="32" />
+		<property name="errReason"  column="ERR_REASON"  type="string" not-null="false" length="500" />
+		<property name="phoneNo"  column="PHONE_NO"  type="string" not-null="false" length="52" />
+		
+		<property name="rsv1"              column="RSV1"                type="string" not-null="false" length="10"  />
+		<property name="rsv2"              column="RSV2"                type="string" not-null="false" length="10"  />
+		<property name="rsv3"              column="RSV3"                type="string" not-null="false" length="50"  />
+		<property name="rsv4"              column="RSV4"                type="string" not-null="false" length="50"  />
+		<property name="rsv5"              column="RSV5"                type="string" not-null="false" length="500" />
+		<property name="rsv6"              column="RSV6"                type="string" not-null="false" length="500" />
+		
+	</class>	
+</hibernate-mapping>
