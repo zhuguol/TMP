@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
-<beans>
-	<bean id="ApplyOperation" class="com.huateng.hsbc.creditcard.operation.ApplyOperation" />
-	<bean id="ModOperation" class="com.huateng.hsbc.creditcard.operation.ModOperation" />
-	<bean id="ExtractOperation" class="com.huateng.hsbc.creditcard.operation.ExtractOperation" />
-	<bean id="ApproveOperation" class="com.huateng.hsbc.creditcard.operation.ApproveOperation" />
-</beans>
