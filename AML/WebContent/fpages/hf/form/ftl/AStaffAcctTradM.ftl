@@ -196,22 +196,24 @@
 			var custName = AStaffAcctTradM_interface_dataset.getString("custNames");
 			//客户身份证件号码
 			var custIdCertNo = AStaffAcctTradM_interface_dataset.getString("custIdCertNos");
-			//记录状态
-			var approveStatus = AStaffAcctTradM_interface_dataset.getString("approveStatuss");
-			//员工编号
-			var staffNumbers = AStaffAcctTradM_interface_dataset.getString("staffNumbers");
-			//告警号
-			var alertIds = AStaffAcctTradM_interface_dataset.getString("alertIds");
 			//调查阶段
 			var statuss = AStaffAcctTradM_interface_dataset.getString("statuss");
+			//告警号
+			var alertIds = AStaffAcctTradM_interface_dataset.getString("alertIds");
+			//分行号
+			var branCodes = AStaffAcctTradM_interface_dataset.getString("branCodes");
+			//员工编号
+			var staffNumbers = AStaffAcctTradM_interface_dataset.getString("staffNumbers");
+			//记录状态
+			var approveStatus = AStaffAcctTradM_interface_dataset.getString("approveStatuss");
 			//下载模板名
 			var tableName = "AStaffAcctTradM";
 			document.getElementById("btnDownLoad").style.display = "none";//将下载按钮置为无效
 			createTimerIfNull();
 			window.location.href = encodeURI(encodeURI("${contextPath}/filedownload/AStaffAcctTradDownloadAction.do?etlDateStart="+etlDateStart+
 			"&etlDateEnd="+etlDateEnd+"&custNo="+custNo+"&custName="+custName+"&custIdCertNo="+custIdCertNo+
-			"&approveStatus="+approveStatus+"&staffNumbers="+staffNumbers+"&arraySelected="+arraySelected+
-			"&statuss="+statuss+"&alertIds="+alertIds+"&tableName="+tableName));
+			"&statuss="+statuss+"&alertIds="+alertIds+"&branCodes="+branCodes+"&staffNumbers="+staffNumbers+
+			"&approveStatus="+approveStatus+"&arraySelected="+arraySelected+"&tableName="+tableName));
 		}
 		return false;
 	}
