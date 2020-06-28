@@ -210,8 +210,7 @@
 			var tableName = "AStaffAcctTradM";
 			document.getElementById("btnDownLoad").style.display = "none";//将下载按钮置为无效
 			createTimerIfNull();
-			window.location.href = encodeURI(encodeURI("${contextPath}/filedownload/AStaffAcctTradDownloadAction.do?
-			etlDateStart="+etlDateStart+
+			window.location.href = encodeURI(encodeURI("${contextPath}/filedownload/AStaffAcctTradDownloadAction.do?etlDateStart="+etlDateStart+
 			"&etlDateEnd="+etlDateEnd+
 			"&custNo="+custNo+
 			"&custName="+custName+
