@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 用于直接生成SQL语句，支持同步和异步提交 -->
+<!-- title:标题 navigate:导航信息 type:方式（sql|call) interface:是否显示输入条件页面(true|false)
+	databusid:数据总线编号 transdataactionurl:数据整理URL txnlogflag:true记录日志 async:异步提交标志
+	pagesize:页面显示记录数(缺省为10) -->
+<CommQry title="短信" navigate="短信" type="call" interface="false"
+	pagesize="100" async="true" databusid="" transdataactionurl="/trans/TransDataAction.do"
+	txnlogflag="true" getterclassname="com.huateng.hsbc.creditcard.getter.CreditCardMsgInfoGetter">
+	<Include id="BankParam" />
+	<Fields>
+		<!-- status :F-基本信息中显示 N-不显示 D-详细信息中显示 A-基本、详细信息中都显示 -->
+		<!-- primary : true-作为表单项记录上传 false-不作为表单项上传 -->
+		<Field id="msgType"    desc="短信模板"    edittype="select" datatype="string" method="None" readonly="false" size="2" require="true" status="F" default="" xpath="" translated="DATA_DIC.1004" />
+		<Field id="msgInfo"    desc="短信内容"    edittype="textarea" datatype="string" method="None" readonly="true" size="5000" status="F" xpath="" width="600" height="100"/>
+		<Field id="serverInfo" desc="服务内容"    edittype="textarea" datatype="string" method="None" readonly="false" size="5000" require="true" status="F" xpath="" width="600"/>
+		<Field id="phoneNo"    desc="手机号"   edittype="text" datatype="string" method="None" readonly="true" size="52"  status="F" xpath=""/>
+	</Fields>
+
+	<Where>
+    </Where>
+	<Operations>
+		<Button id="btCancelMsg" name="btCancelMsg" desc="返回" updateClass="" operation="" url="#" show="" group="" txn="" icon="icon-back" />
+		<Button id="btSubmitMsg" name="btSubmitMsg" desc="确定" operation="asysubmit" updateClass="com.huateng.hsbc.creditcard.update.SaveMsgUpdate" url="#" txn="" icon="icon-ok"/>
+	</Operations>
+
+</CommQry>
