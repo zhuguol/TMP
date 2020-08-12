@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 用于直接生成SQL语句，支持同步和异步提交 -->
+<!-- title:标题 navigate:导航信息 type:方式（sql|call) interface:是否显示输入条件页面(true|false)
+	databusid:数据总线编号 transdataactionurl:数据整理URL txnlogflag:true记录日志 async:异步提交标志
+	pagesize:页面显示记录数(缺省为10) -->
+<CommQry title="申领" navigate="申领" type="call" interface="false"
+	pagesize="10" async="true" databusid="" transdataactionurl="/trans/TransDataAction.do"
+	txnlogflag="true" getterclassname="com.huateng.hsbc.creditcard.getter.CreditCardApplyInfoGetter">
+	<Include id="BankParam" />
+	<PageQryExp type="XLS" limit="true" encoding="UTF-8" url="/trans/qryExp.do" desc="Case信息"  />
+	<Fields>
+		<!-- status :F-基本信息中显示 N-不显示 D-详细信息中显示 A-基本、详细信息中都显示 -->
+		<!-- primary : true-作为表单项记录上传 false-不作为表单项上传 -->
+		<Field id="select" desc="选择" method="None" edittype="checkbox" datatype="boolean" xpath="" />
+		<Field id="ftloperation" desc="操作" status="N" size="20" tip="操作"/>
+		<Field id="id" desc="id"  method="None" edittype="text" datatype="string" xpath="/id" />
+		<Field id="alarmDate" desc="告警日期" edittype="text" datatype="date" method="None" readonly="true" size="8" status="F" default="" xpath="/alarmDate" />
+		<Field id="alarmNo"              desc="告警号"                 edittype="text" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/alarmNo"  width="250"/>
+		<Field id="ruleName"             desc="规则名称"               edittype="text" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/ruleName"  width="250"/>
+		<Field id="riskLevel"            desc="风险层级"               edittype="select" datatype="string" method="None" readonly="true" size="5"   status="F" default="" xpath="/riskLevel"   translated="DATA_DIC.1009"  width="250"/>
+		<Field id="isAlertm"             desc="是否当月产生过告警"     edittype="select" datatype="string" method="None" readonly="true" size="1"   status="F" default="" xpath="/isAlertm"     translated="DATA_DIC.1006" width="250"/>
+		<Field id="custNo"               desc="客户号"                 edittype="text" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/custNo"   width="250"/>
+		<Field id="custName"             desc="持卡人姓名"             edittype="text" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/custName"  width="250"/>
+		<Field id="custGender"           desc="持卡人姓別"             edittype="select" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/custGender" translated="DATA_DIC.1011" width="250"/>
+		<Field id="custCerttype"         desc="客户证件类型"           edittype="select" translated="DATA_DIC.1014" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/custCerttype" width="250"/>
+		<Field id="custCertno"           desc="客户证件号码"           edittype="text" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/custCertno"  width="250"/>
+		<Field id="custCategory"         desc="客户层级"      edittype="text" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/custCategory"  width="250"/>
+		<Field id="custPhoneno"          desc="客户手机号"             edittype="text" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/custPhoneno"  width="250"/>
+		<Field id="custWorkunit"         desc="客户的工作单位信息"     edittype="text" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/custWorkunit"  width="250"/>
+		<Field id="custIncome"           desc="收入"                   edittype="text" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/custIncome"  width="250"/>
+		<Field id="creditCardcny"        desc="信用卡卡号（人民币）"   edittype="text" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/creditCardcny"  width="250"/>
+		<Field id="activeTimecny"        desc="卡片激活时间（人民币）" edittype="text" datatype="timestamp" method="None" readonly="true" size="14"  status="F" default="" xpath="/activeTimecny"  width="250"/>
+		<Field id="creditCardusd"        desc="信用卡卡号（美元）"     edittype="text" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/creditCardusd"  width="250"/>
+		<Field id="activeTimeusd"        desc="卡片激活时间（美元）"   edittype="text" datatype="timestamp" method="None" readonly="true" size="14"  status="F" default="" xpath="/activeTimeusd"  width="250"/>
+		<Field id="limitCny"          desc="信用额度（人民币）"   edittype="text" datatype="double" scale="2" method="None" readonly="true" size="20"  status="F" default="" xpath="/limitCny" width="250"/>
+		<Field id="limitAvailablecny" desc="可用额度（人民币）"     edittype="text" datatype="double" scale="2" method="None" readonly="true" size="20"  status="F" default="" xpath="/limitAvailablecny" width="250"/>
+		<Field id="billingDate"          desc="账单日"                 edittype="text" datatype="date" method="None" readonly="true" size="8"   status="F" default="" xpath="/billingDate"  width="250"/>
+		<Field id="billingAddress"       desc="账单地址"               edittype="text" datatype="string" method="None" readonly="true" size="520" status="F" default="" xpath="/billingAddress"  width="250"/>
+		<Field id="repayDate"            desc="还款日"                 edittype="text" datatype="date" method="None" readonly="true" size="8"   status="F" default="" xpath="/repayDate"  width="250"/>
+		<Field id="pbcScore"             desc="人行评分"               edittype="text" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/pbcScore"  width="250"/>
+		<Field id="firstReducetime"      desc="最近一次降额时间"       edittype="text" datatype="timestamp" method="None" readonly="true" size="14"  status="F" default="" xpath="/firstReducetime" width="250"/>
+		<Field id="transactorNo"         desc="客户开卡经办销售工号"   edittype="text" datatype="string" method="None" readonly="true" size="52"  status="F" default="" xpath="/transactorNo" width="250"/>
+		<Field id="proofResult"          desc="凭证验证结果"           edittype="select" datatype="string" method="None" readonly="false" size="2"   status="F" default="" xpath="/proofResult"    translated="DATA_DIC.1000" width="250"/>
+		<Field id="merchantResult"       desc="商户验证结果"           edittype="select" datatype="string" method="None" readonly="false" size="2"   status="F" default="" xpath="/merchantResult"  translated="DATA_DIC.1001" width="250"/>
+		<Field id="outboundResult"       desc="外呼结果"               edittype="select" datatype="string" method="None" readonly="false" size="2"   status="F" default="" xpath="/outboundResult"   translated="DATA_DIC.1002" width="250"/>
+		<Field id="investigateResult"    desc="调查结果"               edittype="select" datatype="string" method="None" readonly="false" size="2"   status="F" default="" xpath="/investigateResult"  translated="DATA_DIC.1003" width="250"/>
+		<Field id="investigateReport"    desc="调查报告"               edittype="textarea" datatype="string" method="None" readonly="false" size="500" status="F" default="" xpath="/investigateReport" width="900"/>
+		<Field id="fcUar"                desc="FC-UAR"                 edittype="text" datatype="string" method="None" readonly="false" size="52"  status="F" default="" xpath="/fcUar"  width="250"/>
+		<Field id="messageResult"        desc="短信结果"               edittype="select" datatype="string" method="None" readonly="false" size="2"   status="F" default="" xpath="/messageResult" translated="DATA_DIC.1004" width="250"/>
+		<Field id="billStage"            desc="账户禁止措施"               edittype="select" datatype="string" method="None" readonly="false" size="2"   status="F" default="" xpath="/billStage"   translated="DATA_DIC.1005" width="250"/>
+		<Field id="reduce"               desc="降额"                   edittype="select" datatype="string" method="None" readonly="false" size="1"   status="F" default="" xpath="/reduce"     translated="DATA_DIC.1006" width="250"/>
+		<Field id="cardFreeze"           desc="卡片冻结"               edittype="select" datatype="string" method="None" readonly="false" size="2"   status="F" default="" xpath="/cardFreeze"  translated="DATA_DIC.1007" width="250"/>
+		<Field id="approveStatus"        desc="审核结果"               edittype="select" datatype="string" method="None" readonly="true" size="2"   status="F" default="" xpath="/approveStatus"  translated="DATA_DIC.1008" width="250"/>
+		<Field id="approveMemo"          desc="审核说明"               edittype="text" datatype="string" method="None" readonly="true" size="500" status="F" default="" xpath="/approveMemo" width="250"/>
+		<Field id="approveTlr"           desc="审核员ID"               edittype="text" datatype="string" method="None" readonly="true" size="30"  status="F" default="" xpath="/approveTlr"   width="250"/>
+		<Field id="operatorTlr"          desc="操作员ID"               edittype="text" datatype="string" method="None" readonly="true" size="30"  status="F" default="" xpath="/operatorTlr"  width="250"/>
+		<Field id="openAlerttime"        desc="Open alert time"          edittype="text" datatype="timestamp" method="None" readonly="true" size="14"  status="F" default="" xpath="/openAlerttime"  width="250"/>
+		<Field id="closeAlerttime"       desc="Close alert time"         edittype="text" datatype="timestamp" method="None" readonly="true" size="14"  status="F" default="" xpath="/closeAlerttime"  width="250"/>
+		<Field id="reOpenalertTime"      desc="Re-open alert time"       edittype="text" datatype="timestamp" method="None" readonly="true" size="14"  status="F" default="" xpath="/reOpenalertTime"  width="250"/>
+		<Field id="reClosealertTime"     desc="Re-close alert time"      edittype="text" datatype="timestamp" method="None" readonly="true" size="14"  status="F" default="" xpath="/reClosealertTime"  width="250"/>
+		<Field id="recStatus"            desc="记录状态"               edittype="select" datatype="string" method="None" readonly="false" size="2"   status="F" default="" xpath="/recStatus"   translated="DATA_DIC.1010" width="250"/>
+		<Field id="checkFlag"            desc="是否自查Case"                   edittype="select" datatype="string" method="None" readonly="false" size="1"   status="F" default="" xpath="/checkFlag"     translated="DATA_DIC.1006" width="250"/>
+	</Fields>
+
+	<Where>
+        <TextBox id="qalarmDateStart" desc="告警起始日期"  require="true" status="F" datatype="date" method="None" size="" width="" primary="false" index="0" type="String" />
+		<TextBox id="qalarmDateEnd" desc="告警截止日期" require="true" status="F" datatype="date" method="None" size="" width="" primary="false" index="1" type="String" />
+		<TextBox id="qcustName" desc="客户姓名" require="false" status="F" datatype="string" method="None" size="" width="" primary="false" index="2" type="String" />
+		<TextBox id="qcustCertno" desc="客户证件号码" require="false" status="F" datatype="string" method="None" size="" width="" primary="false" index="3" type="String" />
+		<TextBox id="qcustPhoneno" desc="客户手机号" require="false" status="F" datatype="string" method="None" size="" width="" primary="false" index="4" type="String" />
+		<TextBox id="qcreditCardcny" desc="信用卡卡号" require="false" status="F" datatype="string" method="None" size="" width="" primary="false" index="5" type="String" />
+		<TextBox id="qalarmNo" desc="告警号" require="false" status="F" datatype="string" method="None" size="" width="" primary="false" index="6" type="String" />
+		<Option id="qproofResult" desc="凭证验证结果" edittype="select" status="F" translated="DATA_DIC.1000"  datatype="string" size="2" index="7" />
+		<Option id="qmerchantResult" desc="商户验证结果" edittype="select" status="F" translated="DATA_DIC.1001"  datatype="string" size="2" index="8" />
+		<Option id="qoutboundResult" desc="外呼结果" edittype="select" status="F" translated="DATA_DIC.1002"  datatype="string" size="2" index="9" />
+		<Option id="qinvestigateResult" desc="调查结果" edittype="select" status="F" translated="DATA_DIC.1003"  datatype="string" size="2" index="10" />
+		<Option id="qmessageResult" desc="短信结果" edittype="select" status="F" translated="DATA_DIC.1004"  datatype="string" size="2" index="11" />
+		<Option id="qbillStage" desc="账户禁止措施" edittype="select" status="F" translated="DATA_DIC.1005"  datatype="string" size="2" index="12" />
+		<Option id="qreduce" desc="降额" edittype="select" status="F" translated="DATA_DIC.1006"  datatype="string" size="2" index="13" />
+		<Option id="qcardFreeze" desc="卡片冻结" edittype="select" status="F" translated="DATA_DIC.1007"  datatype="string" size="2" index="14" />
+		<TextBox id="qoperatorTlr" desc="操作员ID" require="false" status="F" datatype="string" method="None" size="" width="" primary="false" index="15" type="String" />
+	</Where>
+	<Operations>
+		<Button id="btShenlin" name="btShenlin" desc="申领" operation="asysubmit" updateClass="com.huateng.hsbc.creditcard.update.ApplyUpdate" url="#" txn="" icon="icon-default"/>
+		<Button id="btRandomShenlin" name="btRandomShenlin" desc="随机申领" updateClass="" operation="" url="#" show="" group="" txn="" icon="icon-default" />
+		<Button id="btDownload" name="btDownload" desc="导出" updateClass="" operation="" url="#" show="" group="" txn="" icon="icon-export-xls" />
+	</Operations>
+
+</CommQry>
