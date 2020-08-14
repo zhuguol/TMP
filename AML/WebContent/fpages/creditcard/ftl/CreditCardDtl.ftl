@@ -3,7 +3,6 @@
 <#assign v_id = RequestParameters["id"]?default("")>
 <#assign v_ids = RequestParameters["ids"]?default("")>
 <#assign v_level = RequestParameters["level"]?default("")>
-<#assign v_flag = RequestParameters["flag"]?default("")>
 <#assign v_tlrno = statics["com.huateng.ebank.business.common.GlobalInfo"].getCurrentInstanceWithoutException().getTlrno()>
 <@CommonQueryMacro.page title="申领">
 <link rel="stylesheet" type="text/css" href="${contextPath}/fpages/creditcard/css/proof.css">
@@ -341,7 +340,6 @@
 var op = "${v_op}";
 var tlrno = "${v_tlrno}";
 var level = "${v_level}";
-var flag = "${v_flag}";
 var qs = "${RequestParameters["qs"]?default('')}";
 var qe = "${RequestParameters["qe"]?default('')}";
 var msgid = "${v_id}";
@@ -406,6 +404,11 @@ function datatable3_ftloperation_onRefresh(cell, value, record){
 function btTrade_onClick(button) {
     subwindow_floatWindowTrade.show();
 //    CreditCardTradeInfo_dataset.flushData();
+	if(op == 'update'){
+		document.getElementById("btSendMsg").style.display = "";
+	}else{
+		document.getElementById("btSendMsg").style.display = "none";
+	}
 }
 function btTradeBack_onClick(button) {
 	subwindow_floatWindowTrade.close();
@@ -420,10 +423,10 @@ function btCancelMsg_onClick(button) {
 }
 function btMsg_onClick(button) {
 	subwindow_floatWindowMsgList.show();
-	if(flag == '0'){
-		document.getElementById("btDelete").style.display = "none";
-	}else{
+	if(op == 'update'){
 		document.getElementById("btDelete").style.display = "";
+	}else{
+		document.getElementById("btDelete").style.display = "none";
 	}
 }
 
