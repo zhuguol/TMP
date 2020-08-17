@@ -1,0 +1,35 @@
+1. WEB-INF\classes\AmlUboReportInfo.xlsx
+2. WEB-INF\classes\AmlUboReportInfoGb.xlsx
+3. WEB-INF\classes\AmlUboReportInfoGbH.xlsx
+4. WEB-INF\classes\AmlUboReportInfoH.xlsx
+
+5. WEB-INF\classes\com\huateng\export\action\AmlUboReportAction.class
+
+6. WEB-INF\classes\com\huateng\export\getter\AmlUboReportInfoGbGetter.class
+7. WEB-INF\classes\com\huateng\export\getter\AmlUboReportInfoGbHGetter.class
+8. WEB-INF\classes\com\huateng\export\getter\AmlUboReportInfoGetter.class
+9. WEB-INF\classes\com\huateng\export\getter\AmlUboReportInfoHGetter.class
+
+10.WEB-INF\classes\resource\bean\export\AmlUboReportInfo.class
+11.WEB-INF\classes\resource\bean\export\AmlUboReportInfoGb.class
+12.WEB-INF\classes\resource\bean\export\AmlUboReportInfoGbH.class
+13.WEB-INF\classes\resource\bean\export\AmlUboReportInfoH.class
+
+14.WEB-INF\classes\resources\report\export\hbm\pub\AmlUboReportInfo.hbm.xml
+15.WEB-INF\classes\resources\report\export\hbm\pub\AmlUboReportInfoGb.hbm.xml
+16.WEB-INF\classes\resources\report\export\hbm\pub\AmlUboReportInfoGbH.hbm.xml
+17.WEB-INF\classes\resources\report\export\hbm\pub\AmlUboReportInfoH.hbm.xml
+
+18.fpages\export\ftl\AmlUboReportInfo.ftl
+19.fpages\export\ftl\AmlUboReportInfoGb.ftl
+20.fpages\export\ftl\AmlUboReportInfoGbH.ftl
+21.fpages\export\ftl\AmlUboReportInfoH.ftl
+
+22.fpages\export\xml\AmlUboReportInfo.xml
+23.fpages\export\xml\AmlUboReportInfoGb.xml
+24.fpages\export\xml\AmlUboReportInfoGbH.xml
+25.fpages\export\xml\AmlUboReportInfoH.xml
+
+26.WEB-INF\web.xml
+
+27.WEB-INF\query\meta\eastMeta.xml
