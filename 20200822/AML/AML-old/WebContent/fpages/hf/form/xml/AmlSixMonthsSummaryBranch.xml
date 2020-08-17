@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 用于直接生成SQL语句，支持同步和异步提交 -->
+<!-- title:标题 navigate:导航信息 type:方式（sql|call) interface:是否显示输入条件页面(true|false) 
+	databusid:数据总线编号 transdataactionurl:数据整理URL async:异步提交标志 pagesize:页面显示记录数(缺省为10) -->
+<CommQry title="员工交易监测日报" navigate="员工交易监测功能&gt;员工交易监测日报"
+	type="call" 
+	interface="true" 
+	pagesize="100" 
+	async="true" 
+	databusid=""
+	transdataactionurl="/trans/TransDataAction.do" 
+	getterclassname="com.huateng.report.hf.form.getter.AmlSixMonthsSummaryBranchGetter">
+	<Include id="BankParam" />
+	<Fields>
+		<Field id="seqNo" desc="序号" require="false" edittype="text" datatype="string" method="None" readonly="false" size="30" status="N" default="" primary="" xpath="/seqNo" />
+		<Field id="dataNo" desc="dataNo" require="false" edittype="text" datatype="string" method="None" readonly="false" size="60" status="N" default="" primary="" xpath="/dataNo" />
+		<Field id="dataDate" desc="数据日期" require="false" edittype="text" datatype="string" method="None" readonly="false" size="24" status="N" default="" primary="" xpath="/dataDate" />
+		<Field id="levelNo" desc="Branch Level" require="false" edittype="text" datatype="string" method="None" readonly="false" size="120" status="N" default="" primary="" xpath="/levelNo" />
+		<Field id="levelName" desc="Level Name" require="false" edittype="text" datatype="string" method="None" readonly="false" size="120" status="N" default="" primary="" xpath="/levelName" />
+		<Field id="sccToFcr" desc="Staff Case Confirmed to FCR Issue" require="false" edittype="text" datatype="string" method="None" readonly="false" size="32" status="N" default="" primary="" xpath="/sccToFcr" />
+		<Field id="sccToMis" desc="Staff Case Confirmed to Miscouduct" require="false" edittype="text" datatype="string" method="None" readonly="false" size="32" status="N" default="" primary="" xpath="/sccToMis" />
+		<Field id="sccToSafe" desc="Staff Case Confirmed to SAFE" require="false" edittype="text" datatype="string" method="None" readonly="false" size="32" status="N" default="" primary="" xpath="/sccToSafe" />
+		<Field id="sccTotal" desc="Total" require="false" edittype="text" datatype="string" method="None" readonly="false" size="32" status="N" default="" primary="" xpath="/sccTotal" />
+		<Field id="dataFlag" desc="报表类型" require="false" edittype="text" datatype="string" method="None" readonly="false" size="30" status="N" default="" primary="" xpath="/dataFlag" />
+	</Fields>
+	<Where>
+		<Option id="dataYears" desc="年份" placeholder="yyyyMM" require="true" 
+			edittype="select" dropdowntype="custom" url="/templets/lib/YYYY.ftl"
+			rules="isNum" editable="true" size="6" status="F"
+			fieldmap="dataYears=yyyyMM;dataYearsName=yyyyMM" viewField="yyyyMM"
+			index="0" />
+		<Option id="dataDates" desc="季度" require="true" edittype="select" status="F" translated="LIST:01,01-第一季度;02,02-第二季度;03,03-第三季度;04,04-第四季度" datatype="string" size="2" index="1" />
+		<Option id="dataFlags" desc="报表类型" require="true" edittype="select" status="F" translated="LIST:01,01-Branch Level;02,02-Department Level" datatype="string" size="2" index="2" />
+	</Where>
+	<Operations>
+		<Button id="btnDownLoadB" name="btnDownLoadB" desc="数据下载"  operation="" url="#" show="" group="" txn="" icon="icon-export-xls"/>
+	</Operations>
+</CommQry>
