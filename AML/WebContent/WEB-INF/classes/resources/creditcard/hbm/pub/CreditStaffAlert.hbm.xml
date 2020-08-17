@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2020-7-30 18:02:42 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.huateng.hsbc.creditcard.bean.CreditStaffAlert" table="CREDIT_STAFF_ALERT">
+        <id name="rec_id" type="java.math.BigDecimal">
+            <column name="REC_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="alarm_date" type="java.lang.String">
+            <column name="ALARM_DATE" />
+        </property>
+        <property name="alarm_no" type="java.lang.String">
+            <column name="ALARM_NO" />
+        </property>
+        <property name="cust_no" type="java.lang.String">
+            <column name="CUST_NO" />
+        </property>
+        <property name="cust_name" type="java.lang.String">
+            <column name="CUST_NAME" />
+        </property>
+        <property name="cust_cert_type" type="java.lang.String">
+            <column name="CUST_CERT_TYPE" />
+        </property>
+        <property name="cust_cert_no" type="java.lang.String">
+            <column name="CUST_CERT_NO" />
+        </property>
+        <property name="cust_category" type="java.lang.String">
+            <column name="CUST_CATEGORY" />
+        </property>
+        <property name="cust_phone_no" type="java.lang.String">
+            <column name="CUST_PHONE_NO" />
+        </property>
+        <property name="cust_work_unit" type="java.lang.String">
+            <column name="CUST_WORK_UNIT" />
+        </property>
+        <property name="cust_income" type="java.lang.String">
+            <column name="CUST_INCOME" />
+        </property>
+        <property name="credit_card_cny" type="java.lang.String">
+            <column name="CREDIT_CARD_CNY" />
+        </property>
+        <property name="active_time_cny" type="java.lang.String">
+            <column name="ACTIVE_TIME_CNY" />
+        </property>
+        <property name="credit_card_usd" type="java.lang.String">
+            <column name="CREDIT_CARD_USD" />
+        </property>
+        <property name="active_time_usd" type="java.lang.String">
+            <column name="ACTIVE_TIME_USD" />
+        </property>
+        <property name="limit_cny" type="java.math.BigDecimal">
+            <column name="LIMIT_CNY" />
+        </property>
+        <property name="limit_available_cny" type="java.math.BigDecimal">
+            <column name="LIMIT_AVAILABLE_CNY" />
+        </property>
+        <property name="billing_date" type="java.lang.String">
+            <column name="BILLING_DATE" />
+        </property>
+        <property name="billing_address" type="java.lang.String">
+            <column name="BILLING_ADDRESS" />
+        </property>
+        <property name="repay_date" type="java.lang.String">
+            <column name="REPAY_DATE" />
+        </property>
+        <property name="first_reduce_time" type="java.lang.String">
+            <column name="FIRST_REDUCE_TIME" />
+        </property>
+        <property name="transactor_no" type="java.lang.String">
+            <column name="TRANSACTOR_NO" />
+        </property>
+        <property name="proof_result" type="java.lang.String">
+            <column name="PROOF_RESULT" />
+        </property>
+        <property name="merchant_result" type="java.lang.String">
+            <column name="MERCHANT_RESULT" />
+        </property>
+        <property name="outbound_result" type="java.lang.String">
+            <column name="OUTBOUND_RESULT" />
+        </property>
+        <property name="investigate_result" type="java.lang.String">
+            <column name="INVESTIGATE_RESULT" />
+        </property>
+        <property name="investigate_report" type="java.lang.String">
+            <column name="INVESTIGATE_REPORT" />
+        </property>
+        <property name="staff_no" type="java.lang.String">
+            <column name="STAFF_NO" />
+        </property>
+        <property name="close_alert_time" type="java.lang.String">
+            <column name="CLOSE_ALERT_TIME" />
+        </property>
+    </class>
+</hibernate-mapping>
