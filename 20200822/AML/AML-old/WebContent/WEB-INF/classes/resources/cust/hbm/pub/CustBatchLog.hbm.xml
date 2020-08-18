@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.huateng.hsbc.cust.bean">
+	<class
+		name="CustBatchLog"
+		table="CUST_BATCH_LOG"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id name="id" type="string" column="REC_ID">
+		</id>
+
+		<property name="batchNo"    column="BATCH_NO"    type="string" not-null="false" length="20" />
+		<property name="batchDate"    column="BATCH_DATE"    type="string" not-null="false" length="8" />
+		<property name="startTime"    column="START_TIME"    type="string" not-null="false" length="6" />
+		<property name="endTime"    column="END_TIME"    type="string" not-null="false" length="6" />
+		<property name="perResult"    column="PER_RESULT"    type="big_decimal" not-null="false" length="20" />
+		<property name="legalResult"    column="LEGAL_RESULT"    type="big_decimal" not-null="false" length="20" />
+		<property name="companyResult"    column="COMPANY_RESULT"    type="big_decimal" not-null="false" length="20" />
+		
+		<property name="rsv1"              column="RSV1"                type="string" not-null="false" length="10"  />
+		<property name="rsv2"              column="RSV2"                type="string" not-null="false" length="10"  />
+		<property name="rsv3"              column="RSV3"                type="string" not-null="false" length="50"  />
+		<property name="rsv4"              column="RSV4"                type="string" not-null="false" length="50"  />
+		<property name="rsv5"              column="RSV5"                type="string" not-null="false" length="500" />
+		<property name="rsv6"              column="RSV6"                type="string" not-null="false" length="500" />	
+	</class>	
+</hibernate-mapping>
