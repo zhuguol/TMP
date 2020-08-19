@@ -9,9 +9,9 @@ SELECT SYS_GUID() as id,T.ALARM_DATE,T.OPERATOR_TLR,T.RISK_LEVEL,T.FILED1,T.FILE
                       from (select rownum as rn, b.natural_date
                               from (select b.natural_date
                                       from aml_sshldyp b
-                                     where b.natural_date <=sysDate
+                                     where b.natural_date < sysDate
                                        and b.is_holiday = '0'
-                                     order by b.natural_date) b) c
+                                     order by b.natural_date desc) b) c
                      where c.rn = 5)) then
               1
              else
@@ -24,9 +24,9 @@ SELECT SYS_GUID() as id,T.ALARM_DATE,T.OPERATOR_TLR,T.RISK_LEVEL,T.FILED1,T.FILE
                       from (select rownum as rn, b.natural_date
                               from (select b.natural_date
                                       from aml_sshldyp b
-                                     where b.natural_date <=sysDate
+                                     where b.natural_date < sysDate
                                        and b.is_holiday = '0'
-                                     order by b.natural_date) b) c
+                                     order by b.natural_date desc) b) c
                      where c.rn = 1)) then
               1
              else
