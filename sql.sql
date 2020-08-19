@@ -3,15 +3,13 @@ SELECT SYS_GUID() as id,T.ALARM_DATE,T.OPERATOR_TLR,T.RISK_LEVEL,T.FILED1,T.FILE
        m.OPERATOR_TLR,
        m.RISK_LEVEL,
        sum(case
-             when m.MESSAGE_RESULT in ('02', '04') and
-                  (sysDate >=
+             when m.MESSAGE_RESULT in ('02','04') and
+                  (to_date(substr(m.operator_time1,1,8),'yyyymmdd') <=
                   (select c.natural_date
                       from (select rownum as rn, b.natural_date
                               from (select b.natural_date
                                       from aml_sshldyp b
-                                     where b.natural_date >
-                                           to_date(substr(m.operator_time1, 1, 8),
-                                                   'yyyymmdd')
+                                     where b.natural_date <=sysDate
                                        and b.is_holiday = '0'
                                      order by b.natural_date) b) c
                      where c.rn = 5)) then
@@ -21,14 +19,12 @@ SELECT SYS_GUID() as id,T.ALARM_DATE,T.OPERATOR_TLR,T.RISK_LEVEL,T.FILED1,T.FILE
            end) as filed1,
        sum(case
              when (m.OUTBOUND_RESULT = '06' or m.OUTBOUND_RESULT is null) and
-                  (sysDate >=
+                  (to_date(substr(m.operator_time2,1,8),'yyyymmdd') <=
                   (select c.natural_date
                       from (select rownum as rn, b.natural_date
                               from (select b.natural_date
                                       from aml_sshldyp b
-                                     where b.natural_date >
-                                           to_date(substr(m.operator_time2, 1, 8),
-                                                   'yyyymmdd')
+                                     where b.natural_date <=sysDate
                                        and b.is_holiday = '0'
                                      order by b.natural_date) b) c
                      where c.rn = 1)) then
