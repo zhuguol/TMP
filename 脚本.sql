@@ -1,0 +1,1 @@
+insert into MTS_IN_OUT_CODE (id,parent_id,code_type,code_name,filler1,filler2,filler3)values('000000','','AML','个例不适用','0','','');
