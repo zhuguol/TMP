@@ -1,0 +1,98 @@
+1.创建CDT_GB部门信息。
+2.将CDT_HSS的部门置为无效。
+3.将sys_params的CDT_HSS改为CDT_GB。
+	  DEPARTMENT	CDT_HSS	  SYN_HSS	CDT_HSS部门上传文件		4	F	F	
+改为：DEPARTMENT	CDT_GB	  SYN_GB	CDT_GB部门上传文件
+
+4.修改配置文件tb_tableinfo;
+--------------------------------
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'XDHTH1', null, null, '客户号', null, 1, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'XDHTH2', null, null, 'Loan Line', null, 2, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'XYQSRQ', null, null, '协议起始日期', null, 3, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'XYZZRQ', null, null, '协议终止日期', null, 4, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'SQDKZE', null, null, '申请贷款总额', null, 5, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'ZBXXH', null, null, '牵头行单位行号', null, 6, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'ZBXXM', null, null, '牵头行单位名称', null, 7, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'DLXXH', null, null, '代理行单位行号', null, 8, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'DLXXM', null, null, '代理行单位名称', null, 9, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'CDXXH', null, null, '参加行单位行号', null, 10, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'CDXXM', null, null, '参加行单位名称', null, 11, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'DLCDBZ', null, null, '代理参贷标志', null, 12, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'JKRMC', null, null, '借款人名称', null, 13, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'CDDKJE', null, null, '承担贷款金额', null, 14, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'SJCDDKJE', null, null, '实际承担贷款金额', null, 15, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'YFFDKJE', null, null, '已发放贷款金额', null, 16, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'YFFCDDKJE', null, null, '已发放承担贷款金额', null, 17, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'CDSYDKJE', null, null, '承担剩余贷款金额', null, 18, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'FHGY', null, null, '复核柜员', null, 19, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_HSS', 'E_SYN_HSS', 'BZ', null, null, '币种', null, 20, null, null, null, null);
+-----------------------------------------------------
+改为：
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'XDHTH1', null, null, '客户号', null, 1, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'XDHTH2', null, null, 'Loan Line', null, 2, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'XYQSRQ', null, null, '协议起始日期', null, 3, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'XYZZRQ', null, null, '协议终止日期', null, 4, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'SQDKZE', null, null, '申请贷款总额', null, 5, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'ZBXXH', null, null, '牵头行单位行号', null, 6, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'ZBXXM', null, null, '牵头行单位名称', null, 7, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'DLXXH', null, null, '代理行单位行号', null, 8, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'DLXXM', null, null, '代理行单位名称', null, 9, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'CDXXH', null, null, '参加行单位行号', null, 10, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'CDXXM', null, null, '参加行单位名称', null, 11, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'DLCDBZ', null, null, '代理参贷标志', null, 12, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'JKRMC', null, null, '借款人名称', null, 13, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'CDDKJE', null, null, '承担贷款金额', null, 14, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'SJCDDKJE', null, null, '实际承担贷款金额', null, 15, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'YFFDKJE', null, null, '已发放贷款金额', null, 16, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'YFFCDDKJE', null, null, '已发放承担贷款金额', null, 17, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'CDSYDKJE', null, null, '承担剩余贷款金额', null, 18, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'FHGY', null, null, '复核柜员', null, 19, null, null, null, null);
+insert into TB_TABLEINFO (FILE_NAME, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_LENGTH, COMMENTS, DATA_DIC, ORDNUM, TWO_SEVEN, IS_NOT_NULL, IS_NOT_PK, IS_ONLY)
+values ('SYN_GB', 'E_SYN_HSS', 'BZ', null, null, '币种', null, 20, null, null, null, null);
+
+或者 1.select count(*) from tb_tableinfo t where t.table_name='E_SYN_HSS' -----先查看E_SYN_HSS的个数。
+	 2.update tb_tableinfo set file_name='SYN_GB' where table_name='E_SYN_HSS' -----将file_name='SYN_HSS'改为：file_name='SYN_GB'。
+
+4.文件名称修改为：SYN_HSS_YYYYMM.xlsx改为SYN_GB_YYYYMM.xlsx。
+
+
+
