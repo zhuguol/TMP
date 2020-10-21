@@ -722,6 +722,7 @@ public class AStaffAcctTradDownloadAction extends BaseServlet {
 	public static List<Object> getAStaffAcctTradList(String etlDateStart, String etlDateEnd, String custNo, String custName, String custIdCertNo, String statuss, String alertIds, String branCodes, String staffNumbers, String approveStatuss, String reportDateStart, String reportDateEnd, String potentialCaseTypes, String concludedTypes, List alertIdList, String tableName) throws Exception {
 		ROOTDAO rootDao = ROOTDAOUtils.getROOTDAO();
 		List<String> condList = new ArrayList<String>();
+		List<Object> beanList = new ArrayList<Object>();
 		StringBuffer sql = null;
 		if("AStaffAcctTrad".equals(tableName) || "AStaffAcctTradTaskNew".equals(tableName)){
 			sql = new StringBuffer("from AStaffAcctTrad where 1=1 ");
@@ -829,10 +830,9 @@ public class AStaffAcctTradDownloadAction extends BaseServlet {
             	sql.append(" AND concludedType = ? ");
 				condList.add(concludedTypes);
 			}
-            
             sql.append(" order by dataDate asc , alertId asc ");
 		}
-		List<Object> beanList = rootDao.queryByCondition(sql.toString(), condList.toArray());
+		beanList = rootDao.queryByCondition(sql.toString(), condList.toArray());
 		return beanList;
 	}
     

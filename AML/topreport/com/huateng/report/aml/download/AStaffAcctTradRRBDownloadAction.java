@@ -677,6 +677,7 @@ public class AStaffAcctTradRRBDownloadAction extends BaseServlet {
 		ROOTDAO rootDao = ROOTDAOUtils.getROOTDAO();
 		GlobalInfo gInfo = GlobalInfo.getCurrentInstance();
 		List<String> condList = new ArrayList<String>();
+		List<Object> beanList = new ArrayList<Object>();
 		StringBuffer sql = null;
 		if("AStaffAcctTradRRB".equals(tableName) || "AStaffAcctTradRRBTaskNew".equals(tableName)){
 			sql = new StringBuffer("from AStaffAcctTradRRB where 1=1 ");
@@ -786,7 +787,7 @@ public class AStaffAcctTradRRBDownloadAction extends BaseServlet {
             
             sql.append(" order by dataDate asc , alertId asc ");
 		}
-		List<Object> beanList = rootDao.queryByCondition(sql.toString(), condList.toArray());
+		beanList = rootDao.queryByCondition(sql.toString(), condList.toArray());
 		return beanList;
 	}
     
