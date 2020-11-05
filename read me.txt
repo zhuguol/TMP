@@ -1,0 +1,59 @@
+1.WEB-INF/classes/DataDownLoadFile.xml
+2.WEB-INF/classes/CUSTOMER_RISK_RATING_CMB_YYYYMM.xls
+3.WEB-INF/classes/CUSTOMER_RISK_RATING_CMB_YYYYMM.xlsx
+4.WEB-INF/classes/CUSTOMER_RISK_RATING_GBM_YYYYMM.xls
+5.WEB-INF/classes/CUSTOMER_RISK_RATING_GBM_YYYYMM.xlsx
+6.WEB-INF/classes/CUSTOMER_RISK_RATING_PB_YYYYMM.xls
+7.WEB-INF/classes/CUSTOMER_RISK_RATING_PB_YYYYMM.xlsx
+8.WEB-INF/classes/CUSTOMER_RISK_RATING_RBWM_YYYYMM.xls
+9.WEB-INF/classes/CUSTOMER_RISK_RATING_RBWM_YYYYMM.xlsx
+
+10.WEB-INF/classes/com/huateng/excel/imp/BatchXLSImportController.class
+
+11.WEB-INF/classes/com/huateng/export/action/CheckFile300DownLoadAction.class
+
+12.fpages/export/ftl/UploadfilesFor300.jsp
+------------修改两张风险等级报表
+
+
+
+---------------------------------------------------------------------
+1 .WEB-INF/classes/DataDownLoadFile.xml
+2 .WEB-INF/classes/CUSTOMER_RISK_RATING_CMB_YYYYMM.xls
+3 .WEB-INF/classes/CUSTOMER_RISK_RATING_CMB_YYYYMM.xlsx
+4 .WEB-INF/classes/CUSTOMER_RISK_RATING_GBM_YYYYMM.xls
+5 .WEB-INF/classes/CUSTOMER_RISK_RATING_GBM_YYYYMM.xlsx
+6 .WEB-INF/classes/CUSTOMER_RISK_RATING_PB_YYYYMM.xls
+7 .WEB-INF/classes/CUSTOMER_RISK_RATING_PB_YYYYMM.xlsx
+8 .WEB-INF/classes/CUSTOMER_RISK_RATING_RBWM_YYYYMM.xls
+9 .WEB-INF/classes/CUSTOMER_RISK_RATING_RBWM_YYYYMM.xlsx
+ 
+10.WEB-INF/classes/com/huateng/excel/imp/BatchXLSImportController.class
+
+11.WEB-INF/classes/com/huateng/export/action/CheckFile300DownLoadAction.class
+
+12.WEB-INF/classes/com/huateng/export/getter/TbRiskHis2020Getter.class
+13.WEB-INF/classes/com/huateng/export/getter/TbRiskNew2020Getter.class
+
+14.WEB-INF/classes/com/huateng/export/job/ExportFilejob.class
+
+15.WEB-INF/classes/com/huateng/export/update/TbRiskHis2020RSPExportUpdate.class
+16.WEB-INF/classes/com/huateng/export/update/TbRiskHisRSPExportUpdate.class
+17.WEB-INF/classes/com/huateng/export/update/TbRiskNew2020RSPExportUpdate.class	
+
+18.WEB-INF/classes/com/huateng/export/Utils/ExportUtils.class
+19.WEB-INF/classes/com/huateng/export/Utils/ExportUtils2.class
+
+20.WEB-INF/classes/resource/bean/export/TbRiskNew2020.class
+
+21.WEB-INF/classes/resources/report/export/hbm/pub/TbRiskNew2020.hbm.xml
+
+22.fpages/export/ftl/TbRiskHis2020.ftl
+23.fpages/export/ftl/TbRiskNew2020.ftl
+24.fpages/export/ftl/UploadfilesFor300.jsp
+
+25.fpages/export/xml/TbRiskHis2020.xml
+26.fpages/export/xml/TbRiskNew2020.xml
+
+27.WEB-INF/query/meta/eastMeta.xml
+
