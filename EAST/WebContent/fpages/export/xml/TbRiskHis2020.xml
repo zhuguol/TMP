@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 用于直接生成SQL语句，支持同步和异步提交 -->
+<!-- title:标题 navigate:导航信息 type:方式（sql|call) interface:是否显示输入条件页面(true|false) 
+	databusid:数据总线编号 transdataactionurl:数据整理URL async:异步提交标志 pagesize:页面显示记录数(缺省为10) -->
+<CommQry title="存量客户检查期限内历次风险等级划分表" navigate="主页 &gt; 存量客户检查期限内历次风险等级划分表"
+	type="call" interface="false" pagesize="10" async="true" databusid="MANAGEMENTTLR"
+	transdataactionurl="/trans/TransDataAction.do" getterclassname="com.huateng.export.getter.TbRiskHis2020Getter">
+	<Include id="BankParam" />
+	
+	<Fields>
+		<!-- status :F-基本信息中显示 N-不显示 D-详细信息中显示 A-基本、详细信息中都显示 -->
+		<!-- primary : true-作为表单项记录上传 false-不作为表单项上传 -->
+		<Field id="id" desc="id" status="N" method="None" readonly="false" primary="false" type="String" size="20" xpath="/id" />
+		<Field id="etlDate" desc="" status="F" method="None" readonly="false" primary="false" datatype="timestamp" size="60" xpath="/etlDate" />
+		<Field id="bankCode1" desc="机构网点代码" status="F" method="None" readonly="false" primary="false" type="String" size="20" xpath="/bankCode1" />
+		<Field id="cstNo" desc="客户号" status="F" method="None" readonly="false" primary="false" type="String" size="50" xpath="/cstNo" />
+		<Field id="selfAccName" desc="客户名称" status="F" method="None" readonly="false" primary="false" type="String" size="120" xpath="/selfAccName" />
+		<Field id="idNo" desc="身份证件号码" status="F" method="None" readonly="false" primary="false" type="String" size="50" xpath="/idNo" />
+		<Field id="accType" desc="公私标识" status="F" method="None" readonly="false" primary="false" type="String" size="2" xpath="/accType" />
+		<Field id="riskCode" desc="风险等级" status="F" method="None" readonly="false" primary="false" type="String" size="2" xpath="/riskCode" />
+		<Field id="time" desc="等级划分日期" status="F" method="None" readonly="false" primary="false" type="String" size="8" xpath="/time" />
+		<Field id="norm" desc="划分依据" status="F" method="None" readonly="false" primary="false" type="String" size="500" xpath="/norm" />
+		<Field id="xigmab" desc="" status="F" method="None" readonly="false" primary="false" type="String" size="12" xpath="/xigmab" />
+		<Field id="orgCode" desc="汇丰机构代码" status="F" method="com.huateng.ebank.business.common.CQMethod.getBiTreeDataDicName" readonly="" primary="true" type="String" size="150" xpath="/orgCode" default="" codetype="ORGCODE" /> 
+		<Field id="pOrgCode" desc="" status="F" method="None" readonly="false" primary="false" type="String" size="3" xpath="/pOrgCode" />
+		<Field id="lob" desc="" status="F" method="None" readonly="false" primary="false" type="String" size="15" xpath="/lob" />
+		<Field id="batchTime" desc="" status="F" method="None" readonly="false" primary="false" datatype="timestamp" size="60" xpath="/batchTime" />
+	</Fields>
+	
+	<Where>
+		<DateTextBox id="openTimeStart" desc="起始日期" edittype="text" datatype="date" size="32" require="false" index="0" /> 
+  		<DateTextBox id="openTimeEnd" desc="截止日期" edittype="text" datatype="date" size="32" require="false" index="1" />
+		<!--<Option id="orgCode" operation="EQ" size="" desc="汇丰机构代码" edittype="select"  translated="CQ:BiTreeDataDicSelect" width="300"
+			fieldmap="orgCodeName=name;orgCode=id" viewField="name" dropdowntype="dynamictree" init="true" require="false" readOnly="" index="5" />-->
+	</Where>
+	
+	<Operations>
+		<Button id="btXls" desc="导出XLS" operation="" icon="icon-export-xls" txn="" group="" show="" url="#" updateClass="" name="btXls"/>
+		<Button id="btCsv" desc="导出CSV" operation="" icon="icon-export-csv" txn="" group="" show="" url="#" updateClass="" name="btCsv"/>
+		
+		<Button id="btRSPCsv" name="btRSPCsv" desc="申请导出CSV文件" operation="asysubmit" updateClass="com.huateng.export.update.TbRiskHis2020RSPExportUpdate" icon="icon-upload"/>
+	</Operations>
+</CommQry>
