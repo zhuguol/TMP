@@ -1,0 +1,13 @@
+1.WEB-INF\class\com\huateng\demo\action\demoDownloadExcelAction.class
+2.WEB-INF\class\com\huateng\export\job\ExportFileDeletejob.class
+3.WEB-INF\class\com\huateng\export\job\ExportFilejob.class
+4.fpages\export\ftl\FileDownload.ftl
+5.WEB-INF\web.xml
+
+
+------------------------------------------------------------------------------
+1.WEB-INF\class\com\huateng\demo\action\demoDownloadAction.class
+2.WEB-INF\class\com\huateng\export\job\ExportFileDeletejob.class
+3.WEB-INF\class\com\huateng\export\job\ExportFilejob.class
+4.fpages\export\ftl\FileDownload.ftl
+5.WEB-INF\web.xml
