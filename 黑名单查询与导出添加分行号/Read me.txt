@@ -1,0 +1,40 @@
+--黑名单交易下载添加分行号
+1.CBlackTransDownload.hbm.xml
+2.CBlackTransDownload.class
+3.CBlackTransDownload.xml
+4.CBlackTransDownload.ftl
+5.ExportBlackNameUtils.class
+6.CBlackListSplitConfirm.ftl
+7.CBlackListUploadDownloadAction.class
+--客户信息检索添加证件号(不用添加证件号了)
+8.CustSearchResultP.xml   Yes
+9.CustSearchResultC.xml   Yes
+10.CustSearchResult.ftl    Yes
+11.CustSearchResultDownloadAction.class
+12.CustSearchResultP.xlsx
+13.CustSearchResultC.xlsx
+
+-----------------------------------
+---1. WEB-INF\classes\CustSearchResultC.xlsx
+---2. WEB-INF\classes\CustSearchResultP.xlsx
+   3. WEB-INF\classes\com\huateng\report\aml\download\CBlackListUploadDownloadAction.class
+---4. WEB-INF\classes\com\huateng\report\aml\download\CustSearchResultDownloadAction.class	
+   5. WEB-INF\classes\com\huateng\report\aml\download\ExportBlackNameUtils.class
+   6. WEB-INF\classes\resources\bean\report\form\CBlackTransDownload.class
+   7. WEB-INF\classes\resources\report\form\hbm\pub\CBlackTransDownload.hbm.xml
+---8. fpages\cust\ftl\CustSearchResult.ftl
+---9. fpages\cust\xml\CustSearchResultC.xml
+--10. fpages\cust\xml\CustSearchResultP.xml
+  11. fpages\hf\form\ftl\CBlackListSplitConfirm.ftl
+  12. fpages\hf\form\ftl\CBlackTransDownload.ftl
+  13. fpages\hf\form\xml\CBlackTransDownload.xml
+
+-----------------------------------客户信息检索添加证件号(不用添加证件号了),注意UAT测试没问题需要将循环记录数改为1000000。明天打个全量包，进行替换。
+1. WEB-INF\classes\com\huateng\report\aml\download\CBlackListUploadDownloadAction.class
+2. WEB-INF\classes\com\huateng\report\aml\download\ExportBlackNameUtils.class
+3. WEB-INF\classes\resources\bean\report\form\CBlackTransDownload.class
+4. WEB-INF\classes\resources\report\form\hbm\pub\CBlackTransDownload.hbm.xml
+5. fpages\hf\form\ftl\CBlackTransDownload.ftl
+6. fpages\hf\form\ftl\CBlackListSplitConfirm.ftl
+7. fpages\hf\form\xml\CBlackTransDownload.xml
+
