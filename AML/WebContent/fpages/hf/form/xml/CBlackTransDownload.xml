@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 用于直接生成SQL语句，支持同步和异步提交 -->
+<!-- title:标题 navigate:导航信息 type:方式（sql|call) interface:是否显示输入条件页面(true|false) 
+	databusid:数据总线编号 transdataactionurl:数据整理URL async:异步提交标志 pagesize:页面显示记录数(缺省为10) -->
+<CommQry title="黑名单" navigate="反洗钱&gt;  黑名单"
+	type="call" 
+	interface="true" 
+	pagesize="100" 
+	async="true" 
+	databusid=""
+	transdataactionurl="/trans/TransDataAction.do" 
+	getterclassname="com.huateng.report.hf.form.getter.CBlackTransDownloadGetter">
+	<Include id="BankParam" />
+	<Fields>
+	    <Field id="sid"  edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="20"  desc="对黑名单拆分确认表序列号"  xpath="/sid"/>
+	    <Field id="uid" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="20" desc="对黑名单上传表序列号"  xpath="/uid" />
+	    <Field id="retName" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="400" desc="被检索名称"  xpath="/retName" />
+		<Field id="etlDate" edittype="text" datatype="date" method="None" readonly="false"  status="F" default="" size="8" desc="批处理日期"  xpath="/etlDate" />
+		<Field id="dataType" edittype="select" datatype="string" method="None" readonly="false"  status="F" default="" size="2" desc="数据范围"  xpath="/dataType" translated="LIST:01,01-老反洗钱大额数据;02,02-老反洗钱可疑数据;03,03-新反洗钱大额数据;04,04-新反洗钱可疑数据;05,05-全量表数据" />
+		<Field id="gmab" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="10" desc="团体代码"  xpath="/gmab" />
+		<Field id="recId" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="32" desc="交易对应主键"  xpath="/recId" />
+		<Field id="dataDate" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="8" desc="交易日期"  xpath="/dataDate" />
+		<Field id="csnm" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="32" desc="客户号"  xpath="/csnm" />
+		<Field id="ctnm" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="512" desc="客户名称/姓名"  xpath="/ctnm" />
+		<Field id="citp" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="60" desc="客户身份证件/证明文件类型"  xpath="/citp" />
+		<Field id="ctid" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="128" desc="客户身份证件/证明文件号码"  xpath="/ctid" />
+		<Field id="aoitp" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="32" desc="客户其他身份证件/证明文件类型"  xpath="/aoitp" />
+		<Field id="ctnt" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="3" desc="客户国籍"  xpath="/ctnt" />
+		<Field id="ctvc" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="32" desc="客户职业（对私）或客户行业（对公）"  xpath="/ctvc" />
+		<Field id="cctl" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="800" desc="联系电话"  xpath="/cctl" />
+		<Field id="ctar" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="4000" desc="客户住址/经营地址"  xpath="/ctar" />
+		<Field id="ccei" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="4000" desc="客户其他联系方式"  xpath="/ccei" />
+		<Field id="cbct" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="2" desc="客户银行卡类型"  xpath="/cbct" />
+		<Field id="ocbt" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="32" desc="客户银行卡其他类型"  xpath="/ocbt" />
+		<Field id="cbcn" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="64" desc="客户银行卡号码"  xpath="/cbcn" />
+		<Field id="htdt" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="8" desc="大额交易发生日期"  xpath="/htdt" />
+		<Field id="crcd" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="4" desc="大额交易特征代码"  xpath="/crcd" />
+	    <Field id="finn" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="200" desc="金融机构网点名称"  xpath="/finn" />
+		<Field id="firc" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="6" desc="金融机构网点所在地区行政区划代码"  xpath="/firc" />
+		<Field id="rltp" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="2" desc="金融机构网点与大额交易的关系"  xpath="/rltp" />
+		<Field id="fict" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="2" desc="金融机构网点代码类型"  xpath="/fict" />
+		<Field id="finc" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="16" desc="金融机构网点代码"  xpath="/finc" />
+		<Field id="rlfc" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="2" desc="金融机构与客户的关系"  xpath="/rlfc" />
+		<Field id="catp" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="6" desc="客户账户类型"  xpath="/catp" />
+		<Field id="ctac" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="64" desc="客户账号"  xpath="/ctac" />
+		<Field id="oatm" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="14" desc="客户账户开户时间"  xpath="/oatm" />
+		<Field id="tbnm" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="128" desc="交易代办人姓名"  xpath="/tbnm" />
+		<Field id="tbit" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="6" desc="交易代办人身份证件/证明文件类型"  xpath="/tbit" />
+		<Field id="tbid" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="128" desc="代办人身份证件/证明文件号码"  xpath="/tbid" />
+		<Field id="boitp" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="32" desc="交易代办人其他身份证件/证明文件类型"  xpath="/boitp" />
+		<Field id="tbnt" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="3" desc="代办人国籍"  xpath="/tbnt" />
+		<Field id="tstm" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="14" desc="交易日期"  xpath="/tstm" />
+		<Field id="ticd" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="256" desc="业务标示号"  xpath="/ticd" />
+		<Field id="rpmt" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="2" desc="收付款方匹配号类型"  xpath="/rpmt" />
+		<Field id="rpmn" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="500" desc="收付款方匹配号"  xpath="/rpmn" />
+		<Field id="tstp" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="6" desc="交易方式"  xpath="/tstp" />
+		<Field id="octt" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="2" desc="非柜台交易方式"  xpath="/octt" />
+		<Field id="ooct" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="32" desc="其他非柜台交易方式"  xpath="/ooct" />
+		<Field id="ocec" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="500" desc="非柜台交易方式的设备代码"  xpath="/ocec" />
+		<Field id="bptc" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="500" desc="银行与支付机构之间的业务交易编码"  xpath="/bptc" />
+		<Field id="tsct" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="16" desc="涉外收支交易分类与代码"  xpath="/tsct" />
+		<Field id="tsdr" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="2" desc="资金收付标志"  xpath="/tsdr" />
+		<Field id="tdrc" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="9" desc="交易方向"  xpath="/tdrc" />
+		<Field id="trcd" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="3" desc="交易发生地"  xpath="/trcd" />
+		<Field id="trcdsuffix" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="6" desc="交易发生地"  xpath="/trcdsuffix" />
+		<Field id="crpp" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="256" desc="资金用途"  xpath="/crpp" />
+		<Field id="crtp" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="3" desc="币种"  xpath="/crtp" />
+		<Field id="crat" edittype="text" datatype="currency"  status="F" method="None" readonly="false"  type="double" size="20" desc="交易金额"  xpath="/crat" />
+		<Field id="teaAmountCny" edittype="text" datatype="currency" status="F" method="None" readonly="false"  type="double" size="20" desc="交易金额转人民币"  xpath="/teaAmountCny" />
+		<Field id="teaAmountUsd" edittype="text" datatype="currency" status="F" method="None" readonly="false"  type="double" size="20" desc="交易金额转美元"  xpath="/teaAmountUsd" />
+		<Field id="cfin" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="640" desc="对方金融机构网点名称"  xpath="/cfin" />
+		<Field id="cfct" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="2" desc="对方金融机构代码网点类型"  xpath="/cfct" />
+		<Field id="cfic" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="16" desc="对方金融机构网点代码"  xpath="/cfic" />
+		<Field id="cfrc" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="3" desc="对方金融机构网点行政区划代码"  xpath="/cfrc" />
+		<Field id="cfrcsuffix" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="6" desc="对方金融机构网点行政区划代码"  xpath="/cfrcsuffix" />
+		<Field id="tcnm" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="128" desc="交易对手姓名/名称"  xpath="/tcnm" />
+		<Field id="tcit" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="60" desc="交易对手身份证件/证明文件类型"  xpath="/tcit" />
+		<Field id="tcid" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="128" desc="交易对手身份证件/证明文件号码"  xpath="/tcid" />
+		<Field id="coitp" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="32" desc="其他身份证件/证明文件类型"  xpath="/coitp" />
+		<Field id="tcat" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="6" desc="交易对手账户类型"  xpath="/tcat" />
+		<Field id="tcac" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="64" desc="交易对手账号"  xpath="/tcac" />
+		<Field id="citpdesc" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="30" desc="客户证件类型进一步说明"  xpath="/citpdesc" />
+		<Field id="catm" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="14" desc="客户账户销户时间"  xpath="/catm" />
+		<Field id="bitpdesc" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="30" desc="代办人身份证件类型进一步说明"  xpath="/bitpdesc" />
+		<Field id="crsp" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="384" desc="资金来源和用途"  xpath="/crsp" />
+		<Field id="tictdesc" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="30" desc="交易对手证件类型进一步说明"  xpath="/tictdesc" />
+		<Field id="batchTime" method="None" readonly="false"  edittype="text" datatype="timestamp" size="34" status="F" default="" desc="批处理时间"  xpath="/batchTime" />
+		<!--add 20191008 zgl-->
+		<Field id="ccpdt" edittype="text" datatype="date"  status="F" method="None" readonly="false" size="8" desc="Capture Date"  xpath="/ccpdt" />
+		<Field id="cdlno" edittype="text" datatype="string" status="F" method="None" readonly="false" size="50" desc="Deal Number"  xpath="/cdlno" />
+		<Field id="ccpws" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="12" desc="Capture Terminal ID"  xpath="/ccpws" />
+		<Field id="cpimg" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="60" desc="GPP Inward/Outward Message"  xpath="/cpimg" />
+		<Field id="cpims" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="60" desc="Message Id/Filename"  xpath="/cpims" />
+		<Field id="cob" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="300" desc="订购银行/地址"  xpath="/cob" />
+		<Field id="cpnm" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="840" desc="付款人名称"  xpath="/cpnm" />
+		<Field id="cpad" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="960" desc="付款地址"  xpath="/cpad" />
+		<Field id="cpac" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="102" desc="付款帐户"  xpath="/cpac" />
+		<Field id="cbnm" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="840" desc="受益人姓名"  xpath="/cbnm" />
+		<Field id="cbad" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="960" desc="收益地址"  xpath="/cbad" />
+		<Field id="cbac" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="102" desc="受益人帐户"  xpath="/cbac" />
+		<Field id="cnr" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="4000" desc="NARRATIVE"  xpath="/cnr" />
+		<Field id="cftag" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="15" desc="SWIFT Message"  xpath="/cftag" />
+		<Field id="ctxtf" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="426" desc="Text of the Field"  xpath="/ctxtf" />
+		<Field id="isBibtcpp" edittype="select" datatype="string" method="None" readonly="false"  status="F" default="" size="2" desc="是否关联到BIBTCPP表数据"  xpath="/isBibtcpp" translated="LIST:01,01-关联成功;02,02-关联失败" />
+		<Field id="isMerge" edittype="select" datatype="string" method="None" readonly="false"  status="F" default="" size="2" desc="是否关联到MERGE交易表"  xpath="/isMerge" translated="LIST:01,01-关联成功;02,02-关联失败" />
+		<Field id="cmid" edittype="text" datatype="string" method="None" readonly="false"  status="F" default="" size="60" desc="GPS MID"  xpath="/cmid" />
+		<Field id="updatePerson" desc="上传的用户" edittype="text" datatype="string" method="None" readonly="false" size="20" status="F" default="" xpath="/updatePerson" />
+		<Field id="roleName" desc="上传用户所属部门" edittype="text" datatype="string" method="None" readonly="false" size="30" status="F" default="" xpath="/roleName" />
+	</Fields>
+	<Where>
+		<DateTextBox id="etlDateStart" desc="开始工作日期" edittype="text" datatype="date" size="34" require="true" index="0" />
+		<DateTextBox id="etlDateEnd" desc="结束工作日期" edittype="text" datatype="date" size="34" require="true" index="1" />
+	</Where>
+	<Operations>
+	    <Button id="downLoadBN" name="downLoadBN" desc="导出" url="#" icon="icon-upload"/>
+	</Operations>
+</CommQry>
